@@ -4,30 +4,30 @@
  *
  * This file will render views from views/pages/
  *
- * PHP 5
+ * PHP versions 4 and 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Controller
+ * @package       cake
+ * @subpackage    cake.cake.libs.controller
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-App::uses('AppController', 'Controller');
 
 /**
  * Static content controller
  *
  * Override this controller by placing a copy in controllers directory of an application
  *
- * @package       app.Controller
- * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
+ * @package       cake
+ * @subpackage    cake.cake.libs.controller
+ * @link http://book.cakephp.org/view/958/The-Pages-Controller
  */
 class PagesController extends AppController {
 
@@ -35,23 +35,33 @@ class PagesController extends AppController {
  * Controller name
  *
  * @var string
+ * @access public
  */
-	public $name = 'Pages';
+	var $name = 'Pages';
+
+/**
+ * Default helper
+ *
+ * @var array
+ * @access public
+ */
+	var $helpers = array('Html', 'Session');
 
 /**
  * This controller does not use a model
  *
  * @var array
+ * @access public
  */
-	public $uses = array();
+	var $uses = array();
 
 /**
  * Displays a view
  *
  * @param mixed What page to display
- * @return void
+ * @access public
  */
-	public function display() {
+	function display() {
 		$path = func_get_args();
 
 		$count = count($path);

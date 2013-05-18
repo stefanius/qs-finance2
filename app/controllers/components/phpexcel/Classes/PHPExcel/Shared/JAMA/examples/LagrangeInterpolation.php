@@ -3,7 +3,7 @@
 require_once "../Matrix.php";
 
 /**
- * Given n points (x0,y0)...(xn-1,yn-1), the following methid computes
+ * Given n points (x0,y0)...(xn-1,yn-1), the following method computes
  * the polynomial factors of the n-1't degree polynomial passing through
  * the n points.
  *
@@ -12,6 +12,7 @@ require_once "../Matrix.php";
  * curve y = 2.5x² - 8.5x + 10.
  *
  * @see http://geosoft.no/software/lagrange/LagrangeInterpolation.java.html
+ * @see http://source.freehep.org/jcvsweb/ilc/LCSIM/wdview/lcsim/src/org/lcsim/fit/polynomial/PolynomialFitter.java
  * @author Jacob Dreyer
  * @author Paul Meagher (port to PHP and minor changes)
  *
@@ -52,7 +53,6 @@ $y = array(3.0, 4.0, 7.0);
 
 $li = new LagrangeInterpolation;
 $f = $li->findPolynomialFactors($x, $y);
-
 
 for ($i = 0; $i < 3; ++$i) {
 	echo $f[$i]."<br />";

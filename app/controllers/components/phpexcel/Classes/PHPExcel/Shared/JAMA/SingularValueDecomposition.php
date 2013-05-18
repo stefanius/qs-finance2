@@ -250,7 +250,7 @@ class SingularValueDecomposition  {
 			// kase = 2  if s(k) is negligible and k<p
 			// kase = 3  if e[k-1] is negligible, k<p, and
 			//           s(k), ..., s(p) are not negligible (qr step).
-			// kase = 4  if e(p-1) is negligible (convergence).
+			// kase = 4  if echo p-1) is negligible (convergence.
 			for ($k = $p - 2; $k >= -1; --$k) {
 				if ($k == -1) {
 					break;
