@@ -157,7 +157,7 @@ class Grootboek extends AppModel {
 		return $rtrnsaldo;
 	}
 
-	function afterFind($results) {
+	function afterFind($results, $primary=false) {
 		if($results){
 			foreach ($results as $key => $val) {
 				if(isset($val['Grootboek'])){

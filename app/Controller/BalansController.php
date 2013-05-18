@@ -3,7 +3,7 @@ class BalansController extends AppController {
 
 	var $name = 'Balans';
 	var $uses = 'Balans';
-	var $components = array('Excel');
+	//var $components = array('Excel');
 	var $helpers = array('Form', 'Html', 'Number',  'Balans');
 	
 	function beforeFilter() {

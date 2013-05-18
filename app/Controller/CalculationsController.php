@@ -2,7 +2,7 @@
 class CalculationsController extends AppController {
 	var $name = 'Calculations';
 	var $helpers = array('Form', 'Html', 'Number',  'Balans');
-	var $components = array('Excel');
+	//var $components = array('Excel');
 
 	function beforeFilter() {
 		parent::resetSessionArgs();

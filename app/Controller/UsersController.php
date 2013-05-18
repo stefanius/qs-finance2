@@ -5,7 +5,7 @@ class UsersController extends AppController {
 	
 	function beforeFilter() {
 		parent::beforeFilter(); 
-		$this->Auth->allowedActions = array('index', 'view', 'login');
+		$this->Auth->allowedActions = array('index', 'view', 'login', 'add');
 	}
 	
 	function index() {
@@ -13,12 +13,15 @@ class UsersController extends AppController {
 		$this->set('users', $this->paginate());
 	}
 
-	function login() {
-		if ($this->Session->read('Auth.User')) {
-			$this->Session->setFlash('You are logged in!');
-			$this->redirect('/', null, false);
-		}
-	}       
+        public function login() {
+            if ($this->request->is('post')) {
+                if ($this->Auth->login()) {
+                    $this->redirect($this->Auth->redirect());
+                } else {
+                    $this->Session->setFlash(__('Invalid username or password, try again'));
+                }
+            }
+        }       
 	
 	function logout() {
 		$this->login = false;
@@ -35,7 +38,7 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->read(null, $id));
 	}
 
-	function add() {
+/*	function add() {
 		if (!empty($this->request->data)) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -47,7 +50,18 @@ class UsersController extends AppController {
 		}
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
-	}
+	}*/
+        public function add() {
+            if ($this->request->is('post')) {
+                $this->User->create();
+                if ($this->User->save($this->request->data)) {
+                    $this->Session->setFlash(__('The user has been saved'));
+                    $this->redirect(array('action' => 'index'));
+                } else {
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                }
+            }
+        }
 
 	function edit($id = null) {
 		if (!$id && empty($this->request->data)) {
