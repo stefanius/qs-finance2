@@ -1,0 +1,107 @@
+.grootboek,
+.resultaat{
+	width:100%;
+}
+
+.grootboek h1,
+.resultaat h1{
+	font-weight:bold;
+	font-size:130%;
+	text-align:center;
+}
+.grootboek td.omschrijving{
+	width:70%;
+}
+
+.resultaat td.omschrijving{
+	width:55%; 
+}
+.grootboek td.geld,
+.resultaat td.geld{
+	width:14%;
+	text-align:right;
+}
+
+.grootboek th.omschrijving{
+	width:70%;
+}
+.resultaat th.omschrijving{
+	width:55%;
+}
+.balans,
+.resultaat{
+	width:100%;
+}
+
+.balans a,
+.resultaat a,
+.resultaat td.omschrijving a,
+.grootboek td.omschrijving a{
+	font-weight:normal;
+	text-decoration:none;
+}
+
+.balans a:hover,
+.resultaat a:hover,
+.resultaat td.omschrijving a:hover,
+.grootboek td.omschrijving a:hover{
+	color:#CCCCCC;
+}
+.head{
+	width: 100%;
+	
+}
+.head h1{
+	font-weight:bold;
+	font-size:130%;
+	text-align:center;
+}
+
+.balans .debet {
+	width:49%;
+	height:100%;
+	border-right-style:solid;
+	border-right-color:#000000;
+	border-right-width:thin;
+	float:left;
+	text-align:right;
+}
+
+.balans .credit {
+	width:49%;
+	height:100%;
+	border-left-style:solid;
+	border-left-color:#000000;
+	border-left-width:thin;	
+	float:right;
+}
+
+.geld, .geld.debet, .geld.credit {
+	text-align:right;
+}
+
+.kolomkopr {
+	text-align:left;
+	font-size:80%;
+}
+
+
+th.kolomkopl, .geld.debet{
+	border-left-style: solid;
+	border-left-color: black;
+	border-left-width: thin;
+}
+
+.kolomkopl {
+	text-align:right;
+	font-size:80%;
+}
+.cleanform {
+	float:right;
+	width:100%;
+	padding:10px 2%;
+}
+
+.balansoptions{
+	width: 100%;
+}
