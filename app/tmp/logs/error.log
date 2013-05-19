@@ -1,0 +1,439 @@
+2011-07-13 17:05:52 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:05:52 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:05:54 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:05:54 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:06:28 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:06:28 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:07:28 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:07:28 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:07:29 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:07:29 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:07:48 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:07:48 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 58]
+2011-07-13 17:09:34 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 60]
+2011-07-13 17:09:34 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 60]
+2011-07-13 17:10:08 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 62]
+2011-07-13 17:10:08 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 62]
+2011-07-13 17:10:43 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 62]
+2011-07-13 17:10:43 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 62]
+2011-07-13 17:12:48 Warning: Warning (2): include(templates.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 62]
+2011-07-13 17:12:48 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'templates.php' for inclusion (include_path='C:\wamp\www\cake;C:\wamp\www\cake\app\;.;C:\php5\pear') in [C:\wamp\www\cake\app\views\layouts\default.ctp, line 62]
+2011-07-19 11:49:30 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'recover' at line 1</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 06:26:01 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Model.created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 06:26:01 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Model.created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 06:26:27 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Model.created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 06:26:28 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Model.created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 06:27:06 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Article.created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 06:27:06 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Article.created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 06:27:39 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 06:27:40 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 16:52:11 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 16:52:11 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 19:19:50 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 19:19:50 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 19:19:56 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-20 19:19:57 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-21 06:48:05 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Article.created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-21 06:48:06 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Article.created' in 'order clause'</span> in [C:\wamp\www\website\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-22 23:20:40 Warning: Warning (4096): Object of class View could not be converted to string in [C:\wamp\www\website\app\views\portfolios\view.ctp, line 17]
+2011-07-22 23:20:41 Warning: Warning (4096): Object of class View could not be converted to string in [C:\wamp\www\website\app\views\portfolios\view.ctp, line 17]
+2011-07-22 23:20:41 Warning: Warning (4096): Object of class View could not be converted to string in [C:\wamp\www\website\app\views\portfolios\view.ctp, line 17]
+2011-07-22 23:20:41 Warning: Warning (4096): Object of class View could not be converted to string in [C:\wamp\www\website\app\views\portfolios\view.ctp, line 17]
+2011-07-24 20:50:44 Warning: Warning (512): AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => Group
+    [Aro0.foreign_key] => 4cf163ca-5b74-4738-a7fc-150cf5bd9eaf
+)
+" in [C:\wamp\www\website\cake\libs\model\db_acl.php, line 191]
+2011-07-24 20:50:51 Warning: Warning (512): AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => Group
+    [Aro0.foreign_key] => 4cf27af1-b6b8-43d2-b2af-13f4f5bd9eaf
+)
+" in [C:\wamp\www\website\cake\libs\model\db_acl.php, line 191]
+2011-07-24 20:50:54 Warning: Warning (512): AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => Group
+    [Aro0.foreign_key] => 4cf1640e-81f8-4c3d-81ee-150cf5bd9eaf
+)
+" in [C:\wamp\www\website\cake\libs\model\db_acl.php, line 191]
+2011-07-24 20:50:59 Warning: Warning (512): AclNode::node() - Couldn't find Aro node identified by "Array
+(
+    [Aro0.model] => Group
+    [Aro0.foreign_key] => 4cf16405-6940-44c0-a42c-150cf5bd9eaf
+)
+" in [C:\wamp\www\website\cake\libs\model\db_acl.php, line 191]
+2011-07-24 22:23:16 Warning: Warning (512): DbAcl::allow() - Invalid node in [C:\wamp\www\website\cake\libs\controller\components\acl.php, line 361]
+2011-07-25 16:26:01 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [group_id] => 4e2d9761-1508-40c7-a9e7-0c849d87f14d
+            [first] => a
+            [last] => a
+            [email] => a@a.com
+            [username] => a
+            [last_visit] => 2011-07-25 16:19:00
+            [created] => 2011-07-25 16:20:07
+            [modified] => 2011-07-25 16:20:07
+        )
+
+)
+
+Aco: Buildacls/build in [C:\wamp\www\website\cake\libs\controller\components\acl.php, line 273]
+2011-07-26 17:56:14 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1048: Column 'credit' cannot be null</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-28 20:35:50 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Calculation.bookyear' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-28 20:36:30 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Calculation.bookyear_id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-28 21:18:58 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:19:20 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:19:23 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:20:08 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:21:27 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:21:43 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:22:17 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:25:45 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:26:22 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:26:25 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:28:06 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:29:48 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 8]
+2011-07-28 21:31:04 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 11]
+2011-07-28 21:31:19 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 11]
+2011-07-28 21:31:51 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 11]
+2011-07-30 23:00:17 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\pages\home.ctp, line 32]
+2011-07-31 19:32:37 Warning: Warning (2): Missing argument 1 for CalculationsController::GetCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-07-31 19:32:37 Warning: Warning (2): Missing argument 2 for CalculationsController::GetCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-07-31 19:33:13 Warning: Warning (2): Missing argument 1 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-07-31 19:33:13 Warning: Warning (2): Missing argument 2 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-07-31 19:33:18 Warning: Warning (2): Missing argument 1 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-07-31 19:33:18 Warning: Warning (2): Missing argument 2 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-07-31 19:33:55 Warning: Warning (2): Missing argument 1 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-07-31 19:33:55 Warning: Warning (2): Missing argument 2 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-07-31 20:06:40 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Calculation.grootboek_id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 20:07:55 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Calculation.grootboek_id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 20:09:05 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Calculation.grootboek_id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 20:09:40 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'grootboek_id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 20:14:21 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'bookyear.id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 20:15:53 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'bookyear' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 20:16:23 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Calculation.bookyear_id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 20:16:44 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Calculation.bookyear_id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 21:40:09 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Calculation.grootboek_id' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-07-31 22:44:07 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-07-31 22:46:46 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-08-01 21:16:29 Warning: Warning (2): Missing argument 1 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-08-01 21:16:29 Warning: Warning (2): Missing argument 2 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-08-01 21:16:47 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-08-01 21:16:57 Warning: Warning (2): Missing argument 2 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-08-02 14:35:10 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-08-02 14:40:18 Warning: Warning (2): explode() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 415]
+2011-08-02 14:40:18 Warning: Warning (2): array_values() expects parameter 1 to be array, boolean given in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 415]
+2011-08-02 14:40:18 Warning: Warning (2): explode() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\view\view.php, line 633]
+2011-08-02 14:40:18 Warning: Warning (2): array_shift() expects parameter 1 to be array, boolean given in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 616]
+2011-08-02 14:40:18 Warning: Warning (2): array_map() [<a href='http://php.net/function.array-map'>function.array-map</a>]: Argument #2 should be an array in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 617]
+2011-08-02 14:40:18 Warning: Warning (2): join() [<a href='http://php.net/function.join'>function.join</a>]: Invalid arguments passed in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 617]
+2011-08-02 14:40:18 Warning: Warning (2): strpos() expects parameter 1 to be string, array given in [C:\wamp\www\quaestor\cake\libs\view\helpers\form.php, line 545]
+2011-08-02 14:40:18 Warning: Warning (2): explode() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\view\helpers\form.php, line 546]
+2011-08-02 14:40:18 Warning: Warning (2): array_pop() expects parameter 1 to be array, null given in [C:\wamp\www\quaestor\cake\libs\view\helpers\form.php, line 546]
+2011-08-02 14:40:18 Warning: Warning (2): implode() [<a href='http://php.net/function.implode'>function.implode</a>]: Invalid arguments passed in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 662]
+2011-08-02 14:40:18 Warning: Warning (2): implode() [<a href='http://php.net/function.implode'>function.implode</a>]: Invalid arguments passed in [C:\wamp\www\quaestor\cake\libs\view\helpers\form.php, line 440]
+2011-08-02 14:40:45 Warning: Warning (2): explode() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 415]
+2011-08-02 14:40:45 Warning: Warning (2): array_values() expects parameter 1 to be array, boolean given in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 415]
+2011-08-02 14:40:45 Warning: Warning (2): explode() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\view\view.php, line 633]
+2011-08-02 14:40:45 Warning: Warning (2): array_shift() expects parameter 1 to be array, boolean given in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 616]
+2011-08-02 14:40:45 Warning: Warning (2): array_map() [<a href='http://php.net/function.array-map'>function.array-map</a>]: Argument #2 should be an array in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 617]
+2011-08-02 14:40:45 Warning: Warning (2): join() [<a href='http://php.net/function.join'>function.join</a>]: Invalid arguments passed in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 617]
+2011-08-02 14:40:45 Warning: Warning (2): strpos() expects parameter 1 to be string, array given in [C:\wamp\www\quaestor\cake\libs\view\helpers\form.php, line 545]
+2011-08-02 14:40:45 Warning: Warning (2): explode() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\view\helpers\form.php, line 546]
+2011-08-02 14:40:45 Warning: Warning (2): array_pop() expects parameter 1 to be array, null given in [C:\wamp\www\quaestor\cake\libs\view\helpers\form.php, line 546]
+2011-08-02 14:40:45 Warning: Warning (2): implode() [<a href='http://php.net/function.implode'>function.implode</a>]: Invalid arguments passed in [C:\wamp\www\quaestor\cake\libs\view\helper.php, line 662]
+2011-08-02 14:40:45 Warning: Warning (2): implode() [<a href='http://php.net/function.implode'>function.implode</a>]: Invalid arguments passed in [C:\wamp\www\quaestor\cake\libs\view\helpers\form.php, line 440]
+2011-08-02 14:50:12 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-08-02 14:51:35 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-08-02 15:00:46 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-08-02 15:09:00 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 10]
+2011-08-02 15:09:00 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 44]
+2011-08-02 16:45:36 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'startdate' in 'order clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-08-02 18:57:44 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\elements\bookyears.ctp, line 7]
+2011-08-02 18:58:27 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\elements\bookyears.ctp, line 8]
+2011-08-02 18:59:34 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\elements\bookyears.ctp, line 8]
+2011-08-02 19:24:33 Warning: Warning (2): Missing argument 2 for CalculationsController::getCalculation() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 68]
+2011-08-02 19:38:19 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-08-02 19:38:26 Warning: Warning (2): Missing argument 1 for CalculationsController::CalculateBalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 83]
+2011-08-02 22:14:52 Warning: Warning (2): Missing argument 1 for CalculationsController::newfactdebet() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 33]
+2011-08-02 22:14:52 Warning: Warning (2): Missing argument 2 for CalculationsController::newfactdebet() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 33]
+2011-08-02 22:17:48 Warning: Warning (2): Missing argument 1 for CalculationsController::newfactdebet() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 33]
+2011-08-02 22:17:48 Warning: Warning (2): Missing argument 2 for CalculationsController::newfactdebet() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 33]
+2011-08-02 22:45:58 Warning: Warning (2): Missing argument 1 for CalculationsController::newfactcredit() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 49]
+2011-08-02 22:45:58 Warning: Warning (2): Missing argument 2 for CalculationsController::newfactcredit() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 49]
+2011-08-02 22:46:19 Warning: Warning (2): Missing argument 1 for CalculationsController::newfactcredit() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 49]
+2011-08-02 22:46:19 Warning: Warning (2): Missing argument 2 for CalculationsController::newfactcredit() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 49]
+2011-08-03 18:44:16 Warning: Warning (2): number_format() expects parameter 1 to be double, string given in [C:\wamp\www\quaestor\app\views\calculations\get_calculation.ctp, line 21]
+2011-08-05 20:27:44 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 11]
+2011-08-05 20:27:45 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 45]
+2011-08-17 17:18:54 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 11]
+2011-08-17 17:18:54 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 45]
+2011-08-17 17:19:04 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 11]
+2011-08-17 17:19:04 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 45]
+2011-08-17 17:19:07 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 11]
+2011-08-17 17:19:07 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 45]
+2011-08-17 17:19:08 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 11]
+2011-08-17 17:19:08 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 45]
+2011-08-17 17:19:10 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 11]
+2011-08-17 17:19:10 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 45]
+2011-08-17 17:19:11 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 11]
+2011-08-17 17:19:11 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 45]
+2011-08-19 22:28:50 Warning: Warning (2): preg_match() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2006]
+2011-08-19 22:28:50 Warning: Warning (2): preg_match() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2008]
+2011-08-19 22:28:50 Warning: Warning (2): strpos() expects parameter 1 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2011]
+2011-08-19 22:28:50 Warning: Warning (2): trim() expects parameter 1 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2013]
+2011-08-19 22:28:50 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Bookyear.' in 'field list'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-08-19 22:29:23 Warning: Warning (2): preg_match() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2006]
+2011-08-19 22:29:23 Warning: Warning (2): preg_match() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2008]
+2011-08-19 22:29:23 Warning: Warning (2): strpos() expects parameter 1 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2011]
+2011-08-19 22:29:23 Warning: Warning (2): trim() expects parameter 1 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2013]
+2011-08-19 22:29:23 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Bookyear.' in 'field list'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-08-19 22:29:40 Warning: Warning (2): preg_match() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2006]
+2011-08-19 22:29:40 Warning: Warning (2): preg_match() expects parameter 2 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2008]
+2011-08-19 22:29:40 Warning: Warning (2): strpos() expects parameter 1 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2011]
+2011-08-19 22:29:40 Warning: Warning (2): trim() expects parameter 1 to be string, array given in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 2013]
+2011-08-19 22:29:40 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Bookyear.' in 'field list'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-08-22 21:41:47 Warning: Warning (2): require_once(../Classes/PHPExcel/IOFactory.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 10]
+2011-08-22 21:52:18 Warning: Warning (2): require_once(..controllers/components/phpexcel/Classes/PHPExcel/IOFactory.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 11]
+2011-08-22 22:02:01 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 20]
+2011-08-22 22:02:02 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 33]
+2011-08-22 22:04:56 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 20]
+2011-08-22 22:04:57 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 33]
+2011-08-22 22:04:57 Warning: Warning (2): fopen(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.xls) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Shared\OLE\PPS\Root.php, line 88]
+2011-08-22 22:06:41 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 33]
+2011-08-22 22:06:41 Warning: Warning (2): fopen(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.xls) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Shared\OLE\PPS\Root.php, line 88]
+2011-08-22 22:07:10 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 33]
+2011-08-22 22:10:09 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.php, line 33]
+2011-08-22 22:10:54 Warning: Warning (2): fopen(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.xls) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Shared\OLE\PPS\Root.php, line 88]
+2011-08-23 09:57:01 Warning: Warning (2): fopen(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.xls) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Shared\OLE\PPS\Root.php, line 88]
+2011-08-23 13:44:20 Warning: Warning (2): fopen(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\balans.xls) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Shared\OLE\PPS\Root.php, line 88]
+2011-08-24 14:23:07 Warning: Warning (2): Missing argument 1 for CalculationsController::newbalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 275]
+2011-08-24 14:23:07 Warning: Warning (2): Missing argument 2 for CalculationsController::newbalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 275]
+2011-08-24 14:35:49 Warning: Warning (2): Missing argument 1 for CalculationsController::newbalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 275]
+2011-08-24 14:35:49 Warning: Warning (2): Missing argument 2 for CalculationsController::newbalans() in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 275]
+2011-08-24 21:04:03 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 9]
+2011-08-24 21:09:10 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 9]
+2011-08-24 21:09:10 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 43]
+2011-08-25 12:56:21 Warning: Warning (2): session_destroy() [<a href='http://php.net/function.session-destroy'>function.session-destroy</a>]: Session object destruction failed in [C:\wamp\www\quaestor\cake\libs\cake_session.php, line 458]
+2011-08-25 14:30:04 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 9]
+2011-08-25 14:30:11 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 9]
+2011-08-25 14:30:18 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 9]
+2011-08-25 14:30:34 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'beginbalans' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-08-25 14:30:34 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 9]
+2011-08-25 14:30:34 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 43]
+2011-08-25 14:32:24 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 9]
+2011-08-25 14:32:31 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'beginbalans' in 'where clause'</span> in [C:\wamp\www\quaestor\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-08-25 14:32:31 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 9]
+2011-08-25 14:32:31 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 43]
+2011-08-25 14:41:15 Warning: Warning (2): date() expects at least 1 parameter, 0 given in [C:\wamp\www\quaestor\app\controllers\calculations_controller.php, line 219]
+2011-08-25 14:45:17 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 10]
+2011-08-25 15:41:46 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\calculations\Calculate_balans.ctp, line 10]
+2011-08-31 09:29:00 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\quaestor\app\views\bookyears\index.ctp, line 14]
+2011-08-31 21:13:11 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-08-31 21:37:44 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-09-01 22:20:00 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-09-01 22:29:36 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-09-01 22:54:37 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-09-01 23:25:35 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-09-02 08:06:48 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-09-02 08:16:19 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-09-02 08:46:40 Warning: Warning (2): unlink(C:\wamp\www\quaestor\app\controllers\components\phpexcel\run\kolombalans.xlsx) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\wamp\www\quaestor\app\controllers\components\phpexcel\Classes\PHPExcel\Writer\Excel2007.php, line 228]
+2011-09-20 12:09:21 Warning: Warning (2): include_once(buildacl.php) [<a href='http://php.net/function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\app\controllers\groups_controller.php, line 2]
+2011-09-20 12:09:21 Warning: Warning (2): include_once() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'buildacl.php' for inclusion (include_path='C:\wamp\www\qs-finance\demo;C:\wamp\www\qs-finance\demo\app\;.;C:\php\pear') in [C:\wamp\www\qs-finance\demo\app\controllers\groups_controller.php, line 2]
+2011-09-20 12:20:40 Warning: Warning (512): DbAcl::allow() - Invalid node in [C:\wamp\www\qs-finance\demo\cake\libs\controller\components\acl.php, line 361]
+2012-02-15 22:24:01 Warning: Warning (2): Missing argument 2 for Balans::berekenbalans(), called in C:\wamp\www\qs-finance\demo\qsfinance\app\models\balans.php on line 106 and defined in [C:\wamp\www\qs-finance\demo\qsfinance\app\models\balans.php, line 86]
+2012-02-15 22:24:01 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\demo\qsfinance\app\models\balans.php, line 91]
+2012-02-15 22:24:01 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\demo\qsfinance\app\models\balans.php, line 121]
+2012-02-16 21:24:04 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Array' in 'where clause'</span> in [C:\wamp\www\qs-finance\demo\qsfinance\cake\libs\model\datasources\dbo_source.php, line 684]
+2012-02-16 21:24:47 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Array' in 'where clause'</span> in [C:\wamp\www\qs-finance\demo\qsfinance\cake\libs\model\datasources\dbo_source.php, line 684]
+2012-02-19 14:20:25 Warning: Warning (2): preg_match() expects parameter 2 to be string, object given in [C:\wamp\www\qs-finance\demo\qsfinance\cake\libs\validation.php, line 946]
+2012-02-19 14:47:53 Warning: Warning (2): preg_match() expects parameter 2 to be string, object given in [C:\wamp\www\qs-finance\demo\qsfinance\cake\libs\validation.php, line 946]
+2012-02-19 14:48:49 Warning: Warning (2): preg_match() expects parameter 2 to be string, object given in [C:\wamp\www\qs-finance\demo\qsfinance\cake\libs\validation.php, line 946]
+2012-02-22 21:58:21 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 55]
+2012-02-22 22:30:52 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:35:33 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:36:33 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:37:48 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:38:45 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:38:47 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:38:59 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:39:40 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:39:49 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:39:58 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:40:20 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:40:36 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:40:40 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:40:53 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:41:09 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:41:16 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:41:27 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:41:35 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:43:02 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:43:48 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:44:13 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:44:31 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:44:40 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:45:57 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:45:57 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 55]
+2012-02-22 22:47:04 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:47:53 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:50:48 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:52:21 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:52:37 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:54:17 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:54:24 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:56:32 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:56:41 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 22:57:25 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 23:03:53 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 23:04:58 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 23:04:58 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 55]
+2012-02-22 23:05:54 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 23:06:13 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-22 23:06:13 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 55]
+2012-02-22 23:09:03 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-23 22:46:08 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-23 23:03:12 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-23 23:04:23 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-23 23:04:42 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-23 23:20:24 Warning: Warning (2): Missing argument 1 for CalculationsController::import() in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\calculations_controller.php, line 303]
+2012-02-23 23:30:27 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-23 23:30:27 Warning: Warning (2): move_uploaded_file(import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/rooster.png) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-23 23:30:27 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\phpB9C2.tmp' to 'import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/rooster.png' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-23 23:32:23 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-23 23:32:23 Warning: Warning (2): move_uploaded_file(import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/UWV_Den_Haag.docx) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-23 23:32:23 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php899F.tmp' to 'import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/UWV_Den_Haag.docx' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-23 23:37:29 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-23 23:37:29 Warning: Warning (2): move_uploaded_file(import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/UWV_Den_Haag.docx) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-23 23:37:29 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php1E12.tmp' to 'import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/UWV_Den_Haag.docx' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-24 19:24:50 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-24 19:24:50 Warning: Warning (2): move_uploaded_file(import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/tallie.txt) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-24 19:24:50 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php3438.tmp' to 'import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/tallie.txt' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-24 20:13:10 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-24 20:13:10 Warning: Warning (2): move_uploaded_file(import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/kwartaal/i/i/i/i/trien.png) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-24 20:13:10 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php7004.tmp' to 'import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/kwartaal/i/i/i/i/trien.png' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-24 20:24:57 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-24 20:24:57 Warning: Warning (2): move_uploaded_file(import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/kwartaal/i/i/i/msvcp71.dll) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-24 20:24:57 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php3FF2.tmp' to 'import/4f3e9fea-4d04-41dc-ae5f-19a89d87f14d/kwartaal/i/i/i/msvcp71.dll' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-24 21:50:05 Warning: Warning (2): Missing argument 1 for ReadKwartaal::init(), called in C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\components\phpexcel\run\readkwartaal.php on line 46 and defined in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\components\phpexcel\run\readkwartaal.php, line 16]
+2012-02-24 21:50:05 Warning: Warning (2): Missing argument 1 for ReadKwartaal::init(), called in C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\components\phpexcel\run\readkwartaal.php on line 46 and defined in [C:\wamp\www\qs-finance\demo\qsfinance\app\controllers\components\phpexcel\run\readkwartaal.php, line 16]
+2012-02-26 16:49:30 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-26 16:49:30 Warning: Warning (2): move_uploaded_file(import/4f4a61ec-fd40-4cf4-97a6-14189d87f14d/kwartaal/test.xls) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-26 16:49:30 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php370.tmp' to 'import/4f4a61ec-fd40-4cf4-97a6-14189d87f14d/kwartaal/test.xls' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-26 16:49:53 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-26 16:49:53 Warning: Warning (2): move_uploaded_file(import/4f4a61ec-fd40-4cf4-97a6-14189d87f14d/kwartaal/test.xls) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-26 16:49:53 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php5AF3.tmp' to 'import/4f4a61ec-fd40-4cf4-97a6-14189d87f14d/kwartaal/test.xls' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-26 16:50:42 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-26 16:50:42 Warning: Warning (2): move_uploaded_file(import/4f4a61ec-fd40-4cf4-97a6-14189d87f14d/kwartaal/test.xls) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-26 16:50:42 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php1CBC.tmp' to 'import/4f4a61ec-fd40-4cf4-97a6-14189d87f14d/kwartaal/test.xls' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-26 16:53:09 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 36]
+2012-02-26 16:53:09 Warning: Warning (2): move_uploaded_file(import/4f4a61ec-fd40-4cf4-97a6-14189d87f14d/kwartaal/test.xls) [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-26 16:53:09 Warning: Warning (2): move_uploaded_file() [<a href='http://php.net/function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move 'C:\wamp\tmp\php596F.tmp' to 'import/4f4a61ec-fd40-4cf4-97a6-14189d87f14d/kwartaal/test.xls' in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 82]
+2012-02-26 21:38:59 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: File exists in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 40]
+2012-02-26 22:05:28 Warning: Warning (2): mkdir() [<a href='http://php.net/function.mkdir'>function.mkdir</a>]: File exists in [C:\wamp\www\qs-finance\demo\qsfinance\app\app_controller.php, line 40]
+2012-02-27 20:12:26 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\demo\qsfinance\app\views\grootboeks\index.ctp, line 17]
+2012-09-10 17:28:47 Warning: Warning (2): include(phpexcel/run/readkwartaal.php) [<a href='http://php.net/function.include'>function.include</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs\app\controllers\components\excel.php, line 4]
+2012-09-10 17:28:47 Warning: Warning (2): include() [<a href='http://php.net/function.include'>function.include</a>]: Failed opening 'phpexcel/run/readkwartaal.php' for inclusion (include_path='C:\wamp\www\qs;C:\wamp\www\qs\app\;.;C:\php\pear') in [C:\wamp\www\qs\app\controllers\components\excel.php, line 4]
+2012-09-12 20:33:32 Warning: Warning (2): Missing argument 2 for GrootboeksController::open() in [C:\wamp\www\qs\app\controllers\grootboeks_controller.php, line 70]
+2013-03-09 10:20:46 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-09 10:20:47 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-09 10:22:54 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-09 10:22:54 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-09 10:23:35 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-09 10:23:36 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-09 10:23:47 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-09 10:23:47 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 09:20:54 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-10 09:20:54 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 09:23:28 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-10 09:23:28 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 09:24:49 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-10 09:24:49 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 09:36:59 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-10 09:36:59 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 12:54:57 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-10 12:54:57 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 12:56:03 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 53]
+2013-03-10 12:56:03 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 12:58:53 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 12:59:35 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-10 12:59:46 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\wamp\www\qs-finance\app\views\balans\kolombalans.ctp, line 59]
+2013-03-11 20:15:09 Warning: Warning (2): require_once(../Classes/PHPExcel.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\app\controllers\components\phpexcel\run\balans.php, line 33]
+2013-03-11 20:16:34 Warning: Warning (2): require_once(phpexcel/Classes/PHPExcel/PHPExcel.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\app\controllers\components\phpexcel\run\balans.php, line 34]
+2013-03-11 21:18:10 Warning: Warning (2): require_once(../controllers/components/phpexcel/Classes/PHPExcel/PHPExcel.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\app\controllers\components\phpexcel\run\balans.php, line 35]
+2013-03-11 21:19:23 Warning: Warning (2): require_once(../controllers/components/phpexcel/Classes/PHPExcel/PHPExcel.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\app\controllers\components\phpexcel\run\balans.php, line 35]
+2013-03-11 21:20:41 Warning: Warning (2): require_once(phpexcel/Classes/PHPExcel/PHPExcel.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\app\controllers\components\phpexcel\run\balans.php, line 35]
+2013-03-11 21:22:06 Warning: Warning (2): require_once(phpexcel/Classes/PHPExcel/PHPExcel.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\app\controllers\components\phpexcel\run\balans.php, line 35]
+2013-03-11 21:25:22 Warning: Warning (2): require_once(../controllers/components/phpexcel/Classes/PHPExcel/PHPExcel.php) [<a href='http://php.net/function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in [C:\wamp\www\qs-finance\app\controllers\components\phpexcel\run\balans.php, line 37]
+2013-05-18 20:46:00 Error: [MissingDatasourceException] Datasource class  could not be found. 
+Exception Attributes: array (
+  'class' => NULL,
+  'plugin' => false,
+)
+Request URL: /qs-finance2/users/login
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Model\ConnectionManager.php(96): ConnectionManager::loadDataSource('default')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(1108): Model->setDataSource('default')
+#3 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#4 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(1319): Model->getDataSource()
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\Helper\FormHelper.php(198): Model->schema()
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\Helper\FormHelper.php(448): FormHelper->_introspectModel('User', 'fields')
+#7 C:\wamp\www\qs-finance2\app\View\Users\login.ctp(3): FormHelper->create('User', Array)
+#8 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(947): include('C:\wamp\www\qs-...')
+#9 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(909): View->_evaluate('C:\wamp\www\qs-...', Array)
+#10 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(471): View->_render('C:\wamp\www\qs-...')
+#11 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#12 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#13 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#14 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-05-18 20:47:32 Error: [MissingDatasourceException] Datasource class  could not be found. 
+Exception Attributes: array (
+  'class' => NULL,
+  'plugin' => false,
+)
+Request URL: /qs-finance2/users/login
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Model\ConnectionManager.php(96): ConnectionManager::loadDataSource('default')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(1108): Model->setDataSource('default')
+#3 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#4 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(1319): Model->getDataSource()
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\Helper\FormHelper.php(198): Model->schema()
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\Helper\FormHelper.php(448): FormHelper->_introspectModel('User', 'fields')
+#7 C:\wamp\www\qs-finance2\app\View\Users\login.ctp(3): FormHelper->create('User', Array)
+#8 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(947): include('C:\wamp\www\qs-...')
+#9 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(909): View->_evaluate('C:\wamp\www\qs-...', Array)
+#10 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(471): View->_render('C:\wamp\www\qs-...')
+#11 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#12 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#13 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#14 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-05-18 20:47:44 Error: [MissingDatasourceException] Datasource class  could not be found. 
+Exception Attributes: array (
+  'class' => NULL,
+  'plugin' => false,
+)
+Request URL: /qs-finance2/users
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Model\ConnectionManager.php(96): ConnectionManager::loadDataSource('default')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(3221): ConnectionManager::getDataSource('default')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(1108): Model->setDataSource('default')
+#3 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(3243): Model->setSource('users')
+#4 C:\wamp\www\qs-finance2\lib\Cake\Model\Model.php(2696): Model->getDataSource()
+#5 C:\wamp\www\qs-finance2\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#6 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(1074): PaginatorComponent->paginate(NULL, Array, Array)
+#7 C:\wamp\www\qs-finance2\app\Controller\UsersController.php(13): Controller->paginate()
+#8 [internal function]: UsersController->index()
+#9 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#12 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
