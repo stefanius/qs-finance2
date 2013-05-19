@@ -437,3 +437,234 @@ Stack Trace:
 #11 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #12 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2013-05-19 10:51:55 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:54:24 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:54:42 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:56:38 Error: [MissingActionException] Action TestexcelController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'TestexcelController',
+  'action' => 'index',
+)
+Request URL: /qs-finance2/testexcel
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-05-19 10:56:47 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:57:12 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:57:14 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:58:22 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:58:49 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:59:12 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 10:59:13 Error: [MissingPluginException] Plugin PhpExcel could not be found.
+Exception Attributes: array (
+  'plugin' => 'PhpExcel',
+)
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(366): CakePlugin::path('PhpExcel')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(227): App::pluginPath('PhpExcel')
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(544): App::path('View/Helper', 'PhpExcel')
+#3 [internal function]: App::load('PhpExcelHelper')
+#4 [internal function]: spl_autoload_call('PhpExcelHelper')
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\HelperCollection.php(130): class_exists('PhpExcelHelper')
+#6 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(884): HelperCollection->load('PhpExcel.PhpExc...', Array)
+#7 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(464): View->loadHelpers()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#9 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#10 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(TestexcelController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-05-19 11:00:59 Error: Fatal Error (1): Class 'AppHelper' not found in [C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php, line 9]
+2013-05-19 11:00:59 Error: [FatalErrorException] Class 'AppHelper' not found
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-19 11:02:03 Error: Fatal Error (1): Class 'AppHelper' not found in [C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php, line 9]
+2013-05-19 11:02:03 Error: [FatalErrorException] Class 'AppHelper' not found
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-19 11:03:54 Error: Fatal Error (1): Class 'AppHelper' not found in [C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php, line 9]
+2013-05-19 11:03:54 Error: [FatalErrorException] Class 'AppHelper' not found
+Request URL: /qs-finance2/testexcel/test
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Class 'AppHelpe...', 'C:\wamp\www\qs-...', 9, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
