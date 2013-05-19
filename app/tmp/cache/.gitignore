@@ -1,0 +1,4 @@
+#IGNORE LOCAL CACHE FILES#
+
+myapp_cake_model_default*
+myapp_cake_core*
