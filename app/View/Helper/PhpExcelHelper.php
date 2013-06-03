@@ -56,7 +56,15 @@ class PhpExcelHelper extends AppHelper {
 		$this->row = (int)$to;
 	}
 
-        	
+	public function setBold($cell) {
+                $styleArray = array(
+                    'font' => array(
+                        'bold' => true
+                    )
+                );
+                $this->xls->getActiveSheet()->getStyle($cell)->applyFromArray($styleArray);
+	}
+        
 	/**
 	 * Get row pointer
 	 */
