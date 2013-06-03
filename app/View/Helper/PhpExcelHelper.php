@@ -27,6 +27,7 @@ class PhpExcelHelper extends AppHelper {
 	 * Constructor
 	 */
 	public function __construct(View $view, $settings = array()) {
+            date_default_timezone_set('Europe/Amsterdam');
         parent::__construct($view, $settings);
     }
 	
@@ -36,12 +37,14 @@ class PhpExcelHelper extends AppHelper {
 	public function createWorksheet() {
 		$this->loadEssentials();
 		$this->xls = new PHPExcel();
+                date_default_timezone_set('Europe/Amsterdam');
 	}
 	
 	/**
 	 * Create new worksheet from existing file
 	 */
 	public function loadWorksheet($path) {
+                date_default_timezone_set('Europe/Amsterdam');
 		$this->loadEssentials();
 		$this->xls = PHPExcel_IOFactory::load($path);
 	}
@@ -169,7 +172,20 @@ class PhpExcelHelper extends AppHelper {
 		}
 		$this->row++;
 	}
-	
+
+        
+	public function addDataRow($data = array(), $increaseRow=true) {
+            
+                foreach($data as $col=>$value){
+                    $this->xls->getActiveSheet()->setCellValue($col.$this->row, $value);
+                }
+                
+                if($increaseRow){
+                    $this->row++;
+                }	
+	}
+        
+        
 	/**
 	 * Output file to browser
 	 */
