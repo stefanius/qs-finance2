@@ -55,7 +55,15 @@ class PhpExcelHelper extends AppHelper {
 	public function setRow($to) {
 		$this->row = (int)$to;
 	}
-	
+
+        	
+	/**
+	 * Get row pointer
+	 */
+	public function getRow() {
+		return $this->row;
+	}
+        
 	/**
 	 * Set default font
 	 */
