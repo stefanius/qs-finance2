@@ -1,31 +1,33 @@
 <?php
 
-$this->PhpExcel->createWorksheet(); 
-$this->PhpExcel->setDefaultFont('Calibri', 12); 
+$this->PhpExcel->loadWorksheet("C:/wamp/www/qs-finance/app/controllers/components/phpexcel/run/templates/balans.xls"); 
+$this->PhpExcel->setRow(1);
+$this->PhpExcel->addData(array('A'=> 'Balans: '.$data['Bookyear']['omschrijving']));
 
-// define table cells 
-$table = array( 
-    array('label' => __('User'), 'width' => 'auto', 'filter' => true), 
-    array('label' => __('Type'), 'width' => 'auto', 'filter' => true), 
-    array('label' => __('Date'), 'width' => 'auto'), 
-    array('label' => __('Description'), 'width' => 50, 'wrap' => true), 
-    array('label' => __('Modified'), 'width' => 'auto') 
-); 
+$this->PhpExcel->setRow(3);
+foreach($data['debet']['posten'] as $r => $dataRow) {
+    $this->PhpExcel->addDataRow(array('A'=>$dataRow['Grootboek']['nummer'], 'B'=>$dataRow['Grootboek']['omschrijving'], 'E'=> $dataRow['Bedrag']['saldo']));
+}
 
-// heading 
-$this->PhpExcel->addTableHeader($table, array('name' => 'Cambria', 'bold' => true)); 
+$this->PhpExcel->addDataRow(array('B'=>'TOTAAL', 'E'=> $data['debet']['totaal']));
 
-// data 
-foreach ($data as $d) { 
-    $this->PhpExcel->addTableRow(array( 
-        $d['User']['name'], 
-        $d['Type']['name'], 
-        $d['User']['date'], 
-        $d['User']['description'], 
-        $d['User']['modified'] 
-    )); 
-} 
+$this->PhpExcel->setRow(3);
+$this->PhpExcel->addDataRow(array('F'=>'EV', 'G'=>'Eigen Vermogen', 'J'=> $data['ev']));
 
-$this->PhpExcel->addTableFooter(); 
+foreach($data['credit']['posten'] as $r => $dataRow) {
+    $this->PhpExcel->addDataRow(array('F'=>$dataRow['Grootboek']['nummer'], 'G'=>$dataRow['Grootboek']['omschrijving'], 'J'=> $dataRow['Bedrag']['saldo']));
+}
+
+$this->PhpExcel->addDataRow(array('G'=>'TOTAAL', 'J'=> $data['credit']['totaal']));
+
+$rowpointer = $this->PhpExcel->getRow()-1;
+$this->PhpExcel->setBold('B'.$rowpointer);
+$this->PhpExcel->setBold('E'.$rowpointer);
+$this->PhpExcel->setBold('G'.$rowpointer);
+$this->PhpExcel->setBold('J'.$rowpointer);
+$this->PhpExcel->setRow(30);
+$footer = 'Gegenereerd: '.date('Y-m-d H:i:s');
+$this->PhpExcel->addDataRow(array('A'=> $footer, 'F'=>$footer));
+
 $this->PhpExcel->output(); 
 ?>
