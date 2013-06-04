@@ -668,3 +668,179 @@ Stack Trace:
 #3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-05-26 19:12:11 Error: [MissingViewException] View file "C:\wamp\www\qs-finance2\app\View\Pages\instellingen.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\qs-finance2\\app\\View\\Pages\\instellingen.ctp',
+)
+Request URL: /qs-finance2/pages/instellingen/
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(468): View->_getViewFileName('instellingen')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render('instellingen', NULL)
+#2 C:\wamp\www\qs-finance2\app\Controller\PagesController.php(83): Controller->render('instellingen')
+#3 [internal function]: PagesController->display('instellingen')
+#4 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-05-26 19:51:01 Error: [MissingControllerException] Controller class AdministratieController could not be found.
+Exception Attributes: array (
+  'class' => 'AdministratieController',
+  'plugin' => NULL,
+)
+Request URL: /qs-finance2/administratie/
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-26 19:51:04 Error: [MissingViewException] View file "C:\wamp\www\qs-finance2\app\View\Pages\instellingen.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\qs-finance2\\app\\View\\Pages\\instellingen.ctp',
+)
+Request URL: /qs-finance2/pages/instellingen/
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(468): View->_getViewFileName('instellingen')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render('instellingen', NULL)
+#2 C:\wamp\www\qs-finance2\app\Controller\PagesController.php(83): Controller->render('instellingen')
+#3 [internal function]: PagesController->display('instellingen')
+#4 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-05-26 21:10:16 Error: [MissingActionException] Action ExportexcelController::balans() could not be found.
+Exception Attributes: array (
+  'controller' => 'ExportexcelController',
+  'action' => 'balans',
+)
+Request URL: /qs-finance2/exportexcel/balans
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ExportexcelController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-05-27 06:25:01 Error: Fatal Error (1): Call to a member function setCellValue() on a non-object in [C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp, line 6]
+2013-05-27 06:25:01 Error: [FatalErrorException] Call to a member function setCellValue() on a non-object
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 6)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 6, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\qs-...', 6, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-27 06:26:08 Error: Fatal Error (1): Call to a member function setCellValue() on a non-object in [C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp, line 7]
+2013-05-27 06:26:08 Error: [FatalErrorException] Call to a member function setCellValue() on a non-object
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 7, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\qs-...', 7, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-27 06:26:15 Error: Fatal Error (1): Call to a member function setCellValue() on a non-object in [C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp, line 7]
+2013-05-27 06:26:15 Error: [FatalErrorException] Call to a member function setCellValue() on a non-object
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 7)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 7, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\qs-...', 7, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-29 20:20:00 Error: Fatal Error (1): Call to a member function setCellValue() on a non-object in [C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp, line 8]
+2013-05-29 20:20:00 Error: [FatalErrorException] Call to a member function setCellValue() on a non-object
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 8)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 8, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\qs-...', 8, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-05-30 21:32:03 Error: Fatal Error (1): Call to a member function setCellValue() on a non-object in [C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp, line 19]
+2013-05-30 21:32:03 Error: [FatalErrorException] Call to a member function setCellValue() on a non-object
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 19)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 19, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\qs-...', 19, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-03 21:17:19 Error: Fatal Error (1): Call to undefined method PHPExcel::getStyle() in [C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php, line 65]
+2013-06-03 21:17:19 Error: [FatalErrorException] Call to undefined method PHPExcel::getStyle()
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\wamp\www\qs-...', 65)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\wamp\www\qs-...', 65, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\wamp\www\qs-...', 65, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-06-03 21:20:16 Error: [PHPExcel_Exception] Invalid cell coordinate 18B
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\app\Vendor\PhpExcel\Classes\PHPExcel\Style.php(284): PHPExcel_Cell::coordinateFromString('18B')
+#1 C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php(65): PHPExcel_Style->applyFromArray(Array)
+#2 C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp(24): PhpExcelHelper->setBold('18B')
+#3 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(947): include('C:\wamp\www\qs-...')
+#4 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(909): View->_evaluate('C:\wamp\www\qs-...', Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(471): View->_render('C:\wamp\www\qs-...')
+#6 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#7 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ExportexcelController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-03 21:20:38 Error: [PHPExcel_Exception] Invalid cell coordinate 18B
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\app\Vendor\PhpExcel\Classes\PHPExcel\Style.php(284): PHPExcel_Cell::coordinateFromString('18B')
+#1 C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php(65): PHPExcel_Style->applyFromArray(Array)
+#2 C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp(24): PhpExcelHelper->setBold('18B')
+#3 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(947): include('C:\wamp\www\qs-...')
+#4 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(909): View->_evaluate('C:\wamp\www\qs-...', Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(471): View->_render('C:\wamp\www\qs-...')
+#6 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#7 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ExportexcelController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-03 21:20:47 Error: [PHPExcel_Exception] Invalid cell coordinate 18B
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\app\Vendor\PhpExcel\Classes\PHPExcel\Style.php(284): PHPExcel_Cell::coordinateFromString('18B')
+#1 C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php(65): PHPExcel_Style->applyFromArray(Array)
+#2 C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp(24): PhpExcelHelper->setBold('18B')
+#3 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(947): include('C:\wamp\www\qs-...')
+#4 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(909): View->_evaluate('C:\wamp\www\qs-...', Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(471): View->_render('C:\wamp\www\qs-...')
+#6 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#7 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ExportexcelController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-03 21:21:03 Error: [PHPExcel_Exception] Invalid cell coordinate 18B
+Request URL: /qs-finance2/exportexcel/balans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\app\Vendor\PhpExcel\Classes\PHPExcel\Style.php(284): PHPExcel_Cell::coordinateFromString('18B')
+#1 C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php(65): PHPExcel_Style->applyFromArray(Array)
+#2 C:\wamp\www\qs-finance2\app\View\Exportexcel\balans.ctp(24): PhpExcelHelper->setBold('18B')
+#3 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(947): include('C:\wamp\www\qs-...')
+#4 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(909): View->_evaluate('C:\wamp\www\qs-...', Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(471): View->_render('C:\wamp\www\qs-...')
+#6 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#7 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ExportexcelController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-06-03 21:37:16 Error: Fatal Error (1): Call to a member function link() on a non-object in [C:\wamp\www\qs-finance2\app\View\Balans\open.ctp, line 40]
+2013-06-03 21:37:16 Error: [FatalErrorException] Call to a member function link() on a non-object
+Request URL: /qs-finance2/balans/open/2012-2013
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 40)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\wamp\www\qs-...', 40, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\wamp\www\qs-...', 40, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
