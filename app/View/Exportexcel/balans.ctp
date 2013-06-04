@@ -1,6 +1,6 @@
 <?php
 
-$this->PhpExcel->loadWorksheet("C:/wamp/www/qs-finance/app/controllers/components/phpexcel/run/templates/balans.xls"); 
+$this->PhpExcel->loadWorksheet($file); 
 $this->PhpExcel->setRow(1);
 $this->PhpExcel->addData(array('A'=> 'Balans: '.$data['Bookyear']['omschrijving']));
 
@@ -26,8 +26,9 @@ $this->PhpExcel->setBold('E'.$rowpointer);
 $this->PhpExcel->setBold('G'.$rowpointer);
 $this->PhpExcel->setBold('J'.$rowpointer);
 $this->PhpExcel->setRow(30);
-$footer = 'Gegenereerd: '.date('Y-m-d H:i:s');
+$timestamp = date('Y-m-d H:i:s');
+$footer = 'Gegenereerd: '.$timestamp;
 $this->PhpExcel->addDataRow(array('A'=> $footer, 'F'=>$footer));
 
-$this->PhpExcel->output(); 
+$this->PhpExcel->output('balans '.$data['Bookyear']['omschrijving'].' - '.$timestamp.'.xlsx'); 
 ?>

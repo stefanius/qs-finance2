@@ -41,6 +41,12 @@ class ExportexcelController extends AppController {
             $balans = $this->Balans->openBalans($bookyear);
             $balans = $this->Balans->formatBalans($balans);
             $data=$balans;
-            $this->set(compact('balans', 'data'));
+            $templatepath = $this->essetial();
+            $file = $templatepath.'balans.xls';
+            $this->set(compact('balans', 'data','file'));
 	}
+        
+        function essetial(){
+            return  WWW_ROOT . DS . 'files' . DS . 'xsltemplates' . DS . 'balans' . DS;
+        }
 }
