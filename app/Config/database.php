@@ -5,10 +5,10 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'driver' => 'mysql',
 		'persistent' => false,
-		'host' => '185.10.51.80',
-		'login' => 'dwivoqfb_aap',
-		'password' => 'grootjecms',
-		'database' => 'dev_qsfinance',
+		'host' => 'db.qsfinance.dev',
+		'login' => 'qsfinweb',
+		'password' => 'monkey88',
+		'database' => 'qsfin_dev',
 	);
 
 /*
