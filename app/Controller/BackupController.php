@@ -12,6 +12,7 @@ class BackupController extends AppController {
         if($filename===false){
             $dir = new Folder($path);
             $files = $dir->find('.*\.gz');
+            sort($files);
             $this->set(compact('files'));
         }else{
             $this->viewClass = 'Media';
