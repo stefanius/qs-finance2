@@ -142,7 +142,9 @@ class Grootboek extends AppModel {
 	}
 	
 	function calculate($debet, $credit, $balanszijde){
-		$saldo=0;
+                $debet=(float) sprintf('%s', $debet);
+                $credit=(float) sprintf('%s', $credit);
+		$saldo=0.00;
 		if($balanszijde=='debet'){
 			$saldo = $debet-$credit;
 		}
@@ -154,6 +156,9 @@ class Grootboek extends AppModel {
 		$rtrnsaldo['debet'] = $debet;
 		$rtrnsaldo['credit'] = $credit;
 		$rtrnsaldo['saldo'] = $saldo;
+                if($rtrnsaldo['saldo'] == -0 || $rtrnsaldo['saldo'] == -0.00){
+                    $rtrnsaldo['saldo']=0;
+                }
 		return $rtrnsaldo;
 	}
 

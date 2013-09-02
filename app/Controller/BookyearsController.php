@@ -2,6 +2,7 @@
 class BookyearsController extends AppController {
 
 	var $name = 'Bookyears';
+        
 	function beforeFilter() {
 		parent::beforeFilter(); 
 		$this->Auth->allowedActions = array('selectBookyear', 'getBookyear');
@@ -42,7 +43,7 @@ class BookyearsController extends AppController {
 		}
 	}
 	
-	function newbookyear() {
+	function newbookyear($fromdate=false, $todate=false) {
 		if (!empty($this->request->data)) {
 			$newbookyear['prevyear'] = $this->request->data['Bookyear']['prevyear'];
 			$this->Bookyear->create();

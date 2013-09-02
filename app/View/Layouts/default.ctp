@@ -12,6 +12,9 @@
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->css('cake.boekhouden');
 		echo $this->Html->css('boekhouden');
+                echo $this->Html->css('jquery/black-tie/jquery-ui.min');   
+                echo $this->Html->script('jquery-2.0.2.min'); // Include jQuery library
+                echo $this->Html->script('jquery-ui-1.10.3.custom.min'); // Include jQuery library
 		echo $scripts_for_layout;
 	?>
 </head>
@@ -40,3 +43,8 @@
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
+
+<?php
+
+    
+?>

@@ -11,7 +11,7 @@ class PhpExcelHelper extends AppHelper {
 	 * Instance of PHPExcel class
 	 * @var object
 	 */
-	public $xls;
+	protected $xls;
 	/**
 	 * Pointer to actual row
 	 * @var int
@@ -22,6 +22,8 @@ class PhpExcelHelper extends AppHelper {
 	 * @var array
 	 */
 	protected $tableParams;
+        
+        protected $activeSheetIndex=0;
 	
 	/**
 	 * Constructor
@@ -39,7 +41,16 @@ class PhpExcelHelper extends AppHelper {
 		$this->xls = new PHPExcel();
                 date_default_timezone_set('Europe/Amsterdam');
 	}
+        
+        /**
+         * Set activeSheetIndex (default=9); 
+         */
 	
+        public function setActiveSheetIndex($index=0){
+            $this->activeSheetIndex=$index;
+            $this->xls->setActiveSheetIndex($index);
+        }
+        
 	/**
 	 * Create new worksheet from existing file
 	 */
@@ -158,6 +169,9 @@ class PhpExcelHelper extends AppHelper {
 		$this->tableParams['row_count']++;
 	}
 	
+        public function getExcel(){
+            return $this->xls;
+        }
 	/**
 	 * End table
 	 * sets params and styles that required data to be inserted
@@ -200,7 +214,6 @@ class PhpExcelHelper extends AppHelper {
                     $this->row++;
                 }	
 	}
-        
         
 	/**
 	 * Output file to browser
