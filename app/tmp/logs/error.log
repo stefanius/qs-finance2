@@ -1120,3 +1120,18 @@ Stack Trace:
 #3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-09-02 20:33:30 Error: [MissingViewException] View file "C:\wamp\www\qs-finance2\app\View\Pages\instellingen.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\qs-finance2\\app\\View\\Pages\\instellingen.ctp',
+)
+Request URL: /qs-finance2/pages/instellingen/
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(468): View->_getViewFileName('instellingen')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render('instellingen', NULL)
+#2 C:\wamp\www\qs-finance2\app\Controller\PagesController.php(83): Controller->render('instellingen')
+#3 [internal function]: PagesController->display('instellingen')
+#4 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}

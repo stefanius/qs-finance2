@@ -7,6 +7,7 @@
 		echo $this->Form->input('nummer');
 		echo $this->Form->input('omschrijving');
 		echo $this->Form->input('debetcredit');
+                echo $this->Form->input('liquide');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>
