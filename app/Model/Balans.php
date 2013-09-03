@@ -44,15 +44,15 @@ class Balans extends AppModel {
 	
 	function openBalans($bookyear_key,$beginbalans=null){
 		$bookyear = $this->Bookyear->get($bookyear_key);
-		$balansposten = $this->Grootboek->getPosten(0); //0=Balansposten, 1=Resultaatposten.
+		$balansposten = $this->Grootboek->getPosten(Configure::read('Grootboek.Balansposten')); //0=Balansposten, 1=Resultaatposten.
 		$balans = $this->berekenbalans($balansposten,$bookyear, $beginbalans);
 		return $balans;
 	}
 	
 	function openKolomBalans($bookyear_key){
 		$bookyear = $this->Bookyear->get($bookyear_key);
-		$balansposten = $this->Grootboek->getPosten(0); //0=Balansposten, 1=Resultaatposten.
-		$resultaatposten =$this->Grootboek->getPosten(1);
+		$balansposten = $this->Grootboek->getPosten(Configure::read('Grootboek.Balansposten') ); //0=Balansposten, 1=Resultaatposten.
+		$resultaatposten =$this->Grootboek->getPosten(Configure::read('Grootboek.Resultaatposten') );
 		$kolombalans['beginbalans'] = $this->berekenbalans($balansposten, $bookyear,1); //1=beginbalans
 		$kolombalans['proefbalans'] =$this->berekenbalans($balansposten, $bookyear);
 		$kolombalans['proefbalans'] +=$this->berekenbalans($resultaatposten, $bookyear);

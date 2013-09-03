@@ -107,3 +107,12 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+/*
+ * Custom Globals
+ */
+
+
+Configure::write('Grootboek.Balansposten', 0); //Balansposten, 1=Resultaatposten, 2==Liquide
+Configure::write('Grootboek.Resultaatposten', 1); //Balansposten, 1=Resultaatposten, 2==Liquide
+Configure::write('Grootboek.Liquide', 2); //Balansposten, 1=Resultaatposten, 2==Liquide
