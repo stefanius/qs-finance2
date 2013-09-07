@@ -80,26 +80,26 @@ $rowNo=$FIRST_CALC_ROW;
 $this->ExportKolomBalans->write_row($this->PhpExcel->getExcel(), 'ev', $rowNo, $data);
 $rowNo++;               
 foreach($data['posten']['balans'] as $rek){
-        $this->ExportKolomBalans->write_row($this->PhpExcel->getExcel(), $rek, $rowNo, $data);
-        $rowNo++;
+    $this->ExportKolomBalans->write_row($this->PhpExcel->getExcel(), $rek, $rowNo, $data);
+    $rowNo++;
 }
 
 foreach($data['posten']['resultaat'] as $rek){
-        $this->ExportKolomBalans->write_row($this->PhpExcel->getExcel(), $rek, $rowNo, $data);
-        $rowNo++;
+    $this->ExportKolomBalans->write_row($this->PhpExcel->getExcel(), $rek, $rowNo, $data);
+    $rowNo++;
 }		
 $this->PhpExcel->getExcel()->getActiveSheet()
-        ->setCellValue('C'.$rowNo, 'TOTAAL')
-        ->setCellValue('D'.$rowNo, '=SUM(D'.$FIRST_CALC_ROW.':D'.($rowNo-1).')')
-        ->setCellValue('E'.$rowNo, '=SUM(E'.$FIRST_CALC_ROW.':E'.($rowNo-1).')')
-        ->setCellValue('F'.$rowNo, '=SUM(F'.$FIRST_CALC_ROW.':F'.($rowNo-1).')')
-        ->setCellValue('G'.$rowNo, '=SUM(G'.$FIRST_CALC_ROW.':G'.($rowNo-1).')')
-        ->setCellValue('H'.$rowNo, '=SUM(H'.$FIRST_CALC_ROW.':H'.($rowNo-1).')')
-        ->setCellValue('I'.$rowNo, '=SUM(I'.$FIRST_CALC_ROW.':I'.($rowNo-1).')')
-        ->setCellValue('J'.$rowNo, '=SUM(J'.$FIRST_CALC_ROW.':J'.($rowNo-1).')')
-        ->setCellValue('K'.$rowNo, '=SUM(K'.$FIRST_CALC_ROW.':K'.($rowNo-1).')')
-        ->setCellValue('L'.$rowNo, '=SUM(L'.$FIRST_CALC_ROW.':L'.($rowNo-1).')')
-        ->setCellValue('M'.$rowNo, '=SUM(M'.$FIRST_CALC_ROW.':M'.($rowNo-1).')');
+    ->setCellValue('C'.$rowNo, 'TOTAAL')
+    ->setCellValue('D'.$rowNo, '=SUM(D'.$FIRST_CALC_ROW.':D'.($rowNo-1).')')
+    ->setCellValue('E'.$rowNo, '=SUM(E'.$FIRST_CALC_ROW.':E'.($rowNo-1).')')
+    ->setCellValue('F'.$rowNo, '=SUM(F'.$FIRST_CALC_ROW.':F'.($rowNo-1).')')
+    ->setCellValue('G'.$rowNo, '=SUM(G'.$FIRST_CALC_ROW.':G'.($rowNo-1).')')
+    ->setCellValue('H'.$rowNo, '=SUM(H'.$FIRST_CALC_ROW.':H'.($rowNo-1).')')
+    ->setCellValue('I'.$rowNo, '=SUM(I'.$FIRST_CALC_ROW.':I'.($rowNo-1).')')
+    ->setCellValue('J'.$rowNo, '=SUM(J'.$FIRST_CALC_ROW.':J'.($rowNo-1).')')
+    ->setCellValue('K'.$rowNo, '=SUM(K'.$FIRST_CALC_ROW.':K'.($rowNo-1).')')
+    ->setCellValue('L'.$rowNo, '=SUM(L'.$FIRST_CALC_ROW.':L'.($rowNo-1).')')
+    ->setCellValue('M'.$rowNo, '=SUM(M'.$FIRST_CALC_ROW.':M'.($rowNo-1).')');
 
 $this->PhpExcel->getExcel()->getActiveSheet()->getStyle('A'.$rowNo.':N'.$rowNo)->getFont()->setSize(9);			
 $this->PhpExcel->getExcel()->getActiveSheet()->getStyle('D'.$rowNo.':M'.$rowNo)->getNumberFormat()->setFormatCode('##,##0.00');			
@@ -108,6 +108,60 @@ $this->PhpExcel->getExcel()->getActiveSheet()->getStyle('B'.$rowNo.':M'.$rowNo)-
 
 // Rename sheet
 $this->PhpExcel->getExcel()->getActiveSheet()->setTitle('Kolombalans');		
+
+
+
+/* ADD EXTRA SHEET */
+
+$this->PhpExcel->getExcel()->createSheet(NULL, 1);
+$this->PhpExcel->getExcel()->setActiveSheetIndex(1);
+$this->PhpExcel->getExcel()->getActiveSheet()->setTitle('Liquide');	
+
+$startRow=3;
+$rowNo=$startRow;
+foreach($liquideposten as $post){
+    $this->PhpExcel->getExcel()->getActiveSheet()
+        ->setCellValue('A'.$rowNo, $post['Grootboek']['nummer'])
+        ->setCellValue('B'.$rowNo, $post['Grootboek']['omschrijving'])
+        ->setCellValue('C'.$rowNo, $post['Bedrag']['debet'])
+        ->setCellValue('D'.$rowNo, $post['Bedrag']['credit'])
+        ->setCellValue('E'.$rowNo, $post['Bedrag']['saldo']);   
+    $this->PhpExcel->getExcel()->getActiveSheet()->getStyle('C'.$rowNo.':E'.$rowNo)->getNumberFormat()->setFormatCode('_ * #,##0.00 ;_ * -#,##0.00 ;_ * ""??_ ;_ @_ ');
+    $this->PhpExcel->getExcel()->getActiveSheet()->getStyle('A'.$rowNo.':E'.$rowNo)->getFont()->setSize(9);					
+    $this->PhpExcel->getExcel()->getActiveSheet()->getStyle('A'.$rowNo.':E'.$rowNo)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
+    $this->PhpExcel->getExcel()->getActiveSheet()->getStyle('B'.$rowNo)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+    $rowNo++;
+}
+
+$this->PhpExcel->getExcel()->getActiveSheet()
+    ->setCellValue('A'.($startRow-1), '#')
+    ->setCellValue('B'.($startRow-1), 'Omschrijving')
+    ->setCellValue('C'.($startRow-1), 'Debet')
+    ->setCellValue('D'.($startRow-1), 'Credit')
+    ->setCellValue('E'.($startRow-1), 'Saldo');
+
+$this->PhpExcel->getExcel()->getActiveSheet()
+    ->setCellValue('A'.$rowNo, '')
+    ->setCellValue('B'.$rowNo, 'Totaal')
+    ->setCellValue('C'.$rowNo, '0')
+    ->setCellValue('D'.$rowNo, '0')
+    ->setCellValue('E'.$rowNo, '0');
+$this->PhpExcel->getExcel()->getActiveSheet()->getStyle('C'.$rowNo.':E'.$rowNo)->getNumberFormat()->setFormatCode('_ * #,##0.00 ;_ * -#,##0.00 ;_ * ""??_ ;_ @_ ');
+$this->PhpExcel->getExcel()->getActiveSheet()->getStyle('A'.$rowNo.':E'.$rowNo)->getFont()->setSize(10);					
+$this->PhpExcel->getExcel()->getActiveSheet()->getStyle('A'.$rowNo.':E'.$rowNo)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
+$this->PhpExcel->getExcel()->getActiveSheet()->getStyle('B'.$rowNo)->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+
+$this->PhpExcel->getExcel()->getActiveSheet()
+    ->setCellValue('C'.$rowNo, '=SUM(C'.$startRow.':C'.($rowNo-1).')')
+    ->setCellValue('D'.$rowNo, '=SUM(D'.$startRow.':D'.($rowNo-1).')')
+    ->setCellValue('E'.$rowNo, '=SUM(E'.$startRow.':E'.($rowNo-1).')');
+
+
+$this->PhpExcel->getExcel()->getActiveSheet()->getColumnDimension("A")->setWidth(5);
+$this->PhpExcel->getExcel()->getActiveSheet()->getColumnDimension("B")->setWidth(35);
+$this->PhpExcel->getExcel()->getActiveSheet()->getColumnDimension("C")->setWidth(11);
+$this->PhpExcel->getExcel()->getActiveSheet()->getColumnDimension("D")->setWidth(11);
+$this->PhpExcel->getExcel()->getActiveSheet()->getColumnDimension("E")->setWidth(11);
 
 $timestamp = date('Y-m-d H:i:s');
 $footer = 'Gegenereerd: '.$timestamp;

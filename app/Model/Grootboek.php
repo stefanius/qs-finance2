@@ -74,14 +74,19 @@ class Grootboek extends AppModel {
 		)
 	);
 	
-	function getPosten($winstverlies=null){
-		$this->recursive=-1;
-		if(isset($winstverlies)){
-			$posten = $this->find('all', array('conditions' => array('winstverlies' => $winstverlies)));
-		}else{
-			$posten = $this->find('all');
-		}
-		return $posten;
+	function getPosten($type=null){
+            $this->recursive=-1;
+            if(isset($type)){
+                if($type ==0 || $type ==1){
+                    $posten = $this->find('all', array('conditions' => array('winstverlies' => $type)));
+                }elseif($type==2){
+                    $posten = $this->find('all', array('conditions' => array('liquide' => 1)));
+                }
+                
+            }else{
+                $posten = $this->find('all');
+            }
+            return $posten;
 	}
 	
 	function getById($id){

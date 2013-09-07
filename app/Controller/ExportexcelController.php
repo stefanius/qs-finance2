@@ -47,8 +47,9 @@ class ExportexcelController extends AppController {
 
 	function kolombalans($bookyear){
             $balans = $this->Balans->openKolomBalans($bookyear);
+            $liquideposten = $this->Balans->retrieveLiquidePosten($bookyear);
             $data=$balans;
-            $this->set(compact('balans', 'data'));
+            $this->set(compact('balans', 'data', 'liquideposten'));
 	}     
         
         function essetial(){

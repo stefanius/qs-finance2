@@ -89,8 +89,7 @@ class ExportKolomBalansHelper extends AppHelper {
                                             'inside'=> array('style' => PHPExcel_Style_Border::BORDER_THIN))));
         $Excel->getActiveSheet()->getStyle('B'.$rowNo.':M'.$rowNo)->applyFromArray(
                     array('borders' => array('bottom'=> array('style' => PHPExcel_Style_Border::BORDER_THIN,
-                                                              'color' => array('argb' => 'FFe4e4e4')))));        
-        
+                                                              'color' => array('argb' => 'FFe4e4e4')))));                
     }    
     
 }

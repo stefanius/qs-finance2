@@ -131,5 +131,16 @@ class Balans extends AppModel {
 			$this->Calculation->save($journaal);
 		}
 	}
+        
+        function retrieveLiquidePosten($bookyear_key, $beginbalans=null){
+            $bookyear = $this->Bookyear->get($bookyear_key);
+            $posten = $this->Grootboek->getPosten(Configure::read('Grootboek.Liquide')); 
+            $calculated=array();
+            foreach($posten as $post){		
+                $gb = $this->Grootboek->getSaldi($bookyear['Bookyear']['id'], $post['Grootboek']['id'],$beginbalans);		
+                $calculated[$post['Grootboek']['nummer']] = $gb;
+            }  
+            return $calculated;
+        }
 }
 ?>

@@ -1135,3 +1135,55 @@ Stack Trace:
 #6 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
 #7 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #8 {main}
+2013-09-04 22:05:12 Error: [Exception] Active sheet index is out of bounds.
+Request URL: /qs-finance2/exportexcel/kolombalans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\app\View\Helper\PhpExcelHelper.php(51): PHPExcel->setActiveSheetIndex(1)
+#1 C:\wamp\www\qs-finance2\app\View\Exportexcel\kolombalans.ctp(118): PhpExcelHelper->setActiveSheetIndex(1)
+#2 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(947): include('C:\wamp\www\qs-...')
+#3 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(909): View->_evaluate('C:\wamp\www\qs-...', Array)
+#4 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(471): View->_render('C:\wamp\www\qs-...')
+#5 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#6 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#7 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ExportexcelController), Object(CakeRequest), Object(CakeResponse))
+#8 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2013-09-06 22:10:04 Error: [PHPExcel_Exception] Invalid cell coordinate -1
+Request URL: /qs-finance2/exportexcel/kolombalans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\app\Vendor\PhpExcel\Classes\PHPExcel\Worksheet.php(1121): PHPExcel_Cell::coordinateFromString('-1')
+#1 C:\wamp\www\qs-finance2\app\Vendor\PhpExcel\Classes\PHPExcel\Worksheet.php(1029): PHPExcel_Worksheet->getCell(-1)
+#2 C:\wamp\www\qs-finance2\app\View\Exportexcel\kolombalans.ctp(132): PHPExcel_Worksheet->setCellValue(-1, '#')
+#3 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(947): include('C:\wamp\www\qs-...')
+#4 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(909): View->_evaluate('C:\wamp\www\qs-...', Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(471): View->_render('C:\wamp\www\qs-...')
+#6 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render(NULL, NULL)
+#7 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#8 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ExportexcelController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-09-06 23:36:09 Error: Fatal Error (1): Call to undefined method PHPExcel_Style_NumberFormat::getStyle() in [C:\wamp\www\qs-finance2\app\View\Exportexcel\kolombalans.ctp, line 130]
+2013-09-06 23:36:09 Error: [FatalErrorException] Call to undefined method PHPExcel_Style_NumberFormat::getStyle()
+Request URL: /qs-finance2/exportexcel/kolombalans/2011-2012
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\Error\ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\wamp\www\qs-...', 130)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\wamp\www\qs-...', 130, Array)
+#2 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\wamp\www\qs-...', 130, Array)
+#3 C:\wamp\www\qs-finance2\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-06 21:52:22 Error: [MissingViewException] View file "C:\wamp\www\qs-finance2\app\View\Pages\instellingen.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'C:\\wamp\\www\\qs-finance2\\app\\View\\Pages\\instellingen.ctp',
+)
+Request URL: /qs-finance2/pages/instellingen/
+Stack Trace:
+#0 C:\wamp\www\qs-finance2\lib\Cake\View\View.php(468): View->_getViewFileName('instellingen')
+#1 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(948): View->render('instellingen', NULL)
+#2 C:\wamp\www\qs-finance2\app\Controller\PagesController.php(83): Controller->render('instellingen')
+#3 [internal function]: PagesController->display('instellingen')
+#4 C:\wamp\www\qs-finance2\lib\Cake\Controller\Controller.php(486): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#5 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 C:\wamp\www\qs-finance2\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#7 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
