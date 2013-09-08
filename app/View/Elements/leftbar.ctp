@@ -3,6 +3,7 @@
 	if($this->Session->read('Auth.User.id') >= 1 ){
 		echo $this->element('system');
                 echo $this->element('menu/export');
+                echo $this->element('menu/import');
 		echo $this->element('openbookyears');
 		echo $this->element('closedbookyears');
 		echo $this->element('link_to_crossbooking', array(	'bookyear' => $this -> Session -> read("bookyear"), 
