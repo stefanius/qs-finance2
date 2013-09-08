@@ -28,7 +28,19 @@ class BalansController extends AppController {
 	function kolombalans($bookyear){
 		$kolombalans = $this->Balans->openKolomBalans($bookyear);
 		$this->set(compact('kolombalans'));
-        }
+	}
+	
+	function exportbalans($bookyear, $exporttype){ //balans of kolombalans
+            if($exporttype=='balans'){
+                    $balans = $this->Balans->openBalans($bookyear);
+                    $balans = $this->Balans->formatBalans($balans);
+                    $this->Excel->exportbalans($balans);
+            }elseif($exporttype=='kolombalans'){
+                    $balans = $this->Balans->openKolomBalans($bookyear);
+                    $this->Excel->exportkolombalans($balans);
+            }
+            exit;
+	}
 	
 	function newbalans($oldbookyear, $newbookyear){
 		$this->Balans->newbalans($oldbookyear, $newbookyear);
