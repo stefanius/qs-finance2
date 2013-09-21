@@ -2,7 +2,7 @@
 class CalculationsController extends AppController {
 	var $name = 'Calculations';
 	var $helpers = array('Form', 'Html', 'Number',  'Balans');
-	//var $components = array('Excel');
+	public $components = array('Import','Csv', 'Session');
 
 	function beforeFilter() {
 		parent::resetSessionArgs();
@@ -196,37 +196,58 @@ class CalculationsController extends AppController {
 		$this->set(compact('calculations','boekingstuk'));
 	}
 	
-	function import($bookyear_key=null){
+	function import($bookyear_key=null, $source=null, $type=null){
+            
+            if(!empty($bookyear_key )){
+                $bookyear = $this->Calculation->Bookyear->get($bookyear_key);
+            }
+            
+            if(!empty($this->request->data ) && !empty($source) && !empty($type)) {
+                $source = strtolower($source);
+                $type = strtolower($type);
+                
+                $path = 'import/'.$bookyear['Bookyear']['omschrijving'].'/'.$source.'/'.$type;
+                $fileOK = $this->uploadFiles($path,$this->request->data['File']);
+            
+                if(array_key_exists('errors', $fileOK)){
+                    $this->Session->setFlash(__($fileOK['errors'][0]));
+                    $this->redirect(array('controller' => 'pages', 'action' => 'home'));
+                }else{
+                    $filename = WWW_ROOT.$fileOK['urls'][0];
+                    $data = $this->Import->execute($filename, $source , $type );
+                    $grootboeks = $this->Calculation->Grootboek->find('list');
+                    $this->set(compact('data', 'grootboeks'));
+                }
+            }
 
-		if (!empty($this->request->data)) {
-			$bookyear = $this->Calculation->Bookyear->get($this->request->data['Bookyear']['id']);
-			$fileOK = $this->uploadFiles('import/'.$bookyear['Bookyear']['id'].'/kwartaal', $this->request->data['File']);
-			
-			if(array_key_exists('errors', $fileOK)){
-				$this->Session->setFlash(__($fileOK['errors'][0]));
-				$this->redirect(array('controller' => 'pages', 'action' => 'home'));
-			}else{
-				$param['Bookyear'] = $bookyear['Bookyear'];
-				$param['filename'] = WWW_ROOT.$fileOK['urls'][0];
-				$calcs = $this->Excel->readkwartaal($param);
-				
-				if ($this->Calculation->saveAll($calcs['Calculation'])) {
-					$this->Session->setFlash(__('Excelsheet is verwerkt'));
-					$this->redirect(array('controller' => 'balans', 'action' => 'open', $bookyear['Bookyear']['omschrijving']));
-				} else {
-					print_r($calcs['Calculation']);
-					$this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
-				}
-			}
-			//$this->redirect(array('controller' => 'pages', 'action' => 'home'));
-		}else if(isset($bookyear_key)){
-			$bookyear = $this->Calculation->Bookyear->get($bookyear_key);
-			$this->set(compact('bookyear'));
-		}else{
-			$this->Session->setFlash(__('Geen boekjaar ingesteld, import wordt geweigerd.'));
-		}
-		
-		
+            $this->set(compact('bookyear'));
+/*            if (!empty($this->request->data)) {
+                $bookyear = $this->Calculation->Bookyear->get($this->request->data['Bookyear']['id']);
+                
+
+                if(array_key_exists('errors', $fileOK)){
+                        $this->Session->setFlash(__($fileOK['errors'][0]));
+                        $this->redirect(array('controller' => 'pages', 'action' => 'home'));
+                }else{
+                        $param['Bookyear'] = $bookyear['Bookyear'];
+                        $param['filename'] = WWW_ROOT.$fileOK['urls'][0];
+                        $calcs = $this->Excel->readkwartaal($param);
+
+                        if ($this->Calculation->saveAll($calcs['Calculation'])) {
+                                $this->Session->setFlash(__('Excelsheet is verwerkt'));
+                                $this->redirect(array('controller' => 'balans', 'action' => 'open', $bookyear['Bookyear']['omschrijving']));
+                        } else {
+                                print_r($calcs['Calculation']);
+                                $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
+                        }
+                }
+                //$this->redirect(array('controller' => 'pages', 'action' => 'home'));
+            }else if(isset($bookyear_key)){
+                
+                $this->set(compact('bookyear'));
+            }else{
+                $this->Session->setFlash(__('Geen boekjaar ingesteld, import wordt geweigerd.'));
+            }*/
 	}		
 }
 ?>

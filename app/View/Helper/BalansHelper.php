@@ -30,7 +30,7 @@
  * @link http://book.cakephp.org/view/1452/Number
  */
 class BalansHelper extends AppHelper {
-	var $helpers = array('Html');
+	var $helpers = array('Html', 'Number');
 /**
  * Currencies supported by the helper.  You can add additional currency formats
  * with NumberHelper::addFormat
@@ -60,13 +60,13 @@ class BalansHelper extends AppHelper {
  * @access protected
  */
 	var $_currencyDefaults = array(
-		'before'=>'', 'after' => '', 'zero' => 0, 'places' => 2, 'thousands' => '.',
-		'decimals' => ',','negative' => '()', 'escape' => true
+            'before'=>'', 'after' => '', 'zero' => 0, 'places' => 2, 'thousands' => '.',
+            'decimals' => ',','negative' => '()', 'escape' => true
 	);
 
 	var $_currencyBalansDefaults = array(
-			'before'=>'', 'after' => '', 'zero' => '-', 'places' => 2, 'thousands' => '.',
-			'decimals' => ',','negative' => '-', 'escape' => true
+            'before'=>'', 'after' => '', 'zero' => '-', 'places' => 2, 'thousands' => '.',
+            'decimals' => ',','negative' => '-', 'escape' => true
 	);
 
 /**
@@ -272,18 +272,18 @@ class BalansHelper extends AppHelper {
  * @link http://book.cakephp.org/view/1456/toReadableSize
  */
 	function toReadableSize($size) {
-		switch (true) {
-			case $size < 1024:
-				return sprintf(__n('%d Byte', '%d Bytes', $size), $size);
-			case round($size / 1024) < 1024:
-				return sprintf(__('%d KB'), $this->precision($size / 1024, 0));
-			case round($size / 1024 / 1024, 2) < 1024:
-				return sprintf(__('%.2f MB'), $this->precision($size / 1024 / 1024, 2));
-			case round($size / 1024 / 1024 / 1024, 2) < 1024:
-				return sprintf(__('%.2f GB'), $this->precision($size / 1024 / 1024 / 1024, 2));
-			default:
-				return sprintf(__('%.2f TB'), $this->precision($size / 1024 / 1024 / 1024 / 1024, 2));
-		}
+            switch (true) {
+                case $size < 1024:
+                        return sprintf(__n('%d Byte', '%d Bytes', $size), $size);
+                case round($size / 1024) < 1024:
+                        return sprintf(__('%d KB'), $this->precision($size / 1024, 0));
+                case round($size / 1024 / 1024, 2) < 1024:
+                        return sprintf(__('%.2f MB'), $this->precision($size / 1024 / 1024, 2));
+                case round($size / 1024 / 1024 / 1024, 2) < 1024:
+                        return sprintf(__('%.2f GB'), $this->precision($size / 1024 / 1024 / 1024, 2));
+                default:
+                        return sprintf(__('%.2f TB'), $this->precision($size / 1024 / 1024 / 1024 / 1024, 2));
+            }
 	}
 
 /**
@@ -368,6 +368,8 @@ class BalansHelper extends AppHelper {
  * @link http://book.cakephp.org/view/1453/currency
  */
 	function currency($number, $currency = 'EUR', $options = array()) {
+          //  $a =  $this->Number->currency($number, $currency);
+            //return $a;
 		$default = $this->_currencyBalansDefaults;
 
 		if (isset($this->_currencies[$currency])) {
@@ -379,7 +381,9 @@ class BalansHelper extends AppHelper {
 		$options = array_merge($default, $options);
 
 		$result = null;
-
+                
+                //$number=floatval($number);
+               // var_dump($number);
 		if ($number == 0 ) {
 			if ($options['zero'] !== 0 ) {
 				return $options['zero'];
