@@ -1,15 +1,14 @@
 <?php
 class DATABASE_CONFIG {
 
-	var $qsabbr = 'dev_';
 	var $default = array(
 		'datasource' => 'Database/Mysql',
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'db.mysql.qsfinance',
-		'login' => 'qs_'.$this->qsabbr.'user',
+		'login' => 'qs_dev_user',
 		'password' => 'password',
-		'database' => 'qs_'.$this->qsabbr.'dev',
+		'database' => 'qs_dev_db',
 	);
 
 /*
