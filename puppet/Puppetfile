@@ -1,0 +1,13 @@
+forge "http://forge.puppetlabs.com"
+
+mod "mysql",
+  :git => "git://github.com/puppetlabs/puppetlabs-mysql.git"
+
+mod "apache",
+  :git => "git://github.com/example42/puppet-apache.git"
+
+mod "php",
+  :git => "git://github.com/example42/puppet-php.git"
+
+mod "composer",
+  :git => "git://github.com/willdurand/puppet-composer.git"
