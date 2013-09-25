@@ -10,6 +10,7 @@
 #/tags
 
 /puppet/modules/*
+/app/tmp/logs/error.log
 
 # OS generated files #
 ######################
