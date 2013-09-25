@@ -9,6 +9,8 @@
 #/dist
 #/tags
 
+/puppet/modules/*
+
 # OS generated files #
 ######################
 .DS_Store
