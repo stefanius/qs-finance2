@@ -21,6 +21,10 @@ class ImportComponent extends Component {
                 $data[$key]['boekdatum'] = $datarow[0];
                 $data[$key]['omschrijving'] = $datarow[1];
                 
+                if(strlen(trim($datarow[8])) > 5){
+                	$data[$key]['omschrijving'] = $datarow[8];
+                }
+                
                 if($datarow[5] === 'Af'){
                     $data[$key]['credit'] = str_replace(',', '.', $datarow[6]) ;
                     $data[$key]['debet'] = 0;
