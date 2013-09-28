@@ -23,6 +23,7 @@ mysql::db { 'qs_dev_db':
   password => 'password',
   host     => '127.0.0.1',
   grant    => ['all'],
+  before  => Exec["import-db"]
 }
 
 class { 'apache': }
@@ -45,4 +46,9 @@ class { 'composer':
   command_name => 'composer',
   target_dir   => '/usr/local/bin',
   require      => Class['php'],
+}
+
+exec {"import-db":
+	command => "/usr/bin/mysql -uroot  < /vagrant/sql/qsfinance.sql",
+    require => [Class['composer'], Class['php'], Class['mysql'], Class['mysql::php']],
 }
