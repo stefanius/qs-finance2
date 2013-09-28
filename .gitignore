@@ -11,6 +11,7 @@
 
 /puppet/modules/*
 /app/tmp/logs/error.log
+/puppet/.tmp/*
 
 # OS generated files #
 ######################
