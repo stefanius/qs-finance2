@@ -1196,3 +1196,201 @@ Request URL: /qs-finance2/js/jquery-2.0.2.min.map
 Stack Trace:
 #0 C:\wamp\www\qs-finance2\app\webroot\index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-09-23 21:12:27 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2005] Unknown MySQL server host \'db.qsfinance.dev\' (2)',
+  'enabled' => true,
+)
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /vagrant/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /vagrant/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /vagrant/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /vagrant/lib/Cake/Model/Model.php(3243): Model->setSource('users')
+#5 /vagrant/lib/Cake/Model/Model.php(1319): Model->getDataSource()
+#6 /vagrant/lib/Cake/View/Helper/FormHelper.php(198): Model->schema()
+#7 /vagrant/lib/Cake/View/Helper/FormHelper.php(448): FormHelper->_introspectModel('User', 'fields')
+#8 /vagrant/app/View/Users/login.ctp(3): FormHelper->create('User', Array)
+#9 /vagrant/lib/Cake/View/View.php(947): include('/vagrant/app/Vi...')
+#10 /vagrant/lib/Cake/View/View.php(909): View->_evaluate('/vagrant/app/Vi...', Array)
+#11 /vagrant/lib/Cake/View/View.php(471): View->_render('/vagrant/app/Vi...')
+#12 /vagrant/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /vagrant/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /vagrant/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /vagrant/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-09-24 20:03:55 Error: Fatal Error (4): syntax error, unexpected '.', expecting ')' in [/vagrant/app/Config/database.php, line 10]
+2013-09-24 20:03:55 Error: [FatalErrorException] syntax error, unexpected '.', expecting ')'
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/app/Co...', 10)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/app/Co...', 10, Array)
+#2 /vagrant/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/app/Co...', 10, Array)
+#3 /vagrant/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-24 20:05:59 Error: Fatal Error (4): syntax error, unexpected '.', expecting ')' in [/vagrant/app/Config/database.php, line 10]
+2013-09-24 20:05:59 Error: [FatalErrorException] syntax error, unexpected '.', expecting ')'
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/app/Co...', 10)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/app/Co...', 10, Array)
+#2 /vagrant/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/app/Co...', 10, Array)
+#3 /vagrant/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-24 20:06:17 Error: Fatal Error (4): syntax error, unexpected '.', expecting ')' in [/vagrant/app/Config/database.php, line 12]
+2013-09-24 20:06:17 Error: [FatalErrorException] syntax error, unexpected '.', expecting ')'
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/vagrant/app/Co...', 12)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/vagrant/app/Co...', 12, Array)
+#2 /vagrant/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/vagrant/app/Co...', 12, Array)
+#3 /vagrant/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-09-24 20:28:27 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2005] Unknown MySQL server host \'db.mysql.qsfinance\' (2)',
+  'enabled' => true,
+)
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /vagrant/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /vagrant/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /vagrant/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /vagrant/lib/Cake/Model/Model.php(3243): Model->setSource('users')
+#5 /vagrant/lib/Cake/Model/Model.php(1319): Model->getDataSource()
+#6 /vagrant/lib/Cake/View/Helper/FormHelper.php(198): Model->schema()
+#7 /vagrant/lib/Cake/View/Helper/FormHelper.php(448): FormHelper->_introspectModel('User', 'fields')
+#8 /vagrant/app/View/Users/login.ctp(3): FormHelper->create('User', Array)
+#9 /vagrant/lib/Cake/View/View.php(947): include('/vagrant/app/Vi...')
+#10 /vagrant/lib/Cake/View/View.php(909): View->_evaluate('/vagrant/app/Vi...', Array)
+#11 /vagrant/lib/Cake/View/View.php(471): View->_render('/vagrant/app/Vi...')
+#12 /vagrant/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /vagrant/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /vagrant/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /vagrant/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-09-25 20:16:20 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[28000] [1045] Access denied for user \'qs_dev_user\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /vagrant/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /vagrant/lib/Cake/Model/Model.php(3221): ConnectionManager::getDataSource('default')
+#3 /vagrant/lib/Cake/Model/Model.php(1108): Model->setDataSource('default')
+#4 /vagrant/lib/Cake/Model/Model.php(3243): Model->setSource('users')
+#5 /vagrant/lib/Cake/Model/Model.php(1319): Model->getDataSource()
+#6 /vagrant/lib/Cake/View/Helper/FormHelper.php(198): Model->schema()
+#7 /vagrant/lib/Cake/View/Helper/FormHelper.php(448): FormHelper->_introspectModel('User', 'fields')
+#8 /vagrant/app/View/Users/login.ctp(3): FormHelper->create('User', Array)
+#9 /vagrant/lib/Cake/View/View.php(947): include('/vagrant/app/Vi...')
+#10 /vagrant/lib/Cake/View/View.php(909): View->_evaluate('/vagrant/app/Vi...', Array)
+#11 /vagrant/lib/Cake/View/View.php(471): View->_render('/vagrant/app/Vi...')
+#12 /vagrant/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#13 /vagrant/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#14 /vagrant/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#15 /vagrant/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-09-25 21:01:03 Error: [MissingTableException] Table users for model User was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'users',
+  'class' => 'User',
+  'ds' => 'default',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Model/Model.php(3243): Model->setSource('users')
+#1 /vagrant/lib/Cake/Model/Model.php(1319): Model->getDataSource()
+#2 /vagrant/lib/Cake/View/Helper/FormHelper.php(198): Model->schema()
+#3 /vagrant/lib/Cake/View/Helper/FormHelper.php(448): FormHelper->_introspectModel('User', 'fields')
+#4 /vagrant/app/View/Users/login.ctp(3): FormHelper->create('User', Array)
+#5 /vagrant/lib/Cake/View/View.php(947): include('/vagrant/app/Vi...')
+#6 /vagrant/lib/Cake/View/View.php(909): View->_evaluate('/vagrant/app/Vi...', Array)
+#7 /vagrant/lib/Cake/View/View.php(471): View->_render('/vagrant/app/Vi...')
+#8 /vagrant/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#9 /vagrant/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#10 /vagrant/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-09-28 16:31:25 Error: [MissingTableException] Table users for model User was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'users',
+  'class' => 'User',
+  'ds' => 'default',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Model/Model.php(3243): Model->setSource('users')
+#1 /vagrant/lib/Cake/Model/Model.php(1319): Model->getDataSource()
+#2 /vagrant/lib/Cake/View/Helper/FormHelper.php(198): Model->schema()
+#3 /vagrant/lib/Cake/View/Helper/FormHelper.php(448): FormHelper->_introspectModel('User', 'fields')
+#4 /vagrant/app/View/Users/login.ctp(3): FormHelper->create('User', Array)
+#5 /vagrant/lib/Cake/View/View.php(947): include('/vagrant/app/Vi...')
+#6 /vagrant/lib/Cake/View/View.php(909): View->_evaluate('/vagrant/app/Vi...', Array)
+#7 /vagrant/lib/Cake/View/View.php(471): View->_render('/vagrant/app/Vi...')
+#8 /vagrant/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#9 /vagrant/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#10 /vagrant/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-09-28 17:09:16 Error: [MissingTableException] Table users for model User was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'users',
+  'class' => 'User',
+  'ds' => 'default',
+)
+Request URL: /users/login
+Stack Trace:
+#0 /vagrant/lib/Cake/Model/Model.php(3243): Model->setSource('users')
+#1 /vagrant/lib/Cake/Model/Model.php(1319): Model->getDataSource()
+#2 /vagrant/lib/Cake/View/Helper/FormHelper.php(198): Model->schema()
+#3 /vagrant/lib/Cake/View/Helper/FormHelper.php(448): FormHelper->_introspectModel('User', 'fields')
+#4 /vagrant/app/View/Users/login.ctp(3): FormHelper->create('User', Array)
+#5 /vagrant/lib/Cake/View/View.php(947): include('/vagrant/app/Vi...')
+#6 /vagrant/lib/Cake/View/View.php(909): View->_evaluate('/vagrant/app/Vi...', Array)
+#7 /vagrant/lib/Cake/View/View.php(471): View->_render('/vagrant/app/Vi...')
+#8 /vagrant/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#9 /vagrant/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#10 /vagrant/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /vagrant/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-09-28 17:17:03 Error: [MissingViewException] View file "/vagrant/app/View/Pages/instellingen.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/app/View/Pages/instellingen.ctp',
+)
+Request URL: /pages/instellingen/
+Stack Trace:
+#0 /vagrant/lib/Cake/View/View.php(468): View->_getViewFileName('instellingen')
+#1 /vagrant/lib/Cake/Controller/Controller.php(948): View->render('instellingen', NULL)
+#2 /vagrant/app/Controller/PagesController.php(83): Controller->render('instellingen')
+#3 [internal function]: PagesController->display('instellingen')
+#4 /vagrant/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#5 /vagrant/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 /vagrant/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#7 /vagrant/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-09-28 17:17:23 Error: [MissingViewException] View file "/vagrant/app/View/Pages/instellingen.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/vagrant/app/View/Pages/instellingen.ctp',
+)
+Request URL: /pages/instellingen/
+Stack Trace:
+#0 /vagrant/lib/Cake/View/View.php(468): View->_getViewFileName('instellingen')
+#1 /vagrant/lib/Cake/Controller/Controller.php(948): View->render('instellingen', NULL)
+#2 /vagrant/app/Controller/PagesController.php(83): Controller->render('instellingen')
+#3 [internal function]: PagesController->display('instellingen')
+#4 /vagrant/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#5 /vagrant/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 /vagrant/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#7 /vagrant/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
