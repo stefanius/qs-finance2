@@ -27,6 +27,34 @@
 	text-align:right;
 }
 
+
+
+.import th.checkbox,
+.import td.checkbox{
+	width:1%;
+}
+
+.import th.datum,
+.import td.datum{
+	width:7%;
+}
+
+.import td.omschrijving input{
+	font-size: 90%;
+	padding: 0.5%;
+}
+
+.import th.post,
+.import td.post{
+	width:9%;
+}
+
+.import th.geld,
+.import td.geld{
+	width:12%;
+	text-align:right;
+}
+
 .grootboek th.omschrijving{
 	width:70%;
 }

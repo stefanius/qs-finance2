@@ -2,6 +2,9 @@
 class CalculationsController extends AppController {
 	var $name = 'Calculations';
 	var $helpers = array('Form', 'Html', 'Number',  'Balans');
+	
+	var $uses = array('Balans', 'Calculation', 'Bookyear', 'Grootboek', 'Bankaccount');
+	
 	public $components = array('Import','Csv', 'Session');
 
 	function beforeFilter() {
@@ -41,15 +44,7 @@ class CalculationsController extends AppController {
 		$boekingstuk_model = ClassRegistry::init('Boekingstukken');
 		if (!empty($this->request->data)) {
 			$incommingData = $this->request->data;	
-			if($incommingData['Calculation']['DebetCredit']=='c'){
-				$incommingData['Calculation'][1]['debet'] = $incommingData['Calculation'][0]['credit'];
-				$incommingData['Calculation'][1]['omschrijving'] = $incommingData['Calculation'][0]['omschrijving'];
-				$incommingData['Calculation'][0]['omschrijving'] = $incommingData['Calculation'][0]['omschrijving'];
-			}elseif($incommingData['Calculation']['DebetCredit']=='d'){
-				$incommingData['Calculation'][1]['credit'] = $incommingData['Calculation'][0]['debet'];
-				$incommingData['Calculation'][1]['omschrijving'] = $incommingData['Calculation'][0]['omschrijving'];
-				$incommingData['Calculation'][0]['omschrijving'] = $incommingData['Calculation'][0]['omschrijving'];			
-			}
+
 			
 			if(strlen($incommingData['Calculation'][0]['boekingstuk']) < 1 ){
 				$incommingData['Calculation'][0]['boekingstuk'] = "@@@".time(); //@@@ wordt gebruikt als 'tag' voor een gegenereerd boekingsstuk.
@@ -197,12 +192,12 @@ class CalculationsController extends AppController {
 	}
 	
 	function import($bookyear_key=null, $source=null, $type=null){
-            
+		
             if(!empty($bookyear_key )){
                 $bookyear = $this->Calculation->Bookyear->get($bookyear_key);
             }
-            
-            if(!empty($this->request->data ) && !empty($source) && !empty($type)) {
+
+            if(!empty($this->request->data ) && !empty($source) && !empty($type) && isset($this->request->data['File'])) {
                 $source = strtolower($source);
                 $type = strtolower($type);
                 
@@ -214,12 +209,47 @@ class CalculationsController extends AppController {
                     $this->redirect(array('controller' => 'pages', 'action' => 'home'));
                 }else{
                     $filename = WWW_ROOT.$fileOK['urls'][0];
-                    $data = $this->Import->execute($filename, $source , $type );
+                    $parseddata = $this->Import->execute($filename, $source , $type );
+                    $data = $parseddata['data'];
+                    $sourceinfo = $parseddata['sourceinfo'];
                     $grootboeks = $this->Calculation->Grootboek->find('list');
-                    $this->set(compact('data', 'grootboeks'));
-                }
-            }
+                    $bankpost = $this->Bankaccount->findByIban($sourceinfo['rekening']);
 
+                    $this->set(compact('data', 'grootboeks', 'sourceinfo', 'bankpost'));
+                }
+            }elseif(isset($this->request->data['Calculation'])){
+            	$calculations = $this->request->data['Calculation'];
+            	$bankpost = $this->Grootboek->findById( $this->request->data['Grootboek']['id']);
+				$savedata = array();
+				$i=0;
+            	foreach($calculations as $calculation){
+ 					/* Gegevens bankpost van de source-csv */
+            		$savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
+            		$savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
+            		$savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
+            		$savedata['Calculation'][$i]['grootboek_id'] = $bankpost['Grootboek']['id'];
+            		$savedata['Calculation'][$i]['debet'] = $calculation['debet'];
+            		$savedata['Calculation'][$i]['credit'] = $calculation['credit'];
+            		$i++;   		
+            		
+            		/* Gegevens grootboek / balanspost / resultaatpost van de doel-post */
+            		$savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
+            		$savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
+            		$savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
+            		$savedata['Calculation'][$i]['grootboek_id'] = $calculation['grootboek_id'];
+            		$savedata['Calculation'][$i]['debet'] = $calculation['credit']; //DEBET from source-csv is CREDIT from target
+            		$savedata['Calculation'][$i]['credit'] = $calculation['debet']; //CREDIT from source-csv is DEBET from target
+            		$i++;            		
+            	}
+            	if ($this->Calculation->saveAll($savedata['Calculation'])) {
+            		$this->Session->setFlash(__('Mutatie is verwerkt'));
+            		//$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
+            	} else {
+            		$this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
+            	}            	
+            	
+            }
+			
             $this->set(compact('bookyear'));
 /*            if (!empty($this->request->data)) {
                 $bookyear = $this->Calculation->Bookyear->get($this->request->data['Bookyear']['id']);

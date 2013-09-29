@@ -8,6 +8,7 @@ class ImportComponent extends Component {
     
     public function execute($filename = null, $source = null, $type = null){
         $data = array();
+        $sourceinfo = array();
         if(is_null($filename) || is_null($source) || is_null($type)){
             throw new CakeException();
         }
@@ -19,10 +20,12 @@ class ImportComponent extends Component {
             
             foreach($csvdata as $key=>$datarow){
                 $data[$key]['boekdatum'] = $datarow[0];
-                $data[$key]['omschrijving'] = $datarow[1];
+                $data[$key]['omschrijving'] = preg_replace('/\s+/', ' ', $datarow[1]) ;
+                
+                $sourceinfo['rekening'] = $datarow[2];
                 
                 if(strlen(trim($datarow[8])) > 5){
-                	$data[$key]['omschrijving'] = $datarow[8];
+                	$data[$key]['omschrijving'] = preg_replace('/\s+/', ' ', $datarow[8]) ;
                 }
                 
                 if($datarow[5] === 'Af'){
@@ -34,7 +37,10 @@ class ImportComponent extends Component {
                 }
             }
         }
-        return $data;
+        $rtrn = array();
+        $rtrn['data']  = $data;
+        $rtrn['sourceinfo']  = $sourceinfo;
+        return $rtrn;
     } 
 
 

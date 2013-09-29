@@ -1,4 +1,4 @@
-<div class="balans">
+<div class="balans import">
 <?php
 	if(isset($bookyear) && !isset($data))
 	{
@@ -16,25 +16,31 @@
 ?>
 <?php if(isset($bookyear) && isset($data)): ?>
     <?php echo $this->Form->create('Calculation');?>
+    <?php echo $this->Form->input('Grootboek.id', array('value'=>$bankpost['Grootboek']['id'], 'type' => 'text', 'label'=>false)); ?>
+
 	<table cellpadding="0" cellspacing="0">
             <tr>
+            	<th class="checkbox"></th>
                 <th class="datum">Boekdatum</th>
                 <th class="omschrijving">Omschrijving</th>
-                <th class="omschrijving">Tegenrekening</th>
-                <th class="geld">Debet</th>
-                <th class="geld">Credit</th>
+                <th class="post">Post</th>
+                <th class="geld">Debet (bij)</th>
+                <th class="geld">Credit (af)</th>
                 
             </tr>
         <?php
+        	$i=1;
             foreach($data as $d){
-		echo "<tr>";
-		echo '<td class="datum">'.$d['boekdatum']."</td>";;
-		echo '<td class="omschrijving">'.$this->Form->input('Calculation.1.omschrijving', array('value'=>$d['omschrijving'], 'label' => false)).'</td>';
-                echo '<td class="omschrijving">'. $this->Form->input('Calculation.1.grootboek_id', array('options' => $grootboeks, 'label' => false)).'</td>';
-		echo '<td class="geld">'.$this->Form->input('Calculation.1.debet', array('value'=>$d['debet'], 'label' => false, 'type'=>'text'))."</td>";
-		echo '<td class="geld">'.$this->Form->input('Calculation.1.credit', array('value'=>$d['credit'], 'label' => false,'type'=>'text'  ))."</td>";
-
-                echo "</tr>";
+				echo "<tr>";
+				echo '<td class="checkbox">'.$this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false)).'</td>';
+				echo '<td class="datum">'.$this->Form->input('Calculation.'.$i.'.boekdatum', array('value'=>$d['boekdatum'], 'label' => false))."</td>";
+				echo '<td class="omschrijving">'.$this->Form->input('Calculation.'.$i.'.omschrijving', array('value'=>$d['omschrijving'], 'label' => false)).'</td>';
+		        echo '<td class="omschrijving">'. $this->Form->input('Calculation.'.$i.'.grootboek_id', array('options' => $grootboeks, 'label' => false)).'</td>';
+				echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.debet', array('value'=>$d['debet'], 'label' => false, 'type'=>'text'))."</td>";
+				echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.credit', array('value'=>$d['credit'], 'label' => false,'type'=>'text'  ))."</td>";
+		
+		        echo "</tr>";
+		        $i++;
             }	
         ?>	
         </table>
