@@ -108,6 +108,15 @@ CREATE TABLE `qs_dev_db`.`users` (
   UNIQUE KEY `username` (`username`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4;
 
+CREATE TABLE `qs_dev_db`.`bankaccounts` (
+  `id` int(11) NOT NULL,
+  `maatschappij` varchar(45) NOT NULL,
+  `iban` varchar(45) NOT NULL,
+  `rekeningnummer` varchar(45) NOT NULL,
+  `grootboek_id` varchar(36) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM;
+
 INSERT INTO `qs_dev_db`.`users`
 (`id`,
 `username`,
