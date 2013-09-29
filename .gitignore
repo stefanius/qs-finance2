@@ -12,6 +12,7 @@
 /puppet/modules/*
 /app/tmp/logs/error.log
 /puppet/.tmp/*
+/app/webroot/import/*
 .log
 
 # OS generated files #
