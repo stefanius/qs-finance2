@@ -28,7 +28,6 @@
 }
 
 
-
 .import th.checkbox,
 .import td.checkbox{
 	width:1%;
@@ -39,6 +38,7 @@
 	width:7%;
 }
 
+.import td.datum input,
 .import td.omschrijving input{
 	font-size: 90%;
 	padding: 0.5%;
