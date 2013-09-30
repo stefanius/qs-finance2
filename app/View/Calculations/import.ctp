@@ -16,7 +16,7 @@
 ?>
 <?php if(isset($bookyear) && isset($data)): ?>
     <?php echo $this->Form->create('Calculation');?>
-    <?php echo $this->Form->input('Grootboek.id', array('value'=>$bankpost['Grootboek']['id'], 'type' => 'text', 'label'=>false)); ?>
+    <?php echo $this->Form->input('Grootboek.id', array('value'=>$bankpost['Grootboek']['id'], 'type' => 'hidden', 'label'=>false)); ?>
 
 	<table cellpadding="0" cellspacing="0">
             <tr>
@@ -33,7 +33,7 @@
             foreach($data as $d){
 				echo "<tr>";
 				echo '<td class="checkbox">'.$this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false)).'</td>';
-				echo '<td class="datum">'.$this->Form->input('Calculation.'.$i.'.boekdatum', array('value'=>$d['boekdatum'], 'label' => false))."</td>";
+				echo '<td class="datum">'.$this->Form->input('Calculation.'.$i.'.boekdatum', array('value'=>$d['boekdatum'], 'label' => false, 'type' => 'text'))."</td>";
 				echo '<td class="omschrijving">'.$this->Form->input('Calculation.'.$i.'.omschrijving', array('value'=>$d['omschrijving'], 'label' => false)).'</td>';
 		        echo '<td class="omschrijving">'. $this->Form->input('Calculation.'.$i.'.grootboek_id', array('options' => $grootboeks, 'label' => false)).'</td>';
 				echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.debet', array('value'=>$d['debet'], 'label' => false, 'type'=>'text'))."</td>";
