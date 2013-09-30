@@ -209,7 +209,8 @@ class CalculationsController extends AppController {
                     $this->redirect(array('controller' => 'pages', 'action' => 'home'));
                 }else{
                     $filename = WWW_ROOT.$fileOK['urls'][0];
-                    $parseddata = $this->Import->execute($filename, $source , $type );
+                    $this->Importer = $this->Components->load('Import'.ucwords($source).ucwords($type));
+                    $parseddata = $this->Importer->execute($filename, $source , $type );
                     $data = $parseddata['data'];
                     $sourceinfo = $parseddata['sourceinfo'];
                     $grootboeks = $this->Calculation->Grootboek->find('list');
