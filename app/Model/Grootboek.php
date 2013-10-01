@@ -5,7 +5,7 @@ class Grootboek extends AppModel {
 	var $order = "nummer asc";
 	var $recursive=-1;
 	var $virtualFields = array(
-							'display_omschrijving' => "CONCAT('', Grootboek.nummer, '- ', Grootboek.omschrijving)",
+							'display_omschrijving' => "CONCAT('', Grootboek.nummer, ' - ', Grootboek.omschrijving)",
 							'rektype' =>  "CONCAT(Grootboek.winstverlies)");
 	
 	var $validate = array(
