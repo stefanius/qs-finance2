@@ -109,7 +109,7 @@ CREATE TABLE `qs_dev_db`.`users` (
 ) ENGINE=MyISAM AUTO_INCREMENT=4;
 
 CREATE TABLE `qs_dev_db`.`bankaccounts` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `maatschappij` varchar(45) NOT NULL,
   `iban` varchar(45) NOT NULL,
   `rekeningnummer` varchar(45) NOT NULL,
