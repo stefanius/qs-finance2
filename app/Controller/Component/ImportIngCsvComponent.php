@@ -1,6 +1,6 @@
 <?php
 
-App::uses('Component', 'Controller', 'ImportComponent');
+App::uses('Component', 'ImportComponent');
 class ImportIngCsvComponent extends ImportComponent {
         
     public function execute($filename = null, $source = null, $type = null){
