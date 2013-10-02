@@ -33,7 +33,7 @@ class ImportRaboCsvComponent extends ImportComponent {
                 }
                 
                 $sourceinfo['rekening'] = $datarow[0];
-                            
+                // (D=af; C=bij - let op! Anders dan je zou verwachten!)            
                 if($datarow[3] === 'D'){
                     $data[$key]['credit'] = $datarow[4] ;
                     $data[$key]['debet'] = 0;
