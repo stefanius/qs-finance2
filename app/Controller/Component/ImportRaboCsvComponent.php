@@ -32,9 +32,9 @@ class ImportRaboCsvComponent extends ImportComponent {
                 	throw new CakeException('Boekdatum RABO incorrect.');
                 }
                 
-                $sourceinfo['rekening'] = $datarow[2];
+                $sourceinfo['rekening'] = $datarow[0];
                             
-                if($datarow[5] === 'D'){
+                if($datarow[3] === 'D'){
                     $data[$key]['credit'] = $datarow[4] ;
                     $data[$key]['debet'] = 0;
                 }else{
