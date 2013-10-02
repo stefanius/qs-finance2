@@ -2,20 +2,21 @@
 App::uses('Folder', 'Utility');
 App::uses('File', 'Utility');
 
-class BackupController extends AppController {
-    
-    var $name = 'Backup';
-    var $uses = array();
+class BackupController extends AppController
+{
+    public $name = 'Backup';
+    public $uses = array();
 
-    function downloadmysql($filename=false){
+    public function downloadmysql($filename=false)
+    {
         $path=WWW_ROOT . DS . 'files' . DS . 'mysqlbackup' . DS;
-        if($filename===false){
+        if ($filename===false) {
             $dir = new Folder($path);
             $files = $dir->find('.*\.gz');
             sort($files);
             $files=array_reverse($files);
             $this->set(compact('files'));
-        }else{
+        } else {
             $this->viewClass = 'Media';
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
             $basename = str_replace('.'.$ext, '', $filename );
@@ -26,8 +27,7 @@ class BackupController extends AppController {
                 'extension' => $ext,
                 'path'      => $path
             );
-            $this->set($params);           
+            $this->set($params);
         }
-    }    
+    }
 }
-

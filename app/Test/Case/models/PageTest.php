@@ -2,17 +2,19 @@
 /* Page Test cases generated on: 2011-07-19 11:29:47 : 1311074987*/
 App::import('Model', 'Page');
 
-class PageTest extends CakeTestCase {
-	var $fixtures = array('app.page', 'app.user');
+class PageTest extends CakeTestCase
+{
+    public $fixtures = array('app.page', 'app.user');
 
-	function startTest() {
-		$this->Page =& ClassRegistry::init('Page');
-	}
+    public function startTest()
+    {
+        $this->Page =& ClassRegistry::init('Page');
+    }
 
-	function endTest() {
-		unset($this->Page);
-		ClassRegistry::flush();
-	}
+    public function endTest()
+    {
+        unset($this->Page);
+        ClassRegistry::flush();
+    }
 
 }
-?>

@@ -2,46 +2,50 @@
 /* Bookyears Test cases generated on: 2011-07-26 17:39:41 : 1311701981*/
 App::import('Controller', 'Bookyears');
 
-class TestBookyearsController extends BookyearsController {
-	var $autoRender = false;
+class TestBookyearsController extends BookyearsController
+{
+    public $autoRender = false;
 
-	function redirect($url, $status = null, $exit = true) {
-		$this->redirectUrl = $url;
-	}
+    public function redirect($url, $status = null, $exit = true)
+    {
+        $this->redirectUrl = $url;
+    }
 }
 
-class BookyearsControllerTest extends CakeTestCase {
-	var $fixtures = array('app.bookyear', 'app.calculation', 'app.grootboek');
+class BookyearsControllerTest extends CakeTestCase
+{
+    public $fixtures = array('app.bookyear', 'app.calculation', 'app.grootboek');
 
-	function startTest() {
-		$this->Bookyears =& new TestBookyearsController();
-		$this->Bookyears->constructClasses();
-	}
+    public function startTest()
+    {
+        $this->Bookyears =& new TestBookyearsController();
+        $this->Bookyears->constructClasses();
+    }
 
-	function endTest() {
-		unset($this->Bookyears);
-		ClassRegistry::flush();
-	}
+    public function endTest()
+    {
+        unset($this->Bookyears);
+        ClassRegistry::flush();
+    }
 
-	function testIndex() {
+    public function testIndex()
+    {
+    }
 
-	}
+    public function testView()
+    {
+    }
 
-	function testView() {
+    public function testAdd()
+    {
+    }
 
-	}
+    public function testEdit()
+    {
+    }
 
-	function testAdd() {
-
-	}
-
-	function testEdit() {
-
-	}
-
-	function testDelete() {
-
-	}
+    public function testDelete()
+    {
+    }
 
 }
-?>

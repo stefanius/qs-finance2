@@ -1,6 +1,5 @@
 <?php
 
-
 //Database connection
 
 $link = mysql_connect("localhost","deb32418_aap","grootjecms");
@@ -9,8 +8,8 @@ if (!$link) {
 }
 echo 'Connected successfully';
 
-mysql_select_db('deb32418_quaestor', $link); 
-  
+mysql_select_db('deb32418_quaestor', $link);
+
 $query = sprintf("SELECT *  FROM grootboeks WHERE debetcredit='debet'");
 $result_gb_debet = mysql_query($query, $link);
 
@@ -19,18 +18,18 @@ $result_gb_credit = mysql_query($query, $link);
 
 $i=0;
 while ($row = mysql_fetch_assoc($result_gb_debet)) {
-	$debet[$i]['nummer'] = $row['nummer'];
-	$debet[$i]['omschrijving'] = $row['omschrijving'];
-	$debet[$i]['id'] = $row['id'];
-	$i++;
+    $debet[$i]['nummer'] = $row['nummer'];
+    $debet[$i]['omschrijving'] = $row['omschrijving'];
+    $debet[$i]['id'] = $row['id'];
+    $i++;
 }
 
 $i=0;
 while ($row = mysql_fetch_assoc($result_gb_credit)) {
-	$credit[$i]['nummer'] = $row['nummer'];
-	$credit[$i]['omschrijving'] = $row['omschrijving'];
-	$credit[$i]['id'] = $row['id'];
-	$i++;
+    $credit[$i]['nummer'] = $row['nummer'];
+    $credit[$i]['omschrijving'] = $row['omschrijving'];
+    $credit[$i]['id'] = $row['id'];
+    $i++;
 }
 
 /*
@@ -40,7 +39,7 @@ while ($row = mysql_fetch_assoc($result_gb_credit)) {
 $bookyear = '4e382921-46c0-46e9-9271-17409d87f14d';
 $query = sprintf("SELECT *  FROM calculations WHERE bookyear_id='%s' AND grootboek_id='%s'",
     mysql_real_escape_string($bookyear),
-	mysql_real_escape_string($bookyear));
+    mysql_real_escape_string($bookyear));
 
 // Perform Query
 $result = mysql_query($query, $link);
@@ -58,28 +57,28 @@ if (!$result) {
 // One of the mysql result functions must be used
 // See also mysql_result(), mysql_fetch_array(), mysql_fetch_row(), etc.
 while ($row = mysql_fetch_assoc($result)) {
-	print_r($row);
+    print_r($row);
 }
 
 // Free the resources associated with the result set
 // This is done automatically at the end of the script
-mysql_free_result($result);  
-  
-  
-  
-  
+mysql_free_result($result);
+
+
+
+
   */
-  
-  mysql_free_result($result_gb_debet); 
-  mysql_free_result($result_gb_credit); 
-  
-  
-  
+
+  mysql_free_result($result_gb_debet);
+  mysql_free_result($result_gb_credit);
+
+
+
   print_r($debet);
-    
+
   print_r($credit);
-  
-  
+
+
 
 
 /**
@@ -130,26 +129,26 @@ echo date('H:i:s') . " Add new data to the template\n";
 //$objPHPExcel->getActiveSheet()->setCellValue('A3', PHPExcel_Shared_Date::PHPToExcel(time()));
 
 $baseRow = 5;
-foreach($debet as $r => $dataRow) {
-	$row = $baseRow + $r;
-	//$objPHPExcel->getActiveSheet()->insertNewRowBefore($row,1);
+foreach ($debet as $r => $dataRow) {
+    $row = $baseRow + $r;
+    //$objPHPExcel->getActiveSheet()->insertNewRowBefore($row,1);
 
-	$objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $dataRow['nummer']);
-	$objPHPExcel->getActiveSheet()->setCellValue('B'.$row, $dataRow['omschrijving']);
-	//$objPHPExcel->getActiveSheet()->setCellValue('E'.$row, $dataRow['omschrijving']);
+    $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $dataRow['nummer']);
+    $objPHPExcel->getActiveSheet()->setCellValue('B'.$row, $dataRow['omschrijving']);
+    //$objPHPExcel->getActiveSheet()->setCellValue('E'.$row, $dataRow['omschrijving']);
 }
 $objPHPExcel->getActiveSheet()->removeRow($baseRow-1,1);
 
 $objPHPExcel->getActiveSheet()->setCellValue('B37', 'TOTAAL');
 
 $baseRow = 5;
-foreach($credit as $r => $dataRow) {
-	$row = $baseRow + $r;
-	//$objPHPExcel->getActiveSheet()->insertNewRowBefore($row,1);
+foreach ($credit as $r => $dataRow) {
+    $row = $baseRow + $r;
+    //$objPHPExcel->getActiveSheet()->insertNewRowBefore($row,1);
 
-	$objPHPExcel->getActiveSheet()->setCellValue('F'.$row, $dataRow['nummer']);
-	$objPHPExcel->getActiveSheet()->setCellValue('G'.$row, $dataRow['omschrijving']);
-	//$objPHPExcel->getActiveSheet()->setCellValue('E'.$row, $dataRow['omschrijving']);
+    $objPHPExcel->getActiveSheet()->setCellValue('F'.$row, $dataRow['nummer']);
+    $objPHPExcel->getActiveSheet()->setCellValue('G'.$row, $dataRow['omschrijving']);
+    //$objPHPExcel->getActiveSheet()->setCellValue('E'.$row, $dataRow['omschrijving']);
 }
 
 

@@ -2,46 +2,50 @@
 /* Articles Test cases generated on: 2011-07-19 11:31:56 : 1311075116*/
 App::import('Controller', 'Articles');
 
-class TestArticlesController extends ArticlesController {
-	var $autoRender = false;
+class TestArticlesController extends ArticlesController
+{
+    public $autoRender = false;
 
-	function redirect($url, $status = null, $exit = true) {
-		$this->redirectUrl = $url;
-	}
+    public function redirect($url, $status = null, $exit = true)
+    {
+        $this->redirectUrl = $url;
+    }
 }
 
-class ArticlesControllerTest extends CakeTestCase {
-	var $fixtures = array('app.article', 'app.section', 'app.articles_section', 'app.link', 'app.links_section');
+class ArticlesControllerTest extends CakeTestCase
+{
+    public $fixtures = array('app.article', 'app.section', 'app.articles_section', 'app.link', 'app.links_section');
 
-	function startTest() {
-		$this->Articles =& new TestArticlesController();
-		$this->Articles->constructClasses();
-	}
+    public function startTest()
+    {
+        $this->Articles =& new TestArticlesController();
+        $this->Articles->constructClasses();
+    }
 
-	function endTest() {
-		unset($this->Articles);
-		ClassRegistry::flush();
-	}
+    public function endTest()
+    {
+        unset($this->Articles);
+        ClassRegistry::flush();
+    }
 
-	function testIndex() {
+    public function testIndex()
+    {
+    }
 
-	}
+    public function testView()
+    {
+    }
 
-	function testView() {
+    public function testAdd()
+    {
+    }
 
-	}
+    public function testEdit()
+    {
+    }
 
-	function testAdd() {
-
-	}
-
-	function testEdit() {
-
-	}
-
-	function testDelete() {
-
-	}
+    public function testDelete()
+    {
+    }
 
 }
-?>

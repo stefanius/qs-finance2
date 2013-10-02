@@ -1,39 +1,43 @@
 <?php
-class BalansController extends AppController {
+class BalansController extends AppController
+{
+    public $name = 'Balans';
+    public $uses = 'Balans';
+    //var $components = array('Excel');
+    public $helpers = array('Form', 'Html', 'Number',  'Balans');
 
-	var $name = 'Balans';
-	var $uses = 'Balans';
-	//var $components = array('Excel');
-	var $helpers = array('Form', 'Html', 'Number',  'Balans');
-	
-	function beforeFilter() {
-		parent::resetSessionArgs();
-		parent::beforeFilter();
-		$this->Auth->allow(array('*'));
-	}
-	
-	function index(){
-		//Lijst van boekjaren/perioden.
-		$this->Balans->Bookyear->recursive = 0;
-		$bookyears =  $this->Balans->Bookyear->find('all');
-		$this->set(compact('bookyears'));
-	}
+    public function beforeFilter()
+    {
+        parent::resetSessionArgs();
+        parent::beforeFilter();
+        $this->Auth->allow(array('*'));
+    }
 
-	function open($bookyear, $beginbalans=null){
-		$balans = $this->Balans->openBalans($bookyear, $beginbalans);
-		$balans = $this->Balans->formatBalans($balans);
-		$this->set(compact('balans'));
-	}
-	
-	function kolombalans($bookyear){
-		$kolombalans = $this->Balans->openKolomBalans($bookyear);
-		$this->set(compact('kolombalans'));
-	}
-	
-	function newbalans($oldbookyear, $newbookyear){
-		$this->Balans->newbalans($oldbookyear, $newbookyear);
-		$bookyear = $this->Balans->Bookyear->get($newbookyear);
-		$this->redirect(array('controller' => 'balans', 'action' => 'open', $bookyear['Bookyear']['omschrijving']));	
-	}
+    public function index()
+    {
+        //Lijst van boekjaren/perioden.
+        $this->Balans->Bookyear->recursive = 0;
+        $bookyears =  $this->Balans->Bookyear->find('all');
+        $this->set(compact('bookyears'));
+    }
+
+    public function open($bookyear, $beginbalans=null)
+    {
+        $balans = $this->Balans->openBalans($bookyear, $beginbalans);
+        $balans = $this->Balans->formatBalans($balans);
+        $this->set(compact('balans'));
+    }
+
+    public function kolombalans($bookyear)
+    {
+        $kolombalans = $this->Balans->openKolomBalans($bookyear);
+        $this->set(compact('kolombalans'));
+    }
+
+    public function newbalans($oldbookyear, $newbookyear)
+    {
+        $this->Balans->newbalans($oldbookyear, $newbookyear);
+        $bookyear = $this->Balans->Bookyear->get($newbookyear);
+        $this->redirect(array('controller' => 'balans', 'action' => 'open', $bookyear['Bookyear']['omschrijving']));
+    }
 }
-?>
