@@ -3,19 +3,19 @@
 * @package JAMA
 */
 
-require_once '../Matrix.php';
+require_once "../Matrix.php";
 
 /**
 * Example of use of Matrix Class, featuring magic squares.
 */
-class MagicSquareExample
-{
+class MagicSquareExample {
+
   /**
   * Generate magic square test matrix.
   * @param int n dimension of matrix
   */
-  public function magic($n)
-  {
+  function magic($n) {
+
     // Odd order
 
     if (($n % 2) == 1) {
@@ -27,7 +27,7 @@ class MagicSquareExample
 
     // Doubly Even Order
 
-    } elseif (($n % 4) == 0) {
+    } else if (($n % 4) == 0) {
       for ($j = 0; $j < $n; ++$j) {
         for ($i = 0; $i < $n; ++$i) {
           if ((($i+1)/2)%2 == (($j+1)/2)%2)
@@ -80,11 +80,9 @@ class MagicSquareExample
   /**
   * Simple function to replicate PHP 5 behaviour
   */
-  public function microtime_float()
-  {
+  function microtime_float() {
     list($usec, $sec) = explode(" ", microtime());
-
-    return ((float) $usec + (float) $sec);
+    return ((float)$usec + (float)$sec);
   }
 
   /**
@@ -99,8 +97,7 @@ class MagicSquareExample
   *   lu_res  = test of LU factorization, norm1(L*U-A(p,:))/(n*eps).
   *   qr_res  = test of QR factorization, norm1(Q*R-A)/(n*eps).
   */
-  public function main()
-  {
+  function main() {
     ?>
     <p>Test of Matrix Class, using magic squares.</p>
     <p>See MagicSquareExample.main() for an explanation.</p>
@@ -181,3 +178,5 @@ class MagicSquareExample
 
 $magic = new MagicSquareExample();
 $magic->main();
+
+?>

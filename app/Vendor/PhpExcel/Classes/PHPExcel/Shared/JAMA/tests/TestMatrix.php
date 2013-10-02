@@ -1,11 +1,11 @@
 <?php
 
-require_once '../Matrix.php';
+require_once "../Matrix.php";
 
-class TestMatrix
-{
-  public function TestMatrix()
-  {
+class TestMatrix {
+
+  function TestMatrix() {
+
     // define test variables
 
     $errorCount   = 0;
@@ -62,7 +62,7 @@ class TestMatrix
     echo "<p>Testing constructors and constructor-like methods...</p>";
 
     $A = new Matrix($columnwise, 3);
-    if ($A instanceof Matrix) {
+    if($A instanceof Matrix) {
       $this->try_success("Column-packed constructor...");
     } else
       $errorCount = $this->try_failure($errorCount, "Column-packed constructor...", "Unable to construct Matrix");
@@ -116,34 +116,34 @@ class TestMatrix
     */
     print "<p>Testing access methods...</p>";
 
-    $B = new Matrix($avals);
-    if($B->getRowDimension() == $rows)
-      $this->try_success("getRowDimension...");
-    else
-      $errorCount = $this->try_failure($errorCount, "getRowDimension...");
+	$B = new Matrix($avals);
+	if($B->getRowDimension() == $rows)
+	  $this->try_success("getRowDimension...");
+	else
+	  $errorCount = $this->try_failure($errorCount, "getRowDimension...");
 
-    if($B->getColumnDimension() == $cols)
-      $this->try_success("getColumnDimension...");
-    else
-      $errorCount = $this->try_failure($errorCount, "getColumnDimension...");
+	if($B->getColumnDimension() == $cols)
+	  $this->try_success("getColumnDimension...");
+	else
+	  $errorCount = $this->try_failure($errorCount, "getColumnDimension...");
 
-    $barray = $B->getArray();
-    if($this->checkArrays($barray, $avals))
-      $this->try_success("getArray...");
-    else
-      $errorCount = $this->try_failure($errorCount, "getArray...");
+	$barray = $B->getArray();
+	if($this->checkArrays($barray, $avals))
+	  $this->try_success("getArray...");
+	else
+	  $errorCount = $this->try_failure($errorCount, "getArray...");
 
-    $bpacked = $B->getColumnPackedCopy();
-    if($this->checkArrays($bpacked, $columnwise))
-      $this->try_success("getColumnPackedCopy...");
-    else
-      $errorCount = $this->try_failure($errorCount, "getColumnPackedCopy...");
+	$bpacked = $B->getColumnPackedCopy();
+	if($this->checkArrays($bpacked, $columnwise))
+	  $this->try_success("getColumnPackedCopy...");
+	else
+	  $errorCount = $this->try_failure($errorCount, "getColumnPackedCopy...");
 
-    $bpacked = $B->getRowPackedCopy();
-    if($this->checkArrays($bpacked, $rowwise))
-      $this->try_success("getRowPackedCopy...");
-    else
-      $errorCount = $this->try_failure($errorCount, "getRowPackedCopy...");
+	$bpacked = $B->getRowPackedCopy();
+	if($this->checkArrays($bpacked, $rowwise))
+	  $this->try_success("getRowPackedCopy...");
+	else
+	  $errorCount = $this->try_failure($errorCount, "getRowPackedCopy...");
 
     /**
     * Array-like methods:
@@ -309,7 +309,7 @@ class TestMatrix
     else
       $errorCount = $this->try_failure($errorCount,"EigenvalueDecomposition (nonsymmetric)...","incorrect nonsymmetric Eigenvalue decomposition calculation");
 
-    print("<b>{$errorCount} total errors</b>.");
+	print("<b>{$errorCount} total errors</b>.");
   }
 
   /**
@@ -317,8 +317,7 @@ class TestMatrix
   * @param string $s
   * @param string $e
   */
-  public function try_success($s, $e = "")
-  {
+  function try_success($s, $e = "") {
     print "> ". $s ."success<br />";
     if ($e != "")
       print "> Message: ". $e ."<br />";
@@ -331,10 +330,8 @@ class TestMatrix
   * @param string $e
   * @return int incremented counter
   */
-  public function try_failure($count, $s, $e="")
-  {
+  function try_failure($count, $s, $e="") {
     print "> ". $s ."*** failure ***<br />> Message: ". $e ."<br />";
-
     return ++$count;
   }
 
@@ -345,10 +342,8 @@ class TestMatrix
   * @param string $e
   * @return int incremented counter
   */
-  public function try_warning($count, $s, $e="")
-  {
+  function try_warning($count, $s, $e="") {
     print "> ". $s ."*** warning ***<br />> Message: ". $e ."<br />";
-
     return ++$count;
   }
 
@@ -357,8 +352,7 @@ class TestMatrix
   * @param float $x
   * @param float $y
   */
-  public function checkScalars($x, $y)
-  {
+  function checkScalars($x, $y) {
     $eps = pow(2.0,-52.0);
     if ($x == 0 & abs($y) < 10*$eps) return;
     if ($y == 0 & abs($x) < 10*$eps) return;
@@ -373,8 +367,7 @@ class TestMatrix
   * @param float $x[]
   * @param float $y[]
   */
-  public function checkVectors($x, $y)
-  {
+  function checkVectors($x, $y) {
     $nx = count($x);
     $ny = count($y);
     if ($nx == $ny)
@@ -389,11 +382,9 @@ class TestMatrix
   * @param float $x[][]
   * @param float $y[][]
   */
-  public function checkArrays($x, $y)
-  {
+  function checkArrays($x, $y) {
     $A = new Matrix($x);
     $B = new Matrix($y);
-
     return $this->checkMatrices($A,$B);
   }
 
@@ -402,10 +393,8 @@ class TestMatrix
   * @param matrix $X
   * @param matrix $Y
   */
-  public function checkMatrices($X = null, $Y = null)
-  {
+  function checkMatrices($X = null, $Y = null) {
     if( $X == null || $Y == null )
-
       return false;
 
     $eps = pow(2.0,-52.0);
@@ -423,3 +412,4 @@ class TestMatrix
 }
 
 $test = new TestMatrix;
+?>

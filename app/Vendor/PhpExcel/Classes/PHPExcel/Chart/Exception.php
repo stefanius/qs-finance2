@@ -25,6 +25,7 @@
  * @version	1.7.8, 2012-10-12
  */
 
+
 /**
  * PHPExcel_Chart_Exception
  *
@@ -32,22 +33,20 @@
  * @package    PHPExcel_Chart
  * @copyright  Copyright (c) 2006 - 2012 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
-class PHPExcel_Chart_Exception extends Exception
-{
-    /**
-     * Error handler callback
-     *
-     * @param mixed $code
-     * @param mixed $string
-     * @param mixed $file
-     * @param mixed $line
-     * @param mixed $context
-     */
-    public static function errorHandlerCallback($code, $string, $file, $line, $context)
-    {
-        $e = new self($string, $code);
-        $e->line = $line;
-        $e->file = $file;
-        throw $e;
-    }
+class PHPExcel_Chart_Exception extends Exception {
+	/**
+	 * Error handler callback
+	 *
+	 * @param mixed $code
+	 * @param mixed $string
+	 * @param mixed $file
+	 * @param mixed $line
+	 * @param mixed $context
+	 */
+	public static function errorHandlerCallback($code, $string, $file, $line, $context) {
+		$e = new self($string, $code);
+		$e->line = $line;
+		$e->file = $file;
+		throw $e;
+	}
 }

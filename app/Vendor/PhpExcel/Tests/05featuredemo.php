@@ -34,10 +34,11 @@ define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
 
 date_default_timezone_set('Europe/London');
 
-include '05featuredemo.inc.php';
+include "05featuredemo.inc.php";
 
 /** Include PHPExcel_IOFactory */
 require_once '../Classes/PHPExcel/IOFactory.php';
+
 
 // Save Excel 2007 file
 echo date('H:i:s') , " Write to Excel2007 format" , EOL;

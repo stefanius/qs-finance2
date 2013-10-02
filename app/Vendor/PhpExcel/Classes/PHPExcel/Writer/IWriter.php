@@ -25,6 +25,7 @@
  * @version    1.7.8, 2012-10-12
  */
 
+
 /**
  * PHPExcel_Writer_IWriter
  *
@@ -34,11 +35,11 @@
  */
 interface PHPExcel_Writer_IWriter
 {
-    /**
-     * Save PHPExcel to file
-     *
-     * @param  string    $pFilename
-     * @throws Exception
-     */
-    public function save($pFilename = null);
+	/**
+	 * Save PHPExcel to file
+	 *
+	 * @param 	string 		$pFilename
+	 * @throws 	Exception
+	 */
+	public function save($pFilename = null);
 }

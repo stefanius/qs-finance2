@@ -170,10 +170,10 @@ class Base {/*{{{*/
      * Constructor for the class
      *
      * @access  public
-     * @param  optional    int $nullOption how to handle null values
-     * @return object          Math_Stats
+     * @param   optional    int $nullOption how to handle null values
+     * @return  object  Math_Stats
      */
-    public function Math_Stats($nullOption=STATS_REJECT_NULL) {/*{{{*/
+    function Math_Stats($nullOption=STATS_REJECT_NULL) {/*{{{*/
         $this->_nullOption = $nullOption;
     }/*}}}*/
 
@@ -182,11 +182,11 @@ class Base {/*{{{*/
      * the current null handling option
      *
      * @access public
-     * @param  array           $arr the data set
-     * @param  optional    int $opt data format: STATS_DATA_CUMMULATIVE or STATS_DATA_SIMPLE (default)
-     * @return mixed           true on success, a PEAR_Error object otherwise
+     * @param   array   $arr    the data set
+     * @param   optional    int $opt    data format: STATS_DATA_CUMMULATIVE or STATS_DATA_SIMPLE (default)
+     * @return  mixed   true on success, a PEAR_Error object otherwise
      */
-    public function setData($arr, $opt=STATS_DATA_SIMPLE) {/*{{{*/
+    function setData($arr, $opt=STATS_DATA_SIMPLE) {/*{{{*/
         if (!is_array($arr)) {
             return PEAR::raiseError('invalid data, an array of numeric data was expected');
         }
@@ -197,12 +197,11 @@ class Base {/*{{{*/
         if ($opt == STATS_DATA_SIMPLE) {
             $this->_dataOption = $opt;
             $this->_data = array_values($arr);
-        } elseif ($opt == STATS_DATA_CUMMULATIVE) {
+        } else if ($opt == STATS_DATA_CUMMULATIVE) {
             $this->_dataOption = $opt;
             $this->_data = $arr;
             $this->_dataExpanded = array();
         }
-
         return $this->_validate();
     }/*}}}*/
 
@@ -211,11 +210,11 @@ class Base {/*{{{*/
      * according to the current null handling options.
      *
      * @access  public
-     * @param  boolean $expanded whether to return a expanded list, default is false
-     * @return mixed   array of data on success, a PEAR_Error object otherwise
+     * @param boolean $expanded whether to return a expanded list, default is false
+     * @return  mixed   array of data on success, a PEAR_Error object otherwise
      * @see _validate()
      */
-    public function getData($expanded=false) {/*{{{*/
+    function getData($expanded=false) {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -231,15 +230,14 @@ class Base {/*{{{*/
      * Must be called before assigning a new data set containing null values
      *
      * @access  public
-     * @return mixed true on success, a PEAR_Error object otherwise
+     * @return  mixed   true on success, a PEAR_Error object otherwise
      * @see _validate()
      */
-    public function setNullOption($nullOption) {/*{{{*/
+    function setNullOption($nullOption) {/*{{{*/
         if ($nullOption == STATS_REJECT_NULL
             || $nullOption == STATS_IGNORE_NULL
             || $nullOption == STATS_USE_NULL_AS_ZERO) {
             $this->_nullOption = $nullOption;
-
             return true;
         } else {
             return PEAR::raiseError('invalid null handling option expecting: '.
@@ -258,7 +256,7 @@ class Base {/*{{{*/
      * @see stDev()
      * @see setData()
      */
-    public function studentize() {/*{{{*/
+    function studentize() {/*{{{*/
         $mean = $this->mean();
         if (PEAR::isError($mean)) {
             return $mean;
@@ -282,7 +280,6 @@ class Base {/*{{{*/
                 $arr[] = $newval;
             }
         }
-
         return $this->setData($arr, $this->_dataOption);
     }/*}}}*/
 
@@ -295,7 +292,7 @@ class Base {/*{{{*/
      * @see mean()
      * @see setData()
      */
-    public function center() {/*{{{*/
+    function center() {/*{{{*/
         $mean = $this->mean();
         if (PEAR::isError($mean)) {
             return $mean;
@@ -312,7 +309,6 @@ class Base {/*{{{*/
                 $arr[] = $newval;
             }
         }
-
         return $this->setData($arr, $this->_dataOption);
     }/*}}}*/
 
@@ -320,14 +316,14 @@ class Base {/*{{{*/
      * Calculates the basic or full statistics for the data set
      *
      * @access  public
-     * @param int     $mode              one of STATS_BASIC or STATS_FULL
+     * @param   int $mode   one of STATS_BASIC or STATS_FULL
      * @param boolean $returnErrorObject whether the raw PEAR_Error (when true, default),
      *                  or only the error message will be returned (when false), if an error happens.
-     * @return mixed an associative array of statistics on success, a PEAR_Error object otherwise
+     * @return  mixed   an associative array of statistics on success, a PEAR_Error object otherwise
      * @see calcBasic()
      * @see calcFull()
      */
-    public function calc($mode, $returnErrorObject=true) {/*{{{*/
+    function calc($mode, $returnErrorObject=true) {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -346,12 +342,11 @@ class Base {/*{{{*/
      * @access  public
      * @param boolean $returnErrorObject whether the raw PEAR_Error (when true, default),
      *                  or only the error message will be returned (when false), if an error happens.
-     * @return mixed an associative array of statistics on success, a PEAR_Error object otherwise
+     * @return  mixed   an associative array of statistics on success, a PEAR_Error object otherwise
      * @see calc()
      * @see calcFull()
      */
-    public function calcBasic($returnErrorObject=true) {/*{{{*/
-
+    function calcBasic($returnErrorObject=true) {/*{{{*/
             return array (
                 'min' => $this->__format($this->min(), $returnErrorObject),
                 'max' => $this->__format($this->max(), $returnErrorObject),
@@ -371,12 +366,11 @@ class Base {/*{{{*/
      * @access  public
      * @param boolean $returnErrorObject whether the raw PEAR_Error (when true, default),
      *                  or only the error message will be returned (when false), if an error happens.
-     * @return mixed an associative array of statistics on success, a PEAR_Error object otherwise
+     * @return  mixed   an associative array of statistics on success, a PEAR_Error object otherwise
      * @see calc()
      * @see calcBasic()
      */
-    public function calcFull($returnErrorObject=true) {/*{{{*/
-
+    function calcFull($returnErrorObject=true) {/*{{{*/
             return array (
                 'min' => $this->__format($this->min(), $returnErrorObject),
                 'max' => $this->__format($this->max(), $returnErrorObject),
@@ -426,11 +420,11 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the minimum value on success, a PEAR_Error object otherwise
+     * @return  mixed   the minimum value on success, a PEAR_Error object otherwise
      * @see calc()
      * @see max()
      */
-    public function min() {/*{{{*/
+    function min() {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -442,7 +436,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['min'] = $min;
         }
-
         return $this->_calculatedValues['min'];
     }/*}}}*/
 
@@ -451,11 +444,11 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the maximum value on success, a PEAR_Error object otherwise
+     * @return  mixed   the maximum value on success, a PEAR_Error object otherwise
      * @see calc()
      * @see min()
      */
-    public function max() {/*{{{*/
+    function max() {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -467,7 +460,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['max'] = $max;
         }
-
         return $this->_calculatedValues['max'];
     }/*}}}*/
 
@@ -476,12 +468,12 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the sum on success, a PEAR_Error object otherwise
+     * @return  mixed   the sum on success, a PEAR_Error object otherwise
      * @see calc()
      * @see sum2()
      * @see sumN()
      */
-    public function sum() {/*{{{*/
+    function sum() {/*{{{*/
         if (!array_key_exists('sum', $this->_calculatedValues)) {
             $sum = $this->sumN(1);
             if (PEAR::isError($sum)) {
@@ -490,7 +482,6 @@ class Base {/*{{{*/
                 $this->_calculatedValues['sum'] = $sum;
             }
         }
-
         return $this->_calculatedValues['sum'];
     }/*}}}*/
 
@@ -499,12 +490,12 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the sum on success, a PEAR_Error object otherwise
+     * @return  mixed   the sum on success, a PEAR_Error object otherwise
      * @see calc()
      * @see sum()
      * @see sumN()
      */
-    public function sum2() {/*{{{*/
+    function sum2() {/*{{{*/
         if (!array_key_exists('sum2', $this->_calculatedValues)) {
             $sum2 = $this->sumN(2);
             if (PEAR::isError($sum2)) {
@@ -513,7 +504,6 @@ class Base {/*{{{*/
                 $this->_calculatedValues['sum2'] = $sum2;
             }
         }
-
         return $this->_calculatedValues['sum2'];
     }/*}}}*/
 
@@ -522,27 +512,26 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @param  numeric $n the exponent
-     * @return mixed   the sum on success, a PEAR_Error object otherwise
+     * @param   numeric $n  the exponent
+     * @return  mixed   the sum on success, a PEAR_Error object otherwise
      * @see calc()
      * @see sum()
      * @see sum2()
      */
-    public function sumN($n) {/*{{{*/
+    function sumN($n) {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
         $sumN = 0;
         if ($this->_dataOption == STATS_DATA_CUMMULATIVE) {
-            foreach ($this->_data as $val=>$freq) {
-                $sumN += $freq * pow((double) $val, (double) $n);
+            foreach($this->_data as $val=>$freq) {
+                $sumN += $freq * pow((double)$val, (double)$n);
             }
         } else {
-            foreach ($this->_data as $val) {
-                $sumN += pow((double) $val, (double) $n);
+            foreach($this->_data as $val) {
+                $sumN += pow((double)$val, (double)$n);
             }
         }
-
         return $sumN;
     }/*}}}*/
 
@@ -551,10 +540,10 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the product on success, a PEAR_Error object otherwise
+     * @return  mixed   the product on success, a PEAR_Error object otherwise
      * @see productN()
      */
-    public function product() {/*{{{*/
+    function product() {/*{{{*/
         if (!array_key_exists('product', $this->_calculatedValues)) {
             $product = $this->productN(1);
             if (PEAR::isError($product)) {
@@ -563,7 +552,6 @@ class Base {/*{{{*/
                 $this->_calculatedValues['product'] = $product;
             }
         }
-
         return $this->_calculatedValues['product'];
     }/*}}}*/
 
@@ -572,31 +560,30 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @param  numeric $n the exponent
-     * @return mixed   the product on success, a PEAR_Error object otherwise
+     * @param   numeric $n  the exponent
+     * @return  mixed   the product on success, a PEAR_Error object otherwise
      * @see product()
      */
-    public function productN($n) {/*{{{*/
+    function productN($n) {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
         $prodN = 1.0;
         if ($this->_dataOption == STATS_DATA_CUMMULATIVE) {
-            foreach ($this->_data as $val=>$freq) {
+            foreach($this->_data as $val=>$freq) {
                 if ($val == 0) {
                     return 0.0;
                 }
-                $prodN *= $freq * pow((double) $val, (double) $n);
+                $prodN *= $freq * pow((double)$val, (double)$n);
             }
         } else {
-            foreach ($this->_data as $val) {
+            foreach($this->_data as $val) {
                 if ($val == 0) {
                     return 0.0;
                 }
-                $prodN *= pow((double) $val, (double) $n);
+                $prodN *= pow((double)$val, (double)$n);
             }
         }
-
         return $prodN;
 
     }/*}}}*/
@@ -606,10 +593,10 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the count on success, a PEAR_Error object otherwise
+     * @return  mixed   the count on success, a PEAR_Error object otherwise
      * @see calc()
      */
-    public function count() {/*{{{*/
+    function count() {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -621,7 +608,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['count'] = $count;
         }
-
         return $this->_calculatedValues['count'];
     }/*}}}*/
 
@@ -630,12 +616,12 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the mean value on success, a PEAR_Error object otherwise
+     * @return  mixed   the mean value on success, a PEAR_Error object otherwise
      * @see calc()
      * @see sum()
      * @see count()
      */
-    public function mean() {/*{{{*/
+    function mean() {/*{{{*/
         if (!array_key_exists('mean', $this->_calculatedValues)) {
             $sum = $this->sum();
             if (PEAR::isError($sum)) {
@@ -647,7 +633,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['mean'] = $sum / $count;
         }
-
         return $this->_calculatedValues['mean'];
     }/*}}}*/
 
@@ -657,7 +642,7 @@ class Base {/*{{{*/
      * @access public
      * @return mixed the value of the range on success, a PEAR_Error object otherwise.
      */
-    public function range() {/*{{{*/
+    function range() {/*{{{*/
         if (!array_key_exists('range', $this->_calculatedValues)) {
             $min = $this->min();
             if (PEAR::isError($min)) {
@@ -669,7 +654,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['range'] = $max - $min;
         }
-
         return $this->_calculatedValues['range'];
 
     }/*}}}*/
@@ -679,12 +663,12 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the variance value on success, a PEAR_Error object otherwise
+     * @return  mixed   the variance value on success, a PEAR_Error object otherwise
      * @see calc()
      * @see __sumdiff()
      * @see count()
      */
-    public function variance() {/*{{{*/
+    function variance() {/*{{{*/
         if (!array_key_exists('variance', $this->_calculatedValues)) {
             $variance = $this->__calcVariance();
             if (PEAR::isError($variance)) {
@@ -692,7 +676,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['variance'] = $variance;
         }
-
         return $this->_calculatedValues['variance'];
     }/*}}}*/
 
@@ -701,11 +684,11 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the standard deviation on success, a PEAR_Error object otherwise
+     * @return  mixed   the standard deviation on success, a PEAR_Error object otherwise
      * @see calc()
      * @see variance()
      */
-    public function stDev() {/*{{{*/
+    function stDev() {/*{{{*/
         if (!array_key_exists('stDev', $this->_calculatedValues)) {
             $variance = $this->variance();
             if (PEAR::isError($variance)) {
@@ -713,7 +696,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['stDev'] = sqrt($variance);
         }
-
         return $this->_calculatedValues['stDev'];
     }/*}}}*/
 
@@ -724,14 +706,13 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @param  numeric $mean the fixed mean value
-     * @return mixed   the variance on success, a PEAR_Error object otherwise
+     * @param   numeric $mean   the fixed mean value
+     * @return  mixed   the variance on success, a PEAR_Error object otherwise
      * @see __sumdiff()
      * @see count()
      * @see variance()
      */
-    public function varianceWithMean($mean) {/*{{{*/
-
+    function varianceWithMean($mean) {/*{{{*/
         return $this->__calcVariance($mean);
     }/*}}}*/
 
@@ -742,17 +723,16 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @param  numeric $mean the fixed mean value
-     * @return mixed   the standard deviation on success, a PEAR_Error object otherwise
+     * @param   numeric $mean   the fixed mean value
+     * @return  mixed   the standard deviation on success, a PEAR_Error object otherwise
      * @see varianceWithMean()
      * @see stDev()
      */
-    public function stDevWithMean($mean) {/*{{{*/
+    function stDevWithMean($mean) {/*{{{*/
         $varianceWM = $this->varianceWithMean($mean);
         if (PEAR::isError($varianceWM)) {
             return $varianceWM;
         }
-
         return sqrt($varianceWM);
     }/*}}}*/
 
@@ -761,13 +741,13 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the absolute deviation on success, a PEAR_Error object otherwise
+     * @return  mixed   the absolute deviation on success, a PEAR_Error object otherwise
      * @see calc()
      * @see __sumabsdev()
      * @see count()
      * @see absDevWithMean()
      */
-    public function absDev() {/*{{{*/
+    function absDev() {/*{{{*/
         if (!array_key_exists('absDev', $this->_calculatedValues)) {
             $absDev = $this->__calcAbsoluteDeviation();
             if (PEAR::isError($absdev)) {
@@ -775,7 +755,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['absDev'] = $absDev;
         }
-
         return $this->_calculatedValues['absDev'];
     }/*}}}*/
 
@@ -786,13 +765,12 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @param  numeric $mean the fixed mean value
-     * @return mixed   the absolute deviation on success, a PEAR_Error object otherwise
+     * @param   numeric $mean   the fixed mean value
+     * @return  mixed   the absolute deviation on success, a PEAR_Error object otherwise
      * @see __sumabsdev()
      * @see absDev()
      */
-    public function absDevWithMean($mean) {/*{{{*/
-
+    function absDevWithMean($mean) {/*{{{*/
         return $this->__calcAbsoluteDeviation($mean);
     }/*}}}*/
 
@@ -808,13 +786,13 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the skewness value on success, a PEAR_Error object otherwise
+     * @return  mixed   the skewness value on success, a PEAR_Error object otherwise
      * @see __sumdiff()
      * @see count()
      * @see stDev()
      * @see calc()
      */
-    public function skewness() {/*{{{*/
+    function skewness() {/*{{{*/
         if (!array_key_exists('skewness', $this->_calculatedValues)) {
             $count = $this->count();
             if (PEAR::isError($count)) {
@@ -830,7 +808,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['skewness'] = ($sumdiff3 / ($count * pow($stDev, 3)));
         }
-
         return $this->_calculatedValues['skewness'];
     }/*}}}*/
 
@@ -846,13 +823,13 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the kurtosis value on success, a PEAR_Error object otherwise
+     * @return  mixed   the kurtosis value on success, a PEAR_Error object otherwise
      * @see __sumdiff()
      * @see count()
      * @see stDev()
      * @see calc()
      */
-    public function kurtosis() {/*{{{*/
+    function kurtosis() {/*{{{*/
         if (!array_key_exists('kurtosis', $this->_calculatedValues)) {
             $count = $this->count();
             if (PEAR::isError($count)) {
@@ -868,7 +845,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['kurtosis'] = ($sumdiff4 / ($count * pow($stDev, 4))) - 3;
         }
-
         return $this->_calculatedValues['kurtosis'];
     }/*}}}*/
 
@@ -881,11 +857,11 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the median value on success, a PEAR_Error object otherwise
+     * @return  mixed   the median value on success, a PEAR_Error object otherwise
      * @see count()
      * @see calc()
      */
-    public function median() {/*{{{*/
+    function median() {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -907,7 +883,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['median'] = $median;
         }
-
         return $this->_calculatedValues['median'];
     }/*}}}*/
 
@@ -918,11 +893,11 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed an array of mode value on success, a PEAR_Error object otherwise
+     * @return  mixed   an array of mode value on success, a PEAR_Error object otherwise
      * @see frequency()
      * @see calc()
      */
-    public function mode() {/*{{{*/
+    function mode() {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -948,7 +923,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['mode'] = $mode;
         }
-
         return $this->_calculatedValues['mode'];
     }/*}}}*/
 
@@ -958,12 +932,12 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the midrange value on success, a PEAR_Error object otherwise
+     * @return  mixed   the midrange value on success, a PEAR_Error object otherwise
      * @see min()
      * @see max()
      * @see calc()
      */
-    public function midrange() {/*{{{*/
+    function midrange() {/*{{{*/
         if (!array_key_exists('midrange', $this->_calculatedValues)) {
             $min = $this->min();
             if (PEAR::isError($min)) {
@@ -975,7 +949,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['midrange'] = (($max + $min) / 2);
         }
-
         return $this->_calculatedValues['midrange'];
     }/*}}}*/
 
@@ -989,7 +962,7 @@ class Base {/*{{{*/
      * @see product()
      * @see count()
      */
-    public function geometricMean() {/*{{{*/
+    function geometricMean() {/*{{{*/
         if (!array_key_exists('geometricMean', $this->_calculatedValues)) {
             $count = $this->count();
             if (PEAR::isError($count)) {
@@ -1007,7 +980,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['geometricMean'] = pow($prod , 1 / $count);
         }
-
         return $this->_calculatedValues['geometricMean'];
     }/*}}}*/
 
@@ -1020,7 +992,7 @@ class Base {/*{{{*/
      * @see calc()
      * @see count()
      */
-    public function harmonicMean() {/*{{{*/
+    function harmonicMean() {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -1031,7 +1003,7 @@ class Base {/*{{{*/
             }
             $invsum = 0.0;
             if ($this->_dataOption == STATS_DATA_CUMMULATIVE) {
-                foreach ($this->_data as $val=>$freq) {
+                foreach($this->_data as $val=>$freq) {
                     if ($val == 0) {
                         return PEAR::raiseError('cannot calculate a '.
                                 'harmonic mean with data values of zero.');
@@ -1039,7 +1011,7 @@ class Base {/*{{{*/
                     $invsum += $freq / $val;
                 }
             } else {
-                foreach ($this->_data as $val) {
+                foreach($this->_data as $val) {
                     if ($val == 0) {
                         return PEAR::raiseError('cannot calculate a '.
                                 'harmonic mean with data values of zero.');
@@ -1049,7 +1021,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['harmonicMean'] = $count / $invsum;
         }
-
         return $this->_calculatedValues['harmonicMean'];
     }/*}}}*/
 
@@ -1063,10 +1034,10 @@ class Base {/*{{{*/
      * where: N = sample size, avg = sample mean.
      *
      * @access public
-     * @param  integer $n moment to calculate
-     * @return mixed   the numeric value of the moment on success, PEAR_Error otherwise
+     * @param integer $n moment to calculate
+     * @return mixed the numeric value of the moment on success, PEAR_Error otherwise
      */
-    public function sampleCentralMoment($n) {/*{{{*/
+    function sampleCentralMoment($n) {/*{{{*/
         if (!is_int($n) || $n < 1) {
             return PEAR::isError('moment must be a positive integer >= 1.');
         }
@@ -1086,7 +1057,6 @@ class Base {/*{{{*/
         if (PEAR::isError($sum)) {
             return $sum;
         }
-
         return ($sum / $count);
     }/*}}}*/
 
@@ -1100,10 +1070,10 @@ class Base {/*{{{*/
      * where: N = sample size, avg = sample mean.
      *
      * @access public
-     * @param  integer $n moment to calculate
-     * @return mixed   the numeric value of the moment on success, PEAR_Error otherwise
+     * @param integer $n moment to calculate
+     * @return mixed the numeric value of the moment on success, PEAR_Error otherwise
      */
-    public function sampleRawMoment($n) {/*{{{*/
+    function sampleRawMoment($n) {/*{{{*/
         if (!is_int($n) || $n < 1) {
             return PEAR::isError('moment must be a positive integer >= 1.');
         }
@@ -1120,9 +1090,9 @@ class Base {/*{{{*/
         if (PEAR::isError($sum)) {
             return $sum;
         }
-
         return ($sum / $count);
     }/*}}}*/
+
 
     /**
      * Calculates the coefficient of variation of a data set.
@@ -1131,12 +1101,12 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed the coefficient of variation on success, a PEAR_Error object otherwise
+     * @return  mixed   the coefficient of variation on success, a PEAR_Error object otherwise
      * @see stDev()
      * @see mean()
      * @see calc()
      */
-    public function coeffOfVariation() {/*{{{*/
+    function coeffOfVariation() {/*{{{*/
         if (!array_key_exists('coeffOfVariation', $this->_calculatedValues)) {
             $mean = $this->mean();
             if (PEAR::isError($mean)) {
@@ -1153,7 +1123,6 @@ class Base {/*{{{*/
 
             $this->_calculatedValues['coeffOfVariation'] = $stDev / $mean;
         }
-
         return $this->_calculatedValues['coeffOfVariation'];
     }/*}}}*/
 
@@ -1169,12 +1138,12 @@ class Base {/*{{{*/
      * proportional to the square root of the sample size.
      *
      * @access  public
-     * @return mixed the standard error of the mean on success, a PEAR_Error object otherwise
+     * @return  mixed   the standard error of the mean on success, a PEAR_Error object otherwise
      * @see stDev()
      * @see count()
      * @see calc()
      */
-    public function stdErrorOfMean() {/*{{{*/
+    function stdErrorOfMean() {/*{{{*/
         if (!array_key_exists('stdErrorOfMean', $this->_calculatedValues)) {
             $count = $this->count();
             if (PEAR::isError($count)) {
@@ -1186,7 +1155,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['stdErrorOfMean'] = $stDev / sqrt($count);
         }
-
         return $this->_calculatedValues['stdErrorOfMean'];
     }/*}}}*/
 
@@ -1195,12 +1163,12 @@ class Base {/*{{{*/
      * Handles cummulative data sets correctly
      *
      * @access  public
-     * @return mixed an associative array of value=>frequency items on success, a PEAR_Error object otherwise
+     * @return  mixed   an associative array of value=>frequency items on success, a PEAR_Error object otherwise
      * @see min()
      * @see max()
      * @see calc()
      */
-    public function frequency() {/*{{{*/
+    function frequency() {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -1216,7 +1184,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['frequency'] = $freq;
         }
-
         return $this->_calculatedValues['frequency'];
     }/*}}}*/
 
@@ -1229,7 +1196,7 @@ class Base {/*{{{*/
      * @return mixed an associative array of quartiles on success, a PEAR_Error otherwise
      * @see percentile()
      */
-    public function quartiles() {/*{{{*/
+    function quartiles() {/*{{{*/
         if (!array_key_exists('quartiles', $this->_calculatedValues)) {
             $q1 = $this->percentile(25);
             if (PEAR::isError($q1)) {
@@ -1249,7 +1216,6 @@ class Base {/*{{{*/
                                         '75' => $q3
                                         );
         }
-
         return $this->_calculatedValues['quartiles'];
     }/*}}}*/
 
@@ -1266,7 +1232,7 @@ class Base {/*{{{*/
      * @return mixed a numeric value on success, a PEAR_Error otherwise
      * @see quartiles()
      */
-    public function interquartileMean() {/*{{{*/
+    function interquartileMean() {/*{{{*/
         if (!array_key_exists('interquartileMean', $this->_calculatedValues)) {
             $quart = $this->quartiles();
             if (PEAR::isError($quart)) {
@@ -1288,7 +1254,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['interquartileMean'] = $sum / $n;
         }
-
         return $this->_calculatedValues['interquartileMean'];
     }/*}}}*/
 
@@ -1305,7 +1270,7 @@ class Base {/*{{{*/
      * @return mixed a numeric value on success, a PEAR_Error otherwise
      * @see quartiles()
      */
-    public function interquartileRange() {/*{{{*/
+    function interquartileRange() {/*{{{*/
         if (!array_key_exists('interquartileRange', $this->_calculatedValues)) {
             $quart = $this->quartiles();
             if (PEAR::isError($quart)) {
@@ -1315,7 +1280,6 @@ class Base {/*{{{*/
             $q1 = $quart['25'];
             $this->_calculatedValues['interquartileRange'] = $q3 - $q1;
         }
-
         return $this->_calculatedValues['interquartileRange'];
     }/*}}}*/
 
@@ -1331,7 +1295,7 @@ class Base {/*{{{*/
      * @see quartiles()
      * @see interquartileRange()
      */
-    public function quartileDeviation() {/*{{{*/
+    function quartileDeviation() {/*{{{*/
         if (!array_key_exists('quartileDeviation', $this->_calculatedValues)) {
             $iqr = $this->interquartileRange();
             if (PEAR::isError($iqr)) {
@@ -1339,7 +1303,6 @@ class Base {/*{{{*/
             }
             $this->_calculatedValues['quartileDeviation'] = $iqr / 2;
         }
-
         return $this->_calculatedValues['quartileDeviation'];
     }/*}}}*/
 
@@ -1355,7 +1318,7 @@ class Base {/*{{{*/
      * @return mixed a numeric value on success, a PEAR_Error otherwise
      * @see quartiles()
      */
-    public function quartileVariationCoefficient() {/*{{{*/
+    function quartileVariationCoefficient() {/*{{{*/
         if (!array_key_exists('quartileVariationCoefficient', $this->_calculatedValues)) {
             $quart = $this->quartiles();
             if (PEAR::isError($quart)) {
@@ -1367,7 +1330,6 @@ class Base {/*{{{*/
             $s = $q3 + $q1;
             $this->_calculatedValues['quartileVariationCoefficient'] = 100 * $d / $s;
         }
-
         return $this->_calculatedValues['quartileVariationCoefficient'];
     }/*}}}*/
 
@@ -1384,7 +1346,7 @@ class Base {/*{{{*/
      * @return mixed a numeric value on success, a PEAR_Error otherwise
      * @see quartiles()
      */
-    public function quartileSkewnessCoefficient() {/*{{{*/
+    function quartileSkewnessCoefficient() {/*{{{*/
         if (!array_key_exists('quartileSkewnessCoefficient', $this->_calculatedValues)) {
             $quart = $this->quartiles();
             if (PEAR::isError($quart)) {
@@ -1397,7 +1359,6 @@ class Base {/*{{{*/
             $s = $q3 - $q1;
             $this->_calculatedValues['quartileSkewnessCoefficient'] = $d / $s;
         }
-
         return $this->_calculatedValues['quartileSkewnessCoefficient'];
     }/*}}}*/
 
@@ -1420,12 +1381,12 @@ class Base {/*{{{*/
      * @todo need to double check generality of the algorithm
      *
      * @access public
-     * @param  numeric $p the percentile to estimate, e.g. 25 for 25th percentile
-     * @return mixed   a numeric value on success, a PEAR_Error otherwise
+     * @param numeric $p the percentile to estimate, e.g. 25 for 25th percentile
+     * @return mixed a numeric value on success, a PEAR_Error otherwise
      * @see quartiles()
      * @see median()
      */
-    public function percentile($p) {/*{{{*/
+    function percentile($p) {/*{{{*/
         $count = $this->count();
         if (PEAR::isError($count)) {
             return $count;
@@ -1445,7 +1406,6 @@ class Base {/*{{{*/
         } else {
             $left = floor($obsidx - 1);
             $right = ceil($obsidx - 1);
-
             return ($data[$left] + $data[$right]) / 2;
         }
     }/*}}}*/
@@ -1456,16 +1416,16 @@ class Base {/*{{{*/
      * Utility function to calculate: SUM { (xi - mean)^n }
      *
      * @access private
-     * @param  numeric            $power the exponent
-     * @param  optional    double $mean  the data set mean value
-     * @return mixed              the sum on success, a PEAR_Error object otherwise
+     * @param   numeric $power  the exponent
+     * @param   optional    double   $mean   the data set mean value
+     * @return  mixed   the sum on success, a PEAR_Error object otherwise
      *
      * @see stDev()
      * @see variaceWithMean();
      * @see skewness();
      * @see kurtosis();
      */
-    public function __sumdiff($power, $mean=null) {/*{{{*/
+    function __sumdiff($power, $mean=null) {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -1478,13 +1438,12 @@ class Base {/*{{{*/
         $sdiff = 0;
         if ($this->_dataOption == STATS_DATA_CUMMULATIVE) {
             foreach ($this->_data as $val=>$freq) {
-                $sdiff += $freq * pow((double) ($val - $mean), (double) $power);
+                $sdiff += $freq * pow((double)($val - $mean), (double)$power);
             }
         } else {
             foreach ($this->_data as $val)
-                $sdiff += pow((double) ($val - $mean), (double) $power);
+                $sdiff += pow((double)($val - $mean), (double)$power);
         }
-
         return $sdiff;
     }/*}}}*/
 
@@ -1498,7 +1457,7 @@ class Base {/*{{{*/
      * @see variance()
      * @see varianceWithMean()
      */
-    public function __calcVariance($mean = null) {/*{{{*/
+    function __calcVariance($mean = null) {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -1513,7 +1472,6 @@ class Base {/*{{{*/
         if ($count == 1) {
             return PEAR::raiseError('cannot calculate variance of a singe data point');
         }
-
         return  ($sumdiff2 / ($count - 1));
     }/*}}}*/
 
@@ -1527,7 +1485,7 @@ class Base {/*{{{*/
      * @see absDev()
      * @see absDevWithMean()
      */
-    public function __calcAbsoluteDeviation($mean = null) {/*{{{*/
+    function __calcAbsoluteDeviation($mean = null) {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -1539,7 +1497,6 @@ class Base {/*{{{*/
         if (PEAR::isError($sumabsdev)) {
             return $sumabsdev;
         }
-
         return $sumabsdev / $count;
     }/*}}}*/
 
@@ -1547,13 +1504,13 @@ class Base {/*{{{*/
      * Utility function to calculate: SUM { | xi - mean | }
      *
      * @access  private
-     * @param  optional    double $mean the mean value for the set or population
-     * @return mixed              the sum on success, a PEAR_Error object otherwise
+     * @param   optional    double   $mean   the mean value for the set or population
+     * @return  mixed   the sum on success, a PEAR_Error object otherwise
      *
      * @see absDev()
      * @see absDevWithMean()
      */
-    public function __sumabsdev($mean=null) {/*{{{*/
+    function __sumabsdev($mean=null) {/*{{{*/
         if ($this->_data == null) {
             return PEAR::raiseError('data has not been set');
         }
@@ -1570,7 +1527,6 @@ class Base {/*{{{*/
                 $sdev += abs($val - $mean);
             }
         }
-
         return $sdev;
     }/*}}}*/
 
@@ -1579,14 +1535,14 @@ class Base {/*{{{*/
      * calcBasic() and calcFull()
      *
      * @access private
-     * @param mixed   $v                 value to be formatted
+     * @param mixed $v value to be formatted
      * @param boolean $returnErrorObject whether the raw PEAR_Error (when true, default),
      *                  or only the error message will be returned (when false)
      * @return mixed if the value is a PEAR_Error object, and $useErrorObject
      *              is false, then a string with the error message will be returned,
      *              otherwise the value will not be modified and returned as passed.
      */
-    public function __format($v, $useErrorObject=true) {/*{{{*/
+    function __format($v, $useErrorObject=true) {/*{{{*/
         if (PEAR::isError($v) && $useErrorObject == false) {
             return $v->getMessage();
         } else {
@@ -1599,11 +1555,11 @@ class Base {/*{{{*/
      * according to the current null handling option
      *
      * @access  private
-     * @return mixed true on success, a PEAR_Error object otherwise
+     * @return  mixed true on success, a PEAR_Error object otherwise
      *
      * @see setData()
      */
-    public function _validate() {/*{{{*/
+    function _validate() {/*{{{*/
         $flag = ($this->_dataOption == STATS_DATA_CUMMULATIVE);
         foreach ($this->_data as $key=>$value) {
             $d = ($flag) ? $key : $value;
@@ -1638,7 +1594,6 @@ class Base {/*{{{*/
         } else {
             sort($this->_data);
         }
-
         return true;
     }/*}}}*/
 
@@ -1646,3 +1601,5 @@ class Base {/*{{{*/
 
 // vim: ts=4:sw=4:et:
 // vim6: fdl=1: fdm=marker:
+
+?>
