@@ -1,213 +1,224 @@
 <?php
-class CalculationsController extends AppController {
-	var $name = 'Calculations';
-	var $helpers = array('Form', 'Html', 'Number',  'Balans');
-	
-	var $uses = array('Balans', 'Calculation', 'Bookyear', 'Grootboek', 'Bankaccount');
-	
-	public $components = array('Import','Csv', 'Session');
+class CalculationsController extends AppController
+{
+    public $name = 'Calculations';
+    public $helpers = array('Form', 'Html', 'Number',  'Balans');
 
-	function beforeFilter() {
-		parent::resetSessionArgs();
-	}
+    public $uses = array('Balans', 'Calculation', 'Bookyear', 'Grootboek', 'Bankaccount');
 
-	function index() {
-		$this->Calculation->recursive = 0;
-		$this->set('calculations', $this->paginate());
-	}
+    public $components = array('Import','Csv', 'Session');
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid calculation'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Calculation->recursive = 1;
-		$this->set('calculation', $this->Calculation->read(null, $id));
-	}
+    public function beforeFilter()
+    {
+        parent::resetSessionArgs();
+    }
 
-	function add() {
-		if (!empty($this->request->data)) {
-			$this->Calculation->create();
-			if ($this->Calculation->save($this->request->data)) {
-				$this->Session->setFlash(__('The calculation has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The calculation could not be saved. Please, try again.'));
-			}
-		}
-		$grootboeks = $this->Calculation->Grootboek->find('list');
-		$bookyears = $this->Calculation->Bookyear->find('list');
-		$this->set(compact('grootboeks', 'bookyears'));
-	}
-	
-	function crossbooking($bookyear=null, $grootboek=null, $debetcredit=null) {
-		$boekingstuk_model = ClassRegistry::init('Boekingstukken');
-		if (!empty($this->request->data)) {
-			$incommingData = $this->request->data;	
+    public function index()
+    {
+        $this->Calculation->recursive = 0;
+        $this->set('calculations', $this->paginate());
+    }
 
-			
-			if(strlen($incommingData['Calculation'][0]['boekingstuk']) < 1 ){
-				$incommingData['Calculation'][0]['boekingstuk'] = "@@@".time(); //@@@ wordt gebruikt als 'tag' voor een gegenereerd boekingsstuk.
-			}else{
-				$incommingData['Calculation'][0]['boekingstuk'] = $boekingstuk_model->retrieve($incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['boekingstuk']);
-			}
-			
-			$incommingData['Calculation'][1]['bookyear_id'] = $incommingData['Calculation'][0]['bookyear_id'];
-			$incommingData['Calculation'][1]['boekingstuk'] = $incommingData['Calculation'][0]['boekingstuk'];
-			$incommingData['Calculation'][1]['boekdatum'] = $incommingData['Calculation'][0]['boekdatum'];
-			
-			unset($incommingData['Calculation']['DebetCredit']);	
-			if ($this->Calculation->saveAll($incommingData['Calculation'])) {
-				$this->Session->setFlash(__('Mutatie is verwerkt'));
-				$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
-			} else {
-				$this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
-			}		
-		}
-		
-		if(isset($bookyear) && isset($grootboek)&& isset($debetcredit)){
-			$grootboeks = $this->Calculation->Grootboek->find('list');
-			$currentgrootboek = $this->Calculation->Grootboek->get($grootboek);
-			$bookyear = $this->Calculation->Bookyear->get($bookyear);
-			$info['Grootboek'] = $currentgrootboek['Grootboek'];
-			$info['Bookyear'] = $bookyear['Bookyear'];
-			$boekingstukken = $boekingstuk_model->create_new_stukken($bookyear['Bookyear']['id'], $info['Bookyear']['omschrijving'] );
-			unset($currentgrootboek);
-			unset($bookyear);
-						
-			if($debetcredit == 'd'){
-				$info['debetcredit']['d'] = 'text';
-				$info['debetcredit']['c'] = 'hidden';
-				$info['debetcredit']['dc'] = 'd';
-				$info['header'] = "Debet Boeking :: ".$info['Grootboek']['nummer'];
-			}elseif($debetcredit == 'c'){
-				$info['debetcredit']['c'] = 'text';
-				$info['debetcredit']['d'] = 'hidden';
-				$info['debetcredit']['dc'] = 'c';
-				$info['header'] = "Credit Boeking :: ".$info['Grootboek']['nummer'];
-			}
-			
-			$this->set(compact('grootboeks', 'info', 'boekingstukken'));
-		}else{
-			$this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
-		}
-	}
-	function newfact($bookyear=null, $grootboek=null, $debetcredit=null) {
-		if (!empty($this->request->data)) {
-			$this->Calculation->create();
-			if ($this->Calculation->save($this->request->data)) {
-				$this->Session->setFlash(__('Mutatie is verwerkt'));
-				$this->redirect(array('controller' => 'balans', 'action' => 'open', $this->request->data['Calculation']['bookyear_id']));
-			} else {
-				$this->Session->setFlash(__('The calculation could not be saved. Please, try again.'));
-			}
-		}
-		if(isset($bookyear) && isset($grootboek)&& isset($debetcredit)){
-			$grootboeks = $this->Calculation->Grootboek->find('list');
-			$currentgrootboek = $this->Calculation->Grootboek->get($grootboek);
-			$bookyear = $this->Calculation->Bookyear->get($bookyear);
-			$info['Grootboek'] = $currentgrootboek['Grootboek'];
-			$info['Bookyear'] = $bookyear['Bookyear'];
-			$boekingstukken = "";//$boekingstuk_model->create_new_stukken($bookyear['Bookyear']['id'], $info['Bookyear']['omschrijving'] );
-			unset($currentgrootboek);
-			unset($bookyear);
-						
-			if($debetcredit == 'd'){
-				$info['debetcredit']['d'] = 'text';
-				$info['debetcredit']['c'] = 'hidden';
-				$info['debetcredit']['dc'] = 'd';
-				$info['header'] = "Debet Boeking :: ".$info['Grootboek']['nummer'];
-			}elseif($debetcredit == 'c'){
-				$info['debetcredit']['c'] = 'text';
-				$info['debetcredit']['d'] = 'hidden';
-				$info['debetcredit']['dc'] = 'c';
-				$info['header'] = "Credit Boeking :: ".$info['Grootboek']['nummer'];
-			}
-			
-			$this->set(compact('grootboeks', 'info', 'boekingstukken'));
-		}else{
-			$this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
-		}
-	}	
-	function edit($id = null) {
-		if (!$id && empty($this->request->data)) {
-			$this->Session->setFlash(__('Invalid calculation'));
-			$this->redirect(array('action' => 'index'));
-		}
-		if (!empty($this->request->data)) {
-			if ($this->Calculation->save($this->request->data)) {
-				$this->Session->setFlash(__('The calculation has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The calculation could not be saved. Please, try again.'));
-			}
-		}
-		if (empty($this->request->data)) {
-			$this->request->data = $this->Calculation->read(null, $id);
-		}
-		$grootboeks = $this->Calculation->Grootboek->find('list');
-		$bookyears = $this->Calculation->Bookyear->find('list');
-		$this->set(compact('grootboeks', 'bookyears'));
-	}
+    public function view($id = null)
+    {
+        if (!$id) {
+            $this->Session->setFlash(__('Invalid calculation'));
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->Calculation->recursive = 1;
+        $this->set('calculation', $this->Calculation->read(null, $id));
+    }
 
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for calculation'));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Calculation->delete($id)) {
-			$this->Session->setFlash(__('Calculation deleted'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Calculation was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
+    public function add()
+    {
+        if (!empty($this->request->data)) {
+            $this->Calculation->create();
+            if ($this->Calculation->save($this->request->data)) {
+                $this->Session->setFlash(__('The calculation has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The calculation could not be saved. Please, try again.'));
+            }
+        }
+        $grootboeks = $this->Calculation->Grootboek->find('list');
+        $bookyears = $this->Calculation->Bookyear->find('list');
+        $this->set(compact('grootboeks', 'bookyears'));
+    }
 
-	function ExportExcel($bookyear=null){
-		if(isset($bookyear)){
-			$balansposten = $this->selectsaldi($bookyear, 0);//0=balansposten
-			$this->Excel->exportbalans($balansposten);
-			$this->Session->setFlash(__('Excelsheet Ge�xporteerd'));
-			exit;
-		}else{
-			$this->Session->setFlash(__('Boekjaar Onbekend'));
-		}	
-	}
+    public function crossbooking($bookyear=null, $grootboek=null, $debetcredit=null)
+    {
+        $boekingstuk_model = ClassRegistry::init('Boekingstukken');
+        if (!empty($this->request->data)) {
+            $incommingData = $this->request->data;
 
-	function ExportKolomBalans($bookyear=null){
-		if(isset($bookyear)){
-			$kolommen = $this->select_kolomen_balans($bookyear);
-			$this->Excel->exportkolombalans($kolommen);
-			$this->Session->setFlash(__('Excelsheet Ge�xporteerd'));
-			exit;
-		}else{
-			$this->Session->setFlash(__('Boekjaar Onbekend'));
-		}		
+            if (strlen($incommingData['Calculation'][0]['boekingstuk']) < 1 ) {
+                $incommingData['Calculation'][0]['boekingstuk'] = "@@@".time(); //@@@ wordt gebruikt als 'tag' voor een gegenereerd boekingsstuk.
+            } else {
+                $incommingData['Calculation'][0]['boekingstuk'] = $boekingstuk_model->retrieve($incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['boekingstuk']);
+            }
 
-	}	
-	
-	function listbyboekingstuk($boekingstuk){
-		$calculations = $this->Calculation->getByBoekingsstuk($boekingstuk);
-		$this->set(compact('calculations','boekingstuk'));
-	}
-	
-	function import($bookyear_key=null, $source=null, $type=null){
-		
-            if(!empty($bookyear_key )){
+            $incommingData['Calculation'][1]['bookyear_id'] = $incommingData['Calculation'][0]['bookyear_id'];
+            $incommingData['Calculation'][1]['boekingstuk'] = $incommingData['Calculation'][0]['boekingstuk'];
+            $incommingData['Calculation'][1]['boekdatum'] = $incommingData['Calculation'][0]['boekdatum'];
+
+            unset($incommingData['Calculation']['DebetCredit']);
+            if ($this->Calculation->saveAll($incommingData['Calculation'])) {
+                $this->Session->setFlash(__('Mutatie is verwerkt'));
+                $this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
+            } else {
+                $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
+            }
+        }
+
+        if (isset($bookyear) && isset($grootboek)&& isset($debetcredit)) {
+            $grootboeks = $this->Calculation->Grootboek->find('list');
+            $currentgrootboek = $this->Calculation->Grootboek->get($grootboek);
+            $bookyear = $this->Calculation->Bookyear->get($bookyear);
+            $info['Grootboek'] = $currentgrootboek['Grootboek'];
+            $info['Bookyear'] = $bookyear['Bookyear'];
+            $boekingstukken = $boekingstuk_model->create_new_stukken($bookyear['Bookyear']['id'], $info['Bookyear']['omschrijving'] );
+            unset($currentgrootboek);
+            unset($bookyear);
+
+            if ($debetcredit == 'd') {
+                $info['debetcredit']['d'] = 'text';
+                $info['debetcredit']['c'] = 'hidden';
+                $info['debetcredit']['dc'] = 'd';
+                $info['header'] = "Debet Boeking :: ".$info['Grootboek']['nummer'];
+            } elseif ($debetcredit == 'c') {
+                $info['debetcredit']['c'] = 'text';
+                $info['debetcredit']['d'] = 'hidden';
+                $info['debetcredit']['dc'] = 'c';
+                $info['header'] = "Credit Boeking :: ".$info['Grootboek']['nummer'];
+            }
+
+            $this->set(compact('grootboeks', 'info', 'boekingstukken'));
+        } else {
+            $this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
+        }
+    }
+    public function newfact($bookyear=null, $grootboek=null, $debetcredit=null)
+    {
+        if (!empty($this->request->data)) {
+            $this->Calculation->create();
+            if ($this->Calculation->save($this->request->data)) {
+                $this->Session->setFlash(__('Mutatie is verwerkt'));
+                $this->redirect(array('controller' => 'balans', 'action' => 'open', $this->request->data['Calculation']['bookyear_id']));
+            } else {
+                $this->Session->setFlash(__('The calculation could not be saved. Please, try again.'));
+            }
+        }
+        if (isset($bookyear) && isset($grootboek)&& isset($debetcredit)) {
+            $grootboeks = $this->Calculation->Grootboek->find('list');
+            $currentgrootboek = $this->Calculation->Grootboek->get($grootboek);
+            $bookyear = $this->Calculation->Bookyear->get($bookyear);
+            $info['Grootboek'] = $currentgrootboek['Grootboek'];
+            $info['Bookyear'] = $bookyear['Bookyear'];
+            $boekingstukken = "";//$boekingstuk_model->create_new_stukken($bookyear['Bookyear']['id'], $info['Bookyear']['omschrijving'] );
+            unset($currentgrootboek);
+            unset($bookyear);
+
+            if ($debetcredit == 'd') {
+                $info['debetcredit']['d'] = 'text';
+                $info['debetcredit']['c'] = 'hidden';
+                $info['debetcredit']['dc'] = 'd';
+                $info['header'] = "Debet Boeking :: ".$info['Grootboek']['nummer'];
+            } elseif ($debetcredit == 'c') {
+                $info['debetcredit']['c'] = 'text';
+                $info['debetcredit']['d'] = 'hidden';
+                $info['debetcredit']['dc'] = 'c';
+                $info['header'] = "Credit Boeking :: ".$info['Grootboek']['nummer'];
+            }
+
+            $this->set(compact('grootboeks', 'info', 'boekingstukken'));
+        } else {
+            $this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
+        }
+    }
+    public function edit($id = null)
+    {
+        if (!$id && empty($this->request->data)) {
+            $this->Session->setFlash(__('Invalid calculation'));
+            $this->redirect(array('action' => 'index'));
+        }
+        if (!empty($this->request->data)) {
+            if ($this->Calculation->save($this->request->data)) {
+                $this->Session->setFlash(__('The calculation has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The calculation could not be saved. Please, try again.'));
+            }
+        }
+        if (empty($this->request->data)) {
+            $this->request->data = $this->Calculation->read(null, $id);
+        }
+        $grootboeks = $this->Calculation->Grootboek->find('list');
+        $bookyears = $this->Calculation->Bookyear->find('list');
+        $this->set(compact('grootboeks', 'bookyears'));
+    }
+
+    public function delete($id = null)
+    {
+        if (!$id) {
+            $this->Session->setFlash(__('Invalid id for calculation'));
+            $this->redirect(array('action'=>'index'));
+        }
+        if ($this->Calculation->delete($id)) {
+            $this->Session->setFlash(__('Calculation deleted'));
+            $this->redirect(array('action'=>'index'));
+        }
+        $this->Session->setFlash(__('Calculation was not deleted'));
+        $this->redirect(array('action' => 'index'));
+    }
+
+    public function ExportExcel($bookyear=null)
+    {
+        if (isset($bookyear)) {
+            $balansposten = $this->selectsaldi($bookyear, 0);//0=balansposten
+            $this->Excel->exportbalans($balansposten);
+            $this->Session->setFlash(__('Excelsheet Ge�xporteerd'));
+            exit;
+        } else {
+            $this->Session->setFlash(__('Boekjaar Onbekend'));
+        }
+    }
+
+    public function ExportKolomBalans($bookyear=null)
+    {
+        if (isset($bookyear)) {
+            $kolommen = $this->select_kolomen_balans($bookyear);
+            $this->Excel->exportkolombalans($kolommen);
+            $this->Session->setFlash(__('Excelsheet Ge�xporteerd'));
+            exit;
+        } else {
+            $this->Session->setFlash(__('Boekjaar Onbekend'));
+        }
+
+    }
+
+    public function listbyboekingstuk($boekingstuk)
+    {
+        $calculations = $this->Calculation->getByBoekingsstuk($boekingstuk);
+        $this->set(compact('calculations','boekingstuk'));
+    }
+
+    public function import($bookyear_key=null, $source=null, $type=null)
+    {
+            if (!empty($bookyear_key )) {
                 $bookyear = $this->Calculation->Bookyear->get($bookyear_key);
             }
 
-            if(!empty($this->request->data ) && !empty($source) && !empty($type) && isset($this->request->data['File'])) {
+            if (!empty($this->request->data ) && !empty($source) && !empty($type) && isset($this->request->data['File'])) {
                 $source = strtolower($source);
                 $type = strtolower($type);
-                
+
                 $path = 'import/'.$bookyear['Bookyear']['omschrijving'].'/'.$source.'/'.$type;
                 $fileOK = $this->uploadFiles($path,$this->request->data['File']);
-            
-                if(array_key_exists('errors', $fileOK)){
+
+                if (array_key_exists('errors', $fileOK)) {
                     $this->Session->setFlash(__($fileOK['errors'][0]));
                     $this->redirect(array('controller' => 'pages', 'action' => 'home'));
-                }else{
+                } else {
                     $filename = WWW_ROOT.$fileOK['urls'][0];
                     $this->Importer = $this->Components->load('Import'.ucwords($source).ucwords($type));
                     $parseddata = $this->Importer->execute($filename, $source , $type );
@@ -215,54 +226,53 @@ class CalculationsController extends AppController {
                     $sourceinfo = $parseddata['sourceinfo'];
                     $grootboeks = $this->Calculation->Grootboek->find('list');
                     $bankpost = $this->Bankaccount->findByIban($sourceinfo['rekening']);
-					
-					if(!array_key_exists( 'Grootboek', $bankpost) || count($bankpost)==0){
-						throw new CakeException('Geen bank gevonden waarop de huidige bewerking van toepassing is');
-					}
+
+                    if (!array_key_exists( 'Grootboek', $bankpost) || count($bankpost)==0) {
+                        throw new CakeException('Geen bank gevonden waarop de huidige bewerking van toepassing is');
+                    }
                     $this->set(compact('data', 'grootboeks', 'sourceinfo', 'bankpost'));
                 }
-            }elseif(isset($this->request->data['Calculation'])){
-            	$calculations = $this->request->data['Calculation'];
-            	$bankpost = $this->Grootboek->findById( $this->request->data['Grootboek']['id']);
-				$savedata = array();
-				$i=0;
-            	foreach($calculations as $calculation){
- 					/* Gegevens bankpost van de source-csv */
-            		$savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
-            		$savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
-            		$savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
-            		$savedata['Calculation'][$i]['grootboek_id'] = $bankpost['Grootboek']['id'];
-            		$savedata['Calculation'][$i]['debet'] = $calculation['debet'];
-            		$savedata['Calculation'][$i]['credit'] = $calculation['credit'];
-            		$i++;   		
-            		
-            		/* Gegevens grootboek / balanspost / resultaatpost van de doel-post */
-            		$savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
-            		$savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
-            		$savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
-            		$savedata['Calculation'][$i]['grootboek_id'] = $calculation['grootboek_id'];
-            		$savedata['Calculation'][$i]['debet'] = $calculation['credit']; //DEBET from source-csv is CREDIT from target
-            		$savedata['Calculation'][$i]['credit'] = $calculation['debet']; //CREDIT from source-csv is DEBET from target
-            		$i++;            		
-            	}
-            	if ($this->Calculation->saveAll($savedata['Calculation'])) {
-            		$this->Session->setFlash(__('Mutatie is verwerkt'));
-            		//$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
-            	} else {
-            		$this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
-            	}            	
-            	
+            } elseif (isset($this->request->data['Calculation'])) {
+                $calculations = $this->request->data['Calculation'];
+                $bankpost = $this->Grootboek->findById( $this->request->data['Grootboek']['id']);
+                $savedata = array();
+                $i=0;
+                foreach ($calculations as $calculation) {
+                     /* Gegevens bankpost van de source-csv */
+                    $savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
+                    $savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
+                    $savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
+                    $savedata['Calculation'][$i]['grootboek_id'] = $bankpost['Grootboek']['id'];
+                    $savedata['Calculation'][$i]['debet'] = $calculation['debet'];
+                    $savedata['Calculation'][$i]['credit'] = $calculation['credit'];
+                    $i++;
+
+                    /* Gegevens grootboek / balanspost / resultaatpost van de doel-post */
+                    $savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
+                    $savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
+                    $savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
+                    $savedata['Calculation'][$i]['grootboek_id'] = $calculation['grootboek_id'];
+                    $savedata['Calculation'][$i]['debet'] = $calculation['credit']; //DEBET from source-csv is CREDIT from target
+                    $savedata['Calculation'][$i]['credit'] = $calculation['debet']; //CREDIT from source-csv is DEBET from target
+                    $i++;
+                }
+                if ($this->Calculation->saveAll($savedata['Calculation'])) {
+                    $this->Session->setFlash(__('Mutatie is verwerkt'));
+                    //$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
+                } else {
+                    $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
+                }
+
             }
-			
+
             $this->set(compact('bookyear'));
 /*            if (!empty($this->request->data)) {
                 $bookyear = $this->Calculation->Bookyear->get($this->request->data['Bookyear']['id']);
-                
 
-                if(array_key_exists('errors', $fileOK)){
+                if (array_key_exists('errors', $fileOK)) {
                         $this->Session->setFlash(__($fileOK['errors'][0]));
                         $this->redirect(array('controller' => 'pages', 'action' => 'home'));
-                }else{
+                } else {
                         $param['Bookyear'] = $bookyear['Bookyear'];
                         $param['filename'] = WWW_ROOT.$fileOK['urls'][0];
                         $calcs = $this->Excel->readkwartaal($param);
@@ -276,12 +286,11 @@ class CalculationsController extends AppController {
                         }
                 }
                 //$this->redirect(array('controller' => 'pages', 'action' => 'home'));
-            }else if(isset($bookyear_key)){
-                
+            } elseif (isset($bookyear_key)) {
+
                 $this->set(compact('bookyear'));
-            }else{
+            } else {
                 $this->Session->setFlash(__('Geen boekjaar ingesteld, import wordt geweigerd.'));
             }*/
-	}		
+    }
 }
-?>

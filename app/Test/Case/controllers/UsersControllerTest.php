@@ -2,45 +2,50 @@
 /* Users Test cases generated on: 2011-09-19 13:18:48 : 1316438328*/
 App::import('Controller', 'Users');
 
-class TestUsersController extends UsersController {
-	var $autoRender = false;
+class TestUsersController extends UsersController
+{
+    public $autoRender = false;
 
-	function redirect($url, $status = null, $exit = true) {
-		$this->redirectUrl = $url;
-	}
+    public function redirect($url, $status = null, $exit = true)
+    {
+        $this->redirectUrl = $url;
+    }
 }
 
-class UsersControllerTest extends CakeTestCase {
-	var $fixtures = array('app.user', 'app.group');
+class UsersControllerTest extends CakeTestCase
+{
+    public $fixtures = array('app.user', 'app.group');
 
-	function startTest() {
-		$this->Users =& new TestUsersController();
-		$this->Users->constructClasses();
-	}
+    public function startTest()
+    {
+        $this->Users =& new TestUsersController();
+        $this->Users->constructClasses();
+    }
 
-	function endTest() {
-		unset($this->Users);
-		ClassRegistry::flush();
-	}
+    public function endTest()
+    {
+        unset($this->Users);
+        ClassRegistry::flush();
+    }
 
-	function testIndex() {
+    public function testIndex()
+    {
+    }
 
-	}
+    public function testView()
+    {
+    }
 
-	function testView() {
+    public function testAdd()
+    {
+    }
 
-	}
+    public function testEdit()
+    {
+    }
 
-	function testAdd() {
-
-	}
-
-	function testEdit() {
-
-	}
-
-	function testDelete() {
-
-	}
+    public function testDelete()
+    {
+    }
 
 }

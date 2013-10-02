@@ -2,45 +2,50 @@
 /* Schemas Test cases generated on: 2011-09-22 10:33:43 : 1316687623*/
 App::import('Controller', 'Schemas');
 
-class TestSchemasController extends SchemasController {
-	var $autoRender = false;
+class TestSchemasController extends SchemasController
+{
+    public $autoRender = false;
 
-	function redirect($url, $status = null, $exit = true) {
-		$this->redirectUrl = $url;
-	}
+    public function redirect($url, $status = null, $exit = true)
+    {
+        $this->redirectUrl = $url;
+    }
 }
 
-class SchemasControllerTest extends CakeTestCase {
-	var $fixtures = array('app.schema');
+class SchemasControllerTest extends CakeTestCase
+{
+    public $fixtures = array('app.schema');
 
-	function startTest() {
-		$this->Schemas =& new TestSchemasController();
-		$this->Schemas->constructClasses();
-	}
+    public function startTest()
+    {
+        $this->Schemas =& new TestSchemasController();
+        $this->Schemas->constructClasses();
+    }
 
-	function endTest() {
-		unset($this->Schemas);
-		ClassRegistry::flush();
-	}
+    public function endTest()
+    {
+        unset($this->Schemas);
+        ClassRegistry::flush();
+    }
 
-	function testIndex() {
+    public function testIndex()
+    {
+    }
 
-	}
+    public function testView()
+    {
+    }
 
-	function testView() {
+    public function testAdd()
+    {
+    }
 
-	}
+    public function testEdit()
+    {
+    }
 
-	function testAdd() {
-
-	}
-
-	function testEdit() {
-
-	}
-
-	function testDelete() {
-
-	}
+    public function testDelete()
+    {
+    }
 
 }

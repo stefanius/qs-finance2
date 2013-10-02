@@ -30,15 +30,15 @@
  * @subpackage    cake.cake.libs.controller
  * @link http://book.cakephp.org/view/958/The-Pages-Controller
  */
-class TestexcelController extends AppController {
-
+class TestexcelController extends AppController
+{
 /**
  * Controller name
  *
  * @var string
  * @access public
  */
-	var $name = 'Testexcel';
+    public $name = 'Testexcel';
 
 /**
  * Default helper
@@ -46,7 +46,7 @@ class TestexcelController extends AppController {
  * @var array
  * @access public
  */
-	public $helpers = array('PhpExcel');  
+    public $helpers = array('PhpExcel');
 
 /**
  * This controller does not use a model
@@ -54,7 +54,7 @@ class TestexcelController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array();
+    public $uses = array();
 
 /**
  * Displays a view
@@ -62,18 +62,19 @@ class TestexcelController extends AppController {
  * @param mixed What page to display
  * @access public
  */
-	function test() {
+    public function test()
+    {
             $data = array();
-            $data[0]['User']['name'] = 'aap'; 
-            $data[0]['Type']['name']= 'noot';  
-            $data[0]['User']['date']= 'mies'; 
-            $data[0]['User']['description']= 'henk'; 
-            $data[0]['User']['modified'] = 'bla'; 
-            $data[1]['User']['name'] = 'een'; 
-            $data[1]['Type']['name']= 'twee';  
-            $data[1]['User']['date']= 'drie'; 
-            $data[1]['User']['description']= 'vier'; 
-            $data[1]['User']['modified'] = 'vijf'; 
+            $data[0]['User']['name'] = 'aap';
+            $data[0]['Type']['name']= 'noot';
+            $data[0]['User']['date']= 'mies';
+            $data[0]['User']['description']= 'henk';
+            $data[0]['User']['modified'] = 'bla';
+            $data[1]['User']['name'] = 'een';
+            $data[1]['Type']['name']= 'twee';
+            $data[1]['User']['date']= 'drie';
+            $data[1]['User']['description']= 'vier';
+            $data[1]['User']['modified'] = 'vijf';
             $this->set(compact('data'));
-	}
+    }
 }

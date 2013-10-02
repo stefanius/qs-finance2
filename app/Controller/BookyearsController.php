@@ -1,103 +1,112 @@
 <?php
-class BookyearsController extends AppController {
+class BookyearsController extends AppController
+{
+    public $name = 'Bookyears';
 
-	var $name = 'Bookyears';
-        
-	function beforeFilter() {
-		parent::beforeFilter(); 
-		$this->Auth->allowedActions = array('selectBookyear', 'getBookyear');
-	}
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->allowedActions = array('selectBookyear', 'getBookyear');
+    }
 
-	function index() {
-		$this->Bookyear->recursive = 1;
-		$bookyears =  $this->paginate();
-		
-		for($i=0;$i< count($bookyears);$i++){
-			if(count($bookyears[$i]['Calculation'])>0){
-				$bookyears[$i]['allowDelete'] = 0;
-			}else{
-				$bookyears[$i]['allowDelete'] = 1;
-			}
-		}	
-		$this->set(compact('bookyears'));
-	}
+    public function index()
+    {
+        $this->Bookyear->recursive = 1;
+        $bookyears =  $this->paginate();
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid bookyear'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Bookyear->recursive = 1;
-		$this->set('bookyear', $this->Bookyear->read(null, $id));
-	}
+        for ($i=0;$i< count($bookyears);$i++) {
+            if (count($bookyears[$i]['Calculation'])>0) {
+                $bookyears[$i]['allowDelete'] = 0;
+            } else {
+                $bookyears[$i]['allowDelete'] = 1;
+            }
+        }
+        $this->set(compact('bookyears'));
+    }
 
-	function add() {
-		if (!empty($this->request->data)) {
-			$this->Bookyear->create();
-			if ($this->Bookyear->save($this->request->data)) {
-				$this->Session->setFlash(__('The bookyear has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The bookyear could not be saved. Please, try again.'));
-			}
-		}
-	}
-	
-	function newbookyear($fromdate=false, $todate=false) {
-		if (!empty($this->request->data)) {
-			$newbookyear['prevyear'] = $this->request->data['Bookyear']['prevyear'];
-			$this->Bookyear->create();
-			if ($this->Bookyear->save($this->request->data)) {
-				$this->Session->setFlash(__('Bookjaar aangemaakt'));
-				$newbookyear['id'] = $this->Bookyear->getLastInsertId();
-				$this->redirect(array('controller' => 'balans', 'action' => 'newbalans', $newbookyear['prevyear'], $newbookyear['id']));
-			} else {
-				$this->Session->setFlash(__('Aanmaken bookjaar is mislukt.'));
-			}
-		}
-		$bookyears = $this->Bookyear->find('list', array('conditions' => array('Bookyear.closed' => 0)));
-		$this->set(compact('bookyears'));
-	}
-	
-	function edit($id = null) {
-		if (!$id && empty($this->request->data)) {
-			$this->Session->setFlash(__('Invalid bookyear'));
-			$this->redirect(array('action' => 'index'));
-		}
-		if (!empty($this->request->data)) {
-			if ($this->Bookyear->save($this->request->data)) {
-				$this->Session->setFlash(__('The bookyear has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The bookyear could not be saved. Please, try again.'));
-			}
-		}
-		if (empty($this->request->data)) {
-			$this->request->data = $this->Bookyear->read(null, $id);
-		}
-	}
+    public function view($id = null)
+    {
+        if (!$id) {
+            $this->Session->setFlash(__('Invalid bookyear'));
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->Bookyear->recursive = 1;
+        $this->set('bookyear', $this->Bookyear->read(null, $id));
+    }
 
-	function delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for bookyear'));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Bookyear->delete($id)) {
-			$this->Session->setFlash(__('Bookyear deleted'));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Bookyear was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
-	
-	function selectBookyear(){
-		$bookyears = $this->Bookyear->find('list');
-		$this->set(compact('bookyears'));	
-		
-	}	
-	function getBookyear($closed=0){
-		$bookyears = $this->Bookyear->find('all', array('conditions' => array('closed' => $closed)));
-		return $bookyears;	
-	}
+    public function add()
+    {
+        if (!empty($this->request->data)) {
+            $this->Bookyear->create();
+            if ($this->Bookyear->save($this->request->data)) {
+                $this->Session->setFlash(__('The bookyear has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The bookyear could not be saved. Please, try again.'));
+            }
+        }
+    }
+
+    public function newbookyear($fromdate=false, $todate=false)
+    {
+        if (!empty($this->request->data)) {
+            $newbookyear['prevyear'] = $this->request->data['Bookyear']['prevyear'];
+            $this->Bookyear->create();
+            if ($this->Bookyear->save($this->request->data)) {
+                $this->Session->setFlash(__('Bookjaar aangemaakt'));
+                $newbookyear['id'] = $this->Bookyear->getLastInsertId();
+                $this->redirect(array('controller' => 'balans', 'action' => 'newbalans', $newbookyear['prevyear'], $newbookyear['id']));
+            } else {
+                $this->Session->setFlash(__('Aanmaken bookjaar is mislukt.'));
+            }
+        }
+        $bookyears = $this->Bookyear->find('list', array('conditions' => array('Bookyear.closed' => 0)));
+        $this->set(compact('bookyears'));
+    }
+
+    public function edit($id = null)
+    {
+        if (!$id && empty($this->request->data)) {
+            $this->Session->setFlash(__('Invalid bookyear'));
+            $this->redirect(array('action' => 'index'));
+        }
+        if (!empty($this->request->data)) {
+            if ($this->Bookyear->save($this->request->data)) {
+                $this->Session->setFlash(__('The bookyear has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The bookyear could not be saved. Please, try again.'));
+            }
+        }
+        if (empty($this->request->data)) {
+            $this->request->data = $this->Bookyear->read(null, $id);
+        }
+    }
+
+    public function delete($id = null)
+    {
+        if (!$id) {
+            $this->Session->setFlash(__('Invalid id for bookyear'));
+            $this->redirect(array('action'=>'index'));
+        }
+        if ($this->Bookyear->delete($id)) {
+            $this->Session->setFlash(__('Bookyear deleted'));
+            $this->redirect(array('action'=>'index'));
+        }
+        $this->Session->setFlash(__('Bookyear was not deleted'));
+        $this->redirect(array('action' => 'index'));
+    }
+
+    public function selectBookyear()
+    {
+        $bookyears = $this->Bookyear->find('list');
+        $this->set(compact('bookyears'));
+
+    }
+    public function getBookyear($closed=0)
+    {
+        $bookyears = $this->Bookyear->find('all', array('conditions' => array('closed' => $closed)));
+
+        return $bookyears;
+    }
 }
-?>

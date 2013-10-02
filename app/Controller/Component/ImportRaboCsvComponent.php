@@ -1,54 +1,56 @@
 <?php
 
 App::uses('Component', 'ImportComponent');
-class ImportRaboCsvComponent extends ImportComponent {
-        
-    public function execute($filename = null, $source = null, $type = null){
+class ImportRaboCsvComponent extends ImportComponent
+{
+    public function execute($filename = null, $source = null, $type = null)
+    {
         $data = array();
         $sourceinfo = array();
-        if(is_null($filename) || is_null($source) || is_null($type)){
+        if (is_null($filename) || is_null($source) || is_null($type)) {
             throw new CakeException();
         }
             $this->Csv->setFirstLineAsHeader(true);
             $this->Csv->setUseHeaderAsKey(false);
             $csvdata =  $this->Csv->read($filename);
-            
-            foreach($csvdata as $key=>$datarow){
+
+            foreach ($csvdata as $key=>$datarow) {
                 $data[$key]['boekdatum'] = $datarow[7];
                 $data[$key]['omschrijving'] = '';
-                
+
                 $data[$key]['omschrijving'] = $datarow[6] ;
-                for($i=10; $i<16;$i++){
-                	$data[$key]['omschrijving'] .= ' '. $datarow[$i] ;
+                for ($i=10; $i<16;$i++) {
+                    $data[$key]['omschrijving'] .= ' '. $datarow[$i] ;
                 }
                 $data[$key]['omschrijving'] = preg_replace('/\s+/', ' ', $data[$key]['omschrijving']) ;
-                
-                if(strlen($data[$key]['boekdatum']) == 8){
-                	$year = substr($data[$key]['boekdatum'], 0,4);
-                	$month = substr($data[$key]['boekdatum'], 4,2);
-                	$day = substr($data[$key]['boekdatum'], 6,2);
-                	$data[$key]['boekdatum'] = $year.'-'.$month.'-'.$day;
-                }else{
-                	throw new CakeException('Boekdatum RABO incorrect.');
+
+                if (strlen($data[$key]['boekdatum']) == 8) {
+                    $year = substr($data[$key]['boekdatum'], 0,4);
+                    $month = substr($data[$key]['boekdatum'], 4,2);
+                    $day = substr($data[$key]['boekdatum'], 6,2);
+                    $data[$key]['boekdatum'] = $year.'-'.$month.'-'.$day;
+                } else {
+                    throw new CakeException('Boekdatum RABO incorrect.');
                 }
-                
+
                 $sourceinfo['rekening'] = $datarow[0];
-                // (D=af; C=bij - let op! Anders dan je zou verwachten!)            
-                if($datarow[3] === 'D'){
+                // (D=af; C=bij - let op! Anders dan je zou verwachten!)
+                if ($datarow[3] === 'D') {
                     $data[$key]['credit'] = $datarow[4] ;
                     $data[$key]['debet'] = 0;
-                }else{
+                } else {
                     $data[$key]['debet'] =  $datarow[4] ;
-                    $data[$key]['credit'] = 0;                    
+                    $data[$key]['credit'] = 0;
                 }
             }
-        
+
         $rtrn = array();
         $rtrn['data']  = $data;
         $rtrn['sourceinfo']  = $sourceinfo;
+
         return $rtrn;
-    } 
-   
+    }
+
 /*
 
 0 => REKENINGNUMMER_REKENINGHOUDER Alfanumeriek 35 Eigen Rekeningnummer in IBAN formaat
@@ -69,7 +71,6 @@ class ImportRaboCsvComponent extends ImportComponent {
 15 => OMSCHR6 Alfanumeriek 35
 16 => END_TO_END_ID Alfanumeriek 35 SEPA Credit Transfer: Kenmerk opgegeven door de opdrachtgever
 17 => ID_TEGENREKENINGHOUDER Alfanumeriek 35 SEPA Credit Transfer: Identificatie van de tegenrekeninghouder
-18 => MANDAAT_ID Alfanumeriek 35 SEPA Direct Debet: Kenmerk machtiging 
+18 => MANDAAT_ID Alfanumeriek 35 SEPA Direct Debet: Kenmerk machtiging
  */
 }
-?>

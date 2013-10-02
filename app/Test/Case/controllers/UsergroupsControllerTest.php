@@ -2,46 +2,50 @@
 /* Usergroups Test cases generated on: 2011-07-19 11:34:15 : 1311075255*/
 App::import('Controller', 'Usergroups');
 
-class TestUsergroupsController extends UsergroupsController {
-	var $autoRender = false;
+class TestUsergroupsController extends UsergroupsController
+{
+    public $autoRender = false;
 
-	function redirect($url, $status = null, $exit = true) {
-		$this->redirectUrl = $url;
-	}
+    public function redirect($url, $status = null, $exit = true)
+    {
+        $this->redirectUrl = $url;
+    }
 }
 
-class UsergroupsControllerTest extends CakeTestCase {
-	var $fixtures = array('app.usergroup');
+class UsergroupsControllerTest extends CakeTestCase
+{
+    public $fixtures = array('app.usergroup');
 
-	function startTest() {
-		$this->Usergroups =& new TestUsergroupsController();
-		$this->Usergroups->constructClasses();
-	}
+    public function startTest()
+    {
+        $this->Usergroups =& new TestUsergroupsController();
+        $this->Usergroups->constructClasses();
+    }
 
-	function endTest() {
-		unset($this->Usergroups);
-		ClassRegistry::flush();
-	}
+    public function endTest()
+    {
+        unset($this->Usergroups);
+        ClassRegistry::flush();
+    }
 
-	function testIndex() {
+    public function testIndex()
+    {
+    }
 
-	}
+    public function testView()
+    {
+    }
 
-	function testView() {
+    public function testAdd()
+    {
+    }
 
-	}
+    public function testEdit()
+    {
+    }
 
-	function testAdd() {
-
-	}
-
-	function testEdit() {
-
-	}
-
-	function testDelete() {
-
-	}
+    public function testDelete()
+    {
+    }
 
 }
-?>

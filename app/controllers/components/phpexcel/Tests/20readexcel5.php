@@ -38,9 +38,8 @@ date_default_timezone_set('Europe/London');
 /** Include PHPExcel_IOFactory */
 require_once '../Classes/PHPExcel/IOFactory.php';
 
-
 if (!file_exists("14excel5.xls")) {
-	exit("Please run 14excel5.php first.\n");
+    exit("Please run 14excel5.php first.\n");
 }
 
 echo date('H:i:s') , " Load workbook from Excel5 file" , EOL;
@@ -50,7 +49,6 @@ echo date('H:i:s') , " Write to Excel2007 format" , EOL;
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
 echo date('H:i:s') , " File written to " , str_replace('.php', '.xlsx', pathinfo(__FILE__, PATHINFO_BASENAME)) , EOL;
-
 
 // Echo memory peak usage
 echo date('H:i:s') , " Peak memory usage: " , (memory_get_peak_usage(true) / 1024 / 1024) , " MB" , EOL;
