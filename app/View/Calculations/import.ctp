@@ -1,7 +1,10 @@
 <div class="balans import">
 <?php
-	echo '<h2>CSV van bank: '.$bankpost['Bankaccount']['maatschappij'].' ('.$bankpost['Bankaccount']['iban'].')</h2>';
-	echo '<h3>Grootboek: '.$bankpost['Grootboek']['display_omschrijving'].'</h3>';
+	if(isset($bankpost)){
+		echo '<h2>CSV van bank: '.$bankpost['Bankaccount']['maatschappij'].' ('.$bankpost['Bankaccount']['iban'].')</h2>';
+		echo '<h3>Grootboek: '.$bankpost['Grootboek']['display_omschrijving'].'</h3>';		
+	}
+
 
 	if(isset($bookyear) && !isset($data))
 	{
