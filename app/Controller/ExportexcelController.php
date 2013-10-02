@@ -38,24 +38,24 @@ class ExportexcelController extends AppController
 
     public function balans($bookyear)
     {
-            $balans = $this->Balans->openBalans($bookyear);
-            $balans = $this->Balans->formatBalans($balans);
-            $data=$balans;
-            $templatepath = $this->essetial();
-            $file = $templatepath.'balans.xls';
-            $this->set(compact('balans', 'data','file'));
+        $balans = $this->Balans->openBalans($bookyear);
+        $balans = $this->Balans->formatBalans($balans);
+        $data=$balans;
+        $templatepath = $this->essential();
+        $file = $templatepath.'balans.xls';
+        $this->set(compact('balans', 'data','file'));
     }
 
     public function kolombalans($bookyear)
     {
-            $balans = $this->Balans->openKolomBalans($bookyear);
-            $liquideposten = $this->Balans->retrieveLiquidePosten($bookyear);
-            $data=$balans;
-            $this->set(compact('balans', 'data', 'liquideposten'));
+        $balans = $this->Balans->openKolomBalans($bookyear);
+        $liquideposten = $this->Balans->retrieveLiquidePosten($bookyear);
+        $data=$balans;
+        $this->set(compact('balans', 'data', 'liquideposten'));
     }
 
-        function essetial()
-        {
-            return  WWW_ROOT . DS . 'files' . DS . 'xsltemplates' . DS . 'balans' . DS;
-        }
+    function essential()
+    {
+        return  WWW_ROOT . DS . 'files' . DS . 'xsltemplates' . DS . 'balans' . DS;
+    }
 }
