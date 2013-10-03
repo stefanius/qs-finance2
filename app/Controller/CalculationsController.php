@@ -171,31 +171,6 @@ class CalculationsController extends AppController
         $this->redirect(array('action' => 'index'));
     }
 
-    public function ExportExcel($bookyear=null)
-    {
-        if (isset($bookyear)) {
-            $balansposten = $this->selectsaldi($bookyear, 0);//0=balansposten
-            $this->Excel->exportbalans($balansposten);
-            $this->Session->setFlash(__('Excelsheet Ge�xporteerd'));
-            exit;
-        } else {
-            $this->Session->setFlash(__('Boekjaar Onbekend'));
-        }
-    }
-
-    public function ExportKolomBalans($bookyear=null)
-    {
-        if (isset($bookyear)) {
-            $kolommen = $this->select_kolomen_balans($bookyear);
-            $this->Excel->exportkolombalans($kolommen);
-            $this->Session->setFlash(__('Excelsheet Ge�xporteerd'));
-            exit;
-        } else {
-            $this->Session->setFlash(__('Boekjaar Onbekend'));
-        }
-
-    }
-
     public function listbyboekingstuk($boekingstuk)
     {
         $calculations = $this->Calculation->getByBoekingsstuk($boekingstuk);
