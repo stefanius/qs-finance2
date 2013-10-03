@@ -238,24 +238,27 @@ class CalculationsController extends AppController
                 $savedata = array();
                 $i=0;
                 foreach ($calculations as $calculation) {
-                     /* Gegevens bankpost van de source-csv */
-                    $savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
-                    $savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
-                    $savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
-                    $savedata['Calculation'][$i]['grootboek_id'] = $bankpost['Grootboek']['id'];
-                    $savedata['Calculation'][$i]['debet'] = $calculation['debet'];
-                    $savedata['Calculation'][$i]['credit'] = $calculation['credit'];
-                    $i++;
-
-                    /* Gegevens grootboek / balanspost / resultaatpost van de doel-post */
-                    $savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
-                    $savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
-                    $savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
-                    $savedata['Calculation'][$i]['grootboek_id'] = $calculation['grootboek_id'];
-                    $savedata['Calculation'][$i]['debet'] = $calculation['credit']; //DEBET from source-csv is CREDIT from target
-                    $savedata['Calculation'][$i]['credit'] = $calculation['debet']; //CREDIT from source-csv is DEBET from target
-                    $i++;
+                	if($calculation['process']==1){
+                		/* Gegevens bankpost van de source-csv */
+                		$savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
+                		$savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
+                		$savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
+                		$savedata['Calculation'][$i]['grootboek_id'] = $bankpost['Grootboek']['id'];
+                		$savedata['Calculation'][$i]['debet'] = $calculation['debet'];
+                		$savedata['Calculation'][$i]['credit'] = $calculation['credit'];
+                		$i++;
+                		
+                		/* Gegevens grootboek / balanspost / resultaatpost van de doel-post */
+                		$savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
+                		$savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
+                		$savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
+                		$savedata['Calculation'][$i]['grootboek_id'] = $calculation['grootboek_id'];
+                		$savedata['Calculation'][$i]['debet'] = $calculation['credit']; //DEBET from source-csv is CREDIT from target
+                		$savedata['Calculation'][$i]['credit'] = $calculation['debet']; //CREDIT from source-csv is DEBET from target
+                		$i++;                		
+                	}
                 }
+                
                 if ($this->Calculation->saveAll($savedata['Calculation'])) {
                     $this->Session->setFlash(__('Mutatie is verwerkt'));
                     //$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
