@@ -8,7 +8,6 @@ class BalansController extends AppController
 
     public function beforeFilter()
     {
-        parent::resetSessionArgs();
         parent::beforeFilter();
         $this->Auth->allow(array('*'));
     }

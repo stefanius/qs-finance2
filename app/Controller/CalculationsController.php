@@ -10,7 +10,7 @@ class CalculationsController extends AppController
 
     public function beforeFilter()
     {
-        parent::resetSessionArgs();
+
     }
 
     public function index()
