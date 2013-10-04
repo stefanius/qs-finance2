@@ -20,11 +20,12 @@ class BalansController extends AppController
         $this->set(compact('bookyears'));
     }
 
-    public function open($bookyear, $beginbalans=null)
+    public function open($bookyear_key, $beginbalans=null)
     {
-        $balans = $this->Balans->openBalans($bookyear, $beginbalans);
+        $balans = $this->Balans->openBalans($bookyear_key, $beginbalans);
         $balans = $this->Balans->formatBalans($balans);
-        $this->set(compact('balans'));
+        $bookyear = $this->Balans->Bookyear->get($bookyear_key);
+        $this->set(compact('balans', 'bookyear'));
     }
 
     public function kolombalans($bookyear)
