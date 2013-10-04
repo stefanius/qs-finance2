@@ -76,9 +76,7 @@ class GrootboeksController extends AppController
     {
         $bookyear = $this->Grootboek->Bookyear->get($bookyear_key);
         $grootboek = $this->Grootboek->getSaldi($bookyear['Bookyear']['id'], $grootboek_key);
-        $this -> Session -> write("grootboek", $grootboek['Grootboek']['nummer']);
-        $this -> Session -> write("bookyear", $bookyear['Bookyear']['omschrijving']);
-
+        
         $this->set(compact('grootboek', 'bookyear'));
     }
 
