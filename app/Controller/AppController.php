@@ -1,5 +1,5 @@
 <?php
-include 'versie.php'; //Versie.php staat in de folder 'webroot'. Hier wordt het buildnummer geset.
+
 class AppController extends Controller
 {
     //var $components = array('Acl', 'Auth', 'Session');
