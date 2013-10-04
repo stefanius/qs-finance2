@@ -5,7 +5,8 @@
 
 .grootboek,
 .resultaat{
-	width:100%;
+	width: 95%;
+	float: right;
 }
 
 .grootboek h1,
@@ -63,7 +64,8 @@
 }
 .balans,
 .resultaat{
-	width:100%;
+	width: 95%;
+	float: right;
 }
 
 .balans a,

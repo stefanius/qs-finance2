@@ -1,17 +1,20 @@
 /* adaptor voor the default cake CSS en mijn eigen boekhouden CSS */
 
 #content #main{
-	width:85%;
+	width:86%;
 	float:right;
+	border-left:thin;
+	border-left-color:#999999;
+	border-left-style:double;	
 }
 
 #content #leftbar{
-	width:13%;
+	width:12%;
 	height:100%;
 	float:left;
-	border-right:thin;
-	border-right-color:#999999;
-	border-right-style:double;
+/* 	border-right:thin; */
+/* 	border-right-color:#999999; */
+/* 	border-right-style:double; */
 }
 
 #content #leftbar h1{
