@@ -19,6 +19,15 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+
+/**
+ * Read defined lib/Cake folder from Apache
+ */
+
+if (!defined('CAKE_CORE_INCLUDE_PATH') && getenv('CAKEPHP_CAKE_CORE_INCLUDE_PATH')) {
+	define(CAKE_CORE_INCLUDE_PATH, getenv('CAKEPHP_CAKE_CORE_INCLUDE_PATH'));
+}
+
 /**
  * Use the DS to separate the directories in other defines
  */
