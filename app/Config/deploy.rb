@@ -13,7 +13,7 @@
 # ==============================================================================
 # Global config
 # ==============================================================================
-set :keep_releases, 1
+set :keep_releases, 2
 set :scm, :git 
 set :deploy_via, :remote_cache
 set :ssh_options, {:forward_agent => true}
@@ -46,6 +46,7 @@ end
 namespace :cakephp do
   desc "Links shared dirs, links config files, clears cache."
   task :default do
+    appmove
     link.shared
     link.config
     cache
@@ -54,25 +55,46 @@ namespace :cakephp do
     end
   end
 
+  desc "Moves the app/ subfolder one level up"
+  task :appmove do
+    run "rm -rf ~/.capistrano"                            #make sure there no old tmp directory here
+    run "mkdir ~/.capistrano/"                            #create the tmp directory
+    run "mkdir ~/.capistrano/tmp/"                        #create the tmp directory
+    run "mv #{current_release}/app/ ~/.capistrano/tmp/"   #move the APP folder to tmp directory
+    run "rm -rf #{current_release}/*"                     #clears the release directory
+    run "mv ~/.capistrano/tmp/app/*  #{current_release}/" #moves the content of the original tmp/app/ dir to #{current_release}/ 
+    run "rm -rf ~/.capistrano"                            #leave no traces ;)
+  end
+
   desc "Removes and then creates tmp dirs (except log if exists)."
   task :cache do
-    run "rm -rf #{shared_path}/tmp/{cache,sessions,tests}"
+    # remove/ empty current cache
+    run "rm -rf #{shared_path}/tmp/cache"
+    run "rm -rf #{shared_path}/tmp/sessions"
+    run "rm -rf #{shared_path}/tmp/tests"
     # make the dirs, including 'logs' if it doesn't exist
-    run "mkdir -p #{shared_path}/tmp/{cache/{models,persistent,views},sessions,tests,logs}"
-    run "chmod -fR 2770 #{shared_path}/tmp/{cache,sessions,tests}"
-    # set the permission on 'logs' only if it's not empty
-    run <<-CMD
-      if find #{shared_path}/tmp/logs -maxdepth 0 -empty | read; then
-        chmod -fR 2770 #{shared_path}/tmp/logs; 
-      fi
-    CMD
+    run "mkdir -p #{shared_path}/tmp/cache"
+    run "mkdir -p #{shared_path}/tmp/cache/models"
+    run "mkdir -p #{shared_path}/tmp/cache/persistent"  
+    run "mkdir -p #{shared_path}/tmp/cache/views"
+    run "mkdir -p #{shared_path}/tmp/sessions"
+    run "mkdir -p #{shared_path}/tmp/tests"
+    run "mkdir -p #{shared_path}/tmp/logs"   
+    # set right permission
+    run "chmod -fR 777 #{shared_path}/tmp/cache"
+    run "chmod -fR 777 #{shared_path}/tmp/cache/models"
+    run "chmod -fR 777 #{shared_path}/tmp/cache/persistent"
+    run "chmod -fR 777 #{shared_path}/tmp/cache/views"
+    run "chmod -fR 777 #{shared_path}/tmp/sessions"
+    run "chmod -fR 777 #{shared_path}/tmp/tests"
+   # run "chmod -fR 777 #{shared_path}/tmp/logs"
   end
   
   namespace :link do
     desc "[internal] Removes and links the shared directories to current release."
     task :shared do
-      run "rm -rf #{current_release}/{#{cake_shared_dirs * ","}}"
       cake_shared_dirs.each do |shared_dir|
+        run "rm -rf #{current_release}/#{shared_dir}"
         run "ln -s #{shared_path}/#{shared_dir} #{current_release}/#{shared_dir}"
       end
     end
@@ -80,8 +102,8 @@ namespace :cakephp do
     desc "[internal] Removes and then links config files."
     task :config do
       if cake_config_files.is_a?(Array)
-        run "rm -f #{current_release}/Config/{#{cake_config_files * ","}}"
         cake_config_files.each do |cake_config_file|
+          run "rm -f #{current_release}/Config/#{cake_config_file}"
           run "ln -s #{shared_path}/Config/#{cake_config_file} #{current_release}/Config/#{cake_config_file}"
         end
       end
@@ -89,12 +111,8 @@ namespace :cakephp do
 
     desc "Link the upload directories to their shared targets."
     task :uploads do
-      if upload_dirs.length == 1
-        run "rm -rf #{current_release}/webroot/#{upload_dirs * ","}"
-      else
-        run "rm -rf #{current_release}/webroot/{#{upload_dirs * ","}}"
-      end
       upload_dirs.each do |upload_dir|
+        run "rm -rf #{current_release}/webroot/#{upload_dir}"
         run "ln -s #{shared_path}/#{upload_dir} #{current_release}/webroot/#{upload_dir}"
       end
     end
