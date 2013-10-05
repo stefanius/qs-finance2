@@ -32,8 +32,20 @@
  *
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
+ * 
+ * Change level in Apache config config (VHost-file) by adding this line:
+ * SetEnv CAKEPHP_DEBUG 2
+ * 
+ * Where '2' can be replaced by the debug-setting 0,1 or 2.
  */
-    Configure::write('debug', 2);
+
+
+
+if (getenv('CAKEPHP_DEBUG')) {
+        Configure::write('debug', getenv('CAKEPHP_DEBUG'));
+} else {
+        Configure::write('debug', 0);
+}
 
 /**
  * Configure the Error handler used to handle errors for your application. By default
