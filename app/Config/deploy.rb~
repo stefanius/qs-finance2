@@ -58,15 +58,14 @@ namespace :cakephp do
   desc "Moves the app/ subfolder one level up"
   task :appmove do
     run "rm -rf ~/.capistrano"                            #make sure there no old tmp directory here
-    run "rm -rf #{current_release}/../lib"  
     run "mkdir ~/.capistrano/"                            #create the tmp directory
     run "mkdir ~/.capistrano/tmp/"                        #create the tmp directory
     run "mv #{current_release}/app/ ~/.capistrano/tmp/"   #move the APP folder to tmp directory
-    run "mv #{current_release}/lib/ ~/.capistrano/tmp/"   #move the APP folder to tmp directory
     run "rm -rf #{current_release}/*"                     #clears the release directory
     run "mv ~/.capistrano/tmp/app/*  #{current_release}/" #moves the content of the original tmp/app/ dir to #{current_release}/ 
-    run "mv ~/.capistrano/tmp/lib  #{current_release}/.." #moves the content of the original tmp/app/ dir to #{current_release}/ 
     run "rm -rf ~/.capistrano"                            #leave no traces ;)
+    run "rsync -a #{current_release}/Vendor/ #{shared_path}/Vendor"
+
   end
 
   desc "Removes and then creates tmp dirs (except log if exists)."
@@ -90,7 +89,6 @@ namespace :cakephp do
     run "chmod -fR 777 #{shared_path}/tmp/cache/views"
     run "chmod -fR 777 #{shared_path}/tmp/sessions"
     run "chmod -fR 777 #{shared_path}/tmp/tests"
-   # run "chmod -fR 777 #{shared_path}/tmp/logs"
   end
   
   namespace :link do

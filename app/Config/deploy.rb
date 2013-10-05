@@ -64,6 +64,8 @@ namespace :cakephp do
     run "rm -rf #{current_release}/*"                     #clears the release directory
     run "mv ~/.capistrano/tmp/app/*  #{current_release}/" #moves the content of the original tmp/app/ dir to #{current_release}/ 
     run "rm -rf ~/.capistrano"                            #leave no traces ;)
+    run "rsync -a #{current_release}/Vendor/ #{shared_path}/Vendor"
+
   end
 
   desc "Removes and then creates tmp dirs (except log if exists)."
@@ -87,7 +89,6 @@ namespace :cakephp do
     run "chmod -fR 777 #{shared_path}/tmp/cache/views"
     run "chmod -fR 777 #{shared_path}/tmp/sessions"
     run "chmod -fR 777 #{shared_path}/tmp/tests"
-   # run "chmod -fR 777 #{shared_path}/tmp/logs"
   end
   
   namespace :link do
@@ -144,7 +145,7 @@ namespace :cakephp do
   task :upload_permissions do 
     if exists?(:upload_dirs) and upload_dirs.is_a?(Array)
       upload_dirs.each do |upload_dir|
-        run "chmod -fR 2770 #{shared_path}/#{upload_dir}"
+        run "chmod -fR 777 #{shared_path}/#{upload_dir}"
       end
     end
   end
