@@ -51,7 +51,7 @@ class ImportIngCsvComponent extends ImportComponent
         $rtrn = array();
         $rtrn['data']  = $data;
         $rtrn['sourceinfo']  = $sourceinfo;
-
+		
         return $rtrn;
     }
 

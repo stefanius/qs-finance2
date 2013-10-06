@@ -28,8 +28,33 @@ class PrepareJournalEntryComponent extends Component
 		return $preparedData;
 	}
 	
-	public function prepareBatchTransaction(){
-	
+	public function prepareBatchTransaction($calculations, $bookyear, $ledger){
+		//$ledger==english translation from Grootboek
+		$preparedData = array();
+		$hash = $this->generateHash();
+		$i=0;
+		foreach ($calculations as $calculation) {
+			if($calculation['process']==1){
+				/* Gegevens bankpost van de source-csv */
+				$preparedData[$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
+				$preparedData[$i]['boekdatum'] = $calculation['boekdatum'];
+				$preparedData[$i]['omschrijving'] = $calculation['omschrijving'];
+				$preparedData[$i]['grootboek_id'] = $ledger['Grootboek']['id'];
+				$preparedData[$i]['debet'] = $calculation['debet'];
+				$preparedData[$i]['credit'] = $calculation['credit'];
+				$i++;
+		
+				/* Gegevens grootboek / balanspost / resultaatpost van de doel-post */
+				$preparedData[$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
+				$preparedData[$i]['boekdatum'] = $calculation['boekdatum'];
+				$preparedData[$i]['omschrijving'] = $calculation['omschrijving'];
+				$preparedData[$i]['grootboek_id'] = $calculation['grootboek_id'];
+				$preparedData[$i]['debet'] = $calculation['credit']; //DEBET from source-csv is CREDIT from target
+				$preparedData[$i]['credit'] = $calculation['debet']; //CREDIT from source-csv is DEBET from target
+				$i++;
+			}
+		}
+		return $preparedData;	
 	}
 	
 	private function generateHash(){	

@@ -193,7 +193,7 @@ class CalculationsController extends AppController
                     $sourceinfo = $parseddata['sourceinfo'];
                     $grootboeks = $this->Calculation->Grootboek->find('list');
                     $bankpost = $this->Bankaccount->findByIban($sourceinfo['rekening']);
-
+					var_dump($sourceinfo);
                     if (!array_key_exists( 'Grootboek', $bankpost) || count($bankpost)==0) {
                         throw new CakeException('Geen bank gevonden waarop de huidige bewerking van toepassing is');
                     }
@@ -201,32 +201,11 @@ class CalculationsController extends AppController
                 }
             } elseif (isset($this->request->data['Calculation'])) {
                 $calculations = $this->request->data['Calculation'];
-                $bankpost = $this->Grootboek->findById( $this->request->data['Grootboek']['id']);
-                $savedata = array();
-                $i=0;
-                foreach ($calculations as $calculation) {
-                	if($calculation['process']==1){
-                		/* Gegevens bankpost van de source-csv */
-                		$savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
-                		$savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
-                		$savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
-                		$savedata['Calculation'][$i]['grootboek_id'] = $bankpost['Grootboek']['id'];
-                		$savedata['Calculation'][$i]['debet'] = $calculation['debet'];
-                		$savedata['Calculation'][$i]['credit'] = $calculation['credit'];
-                		$i++;
-                		
-                		/* Gegevens grootboek / balanspost / resultaatpost van de doel-post */
-                		$savedata['Calculation'][$i]['bookyear_id'] = $bookyear['Bookyear']['id'];
-                		$savedata['Calculation'][$i]['boekdatum'] = $calculation['boekdatum'];
-                		$savedata['Calculation'][$i]['omschrijving'] = $calculation['omschrijving'];
-                		$savedata['Calculation'][$i]['grootboek_id'] = $calculation['grootboek_id'];
-                		$savedata['Calculation'][$i]['debet'] = $calculation['credit']; //DEBET from source-csv is CREDIT from target
-                		$savedata['Calculation'][$i]['credit'] = $calculation['debet']; //CREDIT from source-csv is DEBET from target
-                		$i++;                		
-                	}
-                }
-                
-                if ($this->Calculation->saveAll($savedata['Calculation'])) {
+                $ledger = $this->Grootboek->findById( $this->request->data['Grootboek']['id']);
+              
+                $preparedData = $this->PrepareJournalEntry->prepareBatchTransaction($calculations, $bookyear, $ledger);
+  
+                if ($this->Calculation->saveAll($preparedData)) {
                     $this->Session->setFlash(__('Mutatie is verwerkt'));
                     //$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
                 } else {
