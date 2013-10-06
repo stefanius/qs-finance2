@@ -52,3 +52,13 @@ exec {"import-db":
 	command => "/usr/bin/mysql -uroot  < /vagrant/sql/qsfinance.sql",
     require => [Class['composer'], Class['php'], Class['mysql'], Class['mysql::php']],
 }
+
+exec {"install-capistrano":
+	command => "/usr/bin/gem install capistrano",
+    require => [Exec['import-db'], Exec['/usr/bin/apt-get update']],
+}
+
+exec {"install-railsless":
+	command => "/usr/bin/gem install railsless-deploy",
+    require => [Exec['install-capistrano'], Exec['/usr/bin/apt-get update']],
+}
