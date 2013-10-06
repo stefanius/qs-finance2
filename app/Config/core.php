@@ -44,7 +44,7 @@
 if (getenv('CAKEPHP_DEBUG')) {
         Configure::write('debug', getenv('CAKEPHP_DEBUG'));
 } else {
-        Configure::write('debug', 0);
+        Configure::write('debug', 2);
 }
 
 /**
