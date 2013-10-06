@@ -52,7 +52,7 @@ class CalculationsController extends AppController
         	
             if ($this->Calculation->saveAll($preparedData)) {
                 $this->Session->setFlash(__('Mutatie is verwerkt'));
-                $this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
+                //$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
             } else {
                 $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
             }
