@@ -70,45 +70,7 @@ class CalculationsController extends AppController
             $this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
         }
     }
-    
-    public function newfact($bookyear=null, $grootboek=null, $debetcredit=null)
-    {
-        if (!empty($this->request->data)) {
-            $this->Calculation->create();
-            if ($this->Calculation->save($this->request->data)) {
-                $this->Session->setFlash(__('Mutatie is verwerkt'));
-                $this->redirect(array('controller' => 'balans', 'action' => 'open', $this->request->data['Calculation']['bookyear_id']));
-            } else {
-                $this->Session->setFlash(__('The calculation could not be saved. Please, try again.'));
-            }
-        }
-        if (isset($bookyear) && isset($grootboek)&& isset($debetcredit)) {
-            $grootboeks = $this->Calculation->Grootboek->find('list');
-            $currentgrootboek = $this->Calculation->Grootboek->get($grootboek);
-            $bookyear = $this->Calculation->Bookyear->get($bookyear);
-            $info['Grootboek'] = $currentgrootboek['Grootboek'];
-            $info['Bookyear'] = $bookyear['Bookyear'];
-            $boekingstukken = "";//$boekingstuk_model->create_new_stukken($bookyear['Bookyear']['id'], $info['Bookyear']['omschrijving'] );
-            unset($currentgrootboek);
-            unset($bookyear);
 
-            if ($debetcredit == 'd') {
-                $info['debetcredit']['d'] = 'text';
-                $info['debetcredit']['c'] = 'hidden';
-                $info['debetcredit']['dc'] = 'd';
-                $info['header'] = "Debet Boeking :: ".$info['Grootboek']['nummer'];
-            } elseif ($debetcredit == 'c') {
-                $info['debetcredit']['c'] = 'text';
-                $info['debetcredit']['d'] = 'hidden';
-                $info['debetcredit']['dc'] = 'c';
-                $info['header'] = "Credit Boeking :: ".$info['Grootboek']['nummer'];
-            }
-
-            $this->set(compact('grootboeks', 'info', 'boekingstukken'));
-        } else {
-            $this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
-        }
-    }
     public function edit($id = null)
     {
         if (!$id && empty($this->request->data)) {
