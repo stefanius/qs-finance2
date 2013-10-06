@@ -32,10 +32,7 @@ if($bookyear['Bookyear']['closed']==0){
 		echo $this->Html->link('Bewerk Saldi (Debet)', '/calculations/newfact/'.$bookyear['Bookyear']['id'].'/'.$grootboek['Grootboek']['id'].'/d'); 
 		echo $this->Html->link('Bewerk Saldi (Credit)', '/calculations/newfact/'.$bookyear['Bookyear']['id'].'/'.$grootboek['Grootboek']['id'].'/c'); 
 	}else{
-		echo $this->Html->link('Cross Boeking (Debet)', '/calculations/crossbooking/'.$bookyear['Bookyear']['omschrijving'].'/'.$grootboek['Grootboek']['nummer'].'/d'); 
-		echo '</br>';
-		echo $this->Html->link('Cross Boeking (Credit)', '/calculations/crossbooking/'.$bookyear['Bookyear']['omschrijving'].'/'.$grootboek['Grootboek']['nummer'].'/c'); 
-		echo '</br>';
+		echo $this->Html->link('Cross Boeking', '/calculations/crossbooking/'.$bookyear['Bookyear']['omschrijving'].'/'.$grootboek['Grootboek']['nummer'].'/'); 
 	}
 }else{
 	echo "Het maken van een boeking in dit boekjaar is niet meer mogelijk.";

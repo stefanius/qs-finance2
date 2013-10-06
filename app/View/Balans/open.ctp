@@ -41,8 +41,4 @@
         <br/>
         <?php echo $this->html->link("Download kolombalans(excel)", array("controller"=>"exportexcel", "action"=>"kolombalans", $balans['Bookyear']['omschrijving']))?>
         <br/>
-	<?php /* echo '<a href="'.$this->request->webroot.'calculations/import/'.$balans['Bookyear']['omschrijving'].'">Importeer Kwartaalfinanciën</a></br>'; */ ?>	
-	<?php /* echo '<a href="'.$this->request->webroot.'balans/kolombalans/'.$balans['Bookyear']['omschrijving'].'">Kolombalans</a></br>'; */?>
-	<?php /* echo '<a href="'.$this->request->webroot.'grootboeks/overzicht/'.$balans['Bookyear']['omschrijving'].'/0">Rekeningoverzicht Balansposten</a></br>'; */?>
-	<?php /* echo '<a href="'.$this->request->webroot.'grootboeks/overzicht/'.$balans['Bookyear']['omschrijving'].'/1">Rekeningoverzicht Resultaatposten</a></br>'; */ ?>
 </div>

@@ -45,15 +45,11 @@ class CalculationsController extends AppController
         $this->set(compact('grootboeks', 'bookyears'));
     }
 
-    public function crossbooking($bookyear=null, $grootboek=null, $debetcredit=null)
-    {
-        $boekingstuk_model = ClassRegistry::init('Boekingstukken');
-        
+    public function crossbooking($bookyear=null, $grootboek=null)
+    {       
         if (!empty($this->request->data)) {
         	$preparedData =$this->PrepareJournalEntry->prepareSingleTransaction($this->request->data["Calculation"]);
         	
-            $incommingData = $this->request->data;    
-
             if ($this->Calculation->saveAll($preparedData)) {
                 $this->Session->setFlash(__('Mutatie is verwerkt'));
                 $this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
@@ -62,33 +58,19 @@ class CalculationsController extends AppController
             }
         }
 
-        if (isset($bookyear) && isset($grootboek)&& isset($debetcredit)) {
+        if (isset($bookyear) && isset($grootboek)) {
             $grootboeks = $this->Calculation->Grootboek->find('list');
             $currentgrootboek = $this->Calculation->Grootboek->get($grootboek);
             $bookyear = $this->Calculation->Bookyear->get($bookyear);
             $info['Grootboek'] = $currentgrootboek['Grootboek'];
             $info['Bookyear'] = $bookyear['Bookyear'];
-            //$boekingstukken = $boekingstuk_model->create_new_stukken($bookyear['Bookyear']['id'], $info['Bookyear']['omschrijving'] );
-            unset($currentgrootboek);
-            unset($bookyear);
 
-            if ($debetcredit == 'd') {
-                $info['debetcredit']['d'] = 'text';
-                $info['debetcredit']['c'] = 'hidden';
-                $info['debetcredit']['dc'] = 'd';
-                $info['header'] = "Debet Boeking :: ".$info['Grootboek']['nummer'];
-            } elseif ($debetcredit == 'c') {
-                $info['debetcredit']['c'] = 'text';
-                $info['debetcredit']['d'] = 'hidden';
-                $info['debetcredit']['dc'] = 'c';
-                $info['header'] = "Credit Boeking :: ".$info['Grootboek']['nummer'];
-            }
             $this->set(compact('grootboeks', 'info'));
-           // $this->set(compact('grootboeks', 'info', 'boekingstukken'));
         } else {
             $this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
         }
     }
+    
     public function newfact($bookyear=null, $grootboek=null, $debetcredit=null)
     {
         if (!empty($this->request->data)) {
