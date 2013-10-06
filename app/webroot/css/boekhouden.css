@@ -40,8 +40,9 @@
 }
 
 .import td.datum input,
-.import td.omschrijving input{
-	font-size: 90%;
+.import td.omschrijving input,
+.import td.omschrijving textarea{
+	font-size: 89%;
 	padding: 0.5%;
 }
 
