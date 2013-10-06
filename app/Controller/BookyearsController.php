@@ -47,7 +47,7 @@ class BookyearsController extends AppController
         }
     }
 
-    public function newbookyear($fromdate=false, $todate=false)
+    public function newbookyear()
     {
         if (!empty($this->request->data)) {
             $newbookyear['prevyear'] = $this->request->data['Bookyear']['prevyear'];

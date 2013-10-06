@@ -116,8 +116,7 @@ class Balans extends AppModel
         $balansposten = $this->Grootboek->getPosten(0); //0=Balansposten, 1=Resultaatposten.
         //Bereken de saldi van de voorgaande balans (boekjaar)
         $oude_balans = $this->berekenbalans($balansposten, $oldbookyear);
-		var_dump($oude_balans);
-		exit;
+
         //Schrijf de nieuwe journaalposten weg als 'Van Balans'
         //Eerst de posten aan de Debet-zijde en later van de Credit-zijde
 
@@ -131,9 +130,9 @@ class Balans extends AppModel
     public function setbeginbalans($balansposten, $side, $newbookyear_data)
     {
         foreach ($balansposten[$side]['posten'] as $a) {
+        	
             $journaal['grootboek_id'] = $a['Grootboek']['id'];
             $journaal['bookyear_id'] = $newbookyear_data['Bookyear']['id'];
-            $journaal['boekingstuk'] = "BEGINBALANS-".$newbookyear_data['Bookyear']['omschrijving'];
             $journaal['omschrijving'] = "Van beginbalans";
             $journaal['boekdatum'] = $newbookyear_data['Bookyear']['startdatum'];
             $journaal['beginbalans'] = 1;
@@ -141,6 +140,7 @@ class Balans extends AppModel
             $this->Calculation->create();
             $this->Calculation->save($journaal);
         }
+        exit;
     }
 
         function retrieveLiquidePosten($bookyear_key, $beginbalans=null)

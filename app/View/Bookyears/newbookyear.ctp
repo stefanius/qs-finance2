@@ -4,12 +4,12 @@
 	 		<legend><?php echo __('Add Bookyear'); ?></legend>
                         <div class="input text required">
                             <label for="BookyearStartdatum">Startdatum</label>
-                            <input class="datepicker" type="text" id="startdatum" />
+                            <input name="data[Bookyear][startdatum]" class="datepicker" type="text" id="startdatum" />
                         </div>                       
 
                         <div class="input text required">
                             <label for="BookyearEinddatum">Einddatum</label>
-                            <input class="datepicker" type="text" id="einddatum"/>
+                            <input name="data[Bookyear][einddatum]" class="datepicker" type="text" id="einddatum"/>
                         </div>  
                         
 		<?php
@@ -30,10 +30,15 @@
   $(function() {
     $( "#startdatum" ).datepicker({
       showOn: "button",
-      buttonImage: "http://localhost/qs-finance2/app/webroot/img/calendar.gif"
+      buttonImage: "/img/calendar.gif",
+      dateFormat: 'yy-mm-dd'
     });
-  
-    $( "#einddatum" ).datepicker();
+
+    $( "#einddatum" ).datepicker({
+        showOn: "button",
+        buttonImage: "/img/calendar.gif",
+        dateFormat: 'yy-mm-dd'
+      });    
 
   });
   </script>
