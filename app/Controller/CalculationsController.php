@@ -6,7 +6,7 @@ class CalculationsController extends AppController
 
     public $uses = array('Balans', 'Calculation', 'Bookyear', 'Grootboek', 'Bankaccount');
 
-    public $components = array('Import','Csv', 'Session');
+    public $components = array('Import', 'Csv', 'Session', 'PrepareJournalEntry');
 
     public function beforeFilter()
     {
@@ -50,27 +50,11 @@ class CalculationsController extends AppController
         $boekingstuk_model = ClassRegistry::init('Boekingstukken');
         
         if (!empty($this->request->data)) {
-            $incommingData = $this->request->data;
-            $bookyearr = $this->Calculation->Bookyear->get($bookyear);
-            $savedata=array();
-            $i=0;
-            $savedata['Calculation'][$i]['bookyear_id'] = $bookyearr['Bookyear']['id'];
-            $savedata['Calculation'][$i]['boekdatum'] = $incommingData['Calculation'][0]['boekdatum'];
-            $savedata['Calculation'][$i]['omschrijving'] = $incommingData['Calculation'][0]['omschrijving'];
-            $savedata['Calculation'][$i]['grootboek_id'] = $incommingData['Calculation'][0]['grootboek_id'];
-            $savedata['Calculation'][$i]['debet'] = $incommingData['Calculation'][0]['debet'];
-            $savedata['Calculation'][$i]['credit'] = $incommingData['Calculation'][0]['credit'];
-            $i++;
-            
+        	$preparedData =$this->PrepareJournalEntry->prepareSingleTransaction($this->request->data["Calculation"]);
+        	
+            $incommingData = $this->request->data;    
 
-            $savedata['Calculation'][$i]['bookyear_id'] = $bookyearr['Bookyear']['id'];
-            $savedata['Calculation'][$i]['boekdatum'] = $incommingData['Calculation'][0]['boekdatum'];
-            $savedata['Calculation'][$i]['omschrijving'] = $incommingData['Calculation'][0]['omschrijving'];
-            $savedata['Calculation'][$i]['grootboek_id'] = $incommingData['Calculation'][1]['grootboek_id'];
-            $savedata['Calculation'][$i]['debet'] = $incommingData['Calculation'][0]['credit'];
-            $savedata['Calculation'][$i]['credit'] = $incommingData['Calculation'][0]['debet'];         
-
-            if ($this->Calculation->saveAll($savedata['Calculation'])) {
+            if ($this->Calculation->saveAll($preparedData)) {
                 $this->Session->setFlash(__('Mutatie is verwerkt'));
                 $this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
             } else {
