@@ -9,11 +9,15 @@
 /dist
 /tags
 
+/.vagrant/*
+/.vagrant
 /puppet/modules/*
 /app/tmp/logs/error.log
 /puppet/.tmp/*
 /app/webroot/import/*
-.log
+*.log
+*.sql~
+*.rb~
 
 # OS generated files #
 ######################
