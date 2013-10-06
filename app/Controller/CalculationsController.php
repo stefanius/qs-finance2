@@ -48,21 +48,29 @@ class CalculationsController extends AppController
     public function crossbooking($bookyear=null, $grootboek=null, $debetcredit=null)
     {
         $boekingstuk_model = ClassRegistry::init('Boekingstukken');
+        
         if (!empty($this->request->data)) {
             $incommingData = $this->request->data;
+            $bookyearr = $this->Calculation->Bookyear->get($bookyear);
+            $savedata=array();
+            $i=0;
+            $savedata['Calculation'][$i]['bookyear_id'] = $bookyearr['Bookyear']['id'];
+            $savedata['Calculation'][$i]['boekdatum'] = $incommingData['Calculation'][0]['boekdatum'];
+            $savedata['Calculation'][$i]['omschrijving'] = $incommingData['Calculation'][0]['omschrijving'];
+            $savedata['Calculation'][$i]['grootboek_id'] = $incommingData['Calculation'][0]['grootboek_id'];
+            $savedata['Calculation'][$i]['debet'] = $incommingData['Calculation'][0]['debet'];
+            $savedata['Calculation'][$i]['credit'] = $incommingData['Calculation'][0]['credit'];
+            $i++;
+            
 
-            if (strlen($incommingData['Calculation'][0]['boekingstuk']) < 1 ) {
-                $incommingData['Calculation'][0]['boekingstuk'] = "@@@".time(); //@@@ wordt gebruikt als 'tag' voor een gegenereerd boekingsstuk.
-            } else {
-                $incommingData['Calculation'][0]['boekingstuk'] = $boekingstuk_model->retrieve($incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['boekingstuk']);
-            }
+            $savedata['Calculation'][$i]['bookyear_id'] = $bookyearr['Bookyear']['id'];
+            $savedata['Calculation'][$i]['boekdatum'] = $incommingData['Calculation'][0]['boekdatum'];
+            $savedata['Calculation'][$i]['omschrijving'] = $incommingData['Calculation'][0]['omschrijving'];
+            $savedata['Calculation'][$i]['grootboek_id'] = $incommingData['Calculation'][1]['grootboek_id'];
+            $savedata['Calculation'][$i]['debet'] = $incommingData['Calculation'][0]['credit'];
+            $savedata['Calculation'][$i]['credit'] = $incommingData['Calculation'][0]['debet'];         
 
-            $incommingData['Calculation'][1]['bookyear_id'] = $incommingData['Calculation'][0]['bookyear_id'];
-            $incommingData['Calculation'][1]['boekingstuk'] = $incommingData['Calculation'][0]['boekingstuk'];
-            $incommingData['Calculation'][1]['boekdatum'] = $incommingData['Calculation'][0]['boekdatum'];
-
-            unset($incommingData['Calculation']['DebetCredit']);
-            if ($this->Calculation->saveAll($incommingData['Calculation'])) {
+            if ($this->Calculation->saveAll($savedata['Calculation'])) {
                 $this->Session->setFlash(__('Mutatie is verwerkt'));
                 $this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
             } else {
@@ -76,7 +84,7 @@ class CalculationsController extends AppController
             $bookyear = $this->Calculation->Bookyear->get($bookyear);
             $info['Grootboek'] = $currentgrootboek['Grootboek'];
             $info['Bookyear'] = $bookyear['Bookyear'];
-            $boekingstukken = $boekingstuk_model->create_new_stukken($bookyear['Bookyear']['id'], $info['Bookyear']['omschrijving'] );
+            //$boekingstukken = $boekingstuk_model->create_new_stukken($bookyear['Bookyear']['id'], $info['Bookyear']['omschrijving'] );
             unset($currentgrootboek);
             unset($bookyear);
 
@@ -91,8 +99,8 @@ class CalculationsController extends AppController
                 $info['debetcredit']['dc'] = 'c';
                 $info['header'] = "Credit Boeking :: ".$info['Grootboek']['nummer'];
             }
-
-            $this->set(compact('grootboeks', 'info', 'boekingstukken'));
+            $this->set(compact('grootboeks', 'info'));
+           // $this->set(compact('grootboeks', 'info', 'boekingstukken'));
         } else {
             $this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
         }

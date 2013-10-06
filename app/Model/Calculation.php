@@ -77,22 +77,4 @@ class Calculation extends AppModel
         return $calculations;
     }
 
-    public function getBoekingstukken($bookyear_id)
-    {
-        $stukken = $this->find('all', array('fields' => array('DISTINCT Calculation.boekingstuk'),'conditions' => array('bookyear_id' => $bookyear_id)));
-
-        return $stukken;
-    }
-
-    public function getByBoekingsstuk($boekingstuk)
-    {
-        $this->recursive =1;
-        $calcs = $this->find('all', array('conditions' => array('boekingstuk' => $boekingstuk)));
-
-        for ($i=0;$i<count($calcs);$i++) {
-            $calcs[$i]['Calculation']['omschrijving'] = '('. $calcs[$i]['Grootboek']['nummer'].') '.$calcs[$i]['Calculation']['omschrijving'];
-        }
-
-        return $calcs;
-    }
 }

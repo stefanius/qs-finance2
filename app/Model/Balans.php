@@ -116,7 +116,8 @@ class Balans extends AppModel
         $balansposten = $this->Grootboek->getPosten(0); //0=Balansposten, 1=Resultaatposten.
         //Bereken de saldi van de voorgaande balans (boekjaar)
         $oude_balans = $this->berekenbalans($balansposten, $oldbookyear);
-
+		var_dump($oude_balans);
+		exit;
         //Schrijf de nieuwe journaalposten weg als 'Van Balans'
         //Eerst de posten aan de Debet-zijde en later van de Credit-zijde
 

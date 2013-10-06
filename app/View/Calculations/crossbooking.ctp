@@ -6,7 +6,7 @@
 		echo $this->Form->text('Calculation.0.grootboek_id', array('value' => $info['Grootboek']['id'], 'type' => 'hidden' ));
 		echo $this->Form->text('Calculation.0.bookyear_id', array('value' =>  $info['Bookyear']['id'], 'type' => 'hidden' ));
 		echo $this->Form->input('Calculation.0.omschrijving');
-		echo $this->Form->input('Calculation.0.boekingstuk',  array('options' => $boekingstukken));
+		//echo $this->Form->input('Calculation.0.boekingstuk',  array('options' => $boekingstukken));
 		echo $this->Form->input('Calculation.0.boekdatum', array('type' => 'date'));
 		echo $this->Form->input('Calculation.0.debet', array('type' => $info['debetcredit']['d']));
 		echo $this->Form->input('Calculation.0.credit', array('type' => $info['debetcredit']['c']));
