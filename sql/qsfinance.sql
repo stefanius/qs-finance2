@@ -57,6 +57,7 @@ CREATE TABLE `qs_dev_db`.`calculations` (
   `grootboek_id` varchar(36) NOT NULL,
   `bookyear_id` varchar(36) NOT NULL,
   `boekingstuk` varchar(40) DEFAULT NULL,
+  `hash` varchar(36) DEFAULT NULL,
   `omschrijving` varchar(100) NOT NULL,
   `boekdatum` date NOT NULL,
   `debet` decimal(10,2) DEFAULT NULL,
