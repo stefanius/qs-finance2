@@ -64,9 +64,10 @@ class SchemasController extends AppController
         $this->redirect(array('action' => 'index'));
     }
 
-    public function buildoverzicht()
+    public function rekeningoverzicht()
     {
         $patterns = $this->Schema->getpatterns();
+        $list = array();
         for ($i=0; $i < count($patterns); $i++) {
             $pattern = $patterns[$i]['schemas']['nummer'];
             $list[$pattern]['pattern']['nummer'] =  $patterns[$i]['schemas']['nummer'];
@@ -74,6 +75,6 @@ class SchemasController extends AppController
             $list[$pattern]['items'] = $this->Schema->matchpatterns($pattern);
         }
 
-        return $list;
+        $this->set('list', $list);
     }
 }
