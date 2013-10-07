@@ -58,19 +58,3 @@
 		</dd>
 	</dl>
 </div>
-<!--
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Calculation'), array('action' => 'edit', $calculation['Calculation']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Calculation'), array('action' => 'delete', $calculation['Calculation']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $calculation['Calculation']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Calculations'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Calculation'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Grootboeks'), array('controller' => 'grootboeks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Grootboek'), array('controller' => 'grootboeks', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Bookyears'), array('controller' => 'bookyears', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Bookyear'), array('controller' => 'bookyears', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-
--->

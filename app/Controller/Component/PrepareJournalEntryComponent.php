@@ -2,10 +2,12 @@
 
 class PrepareJournalEntryComponent extends Component
 {
+	public $components = array('Auth');
 	/**
 	 * @param array $rawdata
 	 */
 	public function prepareSingleTransaction(array $rawdata){
+		
 		$hash = $this->generateHash();
 		$preparedData = array();
 		
@@ -13,6 +15,7 @@ class PrepareJournalEntryComponent extends Component
 		$preparedData[0]['boekdatum'] = $rawdata[0]['boekdatum'];
 		$preparedData[0]['omschrijving'] = $rawdata[0]['omschrijving'];
 		$preparedData[0]['grootboek_id'] = $rawdata[0]['grootboek_id'];
+		$preparedData[0]['user_id'] = $this->Auth->user('id');
 		$preparedData[0]['hash'] = $hash; 
 		$preparedData[0]['debet'] = $rawdata[0]['debet'];
 		$preparedData[0]['credit'] = $rawdata[0]['credit'];	
@@ -21,6 +24,7 @@ class PrepareJournalEntryComponent extends Component
 		$preparedData[1]['boekdatum'] = $rawdata[0]['boekdatum'];
 		$preparedData[1]['omschrijving'] = $rawdata[0]['omschrijving'];
 		$preparedData[1]['grootboek_id'] = $rawdata[1]['grootboek_id'];
+		$preparedData[1]['user_id'] = $this->Auth->user('id');
 		$preparedData[1]['hash'] = $hash;
 		$preparedData[1]['debet'] = $rawdata[0]['credit'];
 		$preparedData[1]['credit'] = $rawdata[0]['debet'];	
