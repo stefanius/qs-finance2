@@ -58,6 +58,7 @@ CREATE TABLE `qs_dev_db`.`calculations` (
   `bookyear_id` varchar(36) NOT NULL,
   `boekingstuk` varchar(40) DEFAULT NULL,
   `hash` varchar(36) DEFAULT NULL,
+  `user_id` varchar(36) DEFAULT NULL,
   `omschrijving` varchar(100) NOT NULL,
   `boekdatum` date NOT NULL,
   `debet` decimal(10,2) DEFAULT NULL,
@@ -67,7 +68,6 @@ CREATE TABLE `qs_dev_db`.`calculations` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM;
-
 
 CREATE TABLE `qs_dev_db`.`grootboeks` (
   `id` varchar(36) NOT NULL,
