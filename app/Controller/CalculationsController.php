@@ -137,7 +137,7 @@ class CalculationsController extends AppController
                     $sourceinfo = $parseddata['sourceinfo'];
                     $grootboeks = $this->Calculation->Grootboek->find('list');
                     $bankpost = $this->Bankaccount->findByIban($sourceinfo['rekening']);
-					var_dump($sourceinfo);
+					//var_dump($sourceinfo);
                     if (!array_key_exists( 'Grootboek', $bankpost) || count($bankpost)==0) {
                         throw new CakeException('Geen bank gevonden waarop de huidige bewerking van toepassing is');
                     }

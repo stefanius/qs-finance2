@@ -43,19 +43,6 @@ class UsersController extends AppController
         $this->set('user', $this->User->read(null, $id));
     }
 
-/*	function add() {
-        if (!empty($this->request->data)) {
-            $this->User->create();
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-            }
-        }
-        $groups = $this->User->Group->find('list');
-        $this->set(compact('groups'));
-    }*/
         public function add()
         {
             if ($this->request->is('post')) {
@@ -87,7 +74,9 @@ class UsersController extends AppController
             $this->request->data = $this->User->read(null, $id);
         }
         $groups = $this->User->Group->find('list');
-        $this->set(compact('groups'));
+        $organisations = $this->User->Organisation->find('list');
+        
+        $this->set(compact('groups', 'organisations'));
     }
 
     public function delete($id = null)

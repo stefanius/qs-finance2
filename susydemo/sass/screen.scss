@@ -1,0 +1,19 @@
+@import "compass";
+@import "base";
+@import "headmenu";
+@import "balans";
+@import "general";
+
+@include global-reset;
+
+
+body {
+  font-family: sans-serif;
+  font-weight: 100;
+  background: #eee;
+} 
+
+.container {
+  @include container;
+  @include susy-grid-background;
+}

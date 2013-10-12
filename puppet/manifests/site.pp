@@ -33,6 +33,11 @@ apache::vhost { 'qs-finance.dev':
   serveraliases => ["qs-finance.dev"],
 }
 
+apache::vhost { 'susydemo.dev':
+  docroot  => '/vagrant/susydemo',
+  serveraliases => ["susydemo.dev"],
+}
+
 apache::module { 'php5': }
 apache::module { 'rewrite': }
 

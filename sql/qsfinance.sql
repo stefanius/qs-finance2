@@ -69,6 +69,14 @@ CREATE TABLE `qs_dev_db`.`calculations` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM;
 
+CREATE TABLE `qs_dev_db`.`organisations` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM;
+
 CREATE TABLE `qs_dev_db`.`grootboeks` (
   `id` varchar(36) NOT NULL,
   `nummer` varchar(4) NOT NULL,

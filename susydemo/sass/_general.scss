@@ -1,0 +1,17 @@
+@import "compass/utilities/tables";
+
+
+@mixin zebra-table($table-color) {	
+    @include table-scaffolding;
+    @include inner-table-borders(1px, darken($table-color, 40%));
+    @include outer-table-borders(2px);
+    @include alternating-rows-and-columns($table-color,darken($table-color, 10%), 0);
+}
+
+
+    
+  table {
+     $table-color: #ffffff;
+     @include zebra-table($table-color);
+     th:first-child {border-right: 1px darken($table-color, 40%); }
+}    
