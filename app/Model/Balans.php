@@ -140,7 +140,6 @@ class Balans extends AppModel
             $this->Calculation->create();
             $this->Calculation->save($journaal);
         }
-        exit;
     }
 
         function retrieveLiquidePosten($bookyear_key, $beginbalans=null)
