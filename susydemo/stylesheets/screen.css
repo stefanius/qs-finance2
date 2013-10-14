@@ -1,3 +1,136 @@
+/* line 17, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 13, ../sass/_general.scss */
+table {
+  border: 1px solid #330000;
+}
+/* line 2, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table th {
+  text-align: center;
+  font-weight: bold;
+}
+/* line 6, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table td,
+table th {
+  padding: 2px;
+}
+/* line 8, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table td.numeric,
+table th.numeric {
+  text-align: right;
+}
+/* line 14, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table th, table td {
+  border-right: 1px solid #330000;
+  border-bottom: 1px solid #330000;
+  border-left-width: 0px;
+  border-top-width: 0px;
+}
+/* line 21, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table th:last-child, table th.last, table td:last-child, table td.last {
+  border-right-width: 0px;
+}
+/* line 29, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table tbody tr:last-child th, table tbody tr:last-child td, table tfoot tr:last-child th, table tfoot tr:last-child td {
+  border-bottom-width: 0px;
+}
+/* line 32, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table tbody tr.last th, table tbody tr.last td, table tfoot tr.last th, table tfoot tr.last td {
+  border-bottom-width: 0px;
+}
+/* line 4, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table thead th {
+  border-bottom: 1px solid #330000;
+}
+/* line 7, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table tfoot th, table tfoot td {
+  border-top: 1px solid #330000;
+}
+/* line 10, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table th:first-child {
+  border-right: 1px solid #330000;
+}
+/* line 8, ../sass/_general.scss */
+table th:first-child {
+  border-right: 1px solid #330000;
+}
+/* line 9, ../sass/_general.scss */
+table tr:nth-child(2n) td {
+  background-color: #f50000;
+}
+/* line 10, ../sass/_general.scss */
+table tr:nth-child(2n+1) td {
+  background-color: #c70000;
+}
+
+/* line 18, ../sass/_general.scss */
+h1 {
+  font-size: 170%;
+}
+
 /* line 1, ../sass/_headmenu.scss */
 .menubar {
   background: white;
@@ -73,190 +206,106 @@
   margin: 8px;
 }
 
-/* line 13, ../sass/_general.scss */
-table {
-  border: 2px solid black;
+/* line 3, ../sass/_balans.sass */
+.balans table {
+  border: 1px solid #999999;
+  float: left;
+  width: 48%;
+  text-align: left;
 }
-/* line 2, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
-table th {
+/* line 2, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+.balans table th {
   text-align: center;
   font-weight: bold;
 }
-/* line 6, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
-table td,
-table th {
+/* line 6, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+.balans table td,
+.balans table th {
   padding: 2px;
 }
-/* line 8, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
-table td.numeric,
-table th.numeric {
+/* line 8, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+.balans table td.numeric,
+.balans table th.numeric {
   text-align: right;
 }
-/* line 14, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
-table th, table td {
+/* line 14, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.balans table th, .balans table td {
   border-right: 1px solid #999999;
   border-bottom: 1px solid #999999;
   border-left-width: 0px;
   border-top-width: 0px;
 }
-/* line 21, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
-table th:last-child, table th.last, table td:last-child, table td.last {
+/* line 21, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.balans table th:last-child, .balans table th.last, .balans table td:last-child, .balans table td.last {
   border-right-width: 0px;
 }
-/* line 29, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
-table tbody tr:last-child th, table tbody tr:last-child td, table tfoot tr:last-child th, table tfoot tr:last-child td {
+/* line 29, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.balans table tbody tr:last-child th, .balans table tbody tr:last-child td, .balans table tfoot tr:last-child th, .balans table tfoot tr:last-child td {
   border-bottom-width: 0px;
 }
-/* line 32, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
-table tbody tr.last th, table tbody tr.last td, table tfoot tr.last th, table tfoot tr.last td {
+/* line 32, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.balans table tbody tr.last th, .balans table tbody tr.last td, .balans table tfoot tr.last th, .balans table tfoot tr.last td {
   border-bottom-width: 0px;
 }
-/* line 4, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
-table thead th {
-  border-bottom: 2px solid black;
+/* line 4, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.balans table thead th {
+  border-bottom: 1px solid #999999;
 }
-/* line 7, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
-table tfoot th, table tfoot td {
-  border-top: 2px solid black;
+/* line 7, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.balans table tfoot th, .balans table tfoot td {
+  border-top: 1px solid #999999;
 }
-/* line 10, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
-table th:first-child {
-  border-right: 2px solid black;
+/* line 10, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.balans table th:first-child {
+  border-right: 1px solid #999999;
 }
-/* line 2, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
-table th {
-  background-color: white;
+/* line 8, ../sass/_general.scss */
+.balans table th:first-child {
+  border-right: 1px solid #999999;
 }
-/* line 4, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
-table th.even, table th:nth-child(2n) {
-  background-color: white;
+/* line 9, ../sass/_general.scss */
+.balans table tr:nth-child(2n) td {
+  background-color: #fafafa;
 }
-/* line 8, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
-table tr.odd td, table tr:nth-child(2n+1) td {
-  background-color: #e6e6e6;
+/* line 10, ../sass/_general.scss */
+.balans table tr:nth-child(2n+1) td {
+  background-color: #e3e3e3;
 }
-/* line 10, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
-table tr.odd td.even, table tr.odd td:nth-child(2n), table tr:nth-child(2n+1) td.even, table tr:nth-child(2n+1) td:nth-child(2n) {
-  background-color: #e6e6e6;
+/* line 9, ../sass/_balans.sass */
+.balans table th:first-child {
+  border-right: 0px;
 }
-/* line 14, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
-table tr.even td {
-  background-color: white;
-}
-/* line 16, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
-table tr.even td.even, table tr.even td:nth-child(2n) {
-  background-color: white;
-}
-/* line 19, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
-table tfoot th, table tfoot td {
-  background-color: white;
-}
-/* line 21, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
-table tfoot th.even, table tfoot th:nth-child(2n), table tfoot td.even, table tfoot td:nth-child(2n) {
-  background-color: white;
-}
-/* line 16, ../sass/_general.scss */
-table th:first-child {
-  border-right: 1px #999999;
-}
-
-/* line 17, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-/* line 22, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-html {
-  line-height: 1;
-}
-
-/* line 24, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
-  list-style: none;
-}
-
-/* line 26, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* line 28, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-caption, th, td {
+/* line 11, ../sass/_balans.sass */
+.balans table th {
   text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
+  font-size: 150%;
+}
+/* line 14, ../sass/_balans.sass */
+.balans table .currency {
+  width: 15%;
+  text-align: right;
 }
 
-/* line 30, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-q, blockquote {
-  quotes: none;
-}
-/* line 103, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-/* line 32, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-a img {
-  border: none;
-}
-
-/* line 116, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
-  display: block;
-}
-
-/* line 10, ../sass/screen.scss */
+/* line 9, ../sass/screen.scss */
 body {
   font-family: sans-serif;
   font-weight: 100;
-  background: #eee;
+  background: #eeeaaa;
 }
 
-/* line 16, ../sass/screen.scss */
+/* line 15, ../sass/screen.scss */
 .container {
   *zoom: 1;
-  max-width: 89em;
-  _width: 89em;
+  max-width: 104em;
+  _width: 104em;
   padding-left: 0;
   padding-right: 0;
   margin-left: auto;
   margin-right: auto;
-  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(100, 100, 225, 0.25)), color-stop(2.24719%, rgba(100, 100, 225, 0.25)), color-stop(2.24719%, rgba(0, 0, 0, 0)), color-stop(3.37079%, rgba(0, 0, 0, 0)), color-stop(3.37079%, rgba(100, 100, 225, 0.25)), color-stop(5.61798%, rgba(100, 100, 225, 0.25)), color-stop(5.61798%, rgba(0, 0, 0, 0)), color-stop(6.74157%, rgba(0, 0, 0, 0)), color-stop(6.74157%, rgba(100, 100, 225, 0.25)), color-stop(8.98876%, rgba(100, 100, 225, 0.25)), color-stop(8.98876%, rgba(0, 0, 0, 0)), color-stop(10.11236%, rgba(0, 0, 0, 0)), color-stop(10.11236%, rgba(100, 100, 225, 0.25)), color-stop(12.35955%, rgba(100, 100, 225, 0.25)), color-stop(12.35955%, rgba(0, 0, 0, 0)), color-stop(13.48315%, rgba(0, 0, 0, 0)), color-stop(13.48315%, rgba(100, 100, 225, 0.25)), color-stop(15.73034%, rgba(100, 100, 225, 0.25)), color-stop(15.73034%, rgba(0, 0, 0, 0)), color-stop(16.85393%, rgba(0, 0, 0, 0)), color-stop(16.85393%, rgba(100, 100, 225, 0.25)), color-stop(19.10112%, rgba(100, 100, 225, 0.25)), color-stop(19.10112%, rgba(0, 0, 0, 0)), color-stop(20.22472%, rgba(0, 0, 0, 0)), color-stop(20.22472%, rgba(100, 100, 225, 0.25)), color-stop(22.47191%, rgba(100, 100, 225, 0.25)), color-stop(22.47191%, rgba(0, 0, 0, 0)), color-stop(23.59551%, rgba(0, 0, 0, 0)), color-stop(23.59551%, rgba(100, 100, 225, 0.25)), color-stop(25.8427%, rgba(100, 100, 225, 0.25)), color-stop(25.8427%, rgba(0, 0, 0, 0)), color-stop(26.96629%, rgba(0, 0, 0, 0)), color-stop(26.96629%, rgba(100, 100, 225, 0.25)), color-stop(29.21348%, rgba(100, 100, 225, 0.25)), color-stop(29.21348%, rgba(0, 0, 0, 0)), color-stop(30.33708%, rgba(0, 0, 0, 0)), color-stop(30.33708%, rgba(100, 100, 225, 0.25)), color-stop(32.58427%, rgba(100, 100, 225, 0.25)), color-stop(32.58427%, rgba(0, 0, 0, 0)), color-stop(33.70787%, rgba(0, 0, 0, 0)), color-stop(33.70787%, rgba(100, 100, 225, 0.25)), color-stop(35.95506%, rgba(100, 100, 225, 0.25)), color-stop(35.95506%, rgba(0, 0, 0, 0)), color-stop(37.07865%, rgba(0, 0, 0, 0)), color-stop(37.07865%, rgba(100, 100, 225, 0.25)), color-stop(39.32584%, rgba(100, 100, 225, 0.25)), color-stop(39.32584%, rgba(0, 0, 0, 0)), color-stop(40.44944%, rgba(0, 0, 0, 0)), color-stop(40.44944%, rgba(100, 100, 225, 0.25)), color-stop(42.69663%, rgba(100, 100, 225, 0.25)), color-stop(42.69663%, rgba(0, 0, 0, 0)), color-stop(43.82022%, rgba(0, 0, 0, 0)), color-stop(43.82022%, rgba(100, 100, 225, 0.25)), color-stop(46.06742%, rgba(100, 100, 225, 0.25)), color-stop(46.06742%, rgba(0, 0, 0, 0)), color-stop(47.19101%, rgba(0, 0, 0, 0)), color-stop(47.19101%, rgba(100, 100, 225, 0.25)), color-stop(49.4382%, rgba(100, 100, 225, 0.25)), color-stop(49.4382%, rgba(0, 0, 0, 0)), color-stop(50.5618%, rgba(0, 0, 0, 0)), color-stop(50.5618%, rgba(100, 100, 225, 0.25)), color-stop(52.80899%, rgba(100, 100, 225, 0.25)), color-stop(52.80899%, rgba(0, 0, 0, 0)), color-stop(53.93258%, rgba(0, 0, 0, 0)), color-stop(53.93258%, rgba(100, 100, 225, 0.25)), color-stop(56.17978%, rgba(100, 100, 225, 0.25)), color-stop(56.17978%, rgba(0, 0, 0, 0)), color-stop(57.30337%, rgba(0, 0, 0, 0)), color-stop(57.30337%, rgba(100, 100, 225, 0.25)), color-stop(59.55056%, rgba(100, 100, 225, 0.25)), color-stop(59.55056%, rgba(0, 0, 0, 0)), color-stop(60.67416%, rgba(0, 0, 0, 0)), color-stop(60.67416%, rgba(100, 100, 225, 0.25)), color-stop(62.92135%, rgba(100, 100, 225, 0.25)), color-stop(62.92135%, rgba(0, 0, 0, 0)), color-stop(64.04494%, rgba(0, 0, 0, 0)), color-stop(64.04494%, rgba(100, 100, 225, 0.25)), color-stop(66.29213%, rgba(100, 100, 225, 0.25)), color-stop(66.29213%, rgba(0, 0, 0, 0)), color-stop(67.41573%, rgba(0, 0, 0, 0)), color-stop(67.41573%, rgba(100, 100, 225, 0.25)), color-stop(69.66292%, rgba(100, 100, 225, 0.25)), color-stop(69.66292%, rgba(0, 0, 0, 0)), color-stop(70.78652%, rgba(0, 0, 0, 0)), color-stop(70.78652%, rgba(100, 100, 225, 0.25)), color-stop(73.03371%, rgba(100, 100, 225, 0.25)), color-stop(73.03371%, rgba(0, 0, 0, 0)), color-stop(74.1573%, rgba(0, 0, 0, 0)), color-stop(74.1573%, rgba(100, 100, 225, 0.25)), color-stop(76.40449%, rgba(100, 100, 225, 0.25)), color-stop(76.40449%, rgba(0, 0, 0, 0)), color-stop(77.52809%, rgba(0, 0, 0, 0)), color-stop(77.52809%, rgba(100, 100, 225, 0.25)), color-stop(79.77528%, rgba(100, 100, 225, 0.25)), color-stop(79.77528%, rgba(0, 0, 0, 0)), color-stop(80.89888%, rgba(0, 0, 0, 0)), color-stop(80.89888%, rgba(100, 100, 225, 0.25)), color-stop(83.14607%, rgba(100, 100, 225, 0.25)), color-stop(83.14607%, rgba(0, 0, 0, 0)), color-stop(84.26966%, rgba(0, 0, 0, 0)), color-stop(84.26966%, rgba(100, 100, 225, 0.25)), color-stop(86.51685%, rgba(100, 100, 225, 0.25)), color-stop(86.51685%, rgba(0, 0, 0, 0)), color-stop(87.64045%, rgba(0, 0, 0, 0)), color-stop(87.64045%, rgba(100, 100, 225, 0.25)), color-stop(89.88764%, rgba(100, 100, 225, 0.25)), color-stop(89.88764%, rgba(0, 0, 0, 0)), color-stop(91.01124%, rgba(0, 0, 0, 0)), color-stop(91.01124%, rgba(100, 100, 225, 0.25)), color-stop(93.25843%, rgba(100, 100, 225, 0.25)), color-stop(93.25843%, rgba(0, 0, 0, 0)), color-stop(94.38202%, rgba(0, 0, 0, 0)), color-stop(94.38202%, rgba(100, 100, 225, 0.25)), color-stop(96.62921%, rgba(100, 100, 225, 0.25)), color-stop(96.62921%, rgba(0, 0, 0, 0)), color-stop(97.75281%, rgba(0, 0, 0, 0)), color-stop(97.75281%, rgba(100, 100, 225, 0.25)), color-stop(100.0%, rgba(100, 100, 225, 0.25)), color-stop(100.0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(100, 100, 225, 0.25) 0%, rgba(100, 100, 225, 0.25) 2.24719%, rgba(0, 0, 0, 0) 2.24719%, rgba(0, 0, 0, 0) 3.37079%, rgba(100, 100, 225, 0.25) 3.37079%, rgba(100, 100, 225, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(100, 100, 225, 0.25) 6.74157%, rgba(100, 100, 225, 0.25) 8.98876%, rgba(0, 0, 0, 0) 8.98876%, rgba(0, 0, 0, 0) 10.11236%, rgba(100, 100, 225, 0.25) 10.11236%, rgba(100, 100, 225, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(100, 100, 225, 0.25) 13.48315%, rgba(100, 100, 225, 0.25) 15.73034%, rgba(0, 0, 0, 0) 15.73034%, rgba(0, 0, 0, 0) 16.85393%, rgba(100, 100, 225, 0.25) 16.85393%, rgba(100, 100, 225, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(100, 100, 225, 0.25) 20.22472%, rgba(100, 100, 225, 0.25) 22.47191%, rgba(0, 0, 0, 0) 22.47191%, rgba(0, 0, 0, 0) 23.59551%, rgba(100, 100, 225, 0.25) 23.59551%, rgba(100, 100, 225, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(100, 100, 225, 0.25) 26.96629%, rgba(100, 100, 225, 0.25) 29.21348%, rgba(0, 0, 0, 0) 29.21348%, rgba(0, 0, 0, 0) 30.33708%, rgba(100, 100, 225, 0.25) 30.33708%, rgba(100, 100, 225, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(100, 100, 225, 0.25) 33.70787%, rgba(100, 100, 225, 0.25) 35.95506%, rgba(0, 0, 0, 0) 35.95506%, rgba(0, 0, 0, 0) 37.07865%, rgba(100, 100, 225, 0.25) 37.07865%, rgba(100, 100, 225, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(100, 100, 225, 0.25) 40.44944%, rgba(100, 100, 225, 0.25) 42.69663%, rgba(0, 0, 0, 0) 42.69663%, rgba(0, 0, 0, 0) 43.82022%, rgba(100, 100, 225, 0.25) 43.82022%, rgba(100, 100, 225, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(100, 100, 225, 0.25) 47.19101%, rgba(100, 100, 225, 0.25) 49.4382%, rgba(0, 0, 0, 0) 49.4382%, rgba(0, 0, 0, 0) 50.5618%, rgba(100, 100, 225, 0.25) 50.5618%, rgba(100, 100, 225, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(100, 100, 225, 0.25) 53.93258%, rgba(100, 100, 225, 0.25) 56.17978%, rgba(0, 0, 0, 0) 56.17978%, rgba(0, 0, 0, 0) 57.30337%, rgba(100, 100, 225, 0.25) 57.30337%, rgba(100, 100, 225, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(100, 100, 225, 0.25) 60.67416%, rgba(100, 100, 225, 0.25) 62.92135%, rgba(0, 0, 0, 0) 62.92135%, rgba(0, 0, 0, 0) 64.04494%, rgba(100, 100, 225, 0.25) 64.04494%, rgba(100, 100, 225, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(100, 100, 225, 0.25) 67.41573%, rgba(100, 100, 225, 0.25) 69.66292%, rgba(0, 0, 0, 0) 69.66292%, rgba(0, 0, 0, 0) 70.78652%, rgba(100, 100, 225, 0.25) 70.78652%, rgba(100, 100, 225, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(100, 100, 225, 0.25) 74.1573%, rgba(100, 100, 225, 0.25) 76.40449%, rgba(0, 0, 0, 0) 76.40449%, rgba(0, 0, 0, 0) 77.52809%, rgba(100, 100, 225, 0.25) 77.52809%, rgba(100, 100, 225, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(100, 100, 225, 0.25) 80.89888%, rgba(100, 100, 225, 0.25) 83.14607%, rgba(0, 0, 0, 0) 83.14607%, rgba(0, 0, 0, 0) 84.26966%, rgba(100, 100, 225, 0.25) 84.26966%, rgba(100, 100, 225, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(100, 100, 225, 0.25) 87.64045%, rgba(100, 100, 225, 0.25) 89.88764%, rgba(0, 0, 0, 0) 89.88764%, rgba(0, 0, 0, 0) 91.01124%, rgba(100, 100, 225, 0.25) 91.01124%, rgba(100, 100, 225, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(100, 100, 225, 0.25) 94.38202%, rgba(100, 100, 225, 0.25) 96.62921%, rgba(0, 0, 0, 0) 96.62921%, rgba(0, 0, 0, 0) 97.75281%, rgba(100, 100, 225, 0.25) 97.75281%, rgba(100, 100, 225, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(100, 100, 225, 0.25) 0%, rgba(100, 100, 225, 0.25) 2.24719%, rgba(0, 0, 0, 0) 2.24719%, rgba(0, 0, 0, 0) 3.37079%, rgba(100, 100, 225, 0.25) 3.37079%, rgba(100, 100, 225, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(100, 100, 225, 0.25) 6.74157%, rgba(100, 100, 225, 0.25) 8.98876%, rgba(0, 0, 0, 0) 8.98876%, rgba(0, 0, 0, 0) 10.11236%, rgba(100, 100, 225, 0.25) 10.11236%, rgba(100, 100, 225, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(100, 100, 225, 0.25) 13.48315%, rgba(100, 100, 225, 0.25) 15.73034%, rgba(0, 0, 0, 0) 15.73034%, rgba(0, 0, 0, 0) 16.85393%, rgba(100, 100, 225, 0.25) 16.85393%, rgba(100, 100, 225, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(100, 100, 225, 0.25) 20.22472%, rgba(100, 100, 225, 0.25) 22.47191%, rgba(0, 0, 0, 0) 22.47191%, rgba(0, 0, 0, 0) 23.59551%, rgba(100, 100, 225, 0.25) 23.59551%, rgba(100, 100, 225, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(100, 100, 225, 0.25) 26.96629%, rgba(100, 100, 225, 0.25) 29.21348%, rgba(0, 0, 0, 0) 29.21348%, rgba(0, 0, 0, 0) 30.33708%, rgba(100, 100, 225, 0.25) 30.33708%, rgba(100, 100, 225, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(100, 100, 225, 0.25) 33.70787%, rgba(100, 100, 225, 0.25) 35.95506%, rgba(0, 0, 0, 0) 35.95506%, rgba(0, 0, 0, 0) 37.07865%, rgba(100, 100, 225, 0.25) 37.07865%, rgba(100, 100, 225, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(100, 100, 225, 0.25) 40.44944%, rgba(100, 100, 225, 0.25) 42.69663%, rgba(0, 0, 0, 0) 42.69663%, rgba(0, 0, 0, 0) 43.82022%, rgba(100, 100, 225, 0.25) 43.82022%, rgba(100, 100, 225, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(100, 100, 225, 0.25) 47.19101%, rgba(100, 100, 225, 0.25) 49.4382%, rgba(0, 0, 0, 0) 49.4382%, rgba(0, 0, 0, 0) 50.5618%, rgba(100, 100, 225, 0.25) 50.5618%, rgba(100, 100, 225, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(100, 100, 225, 0.25) 53.93258%, rgba(100, 100, 225, 0.25) 56.17978%, rgba(0, 0, 0, 0) 56.17978%, rgba(0, 0, 0, 0) 57.30337%, rgba(100, 100, 225, 0.25) 57.30337%, rgba(100, 100, 225, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(100, 100, 225, 0.25) 60.67416%, rgba(100, 100, 225, 0.25) 62.92135%, rgba(0, 0, 0, 0) 62.92135%, rgba(0, 0, 0, 0) 64.04494%, rgba(100, 100, 225, 0.25) 64.04494%, rgba(100, 100, 225, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(100, 100, 225, 0.25) 67.41573%, rgba(100, 100, 225, 0.25) 69.66292%, rgba(0, 0, 0, 0) 69.66292%, rgba(0, 0, 0, 0) 70.78652%, rgba(100, 100, 225, 0.25) 70.78652%, rgba(100, 100, 225, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(100, 100, 225, 0.25) 74.1573%, rgba(100, 100, 225, 0.25) 76.40449%, rgba(0, 0, 0, 0) 76.40449%, rgba(0, 0, 0, 0) 77.52809%, rgba(100, 100, 225, 0.25) 77.52809%, rgba(100, 100, 225, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(100, 100, 225, 0.25) 80.89888%, rgba(100, 100, 225, 0.25) 83.14607%, rgba(0, 0, 0, 0) 83.14607%, rgba(0, 0, 0, 0) 84.26966%, rgba(100, 100, 225, 0.25) 84.26966%, rgba(100, 100, 225, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(100, 100, 225, 0.25) 87.64045%, rgba(100, 100, 225, 0.25) 89.88764%, rgba(0, 0, 0, 0) 89.88764%, rgba(0, 0, 0, 0) 91.01124%, rgba(100, 100, 225, 0.25) 91.01124%, rgba(100, 100, 225, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(100, 100, 225, 0.25) 94.38202%, rgba(100, 100, 225, 0.25) 96.62921%, rgba(0, 0, 0, 0) 96.62921%, rgba(0, 0, 0, 0) 97.75281%, rgba(100, 100, 225, 0.25) 97.75281%, rgba(100, 100, 225, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(100, 100, 225, 0.25) 0%, rgba(100, 100, 225, 0.25) 2.24719%, rgba(0, 0, 0, 0) 2.24719%, rgba(0, 0, 0, 0) 3.37079%, rgba(100, 100, 225, 0.25) 3.37079%, rgba(100, 100, 225, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(100, 100, 225, 0.25) 6.74157%, rgba(100, 100, 225, 0.25) 8.98876%, rgba(0, 0, 0, 0) 8.98876%, rgba(0, 0, 0, 0) 10.11236%, rgba(100, 100, 225, 0.25) 10.11236%, rgba(100, 100, 225, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(100, 100, 225, 0.25) 13.48315%, rgba(100, 100, 225, 0.25) 15.73034%, rgba(0, 0, 0, 0) 15.73034%, rgba(0, 0, 0, 0) 16.85393%, rgba(100, 100, 225, 0.25) 16.85393%, rgba(100, 100, 225, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(100, 100, 225, 0.25) 20.22472%, rgba(100, 100, 225, 0.25) 22.47191%, rgba(0, 0, 0, 0) 22.47191%, rgba(0, 0, 0, 0) 23.59551%, rgba(100, 100, 225, 0.25) 23.59551%, rgba(100, 100, 225, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(100, 100, 225, 0.25) 26.96629%, rgba(100, 100, 225, 0.25) 29.21348%, rgba(0, 0, 0, 0) 29.21348%, rgba(0, 0, 0, 0) 30.33708%, rgba(100, 100, 225, 0.25) 30.33708%, rgba(100, 100, 225, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(100, 100, 225, 0.25) 33.70787%, rgba(100, 100, 225, 0.25) 35.95506%, rgba(0, 0, 0, 0) 35.95506%, rgba(0, 0, 0, 0) 37.07865%, rgba(100, 100, 225, 0.25) 37.07865%, rgba(100, 100, 225, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(100, 100, 225, 0.25) 40.44944%, rgba(100, 100, 225, 0.25) 42.69663%, rgba(0, 0, 0, 0) 42.69663%, rgba(0, 0, 0, 0) 43.82022%, rgba(100, 100, 225, 0.25) 43.82022%, rgba(100, 100, 225, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(100, 100, 225, 0.25) 47.19101%, rgba(100, 100, 225, 0.25) 49.4382%, rgba(0, 0, 0, 0) 49.4382%, rgba(0, 0, 0, 0) 50.5618%, rgba(100, 100, 225, 0.25) 50.5618%, rgba(100, 100, 225, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(100, 100, 225, 0.25) 53.93258%, rgba(100, 100, 225, 0.25) 56.17978%, rgba(0, 0, 0, 0) 56.17978%, rgba(0, 0, 0, 0) 57.30337%, rgba(100, 100, 225, 0.25) 57.30337%, rgba(100, 100, 225, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(100, 100, 225, 0.25) 60.67416%, rgba(100, 100, 225, 0.25) 62.92135%, rgba(0, 0, 0, 0) 62.92135%, rgba(0, 0, 0, 0) 64.04494%, rgba(100, 100, 225, 0.25) 64.04494%, rgba(100, 100, 225, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(100, 100, 225, 0.25) 67.41573%, rgba(100, 100, 225, 0.25) 69.66292%, rgba(0, 0, 0, 0) 69.66292%, rgba(0, 0, 0, 0) 70.78652%, rgba(100, 100, 225, 0.25) 70.78652%, rgba(100, 100, 225, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(100, 100, 225, 0.25) 74.1573%, rgba(100, 100, 225, 0.25) 76.40449%, rgba(0, 0, 0, 0) 76.40449%, rgba(0, 0, 0, 0) 77.52809%, rgba(100, 100, 225, 0.25) 77.52809%, rgba(100, 100, 225, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(100, 100, 225, 0.25) 80.89888%, rgba(100, 100, 225, 0.25) 83.14607%, rgba(0, 0, 0, 0) 83.14607%, rgba(0, 0, 0, 0) 84.26966%, rgba(100, 100, 225, 0.25) 84.26966%, rgba(100, 100, 225, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(100, 100, 225, 0.25) 87.64045%, rgba(100, 100, 225, 0.25) 89.88764%, rgba(0, 0, 0, 0) 89.88764%, rgba(0, 0, 0, 0) 91.01124%, rgba(100, 100, 225, 0.25) 91.01124%, rgba(100, 100, 225, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(100, 100, 225, 0.25) 94.38202%, rgba(100, 100, 225, 0.25) 96.62921%, rgba(0, 0, 0, 0) 96.62921%, rgba(0, 0, 0, 0) 97.75281%, rgba(100, 100, 225, 0.25) 97.75281%, rgba(100, 100, 225, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
-  background-image: linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(100, 100, 225, 0.25) 0%, rgba(100, 100, 225, 0.25) 2.24719%, rgba(0, 0, 0, 0) 2.24719%, rgba(0, 0, 0, 0) 3.37079%, rgba(100, 100, 225, 0.25) 3.37079%, rgba(100, 100, 225, 0.25) 5.61798%, rgba(0, 0, 0, 0) 5.61798%, rgba(0, 0, 0, 0) 6.74157%, rgba(100, 100, 225, 0.25) 6.74157%, rgba(100, 100, 225, 0.25) 8.98876%, rgba(0, 0, 0, 0) 8.98876%, rgba(0, 0, 0, 0) 10.11236%, rgba(100, 100, 225, 0.25) 10.11236%, rgba(100, 100, 225, 0.25) 12.35955%, rgba(0, 0, 0, 0) 12.35955%, rgba(0, 0, 0, 0) 13.48315%, rgba(100, 100, 225, 0.25) 13.48315%, rgba(100, 100, 225, 0.25) 15.73034%, rgba(0, 0, 0, 0) 15.73034%, rgba(0, 0, 0, 0) 16.85393%, rgba(100, 100, 225, 0.25) 16.85393%, rgba(100, 100, 225, 0.25) 19.10112%, rgba(0, 0, 0, 0) 19.10112%, rgba(0, 0, 0, 0) 20.22472%, rgba(100, 100, 225, 0.25) 20.22472%, rgba(100, 100, 225, 0.25) 22.47191%, rgba(0, 0, 0, 0) 22.47191%, rgba(0, 0, 0, 0) 23.59551%, rgba(100, 100, 225, 0.25) 23.59551%, rgba(100, 100, 225, 0.25) 25.8427%, rgba(0, 0, 0, 0) 25.8427%, rgba(0, 0, 0, 0) 26.96629%, rgba(100, 100, 225, 0.25) 26.96629%, rgba(100, 100, 225, 0.25) 29.21348%, rgba(0, 0, 0, 0) 29.21348%, rgba(0, 0, 0, 0) 30.33708%, rgba(100, 100, 225, 0.25) 30.33708%, rgba(100, 100, 225, 0.25) 32.58427%, rgba(0, 0, 0, 0) 32.58427%, rgba(0, 0, 0, 0) 33.70787%, rgba(100, 100, 225, 0.25) 33.70787%, rgba(100, 100, 225, 0.25) 35.95506%, rgba(0, 0, 0, 0) 35.95506%, rgba(0, 0, 0, 0) 37.07865%, rgba(100, 100, 225, 0.25) 37.07865%, rgba(100, 100, 225, 0.25) 39.32584%, rgba(0, 0, 0, 0) 39.32584%, rgba(0, 0, 0, 0) 40.44944%, rgba(100, 100, 225, 0.25) 40.44944%, rgba(100, 100, 225, 0.25) 42.69663%, rgba(0, 0, 0, 0) 42.69663%, rgba(0, 0, 0, 0) 43.82022%, rgba(100, 100, 225, 0.25) 43.82022%, rgba(100, 100, 225, 0.25) 46.06742%, rgba(0, 0, 0, 0) 46.06742%, rgba(0, 0, 0, 0) 47.19101%, rgba(100, 100, 225, 0.25) 47.19101%, rgba(100, 100, 225, 0.25) 49.4382%, rgba(0, 0, 0, 0) 49.4382%, rgba(0, 0, 0, 0) 50.5618%, rgba(100, 100, 225, 0.25) 50.5618%, rgba(100, 100, 225, 0.25) 52.80899%, rgba(0, 0, 0, 0) 52.80899%, rgba(0, 0, 0, 0) 53.93258%, rgba(100, 100, 225, 0.25) 53.93258%, rgba(100, 100, 225, 0.25) 56.17978%, rgba(0, 0, 0, 0) 56.17978%, rgba(0, 0, 0, 0) 57.30337%, rgba(100, 100, 225, 0.25) 57.30337%, rgba(100, 100, 225, 0.25) 59.55056%, rgba(0, 0, 0, 0) 59.55056%, rgba(0, 0, 0, 0) 60.67416%, rgba(100, 100, 225, 0.25) 60.67416%, rgba(100, 100, 225, 0.25) 62.92135%, rgba(0, 0, 0, 0) 62.92135%, rgba(0, 0, 0, 0) 64.04494%, rgba(100, 100, 225, 0.25) 64.04494%, rgba(100, 100, 225, 0.25) 66.29213%, rgba(0, 0, 0, 0) 66.29213%, rgba(0, 0, 0, 0) 67.41573%, rgba(100, 100, 225, 0.25) 67.41573%, rgba(100, 100, 225, 0.25) 69.66292%, rgba(0, 0, 0, 0) 69.66292%, rgba(0, 0, 0, 0) 70.78652%, rgba(100, 100, 225, 0.25) 70.78652%, rgba(100, 100, 225, 0.25) 73.03371%, rgba(0, 0, 0, 0) 73.03371%, rgba(0, 0, 0, 0) 74.1573%, rgba(100, 100, 225, 0.25) 74.1573%, rgba(100, 100, 225, 0.25) 76.40449%, rgba(0, 0, 0, 0) 76.40449%, rgba(0, 0, 0, 0) 77.52809%, rgba(100, 100, 225, 0.25) 77.52809%, rgba(100, 100, 225, 0.25) 79.77528%, rgba(0, 0, 0, 0) 79.77528%, rgba(0, 0, 0, 0) 80.89888%, rgba(100, 100, 225, 0.25) 80.89888%, rgba(100, 100, 225, 0.25) 83.14607%, rgba(0, 0, 0, 0) 83.14607%, rgba(0, 0, 0, 0) 84.26966%, rgba(100, 100, 225, 0.25) 84.26966%, rgba(100, 100, 225, 0.25) 86.51685%, rgba(0, 0, 0, 0) 86.51685%, rgba(0, 0, 0, 0) 87.64045%, rgba(100, 100, 225, 0.25) 87.64045%, rgba(100, 100, 225, 0.25) 89.88764%, rgba(0, 0, 0, 0) 89.88764%, rgba(0, 0, 0, 0) 91.01124%, rgba(100, 100, 225, 0.25) 91.01124%, rgba(100, 100, 225, 0.25) 93.25843%, rgba(0, 0, 0, 0) 93.25843%, rgba(0, 0, 0, 0) 94.38202%, rgba(100, 100, 225, 0.25) 94.38202%, rgba(100, 100, 225, 0.25) 96.62921%, rgba(0, 0, 0, 0) 96.62921%, rgba(0, 0, 0, 0) 97.75281%, rgba(100, 100, 225, 0.25) 97.75281%, rgba(100, 100, 225, 0.25) 100.0%, rgba(0, 0, 0, 0) 100.0%, rgba(0, 0, 0, 0) 100%);
-  background-position: left top;
-  -webkit-background-origin: content;
-  -moz-background-origin: content;
-  -ms-background-origin: content-box;
-  -o-background-origin: content-box;
-  background-origin: content-box;
-  -webkit-background-clip: content-box;
-  -moz-background-clip: content-box;
-  background-clip: content-box;
+  padding-top: 2em;
+  /* @include susy-grid-background;*/
 }
-/* line 38, ../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .container:after {
   content: "";
   display: table;

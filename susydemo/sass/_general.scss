@@ -4,14 +4,17 @@
 @mixin zebra-table($table-color) {	
     @include table-scaffolding;
     @include inner-table-borders(1px, darken($table-color, 40%));
-    @include outer-table-borders(2px);
-    @include alternating-rows-and-columns($table-color,darken($table-color, 10%), 0);
+    @include outer-table-borders(1px, darken($table-color, 40%));
+    th:first-child {border-right: 1px solid darken($table-color, 40%); }
+    tr:nth-child(2n) td {background-color: darken($table-color, 2%);}    
+    tr:nth-child(2n+1) td {background-color: darken($table-color, 11%);}  
+}
+ 
+table {
+     $table-color: #ff0000;
+     @include zebra-table($table-color);
 }
 
-
-    
-  table {
-     $table-color: #ffffff;
-     @include zebra-table($table-color);
-     th:first-child {border-right: 1px darken($table-color, 40%); }
+h1 {
+	font-size: 170%;
 }    
