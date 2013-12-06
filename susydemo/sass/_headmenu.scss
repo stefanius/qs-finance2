@@ -1,15 +1,41 @@
+/* File is used for generating topmenu. */
+
 .menubar {
   background: white;
   @include box-shadow(rgba(black, 0.2) 0 1px 1px);
-  list-style: none;
   font-size: 14px;
+  display: inline-block;
+  width: 100%;
+}
+
+.menugroup {
+  background: white;
   padding: 0 10px;
 }
+
+ul.menugroup{
+  display: inline-block;
+  background: white;
+  list-style: none;
+}
+
+ul.left{
+  float: left;
+}
+
+ul.right{
+  float: right;
+}
+
+.menugroup.right .menubar-item .menu{
+  right: 0px;
+}
+
 .menubar-item {
   display: inline-block;
   position: relative;
 }
-.menubar-item-target {
+.menubar-item-target{
   color: black;
   display: block;
   padding: 10px 14px;
@@ -18,6 +44,16 @@
   &:hover, .is-selected & {
     background: #29a7f5;
     color: white;
+  }
+}
+
+.disabled {
+  color: rgb(185, 185, 185);
+  cursor: default;
+  
+  &:hover, .is-selected & {
+    background: white;
+    color: rgb(185, 185, 185);
   }
 }
 
@@ -32,9 +68,11 @@
   list-style: none;
   width: 15em;
   padding: 10px 0;
+  z-index: 1000;
   
   .is-selected & { display: block; }
 }
+
 .menu-item-target {
   color: black;
   display: block;
@@ -46,6 +84,7 @@
     color: white;
   }
 }   
+
 .menu-separator {
   border-top: 1px solid #ddd;
   margin: 8px;

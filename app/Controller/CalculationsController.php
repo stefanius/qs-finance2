@@ -4,7 +4,7 @@ class CalculationsController extends AppController
     public $name = 'Calculations';
     public $helpers = array('Form', 'Html', 'Number',  'Balans');
 
-    public $uses = array('Balans', 'Calculation', 'Bookyear', 'Grootboek', 'Bankaccount');
+    public $uses = array('Calculation', 'Balans', 'Bookyear', 'Grootboek', 'Bankaccount');
 
     public $components = array('Import', 'Csv', 'Session', 'PrepareJournalEntry');
 
@@ -19,6 +19,30 @@ class CalculationsController extends AppController
         $this->set('calculations', $this->paginate());
     }
 
+    public function search()
+    {
+    	$this->Calculation->recursive = 0;
+
+
+    		$conditions = array();
+    		
+    		foreach($this->request->query as $key=>$value){
+    			$key = str_replace('_', '.', $key);
+    			$conditions[$key.' LIKE']='%'.$value.'%';
+    		}
+			
+    		$conditions['Calculation.bookyear_id']=$this->Session->read('Bookyear.id');
+    		
+    		$this->paginate = array(
+    				'conditions' => $conditions
+    		);   
+    		 		
+    		$calculations = $this->paginate('Calculation');
+    		$this->set(compact('calculations'));
+
+
+    }    
+    
     public function view($id = null)
     {
         if (!$id) {
@@ -45,11 +69,12 @@ class CalculationsController extends AppController
         $this->set(compact('grootboeks', 'bookyears'));
     }
 
-    public function crossbooking($bookyear=null, $grootboek=null)
-    {       
+    public function crossbooking($grootboek=null)
+    {    
+    	$bookyear['Bookyear'] = $this->checkSessionHasBookyear();
         if (!empty($this->request->data)) {
         	$preparedData =$this->PrepareJournalEntry->prepareSingleTransaction($this->request->data["Calculation"]);
-        	
+
             if ($this->Calculation->saveAll($preparedData)) {
                 $this->Session->setFlash(__('Mutatie is verwerkt'));
                 //$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
@@ -58,14 +83,14 @@ class CalculationsController extends AppController
             }
         }
 
-        if (isset($bookyear) && isset($grootboek)) {
+        if (isset($grootboek) && $bookyear['Bookyear'] !== false) {
             $grootboeks = $this->Calculation->Grootboek->find('list');
-            $currentgrootboek = $this->Calculation->Grootboek->get($grootboek);
-            $bookyear = $this->Calculation->Bookyear->get($bookyear);
-            $info['Grootboek'] = $currentgrootboek['Grootboek'];
+            $grootboek = $this->Calculation->Grootboek->get($grootboek);
+                   
+            $info['Grootboek'] = $grootboek['Grootboek'];
             $info['Bookyear'] = $bookyear['Bookyear'];
-
-            $this->set(compact('grootboeks', 'info'));
+            
+            $this->set(compact('grootboeks', 'info', 'grootboek', 'bookyear'));
         } else {
             $this->redirect(array('controller' => 'bookyears', 'action' => 'selectBookyear'));
         }
@@ -185,5 +210,6 @@ class CalculationsController extends AppController
             } else {
                 $this->Session->setFlash(__('Geen boekjaar ingesteld, import wordt geweigerd.'));
             }*/
-    }
+    } 
+    
 }

@@ -9,27 +9,28 @@
 	<?php
 		//echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-		echo $this->Html->css('cake.boekhouden');
-		echo $this->Html->css('boekhouden');
-        echo $this->Html->css('jquery/black-tie/jquery-ui.min');   
+		echo $this->Html->css('testlayout');
+        echo $this->Html->css('jquery/overcast/jquery-ui.min');  
+        echo $this->Html->css('font-awesome.min.css');
         echo $this->Html->script('jquery-2.0.2.min'); // Include jQuery library
         echo $this->Html->script('jquery-ui-1.10.3.custom.min'); // Include jQuery library
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
+
+<?php echo $this->element('topmenu/container'); ?>	
+<?php echo $this->element('breadcrumb'); ?>	
+
 	<div id="container">
 		<div id="header">
-			
+					
 		</div>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->Session->flash('auth'); ?>
-			<div id="leftbar">
-				<?php echo $this->element('leftbar'); ?>
-			</div>
+
 			
 			<div id="main">
 				<?php echo $content_for_layout; ?>
@@ -40,10 +41,10 @@
 
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
-
+<script type="text/JavaScript" src="/js/menubar.js"></script> 	
 <?php
 
     

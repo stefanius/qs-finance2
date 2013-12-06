@@ -4,16 +4,22 @@
 @import "base";
 @import "headmenu";
 @import "balans";
-
+@import "login";
+@import "flashmessage";
+@import "breadcrumb";
 
 body {
-  font-family: sans-serif;
+  font-family: "Museo Sans", "Helvetica", "Arial", sans-serif;
   font-weight: 100;
-  background: #eeeaaa;
+  background: #f6f5f6;
+  font-size: 1.5em;
 } 
 
-.container {
+#container {
   @include container;
+  /*@include susy-grid-background;*/
+}
+
+#content{
   padding-top: 2em;
- /* @include susy-grid-background;*/
 }

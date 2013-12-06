@@ -1,47 +1,93 @@
+<?php echo $this->Html->script('autocomplete');?>
 <div class="grootboek">
-<div id="tabs">
-  <ul>
-    <li><a href="#debet-tab" id="debet-tab-link">Debet</a></li>
-    <li><a href="#credit-tab" id="credit-tab-link">Credit</a></li>
-  </ul>
-  <?php echo $this->Form->create();?>
-  
-  <div id="debet-tab">
-      <fieldset><legend><?php echo __($info['Grootboek']['display_omschrijving']); ?> :: Debet</legend></fieldset>
-	  <?php echo $this->Form->input('Calculation.0.debet',  array('type' => 'text')); ?>
-  </div>
-  <div id="credit-tab">
-      <fieldset><legend><?php echo __($info['Grootboek']['display_omschrijving']); ?> :: Credit</legend></fieldset>    
-	  <?php echo $this->Form->input('Calculation.0.credit',  array('type' => 'text')); ?>
-  </div>
 
+  <?php echo $this->Form->create();?>
 	<?php
 		echo $this->Form->input('Calculation.0.grootboek_id', array('value' => $info['Grootboek']['id'], 'type' => 'hidden' ));
 		echo $this->Form->input('Calculation.0.bookyear_id', array('value' =>  $info['Bookyear']['id'], 'type' => 'hidden' ));
-		echo $this->Form->input('Calculation.0.omschrijving');
-		echo $this->Form->input('Calculation.0.boekdatum', array('type' => 'date'));
-		echo $this->Form->input('Calculation.1.grootboek_id');
-	?>
+	?>  
+<table>
+	<tr>
+		<th class="omschrijving" colspan="3">Boeking: <?php echo $grootboek['Grootboek']['omschrijving']?></th>
+	</tr>
 
-  <?php echo $this->Form->end(__('Opslaan'));?>
-</div>
+    <tr>
+        <td>Boekdatum</td>
+        <td><?php echo $this->Form->input('Calculation.0.boekdatum', array('type' => 'text', 'label'=>false, 'class'=>'custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left ui-autocomplete-input'));?></td>
+        <td></td>
+    </tr>
 
+    <tr>
+        <td>Omschrijving</td>
+        <td><?php echo $this->Form->input('Calculation.0.omschrijving', array('label'=>false, 'class'=>'ui-widget ui-widget-content ui-state-default ui-corner-left')); ?></td>
+        <td></td>
+    </tr>    
+
+    <tr>
+        <td>Bedrag Debet</td>
+        <td><?php echo $this->Form->input('Calculation.0.debet', 
+        		array(  'label'=>false, 
+        				'type' => 'text', 
+        				'class'=>'ui-widget ui-widget-content ui-state-default ui-corner-left',
+        				'placeholder' => 'Leeg in geval van bedrag Credit'));?></td>
+        <td></td>
+    </tr>  
+        
+    <tr>
+        <td>Bedrag Credit</td>
+        <td><?php echo $this->Form->input('Calculation.0.credit', 
+        		array(  'label'=>false, 
+        			    'type' => 'text', 
+        				'class'=>'ui-widget ui-widget-content ui-state-default ui-corner-left',
+        				'placeholder' => 'Leeg in geval van bedrag Debet'));?></td>
+        <td></td>
+    </tr>      
+    
+    <tr>
+        <td>Tegenrekening</td>
+        <td><?php echo $this->Form->input('Calculation.1.grootboek_id', array('label'=>false));?></td>
+        <td></td>
+    </tr>  
+    
+    <tr>
+        <td></td>
+        <td><?php echo $this->Form->submit(__('Opslaan'), array('class'=>'btn-success'));?></td>
+        <td></td>
+    </tr> 
+        
+</table>  
+  
   <script>
-  $(function() {
-    $( "#tabs" ).tabs({
 
-    });
-  });
   
-  $("#debet-tab-link").click(function (){
-        $('#Calculation0Debet').val('');
+  $(function() {
+	    $( "#Calculation0Boekdatum" ).datepicker({
+	    	dateFormat: 'dd-mm-yy'
+	    });
+	    $( "#Calculation1GrootboekId" ).combobox();
+	    
    });
+
   
+  $('#Calculation0Debet').keypress(function (){
+        $('#Calculation0Credit').val('');
+   });
+
+  $('#Calculation0Credit').keypress(function (){
+      $('#Calculation0Debet').val('');
+ });
+
+  $(function() {
+	   
+  });  
+
+
   </script>
 
 
 	
 
 
+  
 
 </div>

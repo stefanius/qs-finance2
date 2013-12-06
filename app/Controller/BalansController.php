@@ -3,21 +3,26 @@ class BalansController extends AppController
 {
     public $name = 'Balans';
     public $uses = 'Balans';
-    //var $components = array('Excel');
+    
     public $helpers = array('Form', 'Html', 'Number',  'Balans');
 
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow(array('*'));
+        //$this->Auth->allow(array('*'));
     }
 
     public function index()
     {
-        //Lijst van boekjaren/perioden.
-        $this->Balans->Bookyear->recursive = 0;
-        $bookyears =  $this->Balans->Bookyear->find('all');
-        $this->set(compact('bookyears'));
+    	$beginbalans = null;
+    	$bookyear_key = $this->request->params['bookyear_key'];
+    	    	
+        $balans = $this->Balans->openBalans($bookyear_key, $beginbalans);
+        $balans = $this->Balans->formatBalans($balans);
+        $bookyear = $this->Balans->Bookyear->get($bookyear_key);
+        $this->Session->write('Bookyear', $bookyear['Bookyear']);
+
+        $this->set(compact('balans', 'bookyear'));
     }
 
     public function open($bookyear_key, $beginbalans=null)
@@ -25,6 +30,8 @@ class BalansController extends AppController
         $balans = $this->Balans->openBalans($bookyear_key, $beginbalans);
         $balans = $this->Balans->formatBalans($balans);
         $bookyear = $this->Balans->Bookyear->get($bookyear_key);
+        $this->Session->write('Bookyear', $bookyear['Bookyear']);
+        
         $this->set(compact('balans', 'bookyear'));
     }
 

@@ -3,7 +3,7 @@ class GrootboeksController extends AppController
 {
     public $name = 'Grootboeks';
     public $helpers = array('Balans');
-
+    
     public function index()
     {
         $this->Grootboek->recursive = 0;
@@ -72,9 +72,13 @@ class GrootboeksController extends AppController
         $this->redirect(array('action' => 'index'));
     }
 
-    public function open($bookyear_key, $grootboek_key)
+    public function open($grootboek_key=null)
     {
-        $bookyear = $this->Grootboek->Bookyear->get($bookyear_key);
+    	$bookyear = array();
+        $bookyear['Bookyear'] = $this->checkSessionHasBookyear();
+        if($grootboek_key==null){
+        	
+        }
         $grootboek = $this->Grootboek->getSaldi($bookyear['Bookyear']['id'], $grootboek_key);
         
         $this->set(compact('grootboek', 'bookyear'));
@@ -94,4 +98,28 @@ class GrootboeksController extends AppController
         }
         $this->set(compact('overzicht', 'bookyear'));
     }
+    
+    public function search($field=null, $term=null) {
+		
+    	if($term==null && isset($this->request->query['term'])){
+    		$term=$this->request->query['term'];
+		}
+    	if($field == null || $term == null){
+    		$rawresponse = $this->Grootboek->find('all');
+    	}else{
+    		$rawresponse = $this->Grootboek->find('all', 
+    				array('conditions' => array('Grootboek.'.$field.' LIKE '=>'%'.$term.'%'), 
+    						   'fields'=> array('Grootboek.'.$field, 'Grootboek.nummer','Grootboek.display_omschrijving' )));
+    	}
+		$response = array();
+		
+		foreach($rawresponse as $grootboek){
+			$response[] = $grootboek['Grootboek']['nummer'];
+		}
+    	$this->set(compact('response'));
+    	$this->set('_serialize', 'response');    	
+    	
+    	
+    //	exit( json_encode($this->Grootboek->find('list', array('conditions' => array()) ) ));
+    }    
 }

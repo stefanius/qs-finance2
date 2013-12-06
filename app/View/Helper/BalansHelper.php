@@ -124,31 +124,6 @@ class BalansHelper extends AppHelper
         return $titel;
     }
 
-    /**
-    * Retourneert een tabelrij voor een eenvoudige Balans
-    *
-    * @param $grootboek, $grootboekpost
-    * @return $rij Saldo en URL naar grootboek
-    * @access public
-    */
-    public function balansRij($grootboek, $bookyear_id)
-    {
-        $a = $grootboek;
-        if ($a['Grootboek']['nummer']>0) {
-            $caption = '('.$a['Grootboek']['nummer'].') '.$a['Grootboek']['omschrijving'];
-        } else {
-            $caption =$a['Grootboek']['omschrijving'];
-        }
-        $link = $this->Html->link($caption, array('controller'=>'grootboeks', 'action' => 'open', $bookyear_id, $a['Grootboek']['nummer'] ));
-        $rij = "";
-        $rij = $rij."<tr>";
-        $rij = $rij.'<td>'.$link.'</td>';
-        $rij = $rij.'<td class="geld">'.$this->currency($a['Bedrag']['saldo'])."</td>";
-        $rij = $rij."</tr>";
-
-        return $rij;
-    }
-
     public function openGrootboekRij($grootboek_rij)
     {
         if (isset( $grootboek_rij['id'])) {

@@ -1,0 +1,18 @@
+
+.message{
+    padding-bottom: 0em;
+    text-align: center;
+    vertical-align: baseline;
+    line-height: 3em;
+    margin-bottom: 2em;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#authMessage{
+    background: orange;
+}
+
+#flashMessage{
+	background: green;
+}

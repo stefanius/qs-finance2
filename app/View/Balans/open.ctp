@@ -1,44 +1,21 @@
 <div class="balans">
-	<?php echo $this->Balans->balansTitel($balans['Bookyear']);?>
-	<div class="debet">
-		<table cellpadding="0" cellspacing="0">
-			<tr><th>Debet</th><th></th></tr>
-			<?php
-				foreach($balans['debet']['posten'] as $a){
-					echo $this->Balans->balansRij($a, $balans['Bookyear']['omschrijving']);			
-				}
-				echo '<tr>';
-				echo '<td><strong>TOTAAL</strong></td>';
-				echo '<td class="geld"><strong>'.$this->Balans->currency($balans['debet']['totaal']).'</strong></td>';
-				echo '</tr>';	
-			?>				
-		</table>
-	</div>
-	
-	<div class="credit">
-		<table cellpadding="0" cellspacing="0">
-			<tr><th>Credit</th><th></th></tr>
-			<?php			
-				echo '<tr>';
-				echo '<td><a href="'.$this->request->webroot.'grootboeks/overzicht/'.$balans['Bookyear']['omschrijving'].'/1">Eigen Vermogen</a></td>';
-				echo '<td class="geld">'.$this->Balans->currency($balans['ev']).'</td>';
-				echo '</tr>';	
-					
-				foreach($balans['credit']['posten'] as $a){
-					echo $this->Balans->balansRij($a, $balans['Bookyear']['omschrijving']);			
-				}
-				
-				echo '<tr>';
-				echo '<td><strong>TOTAAL</strong></td>';
-				echo '<td class="geld"><strong>'.$this->Balans->currency($balans['credit']['totaal']).'</strong></td>';
-				echo '</tr>';	
-			?>	
-		</table>
-	</div>
+
+	  <h1>Balans: <?php echo $balans['Bookyear']['omschrijving']?></h1>
+
+      <div class="tablewrapper">
+
+      <?php echo $this->element('balans', array('side' => 'debet')); ?>
+      <?php echo $this->element('balans', array('side' => 'credit')); ?>
+
+      </div>
 </div>
+
+<!--  
 <div class="balansoptions">
         <?php echo $this->html->link("Download eenvoudige balans(excel)", array("controller"=>"exportexcel", "action"=>"balans", $balans['Bookyear']['omschrijving']))?>
         <br/>
         <?php echo $this->html->link("Download kolombalans(excel)", array("controller"=>"exportexcel", "action"=>"kolombalans", $balans['Bookyear']['omschrijving']))?>
         <br/>
 </div>
+
+-->

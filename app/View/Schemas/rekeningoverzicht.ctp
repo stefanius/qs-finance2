@@ -1,6 +1,5 @@
 <h1><strong>Onderverdeling Rekeningstelsel</strong></h1>
 <?php		
-
 		foreach ($list as $item){
 			print("</br>------------------</br>");
 			echo "<b>".$item['pattern']['omschrijving']."</b>";

@@ -26,8 +26,16 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-    //Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
-Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'administratie'));
+    Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+    Router::connect('/search', array('controller' => 'search'));
+    
+    Router::connect('/balans/:bookyear_key', array('controller' => 'balans'));
+    
+    Router::connect('/balans/rekening/:rekeningnummer', array('controller' => 'grootboeks', 'action'=>'open'));
+
+    Router::parseExtensions();
+
+
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

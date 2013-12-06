@@ -11,6 +11,10 @@ class PrepareJournalEntryComponent extends Component
 		$hash = $this->generateHash();
 		$preparedData = array();
 		
+		$explodedDate = explode('-', $rawdata[0]['boekdatum']);
+		$rawdata[0]['boekdatum'] = $explodedDate[2].'-'.$explodedDate[1].'-'.$explodedDate[0];
+		
+		
 		$preparedData[0]['bookyear_id'] = $rawdata[0]['bookyear_id'];
 		$preparedData[0]['boekdatum'] = $rawdata[0]['boekdatum'];
 		$preparedData[0]['omschrijving'] = $rawdata[0]['omschrijving'];

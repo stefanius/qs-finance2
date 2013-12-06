@@ -39,8 +39,6 @@
  * Where '2' can be replaced by the debug-setting 0,1 or 2.
  */
 
-
-
 if (getenv('CAKEPHP_DEBUG')) {
         Configure::write('debug', getenv('CAKEPHP_DEBUG'));
 } else {
