@@ -77,7 +77,7 @@ class GrootboeksController extends AppController
     	$bookyear = array();
         $bookyear['Bookyear'] = $this->checkSessionHasBookyear();
         if($grootboek_key==null){
-        	
+        	$grootboek_key = $this->request->params['rekeningnummer'];
         }
         $grootboek = $this->Grootboek->getSaldi($bookyear['Bookyear']['id'], $grootboek_key);
         

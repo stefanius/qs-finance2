@@ -31,7 +31,7 @@
     
     Router::connect('/balans/:bookyear_key', array('controller' => 'balans'));
     
-    Router::connect('/balans/rekening/:rekeningnummer', array('controller' => 'grootboeks', 'action'=>'open'));
+    Router::connect('/balans/:bookyear_key/rekening/:rekeningnummer', array('controller' => 'grootboeks', 'action'=>'open'));
 
     Router::parseExtensions();
 

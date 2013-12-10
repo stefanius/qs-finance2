@@ -23,7 +23,7 @@
 	<?php else: ?>
 	    <tr>
 	        <td class="number"><?php echo $a['Grootboek']['nummer']?></td>
-	        <td><?php echo $this->html->link(ucfirst($a['Grootboek']['omschrijving']), array("controller"=>"grootboeks", "action"=>"open" ,$a['Grootboek']['nummer']))   ?></td>
+	        <td><?php echo $this->html->link(ucfirst($a['Grootboek']['omschrijving']), '/balans/'.$balans['Bookyear']['omschrijving'].'/rekening/'.$a['Grootboek']['nummer'])   ?></td>
 	        <td class="currency"><?php echo $this->Balans->currency($a['Bedrag']['saldo']) ?></td>
     	</tr>
 	
