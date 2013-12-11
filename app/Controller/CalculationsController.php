@@ -138,16 +138,23 @@ class CalculationsController extends AppController
         $this->set(compact('calculations','boekingstuk'));
     }
 
-    public function import($bookyear_key=null, $source=null, $type=null)
+    public function import()
     {
-            if (!empty($bookyear_key )) {
-                $bookyear = $this->Calculation->Bookyear->get($bookyear_key);
+    	$bookyear = array();
+            $bookyear['Bookyear'] = $this->checkSessionHasBookyear();
+            
+            if(isset($this->request->params['source'])){
+            	$source = $this->request->params['source'];
             }
 
+            if(isset($this->request->params['type'])){
+            	$type = $this->request->params['type'];
+            }
+            
             if (!empty($this->request->data ) && !empty($source) && !empty($type) && isset($this->request->data['File'])) {
                 $source = strtolower($source);
                 $type = strtolower($type);
-
+				echo 'henkie';
                 $path = 'import/'.$bookyear['Bookyear']['omschrijving'].'/'.$source.'/'.$type;
                 $fileOK = $this->uploadFiles($path,$this->request->data['File']);
 
