@@ -463,6 +463,150 @@ ul.right {
   font-weight: bold;
 }
 
+/* line 85, ../sass/_balans.sass */
+td .omschrijving {
+  width: 30em;
+}
+/* line 87, ../sass/_balans.sass */
+td .omschrijving textarea {
+  width: 30em;
+}
+/* line 89, ../sass/_balans.sass */
+td .omschrijving .omschrijving {
+  width: 30em;
+}
+
+/* line 91, ../sass/_balans.sass */
+.import {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+/* line 92, ../sass/_balans.sass */
+.import h1 {
+  text-align: center;
+}
+/* line 94, ../sass/_balans.sass */
+.import h2 {
+  text-align: center;
+}
+/* line 99, ../sass/_balans.sass */
+.import table {
+  border: 1px solid #dede00;
+  float: left;
+  width: 100%;
+  text-align: left;
+  margin-top: 1em;
+}
+/* line 2, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+.import table th {
+  text-align: center;
+  font-weight: bold;
+}
+/* line 6, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+.import table td,
+.import table th {
+  padding: 2px;
+}
+/* line 8, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+.import table td.numeric,
+.import table th.numeric {
+  text-align: right;
+}
+/* line 14, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.import table th, .import table td {
+  border-right: 1px solid #dede00;
+  border-bottom: 1px solid #dede00;
+  border-left-width: 0px;
+  border-top-width: 0px;
+}
+/* line 21, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.import table th:last-child, .import table th.last, .import table td:last-child, .import table td.last {
+  border-right-width: 0px;
+}
+/* line 29, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.import table tbody tr:last-child th, .import table tbody tr:last-child td, .import table tfoot tr:last-child th, .import table tfoot tr:last-child td {
+  border-bottom-width: 0px;
+}
+/* line 32, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.import table tbody tr.last th, .import table tbody tr.last td, .import table tfoot tr.last th, .import table tfoot tr.last td {
+  border-bottom-width: 0px;
+}
+/* line 4, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.import table thead th {
+  border-bottom: 1px solid #dede00;
+}
+/* line 7, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.import table tfoot th, .import table tfoot td {
+  border-top: 1px solid #dede00;
+}
+/* line 10, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+.import table th:first-child {
+  border-right: 1px solid #dede00;
+}
+/* line 7, ../sass/_general.scss */
+.import table th:first-child {
+  border-right: 1px solid #dede00;
+}
+/* line 8, ../sass/_general.scss */
+.import table tr:nth-child(2n) td {
+  background-color: #ffffa1;
+}
+/* line 9, ../sass/_general.scss */
+.import table tr:nth-child(2n+1) td {
+  background-color: #ffff73;
+}
+/* line 10, ../sass/_general.scss */
+.import table th {
+  background-color: #ffffe3;
+}
+/* line 106, ../sass/_balans.sass */
+.import table th:first-child {
+  border-right: 0px;
+}
+/* line 108, ../sass/_balans.sass */
+.import table th {
+  font-size: 90%;
+  border-right: none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  white-space: nowrap;
+}
+/* line 114, ../sass/_balans.sass */
+.import table .credit {
+  text-align: right;
+}
+/* line 116, ../sass/_balans.sass */
+.import table .debet {
+  text-align: left;
+}
+/* line 118, ../sass/_balans.sass */
+.import table .number {
+  width: 15%;
+}
+/* line 120, ../sass/_balans.sass */
+.import table td {
+  border-right: none;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  white-space: nowrap;
+  font-size: 90%;
+}
+/* line 126, ../sass/_balans.sass */
+.import table .currency {
+  width: 15%;
+  text-align: right;
+}
+/* line 129, ../sass/_balans.sass */
+.import table a {
+  text-decoration: none;
+  color: black;
+}
+/* line 132, ../sass/_balans.sass */
+.import table .total {
+  font-weight: bold;
+}
+
 /* line 1, ../sass/_login.scss */
 .login {
   position: relative;

@@ -80,4 +80,54 @@
             text-decoration: none
             color: #000000
         .total
-            font-weight: bold          
+            font-weight: bold         
+td
+    .omschrijving
+        width: 30em
+        textarea
+            width: 30em
+        .omschrijving
+            width: 30em
+.import
+    h1  
+        text-align: center
+    h2  
+        text-align: center        
+    width: 90%  
+    margin-left: 5%
+    margin-right: 5%
+    table
+        $table-color: #ffffab
+        @include zebra-table($table-color)
+        float: left
+        width: 100%
+        text-align: left     
+        margin-top: 1em   
+        th:first-child 
+            border-right: 0px
+        th                
+            font-size: 90% 
+            border-right: none
+            padding-left: 0.5em
+            padding-right: 0.5em 
+            white-space: nowrap               
+        .credit
+            text-align: right
+        .debet
+            text-align: left
+        .number
+            width: 15%
+        td
+            border-right: none
+            padding-left: 0.5em
+            padding-right: 0.5em
+            white-space: nowrap
+            font-size: 90% 
+        .currency 
+            width: 15% 
+            text-align: right
+        a
+            text-decoration: none
+            color: #000000
+        .total
+            font-weight: bold
