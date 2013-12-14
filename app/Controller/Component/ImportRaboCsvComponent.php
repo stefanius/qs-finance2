@@ -10,7 +10,7 @@ class ImportRaboCsvComponent extends ImportComponent
         if (is_null($filename) || is_null($source) || is_null($type)) {
             throw new CakeException();
         }
-            $this->Csv->setFirstLineAsHeader(true);
+            $this->Csv->setFirstLineAsHeader(false);
             $this->Csv->setUseHeaderAsKey(false);
             $csvdata =  $this->Csv->read($filename);
 
