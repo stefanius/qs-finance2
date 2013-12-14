@@ -9,7 +9,7 @@
 
     <tr>
         <td><?php echo $journal['Calculation']['boekdatum']; ?></td>
-        <td><?php echo $journal['Calculation']['omschrijving']; ?></td>
+        <td class="omschrijving"><?php echo $journal['Calculation']['omschrijving']; ?></td>
         <td class="currency"><?php echo $this->Balans->currency($journal['Calculation']['debet']); ?></td>
         <td class="currency"><?php echo $this->Balans->currency($journal['Calculation']['credit']); ?></td>
     </tr>
