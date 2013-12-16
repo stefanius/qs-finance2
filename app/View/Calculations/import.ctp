@@ -1,4 +1,6 @@
-<?php echo $this->Html->script('autocomplete');?>+
+<?php echo $this->Html->script('autocomplete');?>
+<?php echo $this->Html->script('switchbutton');?>
+<?php //http://stackoverflow.com/questions/4681320/can-i-expand-collapse-content-of-jquery-ui-accordion-by-click-another-elements-t?>
 <div class="import">
 <?php
 	if(isset($bankpost)){
@@ -28,10 +30,11 @@
 	<div id="accordion">
 
         <?php foreach($data as $d): ?>
-
+				
             	<h3><?php echo $i;?>: <?php echo $d['omschrijving'];?></h3>
+            	
             	<div class="grootboek">
-            	    <?php echo $this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false))?>
+            	    <?php echo $this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false, 'class'=>'switchButton'))?>
 					<table cellpadding="0" cellspacing="0">
 				            <tr>
 				                <th class="omschrijving">Omschrijving</th>				               
@@ -68,11 +71,23 @@
 		        $i++;
          ?>
          </table>
+         <a class="btn-success" onclick="next()">Volgende</a>
         	</div>
         <?php endforeach; ?>	
+
+            	<h3>Klaar?</h3>
+            	
+            	<div class="grootboek">
+            	<label>Totaal aantal boekingen:</label><span id="totalBookings"><?php echo ($i-1); ?></span>
+            	<label>Totaal gecontrolleerd:</label><span id="checkedBookings">0</span>
+        <?php 
+        
+        echo $this->Form->submit(__('Opslaan'), array('class'=>'submit2'));
+        ?>
+        
         </div> 
         
-    <?php echo $this->Form->end(__('Submit'));?>
+    <?php echo $this->Form->end();?>
 <?php endif; ?>    
 </div>
 
@@ -81,6 +96,7 @@
   <script>
   $(function() {
     $( ".tegenrekening" ).combobox();
+    $(".submit2").hide();
     var icons = {
       header: "ui-icon-circle-arrow-e",
       activeHeader: "ui-icon-circle-arrow-s"
@@ -95,5 +111,67 @@
         $( "#accordion" ).accordion( "option", "icons", icons );
       }
     });
+/**
+ * checked: undefined        // State of the switch
+
+ show_labels: true         // Should we show the on and off labels?
+ labels_placement: "both"  // Position of the labels: "both", "left" or "right"
+ on_label: "ON"            // Text to be displayed when checked
+ off_label: "OFF"          // Text to be displayed when unchecked
+
+ width: 25                 // Width of the button in pixels
+ height: 11                // Height of the button in pixels
+ button_width: 12          // Width of the sliding part in pixels
+
+ clear: true               // Should we insert a div with style="clear: both;" after the switch button?
+ clear_after: null         // Override the element after which the clearing div should be inserted (null > right after the button)
+ */
+    var options = 
+    {
+		 show_labels: true,    
+		 labels_placement: "both" , // Position of the labels: "both", "left" or "right"
+		 on_label: "INBOEKEN",            // Text to be displayed when checked
+		 off_label: "UITSLUITEN",          // Text to be displayed when unchecked
+
+		 width: 25,                 // Width of the button in pixels
+		 height: 11,                // Height of the button in pixels
+		 button_width: 12,          // Width of the sliding part in pixels
+
+		 clear: true,               // Should we insert a div with style="clear: both;" after the switch button?
+		 clear_after: null         // Override the element after which the clearing div should be inserted (null > right after the button)
+	};
+    $("input.switchButton").switchButton(options);
+    
   });
+
+  function next() {
+      var accordion = $("#accordion").accordion();
+      var current = accordion.accordion("option", "active"),
+      maximum = accordion.find("h3").length,
+      next = current + 1 === maximum ? 0 : current + 1;
+      
+      accordion.accordion( "option", "active", next );
+             
+      $('html, body').animate({
+           scrollTop: $("#ui-accordion-accordion-panel-"+current).offset().top
+       }, 500);
+         	
+       titleBar = $("#ui-accordion-accordion-header-"+current);
+       checkbox = $("#Calculation"+(current+1)+"Process");
+
+       $("#checkedBookings").text( Number($("#checkedBookings").text()) + 1);
+
+       checkedBookings = Number($("#checkedBookings").text());
+       totalBookings = Number($("#totalBookings").text());
+
+       if(checkedBookings >= totalBookings){
+    	   $(".submit2").show();
+       }
+       
+       if(checkbox.is(':checked')){
+    	   titleBar.css( "background", "#0AA333" );
+       }else{
+    	   titleBar.css( "background", "#FF1708" );
+       } 
+	}
   </script>

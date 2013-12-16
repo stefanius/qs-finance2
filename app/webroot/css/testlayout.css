@@ -613,6 +613,16 @@ td .omschrijving .omschrijving {
   font-weight: bold;
 }
 
+/* line 139, ../sass/_balans.sass */
+h3 .ui-accordion-header .ui-helper-reset .ui-state-default .ui-accordion-icons .include-booking .ui-corner-all .ui-state-focus {
+  background: black;
+}
+
+/* line 142, ../sass/_balans.sass */
+h3 .include-booking {
+  background: black;
+}
+
 /* line 1, ../sass/_login.scss */
 .login {
   position: relative;
@@ -851,7 +861,49 @@ td .omschrijving .omschrijving {
   color: black;
 }
 
-/* line 11, ../sass/screen.scss */
+/* line 1, ../sass/_switchbutton.scss */
+.switch-button-label {
+  float: left;
+  font-size: 10pt;
+  cursor: pointer;
+}
+
+/* line 8, ../sass/_switchbutton.scss */
+.switch-button-label.off {
+  color: #adadad;
+}
+
+/* line 12, ../sass/_switchbutton.scss */
+.switch-button-label.on {
+  color: #0088CC;
+}
+
+/* line 16, ../sass/_switchbutton.scss */
+.switch-button-background {
+  float: left;
+  position: relative;
+  background: #ccc;
+  border: 1px solid #aaa;
+  margin: 1px 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* line 32, ../sass/_switchbutton.scss */
+.switch-button-button {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  background: #FAFAFA;
+  border: 1px solid #aaa;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 12, ../sass/screen.scss */
 body {
   font-family: "Museo Sans", "Helvetica", "Arial", sans-serif;
   font-weight: 100;
@@ -859,7 +911,7 @@ body {
   font-size: 1.5em;
 }
 
-/* line 18, ../sass/screen.scss */
+/* line 19, ../sass/screen.scss */
 #container {
   *zoom: 1;
   max-width: 77em;
@@ -877,7 +929,7 @@ body {
   clear: both;
 }
 
-/* line 23, ../sass/screen.scss */
+/* line 24, ../sass/screen.scss */
 #content {
   padding-top: 2em;
 }
