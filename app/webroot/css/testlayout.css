@@ -613,16 +613,6 @@ td .omschrijving .omschrijving {
   font-weight: bold;
 }
 
-/* line 139, ../sass/_balans.sass */
-h3 .ui-accordion-header .ui-helper-reset .ui-state-default .ui-accordion-icons .include-booking .ui-corner-all .ui-state-focus {
-  background: black;
-}
-
-/* line 142, ../sass/_balans.sass */
-h3 .include-booking {
-  background: black;
-}
-
 /* line 1, ../sass/_login.scss */
 .login {
   position: relative;

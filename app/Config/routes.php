@@ -35,6 +35,9 @@
     
     Router::connect('/balans/:bookyear_key/import/:source/:type', array('controller' => 'calculations', 'action'=>'import'));
     
+    Router::connect('/balans/:bookyear_key/export/excel/balans/', array('controller' => 'exportexcel', 'action'=>'balans'));
+    Router::connect('/balans/:bookyear_key/export/excel/kolombalans/', array('controller' => 'exportexcel', 'action'=>'kolombalans'));
+    
     Router::parseExtensions();
 
 
