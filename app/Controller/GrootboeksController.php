@@ -84,11 +84,11 @@ class GrootboeksController extends AppController
         $this->set(compact('grootboek', 'bookyear'));
     }
 
-    public function overzicht($bookyear_key, $type)
+    public function overzicht($type)
     {
         // 0 = balans, 1 = resultaat
         $posten =  $this->Grootboek->getPosten($type);
-        $bookyear = $this->Grootboek->Bookyear->get($bookyear_key);
+        $bookyear['Bookyear'] = $this->checkSessionHasBookyear();
         $overzicht[0] = "";
         $i=0;
         foreach ($posten as $post) {

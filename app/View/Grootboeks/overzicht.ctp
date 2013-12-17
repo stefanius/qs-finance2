@@ -1,4 +1,4 @@
-<div class="resultaat">
+<div class="grootboek">
 <h1><?php echo 'Overzicht rekeningen'; ?></h1>
 	<table cellpadding="0" cellspacing="0">
 		<tr>

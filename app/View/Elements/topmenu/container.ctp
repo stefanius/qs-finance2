@@ -5,6 +5,7 @@
   <?php //echo $this->element('topmenu/bookyears'); ?>
   <?php echo $this->element('topmenu/imports'); ?>
   <?php echo $this->element('topmenu/exports'); ?>
+  <?php echo $this->element('topmenu/balans'); ?>
   <?php echo $this->element('topmenu/grootboek'); ?>
 </ul>
 
