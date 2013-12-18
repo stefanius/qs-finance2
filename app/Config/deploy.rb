@@ -13,6 +13,7 @@
 # ==============================================================================
 # Global config
 # ==============================================================================
+require 'capistrano/ext/multistage'
 set :keep_releases, 2
 set :scm, :git 
 set :deploy_via, :remote_cache
