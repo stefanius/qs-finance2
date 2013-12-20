@@ -35,9 +35,11 @@ class BalansController extends AppController
         $this->set(compact('balans', 'bookyear'));
     }
 
-    public function kolombalans($bookyear)
+    public function kolombalans()
     {
-        $kolombalans = $this->Balans->openKolomBalans($bookyear);
+    	$bookyear = array();
+    	$bookyear['Bookyear'] = $this->checkSessionHasBookyear();
+        $kolombalans = $this->Balans->openKolomBalans($bookyear['Bookyear']['omschrijving']);
         $this->set(compact('kolombalans'));
     }
 

@@ -1,3 +1,5 @@
+<div class="grootboek">
+
 <table>
 <?php
 
@@ -66,3 +68,5 @@
 			
 ?>
 </table>
+
+</div>
