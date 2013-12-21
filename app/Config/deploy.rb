@@ -218,7 +218,7 @@ namespace :misc do
   desc "Set current version in version.ctp"
   task :setversion do
     run <<-CMD
-		git describe --git-dir=#{current_release}/.git --work-tree=#{current_release} --always --tag > #{current_release}/View/Elements/version.ctp
+		git --git-dir=#{current_release}/.git --work-tree=#{current_release} describe --always --tag > #{current_release}/View/Elements/version.ctp
     CMD
   end
 end
