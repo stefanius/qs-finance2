@@ -215,7 +215,14 @@ namespace :misc do
     end
   end
 
+  desc "Set current version in version.ctp"
+  task :setversion do
+    run <<-CMD
+		git describe --always --tag > app/View/Elements/version.ctp
+    CMD
+  end
 end
+
 
 # ==============================================================================
 # After hooks
