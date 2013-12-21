@@ -4,6 +4,8 @@
     <ul class="menu">
       <li class="menu-item"><a class="menu-item-target" href="/balans/<?php echo $this->Session->read('Bookyear.omschrijving') ?>/saldo-overzicht/resultaatposten/">Saldo overzicht resultaatposten</a></li>
       <li class="menu-item"><a class="menu-item-target" href="/balans/<?php echo $this->Session->read('Bookyear.omschrijving') ?>/saldo-overzicht/balansposten/">Saldo overzicht balansposten</a></li>
+      <li class="menu-item"><a class="menu-item-target" href="/balans/<?php echo $this->Session->read('Bookyear.omschrijving') ?>/kolombalans/">Kolombalans</a></li>
+      <li class="menu-item"><a class="menu-item-target" href="/balans/<?php echo $this->Session->read('Bookyear.omschrijving') ?>/">Eenvoudige Balans</a></li>
     </ul>
   </li>
 <?php endif; ?>
