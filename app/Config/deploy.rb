@@ -233,6 +233,7 @@ after "deploy:create_symlink" do
   # misc.runcomposer
   deploy.link_public
   assets.default
+  misc.setversion
   misc.file_cleanup
   deploy.cleanup
 end
