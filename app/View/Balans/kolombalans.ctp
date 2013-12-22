@@ -1,4 +1,4 @@
-<div class="grootboek">
+<div class="grootboek" style="font-size: 0.6em;">
 
 <table>
 <?php

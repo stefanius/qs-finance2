@@ -204,8 +204,8 @@ class BalansHelper extends AppHelper
             $tablerow= $tablerow.'<td class="geld debet">'.$this->currency($balans['proefbalans'][$balanszijde]['posten'][$grootboek]['Bedrag']['debet'],'').'</td>';
             $tablerow= $tablerow.'<td class="geld">'.$this->currency($balans['proefbalans'][$balanszijde]['posten'][$grootboek]['Bedrag']['credit'],'').'</td>';
         } else {
-            //$tablerow= $tablerow.'<td class="geld debet">'.$this->currency(999990,'').'</td>';
-            //$tablerow= $tablerow.'<td class="geld">'.$this->currency(999990,'').'</td>';
+            $tablerow= $tablerow.'<td class="geld debet">'.$this->currency(0,'').'</td>';
+            $tablerow= $tablerow.'<td class="geld">'.$this->currency(0,'').'</td>';
         }
 
         if (array_key_exists($grootboek, $balans['saldibalans'][$balanszijde]['posten'])) {
