@@ -50,6 +50,7 @@ class PrepareJournalEntryComponent extends Component
 				$preparedData[$i]['grootboek_id'] = $ledger['Grootboek']['id'];
 				$preparedData[$i]['debet'] = $calculation['debet'];
 				$preparedData[$i]['credit'] = $calculation['credit'];
+				$preparedData[$i]['hash'] =$hash;
 				$i++;
 		
 				/* Gegevens grootboek / balanspost / resultaatpost van de doel-post */
@@ -59,13 +60,15 @@ class PrepareJournalEntryComponent extends Component
 				$preparedData[$i]['grootboek_id'] = $calculation['grootboek_id'];
 				$preparedData[$i]['debet'] = $calculation['credit']; //DEBET from source-csv is CREDIT from target
 				$preparedData[$i]['credit'] = $calculation['debet']; //CREDIT from source-csv is DEBET from target
+				$preparedData[$i]['hash'] =$hash;
 				$i++;
 			}
 		}
 		return $preparedData;	
 	}
 	
-	private function generateHash(){	
-		return String::uuid();	
+	private function generateHash(){
+			
+		return md5(String::uuid());	
 	}	
 }
