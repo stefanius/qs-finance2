@@ -154,7 +154,6 @@ class CalculationsController extends AppController
             if (!empty($this->request->data ) && !empty($source) && !empty($type) && isset($this->request->data['File'])) {
                 $source = strtolower($source);
                 $type = strtolower($type);
-				echo 'henkie';
                 $path = 'import/'.$bookyear['Bookyear']['omschrijving'].'/'.$source.'/'.$type;
                 $fileOK = $this->uploadFiles($path,$this->request->data['File']);
 
