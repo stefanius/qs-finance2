@@ -38,7 +38,9 @@
 
 		</div>
 		<div id="footer">
-			<?php echo $this->element('version'); ?>	
+			<div>
+				<p>Huidige versie: <?php echo $this->element('version'); ?></p>
+			</div>
 		</div>
 	</div>
 	<?php //echo $this->element('sql_dump'); ?>
