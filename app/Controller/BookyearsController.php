@@ -49,19 +49,34 @@ class BookyearsController extends AppController
 
     public function newbookyear()
     {
-        if (!empty($this->request->data)) {
-            $newbookyear['prevyear'] = $this->request->data['Bookyear']['prevyear'];
-            $this->Bookyear->create();
-            if ($this->Bookyear->save($this->request->data)) {
-                $this->Session->setFlash(__('Bookjaar aangemaakt'));
-                $newbookyear['id'] = $this->Bookyear->getLastInsertId();
-                $this->redirect(array('controller' => 'balans', 'action' => 'newbalans', $newbookyear['prevyear'], $newbookyear['id']));
-            } else {
-                $this->Session->setFlash(__('Aanmaken bookjaar is mislukt.'));
-            }
-        }
-        $bookyears = $this->Bookyear->find('list', array('conditions' => array('Bookyear.closed' => 0)));
-        $this->set(compact('bookyears'));
+    	$bookyears = $this->Bookyear->find('list', array('conditions' => array('Bookyear.closed' => 0)));
+    	
+    	if(count($bookyears) > 0){
+	        if (!empty($this->request->data)) {
+	            $newbookyear['prevyear'] = $this->request->data['Bookyear']['prevyear'];
+	            $this->Bookyear->create();
+	            if ($this->Bookyear->save($this->request->data)) {
+	                $this->Session->setFlash(__('Bookjaar aangemaakt'));
+	                $newbookyear['id'] = $this->Bookyear->getLastInsertId();
+	                $this->redirect(array('controller' => 'balans', 'action' => 'newbalans', $newbookyear['prevyear'], $newbookyear['id']));
+	            } else {
+	                $this->Session->setFlash(__('Aanmaken bookjaar is mislukt.'));
+	            }
+	        }
+	        $this->set(compact('bookyears'));
+    	}else{
+    		if (!empty($this->request->data)) {
+    			$this->Bookyear->create();
+    			if ($this->Bookyear->save($this->request->data)) {
+    				$this->Session->setFlash(__('The bookyear has been saved'));
+    				$this->redirect(array('action' => 'index'));
+    			} else {
+    				$this->Session->setFlash(__('The bookyear could not be saved. Please, try again.'));
+    			}
+    		}
+    		$this->render('/Bookyears/add');
+    	}
+    	
     }
 
     public function edit($id = null)
