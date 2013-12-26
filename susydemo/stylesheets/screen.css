@@ -893,7 +893,56 @@ td .omschrijving .omschrijving {
   border-radius: 4px;
 }
 
-/* line 12, ../sass/screen.scss */
+/* Used for desinging input-elements like textboxes, radio-boxes, checkboxes and so on. Some items are overuled by the Jquery UI defaults.*/
+/* line 3, ../sass/_inputs.scss */
+input, textarea {
+  padding: 9px;
+  border: solid 1px #E5E5E5;
+  outline: 0;
+  font: normal 13px/100% Verdana, Tahoma, sans-serif;
+  width: 200px;
+  background: white url("bg_form.png") left top repeat-x;
+  background: -webkit-gradient(linear, left top, left 25, from(white), color-stop(4%, #eeeeee), to(white));
+  background: -moz-linear-gradient(top, white, #eeeeee 1px, white 25px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+}
+
+/* line 17, ../sass/_inputs.scss */
+textarea {
+  width: 400px;
+  max-width: 400px;
+  height: 150px;
+  line-height: 150%;
+}
+
+/* line 25, ../sass/_inputs.scss */
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+  border-color: #C9C9C9;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+}
+
+/* line 30, ../sass/_inputs.scss */
+.form label {
+  margin-left: 10px;
+  color: #999999;
+}
+
+/* line 35, ../sass/_inputs.scss */
+.submit input {
+  width: auto;
+  padding: 9px 15px;
+  background: #617798;
+  border: 0;
+  font-size: 14px;
+  color: #FFFFFF;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* line 13, ../sass/screen.scss */
 body {
   font-family: "Museo Sans", "Helvetica", "Arial", sans-serif;
   font-weight: 100;
@@ -901,7 +950,7 @@ body {
   font-size: 1.5em;
 }
 
-/* line 19, ../sass/screen.scss */
+/* line 20, ../sass/screen.scss */
 #container {
   *zoom: 1;
   max-width: 77em;
@@ -919,7 +968,7 @@ body {
   clear: both;
 }
 
-/* line 24, ../sass/screen.scss */
+/* line 25, ../sass/screen.scss */
 #content {
   padding-top: 2em;
 }

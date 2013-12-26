@@ -34,7 +34,7 @@
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $calculation['Calculation']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $calculation['Calculation']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete'), array('action' => 'delete', $calculation['Calculation']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $calculation['Calculation']['id'])); ?>
+			
 		</td>
 	</tr>
 <?php endforeach; ?>

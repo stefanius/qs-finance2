@@ -132,6 +132,20 @@ class CalculationsController extends AppController
         $this->redirect(array('action' => 'index'));
     }
 
+    public function deletebyhash($hash = null)
+    {
+    	if (!$hash) {
+    		$this->Session->setFlash(__('Invalid hash for calculation'));
+    		$this->redirect(array('action'=>'index'));
+    	}
+    	if ($this->Calculation->deleteAll(array('Calculation.hash' => $hash))) {
+    		$this->Session->setFlash(__('Calculations deleted'));
+    		$this->redirect(array('action'=>'index'));
+    	}
+    	$this->Session->setFlash(__('Calculation was not deleted'));
+    	$this->redirect(array('action' => 'index'));
+    }    
+    
     public function listbyboekingstuk($boekingstuk)
     {
         $calculations = $this->Calculation->getByBoekingsstuk($boekingstuk);
@@ -216,6 +230,12 @@ class CalculationsController extends AppController
             } else {
                 $this->Session->setFlash(__('Geen boekjaar ingesteld, import wordt geweigerd.'));
             }*/
-    } 
+    }    
     
+    function viewbyhash($hash){
+    	$this->Calculation->recursive = 1;
+    	$conditions['Calculation.hash']=$hash;
+    	$calculations = $this->Calculation->findAllByHash($hash);
+    	$this->set(compact( 'calculations', 'hash'));    	
+    }
 }
