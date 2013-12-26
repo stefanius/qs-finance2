@@ -67,3 +67,5 @@ exec {"install-railsless":
 	command => "/usr/bin/gem install railsless-deploy",
     require => [Exec['install-capistrano'], Exec['/usr/bin/apt-get update']],
 }
+
+include webmin

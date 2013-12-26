@@ -2,6 +2,8 @@ FORGE
   remote: http://forge.puppetlabs.com
   specs:
     example42/puppi (2.1.0)
+    puppetlabs/apt (1.4.0)
+      puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/stdlib (4.1.0)
 
 GIT
@@ -19,6 +21,14 @@ GIT
   specs:
     php (2.0.11)
       example42/puppi (>= 2.0.0)
+
+GIT
+  remote: git://github.com/panaman/puppet-webmin.git
+  ref: master
+  sha: 8a396a2e115f1862eb697c11f063efec168bc207
+  specs:
+    webmin (1.0.1)
+      puppetlabs/apt (>= 1.4.0)
 
 GIT
   remote: git://github.com/puppetlabs/puppetlabs-mysql.git
@@ -40,3 +50,5 @@ DEPENDENCIES
   composer (>= 0)
   mysql (>= 0)
   php (>= 0)
+  webmin (>= 0)
+

@@ -11,3 +11,6 @@ mod "php",
 
 mod "composer",
   :git => "git://github.com/willdurand/puppet-composer.git"
+
+mod "webmin",
+  :git => "git://github.com/panaman/puppet-webmin.git"
