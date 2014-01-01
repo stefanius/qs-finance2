@@ -67,11 +67,12 @@ class BookyearsController extends AppController
     	}else{
     		if (!empty($this->request->data)) {
     			$this->Bookyear->create();
+    			$omschrijving = $this->request->data['Bookyear']['omschrijving'];
     			if ($this->Bookyear->save($this->request->data)) {
-    				$this->Session->setFlash(__('The bookyear has been saved'));
-    				$this->redirect(array('action' => 'index'));
+    				$this->Session->setFlash(__('Het nieuwe boekjaar is opgeslagen. Hieronder ziet u direct de balans.'));
+    				$this->redirect('/balans/'.$omschrijving);
     			} else {
-    				$this->Session->setFlash(__('The bookyear could not be saved. Please, try again.'));
+    				$this->Session->setFlash(__('Het boekjaar kon niet worden aangemaakt. Neme contact op met de helpdesk.'));
     			}
     		}
     		$this->render('/Bookyears/add');
