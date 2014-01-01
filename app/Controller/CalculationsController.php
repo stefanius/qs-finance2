@@ -182,11 +182,32 @@ class CalculationsController extends AppController
                     $sourceinfo = $parseddata['sourceinfo'];
                     $grootboeks = $this->Calculation->Grootboek->find('list');
                     $bankpost = $this->Bankaccount->findByIban($sourceinfo['rekening']);
-					//var_dump($sourceinfo);
+
                     if (!array_key_exists( 'Grootboek', $bankpost) || count($bankpost)==0) {
                         throw new CakeException('Geen bank gevonden waarop de huidige bewerking van toepassing is');
                     }
-                    $this->set(compact('data', 'grootboeks', 'sourceinfo', 'bankpost'));
+                    
+                    $possibleDuplicates = 0;
+                    foreach($data as $d){
+                    	
+                    	$condition = array('conditions' =>array(
+                    			"Calculation.bookyear_id" => $bookyear['Bookyear']['id'],
+                    		'AND' => array(
+                    			"Calculation.omschrijving LIKE " => $d['omschrijving'],
+                    			"Calculation.debet" => $d['debet'],
+                    			"Calculation.credit" => $d['credit'],
+                    			
+                    			"Calculation.boekdatum" => $d['boekdatum']
+                    	 	)
+                    	));
+                    	
+                    	$calculation = $this->Calculation->find('first', $condition);
+                    	if(count($calculation) > 0 ){ //if there is something in the array! since CakePHP dont work with objects.
+                    		$possibleDuplicates++;
+                    	}
+
+                    }
+                    $this->set(compact('data', 'grootboeks', 'sourceinfo', 'bankpost', 'possibleDuplicates'));
                 }
             } elseif (isset($this->request->data['Calculation'])) {
                 $calculations = $this->request->data['Calculation'];

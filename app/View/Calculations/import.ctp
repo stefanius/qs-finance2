@@ -7,6 +7,7 @@
 		echo '<h2>CSV van bank: '.$bankpost['Bankaccount']['maatschappij'].' ('.$bankpost['Bankaccount']['iban'].')</h2>';
 		echo '<h3>Grootboek: '.$bankpost['Grootboek']['display_omschrijving'].'</h3>';		
 	}
+	
 
 
 	if(isset($bookyear) && !isset($data))
@@ -24,6 +25,17 @@
 	}
 ?>
 <?php if(isset($bookyear) && isset($data)): ?>
+	<?php 
+	if($possibleDuplicates > 0){
+		$percentage = ($possibleDuplicates / count($data)) *100;
+		
+		echo '<br/><br/><p><strong>Er zijn '.$possibleDuplicates.' mogelijke duplicaten gevonden ('.$percentage.'%) in de boekhouding. Weet u zeker dat u deze CSV niet al eerder hebt geimporteerd?</strong></p><br/>';
+		
+		if($percentage > 60){
+			echo '<br/><p><em><strong>LET OP! Het duplicaat-percentage bedraagt meer dan 60%! Om precies te zijn: '.$percentage.'%</strong></em></p><br/><br/>';
+		}
+	}
+	?>
     <?php echo $this->Form->create('Calculation');?>
     <?php echo $this->Form->input('Grootboek.id', array('value'=>$bankpost['Grootboek']['id'], 'type' => 'hidden', 'label'=>false)); ?>
     <?php $i=1; ?>
