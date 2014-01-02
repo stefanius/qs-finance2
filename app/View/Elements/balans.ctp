@@ -5,7 +5,7 @@
 	    <tr><th class="credit" colspan="3">Credit</th></tr>
         <tr>
             <td></td>
-            <td>Eigen Vermogen</td>
+            <td class="omschrijving">Eigen Vermogen</td>
             <td class="currency"><?php echo $this->Balans->currency($balans['ev']); ?></td>
         </tr>
 	  					    
@@ -23,7 +23,7 @@
 	<?php else: ?>
 	    <tr>
 	        <td class="number"><?php echo $a['Grootboek']['nummer']?></td>
-	        <td><?php echo $this->html->link(ucfirst($a['Grootboek']['omschrijving']), '/balans/'.$balans['Bookyear']['omschrijving'].'/rekening/'.$a['Grootboek']['nummer'])   ?></td>
+	        <td class="omschrijving"><?php echo $this->html->link(ucfirst($a['Grootboek']['omschrijving']), '/balans/'.$balans['Bookyear']['omschrijving'].'/rekening/'.$a['Grootboek']['nummer'])   ?></td>
 	        <td class="currency"><?php echo $this->Balans->currency($a['Bedrag']['saldo']) ?></td>
     	</tr>
 	

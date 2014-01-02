@@ -339,22 +339,28 @@ ul.right {
 .balans .tablewrapper table .total {
   font-weight: bold;
 }
+/* line 44, ../sass/_balans.sass */
+.balans .tablewrapper table .omschrijving {
+  max-width: 30%;
+  width: 30%;
+  overflow: hidden;
+}
 
-/* line 45, ../sass/_balans.sass */
+/* line 49, ../sass/_balans.sass */
 .grootboek {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
 }
-/* line 46, ../sass/_balans.sass */
+/* line 50, ../sass/_balans.sass */
 .grootboek h1 {
   text-align: center;
 }
-/* line 48, ../sass/_balans.sass */
+/* line 52, ../sass/_balans.sass */
 .grootboek h2 {
   text-align: center;
 }
-/* line 53, ../sass/_balans.sass */
+/* line 57, ../sass/_balans.sass */
 .grootboek table {
   border: 1px solid #dede00;
   float: left;
@@ -424,11 +430,11 @@ ul.right {
 .grootboek table th {
   background-color: #ffffe3;
 }
-/* line 60, ../sass/_balans.sass */
+/* line 64, ../sass/_balans.sass */
 .grootboek table th:first-child {
   border-right: 0px;
 }
-/* line 62, ../sass/_balans.sass */
+/* line 66, ../sass/_balans.sass */
 .grootboek table th {
   font-size: 150%;
   border-right: none;
@@ -436,67 +442,67 @@ ul.right {
   padding-right: 0.5em;
   white-space: nowrap;
 }
-/* line 68, ../sass/_balans.sass */
+/* line 72, ../sass/_balans.sass */
 .grootboek table td {
   border-right: none;
   padding-left: 0.5em;
   padding-right: 0.5em;
   white-space: nowrap;
 }
-/* line 73, ../sass/_balans.sass */
+/* line 77, ../sass/_balans.sass */
 .grootboek table .currency {
   width: 15%;
   text-align: right;
 }
-/* line 76, ../sass/_balans.sass */
-.grootboek table .omschrijving {
-  max-width: 25em;
-  overflow: hidden;
-  min-width: 9em;
-}
 /* line 80, ../sass/_balans.sass */
+.grootboek table .omschrijving {
+  max-width: 30%;
+  width: 30%;
+  overflow: hidden;
+}
+/* line 84, ../sass/_balans.sass */
 .grootboek table .boekdatum {
   width: 10%;
   max-width: 10%;
 }
-/* line 83, ../sass/_balans.sass */
+/* line 87, ../sass/_balans.sass */
 .grootboek table a {
   text-decoration: none;
   color: black;
 }
-/* line 86, ../sass/_balans.sass */
+/* line 90, ../sass/_balans.sass */
 .grootboek table .total {
   font-weight: bold;
 }
 
-/* line 89, ../sass/_balans.sass */
+/* line 93, ../sass/_balans.sass */
 td .omschrijving {
   width: 30em;
 }
-/* line 91, ../sass/_balans.sass */
+/* line 95, ../sass/_balans.sass */
 td .omschrijving textarea {
   width: 30em;
 }
-/* line 93, ../sass/_balans.sass */
+/* line 97, ../sass/_balans.sass */
 td .omschrijving .omschrijving {
   width: 30em;
 }
 
-/* line 95, ../sass/_balans.sass */
+/* line 99, ../sass/_balans.sass */
 .import {
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
 }
-/* line 96, ../sass/_balans.sass */
+/* line 100, ../sass/_balans.sass */
 .import h1 {
   text-align: center;
 }
-/* line 98, ../sass/_balans.sass */
+/* line 102, ../sass/_balans.sass */
 .import h2 {
   text-align: center;
 }
-/* line 103, ../sass/_balans.sass */
+/* line 107, ../sass/_balans.sass */
 .import table {
   border: 1px solid #dede00;
   float: left;
@@ -566,11 +572,11 @@ td .omschrijving .omschrijving {
 .import table th {
   background-color: #ffffe3;
 }
-/* line 110, ../sass/_balans.sass */
+/* line 114, ../sass/_balans.sass */
 .import table th:first-child {
   border-right: 0px;
 }
-/* line 112, ../sass/_balans.sass */
+/* line 116, ../sass/_balans.sass */
 .import table th {
   font-size: 90%;
   border-right: none;
@@ -578,19 +584,19 @@ td .omschrijving .omschrijving {
   padding-right: 0.5em;
   white-space: nowrap;
 }
-/* line 118, ../sass/_balans.sass */
+/* line 122, ../sass/_balans.sass */
 .import table .credit {
   text-align: right;
 }
-/* line 120, ../sass/_balans.sass */
+/* line 124, ../sass/_balans.sass */
 .import table .debet {
   text-align: left;
 }
-/* line 122, ../sass/_balans.sass */
+/* line 126, ../sass/_balans.sass */
 .import table .number {
   width: 15%;
 }
-/* line 124, ../sass/_balans.sass */
+/* line 128, ../sass/_balans.sass */
 .import table td {
   border-right: none;
   padding-left: 0.5em;
@@ -598,17 +604,17 @@ td .omschrijving .omschrijving {
   white-space: nowrap;
   font-size: 90%;
 }
-/* line 130, ../sass/_balans.sass */
+/* line 134, ../sass/_balans.sass */
 .import table .currency {
   width: 15%;
   text-align: right;
 }
-/* line 133, ../sass/_balans.sass */
+/* line 137, ../sass/_balans.sass */
 .import table a {
   text-decoration: none;
   color: black;
 }
-/* line 136, ../sass/_balans.sass */
+/* line 140, ../sass/_balans.sass */
 .import table .total {
   font-weight: bold;
 }
