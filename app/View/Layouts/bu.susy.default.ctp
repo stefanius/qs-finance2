@@ -8,10 +8,9 @@
 	</title>
 	<?php
 		//echo $this->Html->meta('icon');
-		
-		echo $this->Html->css('bootstrap');
-		echo $this->Html->css('overridings');
-        //echo $this->Html->css('jquery/overcast/jquery-ui.min');  
+
+		echo $this->Html->css('testlayout');
+        echo $this->Html->css('jquery/overcast/jquery-ui.min');  
         echo $this->Html->css('font-awesome.min.css');
         echo $this->Html->script('jquery-2.0.2.min'); // Include jQuery library
         echo $this->Html->script('jquery-ui-1.10.3.custom.min'); // Include jQuery library
