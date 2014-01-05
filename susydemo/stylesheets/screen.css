@@ -1,115 +1,68 @@
-/* File is used for generating topmenu. */
-/* line 3, ../sass/_headmenu.scss */
-.menubar {
-  background: white;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px;
-  font-size: 14px;
-  display: inline-block;
-  width: 100%;
-}
+/*
+Syntax error: Invalid CSS after "        font-size:": expected pseudoclass or pseudoelement, was " 150% "
+        on line 3 of /home/stefanius/git/qs-finance2/susydemo/sass/_tables.scss
+        from line 3 of /home/stefanius/git/qs-finance2/susydemo/sass/screen.scss
 
-/* line 11, ../sass/_headmenu.scss */
-.menugroup {
-  background: white;
-  padding: 0 10px;
-}
+1: /home/stefanius/git/qs-finance2/susydemo/sass/screen.scss
 
-/* line 16, ../sass/_headmenu.scss */
-ul.menugroup {
-  display: inline-block;
-  background: white;
-  list-style: none;
-}
-
-/* line 22, ../sass/_headmenu.scss */
-ul.left {
-  float: left;
-}
-
-/* line 26, ../sass/_headmenu.scss */
-ul.right {
-  float: right;
-}
-
-/* line 30, ../sass/_headmenu.scss */
-.menugroup.right .menubar-item .menu {
-  right: 0px;
-}
-
-/* line 34, ../sass/_headmenu.scss */
-.menubar-item {
-  display: inline-block;
-  position: relative;
-}
-
-/* line 38, ../sass/_headmenu.scss */
-.menubar-item-target {
-  color: black;
-  display: block;
-  padding: 10px 14px;
-  text-decoration: none;
-}
-/* line 44, ../sass/_headmenu.scss */
-.menubar-item-target:hover, .is-selected .menubar-item-target {
-  background: #29a7f5;
-  color: white;
-}
-
-/* line 50, ../sass/_headmenu.scss */
-.disabled {
-  color: #b9b9b9;
-  cursor: default;
-}
-/* line 54, ../sass/_headmenu.scss */
-.disabled:hover, .is-selected .disabled {
-  background: white;
-  color: #b9b9b9;
-}
-
-/* line 60, ../sass/_headmenu.scss */
-.menu {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0 5px 15px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  -moz-border-radius-topleft: 0;
-  -webkit-border-top-left-radius: 0;
-  border-top-left-radius: 0;
-  display: none;
-  position: absolute;
-  top: 100%;
-  background: white;
-  list-style: none;
-  width: 15em;
-  padding: 10px 0;
-  z-index: 1000;
-}
-/* line 73, ../sass/_headmenu.scss */
-.is-selected .menu {
-  display: block;
-}
-
-/* line 76, ../sass/_headmenu.scss */
-.menu-item-target {
-  color: black;
-  display: block;
-  padding: 8px 20px;
-  text-decoration: none;
-}
-/* line 82, ../sass/_headmenu.scss */
-.menu-item-target:hover {
-  background: #29a7f5;
-  color: white;
-}
-
-/* line 88, ../sass/_headmenu.scss */
-.menu-separator {
-  border-top: 1px solid #ddd;
-  margin: 8px;
-}
+Backtrace:
+/home/stefanius/git/qs-finance2/susydemo/sass/_tables.scss:3
+/home/stefanius/git/qs-finance2/susydemo/sass/screen.scss:3
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:1148:in `expected'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:1084:in `expected'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:1066:in `expr!'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:793:in `pseudo'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:677:in `simple_selector_sequence'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:645:in `_selector'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:618:in `selector'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:602:in `selector_sequence'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:527:in `ruleset'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:552:in `block_child'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:542:in `block_contents'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:82:in `stylesheet'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/scss/parser.rb:27:in `parse'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/engine.rb:342:in `_to_tree'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/engine.rb:274:in `to_tree'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:225:in `visit_import'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `map'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/tree/root_node.rb:20:in `render'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/engine.rb:315:in `_render'
+/var/lib/gems/1.9.1/gems/sass-3.2.12/lib/sass/engine.rb:262:in `render'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:140:in `block (2 levels) in compile'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:139:in `block in compile'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/logger.rb:45:in `red'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:138:in `compile'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:118:in `compile_if_required'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:103:in `block (2 levels) in run'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `each'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:101:in `block in run'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/update_project.rb:45:in `perform'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/base.rb:18:in `execute'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/commands/project_base.rb:19:in `execute'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/bin/compass:30:in `block in <top (required)>'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `call'
+/var/lib/gems/1.9.1/gems/compass-0.12.2/bin/compass:44:in `<top (required)>'
+/usr/local/bin/compass:23:in `load'
+/usr/local/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"        font-size:\": expected pseudoclass or pseudoelement, was \" 150% \"\A         on line 3 of /home/stefanius/git/qs-finance2/susydemo/sass/_tables.scss\A         from line 3 of /home/stefanius/git/qs-finance2/susydemo/sass/screen.scss\A \A 1: /home/stefanius/git/qs-finance2/susydemo/sass/screen.scss"; }
