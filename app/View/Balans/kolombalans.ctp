@@ -1,27 +1,25 @@
-<div class="grootboek" style="font-size: 0.6em;">
-
-<table>
+<table class="table table-striped table-bordered table-condensed">
 <?php
 
 //print_r( $kolombalans['proefbalans']['credit']);
 
 	echo "<tr>";
-		echo '<th></th>';
-		echo '<th></th>';
-		echo '<th class="kolomkopl">Begin</th>';
-		echo '<th class="kolomkopr">balans</th>';
-		echo '<th class="kolomkopl">Proef</th>';
-		echo '<th class="kolomkopr">balans</th>';
-		echo '<th class="kolomkopl">Saldi</th>';
-		echo '<th class="kolomkopr">balans</th>';
-		echo '<th class="kolomkopl">Winst</th>';
-		echo '<th class="kolomkopr">Verlies</th>';
-		echo '<th class="kolomkopl">Eind</th>';
-		echo '<th class="kolomkopr">balans</th>';
+		echo '<th colspan=2></th>';
+
+		echo '<th colspan=2>Beginbalans</th>';
+
+		echo '<th colspan=2>Proefbalans</th>';
+
+		echo '<th colspan=2>Saldibalans</th>';
+
+		echo '<th colspan=2>Winst/verlies</th>';
+
+		echo '<th colspan=2>Eindbalans</th>';
+
 	echo "</tr>";
 
 	echo "<tr>";
-		echo '<th>Nummer</th>';
+		echo '<th class="number">#</th>';
 		echo '<th>Omschrijving</th>';
 		echo '<th class="geld debet">Debet</th>';
 		echo '<th class="geld">Credit</th>';
@@ -36,7 +34,7 @@
 	echo "</tr>";
 
 	echo "<tr>";
-		echo '<td>----</td>';
+		echo '<td class="number">----</td>';
 		echo '<td>Eigen Vermogen</td>';
 		echo '<td class="geld debet">-</td>';
 		echo '<td class="geld">'.$this->Balans->currency($kolombalans['beginbalans']['ev'],'').'</td>';
@@ -68,5 +66,3 @@
 			
 ?>
 </table>
-
-</div>
