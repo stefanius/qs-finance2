@@ -1,4 +1,4 @@
-<table>
+<table class="table table-striped table-bordered table-condensed">
 	<tr>
 		<th class="datum">Boekdatum</th>
 		<th class="omschrijving">Omschrijving</th>

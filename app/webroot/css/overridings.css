@@ -38,14 +38,32 @@ tr th.debet{
 	text-align: left;
 }
 
+tr th.number,
 tr td.number{
 	text-align: left;
 	max-width: 8%;
 	width: 8%;
 }
 
+tr th.currency,
 tr td.currency{
 	text-align: right;
+	max-width: 15%;
+	width: 15%;
+}
+tr th.omschrijving,
+tr td.omschrijving{
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+tr th.datum,
+tr td.datum{
+	max-width: 15%;
+	width: 15%;
+}1
+tr th.datum,
+tr td.datum{
 	max-width: 15%;
 	width: 15%;
 }
