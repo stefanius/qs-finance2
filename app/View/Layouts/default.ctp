@@ -28,9 +28,9 @@
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->Session->flash('auth'); ?>
 
-			  <div class="container">
-			    <?php echo $this->element('breadcrumb'); ?>	  
+			  <div class="container">			    
 		        <div class="page-header">
+		          <?php echo $this->element('breadcrumb'); ?>	  
 		          <h1>Placeholder</h1>
 		        </div>
 		        <?php echo $content_for_layout; ?>
