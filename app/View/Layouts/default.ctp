@@ -31,7 +31,7 @@
 			  <div class="container">
 			    <?php echo $this->element('breadcrumb'); ?>	  
 		        <div class="page-header">
-		          <h1>Sticky footer with fixed navbar</h1>
+		          <h1>Placeholder</h1>
 		        </div>
 		        <?php echo $content_for_layout; ?>
 		      </div>			
