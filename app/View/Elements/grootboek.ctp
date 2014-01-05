@@ -8,7 +8,8 @@
 <?php foreach( $journals as $journal): ?>
 
     <tr>
-        <td><?php echo $journal['Calculation']['boekdatum']; ?></td>
+    	
+        <td><?php echo date ( 'd-m-Y' ,strtotime($journal['Calculation']['boekdatum']) ); ?></td>
         <?php if(strlen($journal['Calculation']['hash']) > 1 ): ?>
         	<td class="omschrijving"><?php echo $this->Html->link(__($journal['Calculation']['omschrijving']), '/balans/'.$this->Session->read('Bookyear.omschrijving').'/journaal/'.$journal['Calculation']['hash']); ?></td>
         <?php else: ?>
