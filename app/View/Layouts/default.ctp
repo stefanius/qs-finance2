@@ -15,40 +15,34 @@
         echo $this->Html->css('font-awesome.min.css');
         echo $this->Html->script('jquery-2.0.2.min'); // Include jQuery library
         echo $this->Html->script('jquery-ui-1.10.3.custom.min'); // Include jQuery library
+        echo $this->Html->script('bootstrap'); // Include jQuery library
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
 
-<?php echo $this->element('topmenu/container'); ?>	
-<?php echo $this->element('breadcrumb'); ?>	
-
-	<div id="container">
-		<div id="header">
-					
-		</div>
+	<div id="wrap">
+		<?php echo $this->element('topmenu/container'); ?>	
+		<?php echo $this->element('breadcrumb'); ?>	      
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->Session->flash('auth'); ?>
 
-			
-			<div id="main">
-				<?php echo $content_for_layout; ?>
-			</div>
-
+			  <div class="container">
+		        <div class="page-header">
+		          <h1>Sticky footer with fixed navbar</h1>
+		        </div>
+		        <?php echo $content_for_layout; ?>
+		      </div>			
 		</div>
-		<div id="footer">
-			<div>
-				<p>Huidige versie: <?php echo $this->element('version'); ?></p>
-			</div>
-		</div>
+		<div id="push"></div>
 	</div>
-	<?php //echo $this->element('sql_dump'); ?>
+<div id="footer">
+      <div class="container">
+        <p>Huidige versie: <?php echo $this->element('version'); ?></p>
+      </div>
+    </div>
+  	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
-<script type="text/JavaScript" src="/js/menubar.js"></script> 	
-<?php
-
-    
-?>

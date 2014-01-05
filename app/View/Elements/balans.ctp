@@ -1,4 +1,5 @@
-<table>
+<div class=" col-md-6">      
+<table class="table table-striped table-bordered table-condensed">
 	<?php if($side=='debet'): ?>
 	    <tr><th class="debet" colspan="3">Debet</th></tr>
 	<?php elseif($side=='credit'): ?>
@@ -36,3 +37,4 @@
 	        <td class="currency total"><?php echo $this->Balans->currency($balans[$side]['totaal']) ?></td>
     	</tr>	
 </table>
+</div>

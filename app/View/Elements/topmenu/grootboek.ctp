@@ -2,24 +2,24 @@
 
  <?php if(isset($grootboek) && $this->Session->check('Bookyear')): ?>
 
-  <li class="menubar-item">
-    <a class="menubar-item-target enabled" href="#">Grootboek <?php echo $grootboek['Grootboek']['nummer'];?></a>
-    <ul class="menu">
-      <li class="menu-item">
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Grootboek <?php echo $grootboek['Grootboek']['nummer'];?></a>
+    <ul class="dropdown-menu">
+      <li>
           <?php echo $this->Html->link('Journaal Overzicht', 
           			array(  "controller"=>"grootboeks", 
           				    "action"=>"open",
           				    $grootboek['Grootboek']['nummer']
           				 ), 
-          			array('class' => 'menu-item-target')); 
+          			array('class' => '')); 
           ?>     
       </li>
     
-      <li class="menu-item">
+      <li>
           <?php echo $this->Html->link('Nieuwe Boeking', '/calculations/crossbooking/'.$grootboek['Grootboek']['nummer'].'/', array('class' => 'menu-item-target')); ?>     
       </li>
       
     </ul>
   </li>
  <?php endif;?>  
-<?php endif;?>  
+<?php endif;?>
