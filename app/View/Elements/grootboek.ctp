@@ -1,3 +1,4 @@
+
 <table class="table table-striped table-bordered table-condensed">
 	<tr>
 		<th class="datum">Boekdatum</th>
@@ -23,5 +24,3 @@
 
 <?php endforeach; ?>	
 </table>
-
-

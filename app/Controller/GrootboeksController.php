@@ -6,8 +6,19 @@ class GrootboeksController extends AppController
     
     public function index()
     {
+    	$usedGrootboeks = array();
+        $conditions = array(
+        		'fields' => array('DISTINCT (Calculation.grootboek_id) AS grootboek_id')
+        );    
+        
         $this->Grootboek->recursive = 0;
+        $rawDistinctList = $this->Grootboek->Calculation->find('all',$conditions);
+        foreach($rawDistinctList as $distintItem){
+        	$usedGrootboeks[] = $distintItem['Calculation']['grootboek_id'];
+        }
+
         $this->set('grootboeks', $this->Grootboek->getPosten());
+        $this->set('usedGrootboeks', $usedGrootboeks);
     }
 
     public function view($key = null)

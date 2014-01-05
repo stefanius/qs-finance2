@@ -1,11 +1,11 @@
-<div class="balans">
+
 	<h2><?php echo __('Overzicht Grootboekrekeningen');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table class="table table-striped table-bordered table-condensed">
 	<tr>
-			<th><?php echo __('nummer');?></th>
-			<th><?php echo __('omschrijving');?></th>
-			<th><?php echo __('type');?></th>
-			<th><?php echo __('balanszijde');?></th>
+			<th><?php echo __('#');?></th>
+			<th><?php echo __('Omschrijving');?></th>
+			<th><?php echo __('Soort');?></th>
+			<th><?php echo __('Zijde');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -17,16 +17,17 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $grootboek['Grootboek']['nummer']; ?>&nbsp;</td>
-		<td><?php echo $grootboek['Grootboek']['omschrijving']; ?>&nbsp;</td>
-		<td><?php echo $grootboek['Grootboek']['rektype']; ?>&nbsp;</td>
-		<td><?php echo $grootboek['Grootboek']['debetcredit']; ?>&nbsp;</td>
+		<td class="number"><?php echo $grootboek['Grootboek']['nummer']; ?>&nbsp;</td>
+		<td class="omschrijving"><?php echo $grootboek['Grootboek']['omschrijving']; ?>&nbsp;</td>
+		<td><?php echo ucfirst($grootboek['Grootboek']['rektype']); ?>&nbsp;</td>
+		<td><?php echo ucfirst($grootboek['Grootboek']['debetcredit']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $grootboek['Grootboek']['nummer'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $grootboek['Grootboek']['nummer'])); ?>
-			<?php echo $this->Html->link(__('Delete'), array('action' => 'delete', $grootboek['Grootboek']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $grootboek['Grootboek']['id'])); ?>
+			<?php echo $this->Html->link(__('Bekijk'), array('action' => 'view', $grootboek['Grootboek']['nummer'])); ?>
+			<?php echo $this->Html->link(__('Bewerk'), array('action' => 'edit', $grootboek['Grootboek']['nummer'])); ?>
+			<?php if(!in_array($grootboek['Grootboek']['id'], $usedGrootboeks)): ?>
+				<?php echo $this->Html->link(__('Verwijderen'), array('action' => 'delete', $grootboek['Grootboek']['id']), null, sprintf(__('Weet je zeker dat je de post "%s" wilt verwijderen? \nDeze actie is onomkeerbaar!'), $grootboek['Grootboek']['omschrijving'])); ?>
+			<?php endif; ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
-</div>
