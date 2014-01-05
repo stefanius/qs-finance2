@@ -29,7 +29,7 @@ body {
   }
 }
 
-/* Tables used by transaction data */
+/* Table overides used by transaction data */
 tr th.credit{
 	text-align: right;
 }
@@ -43,7 +43,27 @@ tr td.number{
 	max-width: 8%;
 	width: 8%;
 }
-number
+
+tr td.currency{
+	text-align: right;
+	max-width: 15%;
+	width: 15%;
+}
+
+tr td.total{
+	font-size: 110%;
+	font-weight: bold;
+}
+
+/* general options */
+
+.neg{
+	color: red;
+}
+
+.pos{
+	color: green;
+}
 
 tr th{
 	font-size: 120%;

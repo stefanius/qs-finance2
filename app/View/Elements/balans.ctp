@@ -34,7 +34,7 @@
 	    <tr>
 	        <td class="number"></td>
 	        <td class="total">Totaal</td>
-	        <td class="currency total"><?php echo $this->Balans->currency($balans[$side]['totaal']) ?></td>
+	        <td class="currency total neg"><?php echo $this->Balans->currency($balans[$side]['totaal']) ?></td>
     	</tr>	
 </table>
 </div>
