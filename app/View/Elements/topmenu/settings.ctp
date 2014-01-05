@@ -2,6 +2,7 @@
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
     <ul class="dropdown-menu">
+      <li><a href="/instellingen/grootboek-rekeningen">Bewerk grootboek</a></li>
       <li><a href="/schemas/rekeningoverzicht">Rekeningschema</a></li>
        <?php if(isset($bookyear) ): ?>
           <li><a href="/calculations/search/<?php echo $bookyear['Bookyear']['omschrijving']; ?>">Journaal</a></li>      		
