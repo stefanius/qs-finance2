@@ -29,7 +29,12 @@ body {
   }
 }
 
-/* Table overides used by transaction data */
+/* Table overides */
+
+tr th{
+	font-size: 120%;
+}
+
 tr th.credit{
 	text-align: right;
 }
@@ -83,6 +88,7 @@ tr td.total{
 	color: green;
 }
 
-tr th{
-	font-size: 120%;
+#breadcrumb{
+	min-height: 1.7em
 }
+
