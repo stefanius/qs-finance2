@@ -7,8 +7,6 @@
 		echo '<h2>CSV van bank: '.$bankpost['Bankaccount']['maatschappij'].' ('.$bankpost['Bankaccount']['iban'].')</h2>';
 		echo '<h3>Grootboek: '.$bankpost['Grootboek']['display_omschrijving'].'</h3>';		
 	}
-	
-
 
 	if(isset($bookyear) && !isset($data))
 	{
@@ -47,7 +45,7 @@
             	
             	<div class="grootboek">
             	    <?php echo $this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false, 'class'=>'switchButton'))?>
-					<table cellpadding="0" cellspacing="0">
+					<table>
 				            <tr>
 				                <th class="omschrijving">Omschrijving</th>				               
 				                <th class="geld">Debet (bij)</th>
@@ -165,7 +163,7 @@
       accordion.accordion( "option", "active", next );
              
       $('html, body').animate({
-           scrollTop: $("#ui-accordion-accordion-panel-"+current).offset().top
+           scrollTop: $("#ui-accordion-accordion-panel-"+current).offset().top-200
        }, 500);
          	
        titleBar = $("#ui-accordion-accordion-header-"+current);
