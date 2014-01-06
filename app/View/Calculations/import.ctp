@@ -43,13 +43,13 @@
 				
             	<h3><?php echo $i;?>: <?php echo $d['omschrijving'];?></h3>
             	
-            	<div class="grootboek">
+            	<div>
             	    <?php echo $this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false, 'class'=>'switchButton'))?>
-					<table>
+					<table class="col-md-12">
 				            <tr>
-				                <th class="omschrijving">Omschrijving</th>				               
-				                <th class="geld">Debet (bij)</th>
-				                <th class="geld">Credit (af)</th>
+				                <th class="col-md-12">Omschrijving</th>				               
+				               <!--  <th class="geld">Debet (bij)</th>
+				                <th class="geld">Credit (af)</th> --> 
 				                
 				            </tr>            	
             	<?php 
@@ -57,31 +57,40 @@
 				echo "<tr>";
 				//echo '<td class="checkbox">'.$this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false)).'</td>';
 			//	echo '<td class="datum">'.$this->Form->input('Calculation.'.$i.'.boekdatum', array('value'=>$d['boekdatum'], 'label' => false, 'type' => 'text'))."</td>";
-				echo '<td class="omschrijving">'.$this->Form->textarea('Calculation.'.$i.'.omschrijving', array('class'=>'omschrijving', 'value'=>$d['omschrijving'], 'label' => false)).'</td>';
+				echo '<td class="col-md-12">'.$this->Form->textarea('Calculation.'.$i.'.omschrijving', array('class'=>'col-md-12', 'value'=>$d['omschrijving'], 'label' => false)).'</td>';
 		        //echo '<td class="omschrijving">'. $this->Form->input('Calculation.'.$i.'.grootboek_id', array('options' => $grootboeks, 'label' => false)).'</td>';
-				echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.debet', array('value'=>$d['debet'], 'label' => false, 'type'=>'text'))."</td>";
-				echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.credit', array('value'=>$d['credit'], 'label' => false,'type'=>'text'  ))."</td>";
+				//echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.debet', array('value'=>$d['debet'], 'label' => false, 'type'=>'text'))."</td>";
+				//echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.credit', array('value'=>$d['credit'], 'label' => false,'type'=>'text'  ))."</td>";
 		
 		        echo "</tr>";
 		       
 		        ?>
-					<table cellpadding="0" cellspacing="0">
+					<table class="col-md-12">
 				            <tr>
-				                <th class="datum">Boekdatum</th>
-				                <th class="omschrijving">Tegenrekening</th>				               
-				                
+				            	<th class="col-md-6">Tegenrekening</th>
+				                <th class="col-md-3">Bedrag</th>		
+				                <th class="col-md-3">Boekdatum</th>		                
 				            </tr>    		        
 		        <?php 
 		        echo "<tr>";
-		        echo '<td class="datum">'.$this->Form->input('Calculation.'.$i.'.boekdatum', array('value'=>$d['boekdatum'], 'label' => false, 'type' => 'text'))."</td>";
-		    //    echo '<td class="omschrijving">'.$this->Form->textarea('Calculation.'.$i.'.omschrijving', array('value'=>$d['omschrijving'], 'label' => false)).'</td>';
-		        echo '<td class="omschrijving">'. $this->Form->input('Calculation.'.$i.'.grootboek_id', array('class'=>'tegenrekening', 'options' => $grootboeks, 'label' => false)).'</td>';
-
+		        echo '<td class="col-md-6">'. $this->Form->input('Calculation.'.$i.'.grootboek_id', array('class'=>'tegenrekening', 'options' => $grootboeks, 'label' => false)).'</td>';
+		       
+		        if($d['debet'] > $d['credit']){
+		        	echo '<td class="col-md-3">'.$this->Form->input('Calculation.'.$i.'.debet', array('class'=>'col-md-6', 'value'=>$d['debet'], 'label' => '&nbsp;&nbsp;bij', 'type'=>'text'))."";
+		        	echo $this->Form->input('Calculation.'.$i.'.credit', array('value'=>$d['credit'], 'label' => false,'type'=>'hidden'  ))."</td>";		    
+		        }else{
+		        	echo '<td class="col-md-3">'.$this->Form->input('Calculation.'.$i.'.debet', array('value'=>$d['debet'], 'label' => false, 'type'=>'hidden'))."";
+		        	echo $this->Form->input('Calculation.'.$i.'.credit', array('class'=>'col-md-6', 'value'=>$d['credit'], 'label' => '&nbsp;&nbsp;af','type'=>'text'))."</td> ";		        	 
+		        }
+		        echo '<td class="col-md-3">'.$this->Form->input('Calculation.'.$i.'.boekdatum', array('value'=>$d['boekdatum'], 'label' => false, 'type' => 'text'))."</td>";
 		        echo "</tr>";		        
 		        $i++;
          ?>
          </table>
-         <a class="btn-success" onclick="next()">Volgende</a>
+         <table class="col-md-12">
+         	<tr class="col-md-12"><td class="col-md-10"> <a class="btn btn-success col-md-6" onclick="next()">Volgende</a></td></tr>
+         </table>
+         
         	</div>
         <?php endforeach; ?>	
 
@@ -107,6 +116,7 @@
   $(function() {
     $( ".tegenrekening" ).combobox();
     $(".submit2").hide();
+    $("input.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input").css('width','100%');
     var icons = {
       header: "ui-icon-circle-arrow-e",
       activeHeader: "ui-icon-circle-arrow-s"
