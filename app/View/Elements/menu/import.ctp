@@ -1,4 +1,4 @@
-<?php if(isset($bookyear)): ?>
+<?php if(isset($bookyear) && strpos($this->here, '/balans/') !== false): ?>
     <h4>Import <?php echo $bookyear['Bookyear']['omschrijving']; ?></h4>
     <ul>
         <li><?php echo $this->html->link("ING", array('controller' => 'calculations', 'action'=>'import',$bookyear['Bookyear']['omschrijving'], 'ing', 'csv')) ?></li>

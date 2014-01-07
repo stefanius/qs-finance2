@@ -1,4 +1,4 @@
-<?php if($this->Session->read('Auth.User.id') >= 1 ): ?>
+<?php if($this->Session->read('Auth.User.id') >= 1 && strpos($this->here, '/balans/') !== false): ?>
 
  <?php if(isset($grootboek) && $this->Session->check('Bookyear')): ?>
 

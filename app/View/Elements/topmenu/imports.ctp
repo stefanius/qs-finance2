@@ -1,4 +1,4 @@
-<?php if($this->Session->read('Auth.User.id') >= 1 && $this->Session->check('Bookyear.omschrijving')): ?>
+<?php if($this->Session->read('Auth.User.id') >= 1 && $this->Session->check('Bookyear.omschrijving') && strpos($this->here, '/balans/') !== false): ?>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Importeren</a>
     <ul class="dropdown-menu">

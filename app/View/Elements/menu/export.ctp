@@ -1,4 +1,4 @@
-<?php if(isset($bookyear)): ?>
+<?php if(isset($bookyear) && strpos($this->here, '/balans/') !== false): ?>
     <h4>Export Excel <?php echo $bookyear['Bookyear']['omschrijving']; ?></h4>
     <ul>
         <li><?php echo $this->html->link("Balans", array("controller"=>"exportexcel", "action"=>"balans", $bookyear['Bookyear']['omschrijving']))?></li>
