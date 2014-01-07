@@ -1,24 +1,45 @@
-<div class="grootboeks form">
-<?php echo $this->Form->create('Grootboek');?>
-	<fieldset>
- 		<legend><?php echo __('Edit Grootboek'); ?></legend>
+<div class="col-md-8">
+<?php echo $this->Form->create('Grootboek', array('class'=>'form-horizontal', 'role'=>'form'));?>
+
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('nummer');
-		echo $this->Form->input('omschrijving');
-		echo $this->Form->input('debetcredit');
-                echo $this->Form->input('liquide');
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit'));?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
 
-		<li><?php echo $this->Html->link(__('Delete'), array('action' => 'delete', $this->Form->value('Grootboek.id')), null, sprintf(__('Are you sure you want to delete # %s?'), $this->Form->value('Grootboek.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Grootboeks'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Calculations'), array('controller' => 'calculations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Calculation'), array('controller' => 'calculations', 'action' => 'add')); ?> </li>
-	</ul>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">Nummer</label>
+    <div class="col-sm-2">
+    	<?php echo $this->Form->input('nummer', array('label'=>false, 'class'=>'form-control')); ?>
+    </div>
+  </div>
+
+   <div class="form-group">
+    <label class="col-sm-4 control-label">Omschrijving</label>
+    <div class="col-sm-8">
+    	<?php echo $this->Form->input('omschrijving', array('label'=>false, 'class'=>'form-control')); ?>
+    </div>
+  </div>
+  
+   <div class="form-group">
+    <label class="col-sm-4 control-label">Soort rekening</label>
+    <div class="col-sm-8">
+		<select class="form-control" name="data[Grootboek][rektype]">
+		  <option value="0">Bezit (Debet-zijde)</option>
+		  <option value="1">Schulden (Credit-zijde)</option>
+		  <option value="2">Kosten/Baten (Resultaatrekening)</option>
+		</select>
+    </div>
+  </div>  
+
+   <div class="form-group">
+    <label class="col-sm-4 control-label">Liquide</label>
+    <div class="col-sm-8">
+		<label class="checkbox-inline">
+		  <?php echo $this->Form->input('liquide', array('label'=>false, 'div' => false)); ?>
+		</label> 
+    </div>
+  </div>  
+  
+<?php echo $this->Form->end(__('Submit'));?>
+  
+</form>
 </div>
