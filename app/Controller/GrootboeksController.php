@@ -57,6 +57,17 @@ class GrootboeksController extends AppController
             $this->redirect(array('action' => 'index'));
         }
         if (!empty($this->request->data)) {
+        	if($this->request->data['Grootboek']['rektype'] == 0){
+        		$this->request->data['Grootboek']['debetcredit']='debet';
+        		$this->request->data['Grootboek']['winstverlies']=0;
+        	}elseif($this->request->data['Grootboek']['rektype'] == 1){
+        		$this->request->data['Grootboek']['debetcredit']='credit';
+        		$this->request->data['Grootboek']['winstverlies']=0;        		
+        	}elseif($this->request->data['Grootboek']['rektype'] == 2){
+        		$this->request->data['Grootboek']['debetcredit']='credit';
+        		$this->request->data['Grootboek']['winstverlies']=1;        		
+        	}
+        	unset($this->request->data['Grootboek']['rektype']);
             if ($this->Grootboek->save($this->request->data)) {
                 $this->Session->setFlash(__('The grootboek has been saved'));
                 $this->redirect(array('action' => 'index'));
