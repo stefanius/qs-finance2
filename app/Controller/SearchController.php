@@ -77,7 +77,7 @@ class SearchController extends AppController
 	
 		$rawresponse = $this->Calculation->find('all',
 				array('conditions' => array($params['termfield'].' LIKE '=>'%'.$params['term'].'%'),
-						'fields'=> $params['fields']));
+						'fields'=> 'DISTINCT '.$params['fields']));
 	
 		$response = array();
 	

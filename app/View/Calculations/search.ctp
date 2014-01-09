@@ -60,6 +60,11 @@ $( "#Grootboek-nummer" ).autocomplete({
     minLength: 1,
  });
 
+$( "#Calculation-omschrijving" ).autocomplete({
+    source: "/search/journaal.json?fields[]=omschrijving&fields[]=id&value=omschrijving&label=omschrijving&termfield=omschrijving",
+    minLength: 1,
+ }); 
+ 
 function retrieveGetValues() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
