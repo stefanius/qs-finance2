@@ -43,7 +43,7 @@
 				
             	<h3><?php echo $i;?>: <?php echo $d['omschrijving'];?></h3>
             	
-            	<div>
+            	<div class="data-container">
             	    <?php echo $this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false, 'class'=>'switchButton'))?>
 					<table class="col-md-12">
 				            <tr>
@@ -88,7 +88,7 @@
          ?>
          </table>
          <table class="col-md-12">
-         	<tr class="col-md-12"><td class="col-md-10"> <a class="btn btn-success col-md-6" onclick="next()">Volgende</a></td></tr>
+         	<tr class="col-md-12"><td class="col-md-10"> <a class="btn btn-success col-md-6 nextbutton" onclick="next()">Volgende</a></td></tr>
          </table>
          
         	</div>
@@ -114,6 +114,7 @@
 
   <script>
   $(function() {
+
     $( ".tegenrekening" ).combobox();
     $(".submit2").hide();
     $("input.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input").css('width','100%');
@@ -124,6 +125,7 @@
     $( "#accordion" ).accordion({
       icons: icons
     });
+	 $('.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input:first').focus();
     $( "#toggle" ).button().click(function() {
       if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
         $( "#accordion" ).accordion( "option", "icons", null );
@@ -131,6 +133,18 @@
         $( "#accordion" ).accordion( "option", "icons", icons );
       }
     });
+
+
+    $(".data-container").on('keydown', function(e) { 
+    	  var keyCode = e.keyCode || e.which; 
+    	  
+    	  if (keyCode == 9) { 
+    	    e.preventDefault(); 
+    	    nextbutton = $( this).find( '.nextbutton' );
+    	    nextbutton.click();
+    	    
+    	  } 
+    	});
 /**
  * checked: undefined        // State of the switch
 
@@ -193,5 +207,7 @@
        }else{
     	   titleBar.css( "background", "#FF1708" );
        } 
+
+       $("#ui-accordion-accordion-panel-"+next).find('.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input').focus();
 	}
   </script>
