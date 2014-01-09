@@ -76,9 +76,17 @@ class SearchController extends AppController
 		$this->loadModel('Calculation');
 		$params = $this->generateParams($this->request, 'Calculation');
 		
-		$rawresponse = $this->Calculation->find('all',
-				array('conditions' => array($params['termfield'].' LIKE '=>'%'.$params['term'].'%'),
-						'fields'=> $params['fields']));
+		$bookyear = $this->checkSessionHasBookyear();
+		
+		if(is_array($bookyear)){
+			$conditions = array('conditions' => array($params['termfield'].' LIKE '=>'%'.$params['term'].'%', 'Calculation.bookyear_id'=>$bookyear['id']),
+						'fields'=> $params['fields']);
+		}else{
+			$conditions = array('conditions' => array($params['termfield'].' LIKE '=>'%'.$params['term'].'%'),
+					'fields'=> $params['fields']);			
+		}
+		
+		$rawresponse = $this->Calculation->find('all',$conditions);
 	
 		$response = array();
 	
