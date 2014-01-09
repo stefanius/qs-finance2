@@ -72,12 +72,13 @@ class SearchController extends AppController
 	}
 
 	public function journaal() {
+		$duplicates = array();
 		$this->loadModel('Calculation');
 		$params = $this->generateParams($this->request, 'Calculation');
-	
+		
 		$rawresponse = $this->Calculation->find('all',
 				array('conditions' => array($params['termfield'].' LIKE '=>'%'.$params['term'].'%'),
-						'fields'=> 'DISTINCT '.$params['fields']));
+						'fields'=> $params['fields']));
 	
 		$response = array();
 	
@@ -88,8 +89,10 @@ class SearchController extends AppController
 			$gb =  $calculation['Calculation'];
 			$gb['value'] = $gb[$value];
 			$gb['label'] = $gb[$label];
-			$response[] = $gb ;
-	
+			if(!in_array($gb['value'], $duplicates)){
+				$response[] = $gb ;
+				$duplicates[] = $gb['value'];
+			}
 		}
 		$this->set(compact('response'));
 		$this->set('_serialize', 'response');
