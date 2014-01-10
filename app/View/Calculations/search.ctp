@@ -1,19 +1,19 @@
-<div class="grootboek">
-	<h1><?php echo __('Journaal');?></h1>
-	<table>
+<div class="col-md-12">
+<h1><?php echo __('Journaal');?></h1>
+	<table class="table table-striped table-bordered table-condensed">
 	<tr>
-			<th><?php echo $this->Paginator->sort('grootboek_id');?></th>
+			<th class="number"><?php echo $this->Paginator->sort('grootboek_id');?></th>
 			<th><?php echo $this->Paginator->sort('omschrijving');?></th>
 			<th><?php echo $this->Paginator->sort('boekdatum');?></th>
-			<th><?php echo $this->Paginator->sort('debet');?></th>
-			<th><?php echo $this->Paginator->sort('credit');?></th>
+			<th class="currency"><?php echo $this->Paginator->sort('debet');?></th>
+			<th class="currency"><?php echo $this->Paginator->sort('credit');?></th>
 	</tr>
 	<tr>
-			<th><input id="Grootboek-nummer" class="searchfilters" onkeypress="setfilter(event)" type="text"> </th>
-			<th><input id="Calculation-omschrijving" class="searchfilters" onkeypress="setfilter(event)" type="text"></th>
+			<th><input id="Grootboek-nummer" class="searchfilters col-md-12" onkeypress="setfilter(event)" type="text"> </th>
+			<th><input id="Calculation-omschrijving" class="searchfilters col-md-12" onkeypress="setfilter(event)" type="text"></th>
 			<th></th>
-			<th><input id="Calculation-debet" class="searchfilters" onkeypress="setfilter(event)" type="text"></th>
-			<th><input id="Calculation-credit" class="searchfilters" onkeypress="setfilter(event)" type="text"></th>
+			<th><input id="Calculation-debet" class="searchfilters col-md-12 currency" onkeypress="setfilter(event)" type="text"></th>
+			<th><input id="Calculation-credit" class="searchfilters col-md-12 currency" onkeypress="setfilter(event)" type="text"></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -24,11 +24,11 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $calculation['Grootboek']['nummer']; ?></td>
+		<td class="number"><?php echo $calculation['Grootboek']['nummer']; ?></td>
 		<td><?php echo $calculation['Calculation']['omschrijving']; ?>&nbsp;</td>
 		<td><?php echo $calculation['Calculation']['boekdatum']; ?>&nbsp;</td>
-		<td><?php echo $calculation['Calculation']['debet']; ?>&nbsp;</td>
-		<td><?php echo $calculation['Calculation']['credit']; ?>&nbsp;</td>
+		<td class="currency"><?php echo $calculation['Calculation']['debet']; ?>&nbsp;</td>
+		<td class="currency"><?php echo $calculation['Calculation']['credit']; ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
@@ -45,8 +45,8 @@
  |
 		<?php echo $this->Paginator->next(__('next') . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
 
+</div>
 <script>
 
 $( "#Grootboek-omschrijving" ).autocomplete({
@@ -81,7 +81,7 @@ $(function() {
 	}
 
 	if("Calculation.omschrijving" in get){
-		$('#Calculation-omschrijving').val(get["Calculation.omschrijving" ])
+		$('#Calculation-omschrijving').val(get["Calculation.omschrijving" ].replace(/%20/g, " "))
 	}
 
 	if("Calculation.debet" in get){
@@ -92,7 +92,6 @@ $(function() {
 		$('#Calculation-credit').val(get["Calculation.credit" ])
 	}
 });
-
 
 function setfilter(e){
 	var code = (e.keyCode ? e.keyCode : e.which);
