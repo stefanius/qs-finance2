@@ -44,11 +44,11 @@ class Balans extends AppModel
         return $balans;
     }
 
-    public function openBalans($bookyear_key,$beginbalans=null)
+    public function openBalans($bookyear_key,$beginbalans=null, $date=null)
     {
         $bookyear = $this->Bookyear->get($bookyear_key);
         $balansposten = $this->Grootboek->getPosten(Configure::read('Grootboek.Balansposten')); //0=Balansposten, 1=Resultaatposten.
-        $balans = $this->berekenbalans($balansposten,$bookyear, $beginbalans);
+        $balans = $this->berekenbalans($balansposten,$bookyear, $beginbalans, $date);
 
         return $balans;
     }
@@ -88,14 +88,14 @@ class Balans extends AppModel
         return $kolombalans;
     }
 
-    public function berekenbalans($balansposten,$bookyear, $beginbalans=null)
+    public function berekenbalans($balansposten,$bookyear, $beginbalans=null, $date=null)
     {
         $balans['debet']['aantalrij']=0;
         $balans['credit']['aantalrij']=0;
         $balans['debet']['totaal']=0;
         $balans['credit']['totaal']=0;
         foreach ($balansposten as $balanspost) {
-            $gb = $this->Grootboek->getSaldi($bookyear['Bookyear']['id'], $balanspost['Grootboek']['id'],$beginbalans);
+            $gb = $this->Grootboek->getSaldi($bookyear['Bookyear']['id'], $balanspost['Grootboek']['id'],$beginbalans, $date);
             $balans[$balanspost['Grootboek']['debetcredit']]['posten'][$balanspost['Grootboek']['nummer']] = $gb;
             $balans[$balanspost['Grootboek']['debetcredit']]['aantalrij']++;
             $balans[$balanspost['Grootboek']['debetcredit']]['totaal']+=$gb['Bedrag']['saldo'];

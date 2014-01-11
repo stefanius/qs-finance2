@@ -79,14 +79,19 @@ class Calculation extends AppModel
 			)
 	);
 
-	public function getCalculations($bookyear_id, $grootboek_id,$beginbalans=null)
+	public function getCalculations($bookyear_id, $grootboek_id,$beginbalans=null, $date=null)
 	{
+		$conditions = array('conditions' => array('bookyear_id' => $bookyear_id, 'grootboek_id' => $grootboek_id));
+		
 		if (isset($beginbalans)) {
-			$calculations = $this->find('all', array('conditions' => array('bookyear_id' => $bookyear_id, 'grootboek_id' => $grootboek_id, 'beginbalans' => $beginbalans)));
-		} else {
-			$calculations = $this->find('all', array('conditions' => array('bookyear_id' => $bookyear_id, 'grootboek_id' => $grootboek_id)));
+			$conditions['conditions']['beginbalans'] = $beginbalans;
+		} 
+		
+		if (isset($date)) {
+			$conditions['conditions']['boekdatum <= '] = $date;
 		}
 
+		$calculations = $this->find('all', $conditions);
 		return $calculations;
 	}
 

@@ -139,15 +139,14 @@ class Grootboek extends AppModel
         return $grootboek;
     }
 
-    public function getSaldi($bookyear_id, $grootboek_key,$beginbalans=null)
+    public function getSaldi($bookyear_id, $grootboek_key,$beginbalans=null, $date=null)
     {
         $grootboek = $this->get($grootboek_key);
         $grootboek_id = $grootboek['Grootboek']['id'];
-        $calculations = $this->Calculation->getCalculations($bookyear_id, $grootboek_id,$beginbalans);
+        $calculations = $this->Calculation->getCalculations($bookyear_id, $grootboek_id,$beginbalans, $date);
         $debet=0;
         $credit=0;
         $saldo=0;
-
         foreach ($calculations as $calc) {
             $debet += $calc['Calculation']['debet'];
             $credit += $calc['Calculation']['credit'];

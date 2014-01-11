@@ -16,8 +16,22 @@ class BalansController extends AppController
     {
     	$beginbalans = null;
     	$bookyear_key = $this->request->params['bookyear_key'];
-    	    	
-        $balans = $this->Balans->openBalans($bookyear_key, $beginbalans);
+    	$date = null;
+    	
+    	if(isset($this->request->query['date'])){
+    		if(strlen($this->request->query['date']) == 10){
+    			$tmp = explode('-',$this->request->query['date']);
+ 
+    			if(count($tmp) == 3){
+    				if(strlen($tmp[0]) == 2 && strlen($tmp[1]) ==2 && strlen($tmp[2]) == 4 ){
+    					$date = $tmp[2].'-'.$tmp[1].'-'.$tmp[0];
+    				}elseif(strlen($tmp[2]) == 2 && strlen($tmp[1]) ==2 && strlen($tmp[0]) == 4 ){
+    					$date = $tmp[0].'-'.$tmp[1].'-'.$tmp[2];
+    				}
+    			}
+    		}
+    	}
+        $balans = $this->Balans->openBalans($bookyear_key, $beginbalans, $date);
         $balans = $this->Balans->formatBalans($balans);
         $bookyear = $this->Balans->Bookyear->get($bookyear_key);
         $this->Session->write('Bookyear', $bookyear['Bookyear']);
