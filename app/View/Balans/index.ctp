@@ -1,12 +1,11 @@
+<h1>Balans: <?php echo $balans['Bookyear']['omschrijving']?></h1>
 
-	  <h1>Balans: <?php echo $balans['Bookyear']['omschrijving']?></h1>
-		
-		<div id="datepicker-off">
-			<a href="#" onmousedown="showdatefilter()">Tijdmachine</a>
-		</div>
-		
-		<div id="datepicker-on">
-			Selecteer een balansdatum: <input type="text" id="datepicker" value="<?php echo date('d-m-Y'); ?>">
+<div id="datepicker-off">
+	<a href="#" onmousedown="showdatefilter()">Tijdmachine</a>
+</div>
+
+<div id="datepicker-on">
+	Selecteer een balansdatum: <input type="text" id="datepicker" value="<?php echo $timemachine_date; ?>">
 		</div>	
 		
       <div class="tablewrapper">
@@ -20,20 +19,26 @@
 
 <script>
 
+$(function() {
+	$('#datepicker-on').hide();
+	
+    $( "#datepicker" ).datepicker({
+    	dateFormat: 'dd-mm-yy',
+    	onSelect: function() {
+    			   window.location = "?date="+$("#datepicker").val();
+    			  }
+    });
+	    
+ });
+
 function showdatefilter(){
 	$('#datepicker-on').show();
 	$('#datepicker-off').hide();
-}
-
-
-$(function() {
-		$('#datepicker-on').hide();
-		
-	    $( "#datepicker" ).datepicker({
-	    	dateFormat: 'dd-mm-yy'
-	    });
-	    
- });
+} 
+ 
+ function gotoPast(){
+	
+ }
 
 
 </script>

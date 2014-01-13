@@ -17,7 +17,7 @@ class BalansController extends AppController
     	$beginbalans = null;
     	$bookyear_key = $this->request->params['bookyear_key'];
     	$date = null;
-    	
+    	$timemachine_date = date('d-m-Y');
     	if(isset($this->request->query['date'])){
     		if(strlen($this->request->query['date']) == 10){
     			$tmp = explode('-',$this->request->query['date']);
@@ -31,12 +31,17 @@ class BalansController extends AppController
     			}
     		}
     	}
+    	
+    	if($date !== null){
+    		$timemachine_date = date('d-m-Y', strtotime($date));
+    	}
+    	
         $balans = $this->Balans->openBalans($bookyear_key, $beginbalans, $date);
         $balans = $this->Balans->formatBalans($balans);
         $bookyear = $this->Balans->Bookyear->get($bookyear_key);
         $this->Session->write('Bookyear', $bookyear['Bookyear']);
 
-        $this->set(compact('balans', 'bookyear'));
+        $this->set(compact('balans', 'bookyear', 'timemachine_date'));
     }
 
     public function open($bookyear_key, $beginbalans=null)
