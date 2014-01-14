@@ -20,7 +20,6 @@
 <script>
 
 $(function() {
-	$('#datepicker-on').hide();
 	
     $( "#datepicker" ).datepicker({
     	dateFormat: 'dd-mm-yy',
@@ -28,14 +27,24 @@ $(function() {
     			   window.location = "?date="+$("#datepicker").val();
     			  }
     });
-	    
+
+    <?php if($open_timemachine): ?>
+    	showdatefilter();
+    <?php else: ?>
+    	hidedatefilter();
+    <?php endif; ?>
  });
 
 function showdatefilter(){
 	$('#datepicker-on').show();
 	$('#datepicker-off').hide();
 } 
- 
+
+function hidedatefilter(){
+	$('#datepicker-on').hide();
+	$('#datepicker-off').show();
+}
+
  function gotoPast(){
 	
  }
