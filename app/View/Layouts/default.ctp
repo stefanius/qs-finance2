@@ -26,12 +26,11 @@
 		<?php echo $this->element('topmenu/container'); ?>	
 		    
 		<div id="content">
-			<?php echo $this->Session->flash(); ?>
-			<?php echo $this->Session->flash('auth'); ?>
-
 			  <div class="container">			    
 		        <div class="page-header">
-		          <?php echo $this->element('breadcrumb'); ?>	  
+		          <?php echo $this->element('breadcrumb'); ?>	
+				  <?php echo $this->Session->flash(); ?>
+				  <?php echo $this->Session->flash('auth'); ?>  
 		          <h1>Placeholder</h1>
 		        </div>
 		        <?php echo $content_for_layout; ?>
