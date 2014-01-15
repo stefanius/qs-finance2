@@ -76,10 +76,10 @@ class CalculationsController extends AppController
         	$preparedData =$this->PrepareJournalEntry->prepareSingleTransaction($this->request->data["Calculation"]);
 
             if ($this->Calculation->saveAll($preparedData)) {
-                $this->Session->setFlash(__('Mutatie is verwerkt'));
+                $this->Session->setFlash(__('Mutatie is verwerkt'), 'success');
                 //$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
             } else {
-                $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
+                $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'), 'danger');
             }
         }
 
@@ -135,14 +135,14 @@ class CalculationsController extends AppController
     public function deletebyhash($hash = null)
     {
     	if (!$hash) {
-    		$this->Session->setFlash(__('Onbekende boeking'));
+    		$this->Session->setFlash(__('Onbekende boeking'), 'danger');
     		$this->redirect(array('action'=>'index'));
     	}
     	if ($this->Calculation->deleteAll(array('Calculation.hash' => $hash))) {
-    		$this->Session->setFlash(__('Boekingen verwijdert.'));
+    		$this->Session->setFlash(__('Boekingen verwijdert'), 'success');
     		$this->redirect(array('action'=>'index'));
     	}
-    	$this->Session->setFlash(__('Boekingen zijn niet verwijdert'));
+    	$this->Session->setFlash(__('Boekingen zijn niet verwijdert'), 'danger');
     	$this->redirect(array('action' => 'index'));
     }    
     
