@@ -9,6 +9,7 @@ build
 dist
 tags
 
+.vagrant/machines/default/virtualbox/id
 .vagrant/*
 .vagrant
 puppet/modules/*
