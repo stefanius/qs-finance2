@@ -1,20 +1,20 @@
 # User specific & automatically generated files #
 #################################################
 #/app/Config/database.php
-/app/tmp
-/lib/Cake/Console/Templates/skel/tmp/
-/plugins
-/vendors
-/build
-/dist
-/tags
+app/tmp
+lib/Cake/Console/Templates/skel/tmp/
+plugins
+vendors
+build
+dist
+tags
 
-/.vagrant/*
-/.vagrant
-/puppet/modules/*
-/app/tmp/logs/error.log
-/puppet/.tmp/*
-/app/webroot/import/*
+.vagrant/*
+.vagrant
+puppet/modules/*
+app/tmp/logs/error.log
+puppet/.tmp/*
+app/webroot/import/*
 *.log
 *.sql~
 *.rb~
@@ -29,4 +29,4 @@
 Icon?
 ehthumbs.db
 Thumbs.db
-/app/nbproject/private/
+app/nbproject/private/
