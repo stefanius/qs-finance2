@@ -19,6 +19,7 @@ app/webroot/import/*
 *.log
 *.sql~
 *.rb~
+.project
 
 # OS generated files #
 ######################
