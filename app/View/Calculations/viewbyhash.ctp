@@ -13,8 +13,9 @@ $calculations = $tmp;
 
 ?>
 
-
-	<h2><?php echo __('Journaal');?></h2>
+	<h2><?php echo __('Boekingoverzicht');?></h2>
+	
+	<?php echo $this->Html->link(__('Verwijder'), array('action' => 'deletebyhash', $hash), array('role'=> 'button', 'class'=> 'btn btn-danger'), sprintf(__('Alle onderstaande boekingen worden verwijderd. Weet u het zeker?'))); ?>
 	
 	<?php foreach ($calculations as $calculation): ?>
 		<p><?php echo $calculation['debet']['Calculation']['omschrijving']; ?></p>
@@ -37,8 +38,5 @@ $calculations = $tmp;
 		<?php endforeach; ?>
 		</table>
 
-
-
 <?php endforeach; ?>
 
-<?php echo $this->Html->link(__('Verwijder'), array('action' => 'deletebyhash', $hash), null, sprintf(__('Alle onderstaande boekingen worden verwijderd. Weet u het zeker?'))); ?>

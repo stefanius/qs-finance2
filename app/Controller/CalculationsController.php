@@ -135,14 +135,14 @@ class CalculationsController extends AppController
     public function deletebyhash($hash = null)
     {
     	if (!$hash) {
-    		$this->Session->setFlash(__('Invalid hash for calculation'));
+    		$this->Session->setFlash(__('Onbekende boeking'));
     		$this->redirect(array('action'=>'index'));
     	}
     	if ($this->Calculation->deleteAll(array('Calculation.hash' => $hash))) {
-    		$this->Session->setFlash(__('Calculations deleted'));
+    		$this->Session->setFlash(__('Boekingen verwijdert.'));
     		$this->redirect(array('action'=>'index'));
     	}
-    	$this->Session->setFlash(__('Calculation was not deleted'));
+    	$this->Session->setFlash(__('Boekingen zijn niet verwijdert'));
     	$this->redirect(array('action' => 'index'));
     }    
     
@@ -257,6 +257,10 @@ class CalculationsController extends AppController
     	$this->Calculation->recursive = 1;
     	$conditions['Calculation.hash']=$hash;
     	$calculations = $this->Calculation->findAllByHash($hash);
+    	if(count($calculations) < 1){
+    		$this->Session->setFlash(__('Onbekende boeking'));
+    		$this->redirect(array('action'=>'index'));    		
+    	}
     	$this->set(compact( 'calculations', 'hash'));    	
     }
 }
