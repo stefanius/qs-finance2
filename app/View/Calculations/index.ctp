@@ -1,6 +1,6 @@
 <div class="balans">
 	<h2><?php echo __('Journaal');?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table class="table table-striped table-bordered table-condensed">
 	<tr>
 			<th><?php echo $this->Paginator->sort('grootboek_id');?></th>
 			<th><?php echo $this->Paginator->sort('bookyear_id');?></th>
@@ -19,7 +19,7 @@
 			$class = ' class="altrow"';
 		}
 	?>
-	<tr<?php echo $class;?>>
+	<tr>
 		<td>
 			<?php echo $this->Html->link($calculation['Grootboek']['omschrijving'], array('controller' => 'grootboeks', 'action' => 'view', $calculation['Grootboek']['id'])); ?>
 		</td>
