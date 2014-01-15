@@ -33,6 +33,8 @@
     
     Router::connect('/balans/:bookyear_key/kolombalans', array('controller' => 'balans', 'action' => 'kolombalans'));
     
+    Router::connect('/balans/:bookyear_key/boeking/*', array('controller' => 'calculations', 'action' => 'crossbooking'));
+    
     Router::connect('/balans/:bookyear_key/journaal/*', array('controller' => 'calculations', 'action' => 'viewbyhash'));
     
     Router::connect('/start-nieuw-bookjaar', array('controller' => 'bookyears', 'action' => 'newbookyear'));

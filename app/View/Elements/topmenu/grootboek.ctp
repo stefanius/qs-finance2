@@ -16,7 +16,7 @@
       </li>
     
       <li>
-          <?php echo $this->Html->link('Nieuwe Boeking', '/calculations/crossbooking/'.$grootboek['Grootboek']['nummer'].'/', array('class' => 'menu-item-target')); ?>     
+          <?php echo $this->Html->link('Nieuwe Boeking', '/balans/'.$bookyear['Bookyear']['omschrijving'].'/boeking/'.$grootboek['Grootboek']['nummer'].'/', array('class' => 'menu-item-target')); ?>     
       </li>
       
     </ul>
