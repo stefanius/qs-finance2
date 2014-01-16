@@ -1,22 +1,29 @@
 <div class="bankaccounts form">
-<?php echo $this->Form->create('Bankaccount'); ?>
-	<fieldset>
-		<legend><?php echo __('Add Bankaccount'); ?></legend>
-	<?php
-		echo $this->Form->input('maatschappij');
-		echo $this->Form->input('iban');
-		echo $this->Form->input('rekeningnummer');
-		echo $this->Form->input('grootboek_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php echo $this->Form->create('Bankaccount', array('role'=>'form')); ?>
 
-		<li><?php echo $this->Html->link(__('List Bankaccounts'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Grootboeks'), array('controller' => 'grootboeks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Grootboek'), array('controller' => 'grootboeks', 'action' => 'add')); ?> </li>
-	</ul>
+		<legend><?php echo __('Bankrekening koppelen'); ?></legend>
+		
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Iban</label>
+		    <div class="col-sm-10">
+		      <?php echo $this->Form->input('iban', array('label'=>false, 'class'=>'form-control'));?>
+		    </div>
+		  </div>		
+
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label">Balansrekening</label>
+		    <div class="col-sm-10">
+		      <?php echo $this->Form->input('grootboek_id', array('label'=>false, 'class'=>'form-control'));?>
+		    </div>
+		  </div>			  
+
+		  <div class="form-group">
+		    <label class="col-sm-2 control-label"></label>
+		    <div class="col-sm-10">
+		      <?php echo $this->Form->button(__('Submit'), array('class'=>'btn btn-lg btn-primary btn-block')); ?>
+		    </div>
+		  </div>
+		  
+<?php echo $this->Form->end(); ?>
+
 </div>

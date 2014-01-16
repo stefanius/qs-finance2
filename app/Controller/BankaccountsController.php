@@ -7,6 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class BankaccountsController extends AppController
 {
+	
+	public $components = array('Iban');
 /**
  * index method
  *
@@ -43,11 +45,20 @@ class BankaccountsController extends AppController
     {
         if ($this->request->is('post')) {
             $this->Bankaccount->create();
-            if ($this->Bankaccount->save($this->request->data)) {
-                $this->Session->setFlash(__('The bankaccount has been saved'));
+            $ibancheck = $this->Iban->convert($this->request->data['Bankaccount']['iban']);
+            
+            if($ibancheck['validated']){            	
+            	$this->request->data['Bankaccount']['maatschappij'] = $ibancheck['brand'];
+            	$this->request->data['Bankaccount']['rekeningnummer'] = $ibancheck['bankaccount'];
+            }
+            var_dump($this->request->data);
+            if ($this->Bankaccount->save($this->request->data) && $ibancheck['validated']) {
+                $this->Session->setFlash(__("Uw rekeningnummer is gekoppeld. U kunt nu CSV's van uw bank importeren"), 'success');
                 $this->redirect(array('action' => 'index'));
+            } elseif($ibancheck['validated'] === false){ 
+                $this->Session->setFlash(__('Het ingevoerde IBAN nummer is onjuist. Probeer het nog eens'), 'danger');
             } else {
-                $this->Session->setFlash(__('The bankaccount could not be saved. Please, try again.'));
+            	$this->Session->setFlash(__('De koppeling tussen uw bank en een grootboek is niet opgeslagen'), 'danger');
             }
         }
         $grootboeks = $this->Bankaccount->Grootboek->find('list');
