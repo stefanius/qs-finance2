@@ -2,6 +2,7 @@
 #################################################
 #/app/Config/database.php
 app/tmp
+app/tmp/*
 lib/Cake/Console/Templates/skel/tmp/
 plugins
 vendors
@@ -16,6 +17,8 @@ puppet/modules/*
 app/tmp/logs/error.log
 puppet/.tmp/*
 app/webroot/import/*
+tmp/*
+!empty
 *.log
 *.sql~
 *.rb~
