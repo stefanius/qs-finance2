@@ -4,6 +4,7 @@
     <ul class="dropdown-menu">
       <li><a href="/instellingen/grootboek-rekeningen">Bewerk grootboek</a></li>
       <li><a href="/schemas/rekeningoverzicht">Rekeningschema</a></li>
+      <li><a href="/bankaccounts/">Bankrekeningen beheren</a></li>
        <?php if(isset($bookyear) ): ?>
           <li><a href="/calculations/search/<?php echo $bookyear['Bookyear']['omschrijving']; ?>">Journaal</a></li>      		
 	   <?php endif;?>
