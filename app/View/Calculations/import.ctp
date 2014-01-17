@@ -134,7 +134,6 @@
       }
     });
 
-
     $(".data-container").on('keydown', function(e) { 
     	  var keyCode = e.keyCode || e.which; 
     	  
@@ -180,34 +179,43 @@
 
   function next() {
       var accordion = $("#accordion").accordion();
-      var current = accordion.accordion("option", "active"),
-      maximum = accordion.find("h3").length,
-      next = current + 1 === maximum ? 0 : current + 1;
-      
-      accordion.accordion( "option", "active", next );
-             
-      $('html, body').animate({
-           scrollTop: $("#ui-accordion-accordion-panel-"+current).offset().top-200
-       }, 500);
-         	
-       titleBar = $("#ui-accordion-accordion-header-"+current);
-       checkbox = $("#Calculation"+(current+1)+"Process");
+      var currentId = accordion.accordion("option", "active");          
 
-       $("#checkedBookings").text( Number($("#checkedBookings").text()) + 1);
+      cAccordioPanel = $('#ui-accordion-accordion-panel-'+currentId);
+      currentGrootboekSelector = cAccordioPanel.find('.custom-combobox-input');
 
-       checkedBookings = Number($("#checkedBookings").text());
-       totalBookings = Number($("#totalBookings").text());
+      if(currentGrootboekSelector.val().length){
+    	  maximum = accordion.find("h3").length;
+		  nextId = currentId + 1;
+		  accordion.accordion( "option", "active", nextId );
 
-       if(checkedBookings >= totalBookings){
-    	   $(".submit2").show();
-       }
-       
-       if(checkbox.is(':checked')){
-    	   titleBar.css( "background", "#0AA333" );
-       }else{
-    	   titleBar.css( "background", "#FF1708" );
-       } 
+	      $('html, body').animate({
+	           scrollTop: $("#ui-accordion-accordion-panel-"+currentId).offset().top-200
+	       }, 500);
+	         	
+	       titleBar = $("#ui-accordion-accordion-header-"+currentId);
+	       checkbox = $("#Calculation"+(currentId+1)+"Process");
 
-       $("#ui-accordion-accordion-panel-"+next).find('.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input').focus();
-	}
+	       titleBar.addClass( "booking-checked" );
+	      
+           checkedBookings = $('.booking-checked').length;
+	       totalBookings = Number($("#totalBookings").text());
+	       $("#checkedBookings").text(checkedBookings);
+	       
+	       if(checkedBookings >= totalBookings){
+	    	   $(".submit2").show();
+	       }
+	       
+	       if(checkbox.is(':checked')){
+	    	   titleBar.css( "background", "#dff0d8" );
+	       }else{
+	    	   titleBar.css( "background", "#f2dede" );
+	       } 
+	       
+	       $("#ui-accordion-accordion-panel-"+nextId).find('.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input').focus();	  
+	  		  
+      }else{
+    	  alert('U moet een tegenrekening (grootboek) selecteren!');
+      }      
+ 	}
   </script>
