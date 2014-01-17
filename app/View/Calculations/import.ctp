@@ -67,7 +67,7 @@
 				            </tr>    		        
 		        <?php 
 		        echo "<tr>";
-		        echo '<td class="col-md-6">'. $this->Form->input('Calculation.'.$i.'.grootboek_id', array('class'=>'tegenrekening', 'options' => $grootboeks, 'label' => false)).'</td>';
+		        echo '<td class="col-md-6">'. $this->Form->input('Calculation.'.$i.'.grootboek_id', array('empty'=>'None', 'class'=>'tegenrekening', 'options' => $grootboeks, 'label' => false)).'</td>';
 		       
 		        if($d['debet'] > $d['credit']){
 		        	echo '<td class="col-md-3">'.$this->Form->input('Calculation.'.$i.'.debet', array('class'=>'col-md-6', 'value'=>$d['debet'], 'label' => '&nbsp;&nbsp;bij', 'type'=>'text'))."";
