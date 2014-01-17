@@ -55,13 +55,7 @@
             	<?php 
             	
 				echo "<tr>";
-				//echo '<td class="checkbox">'.$this->Form->checkbox('Calculation.'.$i.'.process', array('checked'=>true, 'hidden'=>false)).'</td>';
-			//	echo '<td class="datum">'.$this->Form->input('Calculation.'.$i.'.boekdatum', array('value'=>$d['boekdatum'], 'label' => false, 'type' => 'text'))."</td>";
 				echo '<td class="col-md-12">'.$this->Form->textarea('Calculation.'.$i.'.omschrijving', array('class'=>'col-md-12', 'value'=>$d['omschrijving'], 'label' => false)).'</td>';
-		        //echo '<td class="omschrijving">'. $this->Form->input('Calculation.'.$i.'.grootboek_id', array('options' => $grootboeks, 'label' => false)).'</td>';
-				//echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.debet', array('value'=>$d['debet'], 'label' => false, 'type'=>'text'))."</td>";
-				//echo '<td class="geld">'.$this->Form->input('Calculation.'.$i.'.credit', array('value'=>$d['credit'], 'label' => false,'type'=>'text'  ))."</td>";
-		
 		        echo "</tr>";
 		       
 		        ?>
