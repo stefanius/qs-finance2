@@ -22,6 +22,7 @@ class ImportRaboCsvComponent extends ImportComponent
                 for ($i=10; $i<16;$i++) {
                     $data[$key]['omschrijving'] .= ' '. $datarow[$i] ;
                 }
+                
                 $data[$key]['omschrijving'] = preg_replace('/\s+/', ' ', $data[$key]['omschrijving']) ;
 
                 if (strlen($data[$key]['boekdatum']) == 8) {
@@ -34,6 +35,7 @@ class ImportRaboCsvComponent extends ImportComponent
                 }
 
                 $sourceinfo['rekening'] = $datarow[0];
+                $this->setAccountNumbers($datarow[0]);
                 // (D=af; C=bij - let op! Anders dan je zou verwachten!)
                 if ($datarow[3] === 'D') {
                     $data[$key]['credit'] = $datarow[4] ;
@@ -45,8 +47,9 @@ class ImportRaboCsvComponent extends ImportComponent
             }
 
         $rtrn = array();
-        $rtrn['data']  = $data;
-        $rtrn['sourceinfo']  = $sourceinfo;
+        $rtrn['data'] = $data;
+        $rtrn['sourceinfo'] = $sourceinfo;
+        $rtrn['accountNumbers'] = $this->getAccountNumbers();
 
         return $rtrn;
     }

@@ -34,6 +34,7 @@ class ImportIngCsvComponent extends ImportComponent
                 }
 
                 $sourceinfo['rekening'] = $datarow[2];
+                $this->setAccountNumbers($datarow[2]);
 
                 if (strlen(trim($datarow[8])) > 5) {
                     $data[$key]['omschrijving'] = preg_replace('/\s+/', ' ', $datarow[8]) ;
@@ -51,7 +52,8 @@ class ImportIngCsvComponent extends ImportComponent
         $rtrn = array();
         $rtrn['data']  = $data;
         $rtrn['sourceinfo']  = $sourceinfo;
-		
+        $rtrn['accountNumbers'] = $this->getAccountNumbers();
+        
         return $rtrn;
     }
 

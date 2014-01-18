@@ -178,13 +178,20 @@ class CalculationsController extends AppController
                     $filename = WWW_ROOT.$fileOK['urls'][0];
                     $this->Importer = $this->Components->load('Import'.ucwords($source).ucwords($type));
                     $parseddata = $this->Importer->execute($filename, $source , $type );
+					
+                    if(count($parseddata['accountNumbers']) > 1){
+                    	$this->Session->setFlash(__('In het CSV bestand zijn 2 of meer bankrekeningen gevonden. Het is daarom niet mogelijk om dit bestand te koppelen aan een bekende bankrekening in ons systeem. Gevonden rekeningen: '.implode(', ', $parseddata['accountNumbers'])), 'danger');
+                    	$this->redirect('/balans/'.$bookyear['Bookyear']['omschrijving'].'/import/'.$source.'/'.$type);
+                    }
+                    
                     $data = $parseddata['data'];
                     $sourceinfo = $parseddata['sourceinfo'];
                     $grootboeks = $this->Calculation->Grootboek->find('list');
                     $bankpost = $this->Bankaccount->findByIban($sourceinfo['rekening']);
 
                     if (!array_key_exists( 'Grootboek', $bankpost) || count($bankpost)==0) {
-                        throw new CakeException('Geen bank gevonden waarop de huidige bewerking van toepassing is');
+                    	$this->Session->setFlash(__('Er is geen bankrekening bekend die voldoet aan uw CSV bestand. Controleer de rekeninggegevens en voeg deze zonodig toe in het systeem. Gevonden rekeningen: '.implode(', ', $parseddata['accountNumbers'])), 'danger');
+                    	$this->redirect('/balans/'.$bookyear['Bookyear']['omschrijving'].'/import/'.$source.'/'.$type);
                     }
                     
                     $possibleDuplicates = 0;
