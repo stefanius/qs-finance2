@@ -1,33 +1,4 @@
-# ==============================================================================
-# * cap deploy:setup
-# * cap deploy
-# * cap misc:runcomposer -S composer=install (to run composer install)
-# * cap misc:runcomposer (to run composer update)
-#
-# 
-# * cap staging deploy:setup
-# * cap staging deploy
-# * etc.
-# ==============================================================================
-
-# ==============================================================================
-# Global config
-# ==============================================================================
-require 'capistrano/ext/multistage'
-require "bundler/capistrano"
-
-set :keep_releases, 2
-set :scm, :git 
-set :deploy_via, :remote_cache
-set :ssh_options, {:forward_agent => true}
-set :use_sudo, false
-
-set(:cake_config_files, %w{ core.php database.php bootstrap.php }) unless exists?(:cake_config_files)
-set(:cake_shared_dirs, %w{ tmp Vendor Plugin }) unless exists?(:cake_shared_dirs)
-set :shared_children, shared_children + cake_shared_dirs
-
-set(:shared_children, shared_children + upload_dirs) if exists?(:upload_dirs)
-set(:composer, "update") unless exists?(:composer)
+require 'capistrano/setup'
 
 # ==============================================================================
 # Deploy:
@@ -229,13 +200,13 @@ end
 # ==============================================================================
 # After hooks
 # ==============================================================================
-after "deploy:setup", "cakephp:setup:config", "cakephp:upload_subdirs", "cakephp:upload_permissions"
-after "deploy:finalize_update", "cakephp"
-after "deploy:create_symlink" do
+#after "deploy:setup", "cakephp:setup:config", "cakephp:upload_subdirs", "cakephp:upload_permissions"
+#after "deploy:finalize_update", "cakephp"
+#after "deploy:create_symlink" do
   # misc.runcomposer
-  deploy.link_public
-  assets.default
-  misc.setversion
-  misc.file_cleanup
-  deploy.cleanup
-end
+ # deploy.link_public
+  #assets.default
+  #misc.setversion
+  #misc.file_cleanup
+  #deploy.cleanup
+#end
