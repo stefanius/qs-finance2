@@ -28,12 +28,37 @@ set :scm, :git
 
 set :ssh_options, {:forward_agent => true}
 
-set :linked_dirs, %w(app/Config)
-
-set :cake_shared_dirs, %w(app/Config)
+set :linked_dirs, %w(Config)
 
 # ==============================================================================
 # Deploy:
 # ==============================================================================
 
+task :deploy do
+  on roles(:cake) do         
+    execute "rm #{release_path}/app/Config -rf"
+    execute "mv #{release_path}/app/Console #{release_path}/Console"
+    execute "mv #{release_path}/app/Controller #{release_path}/Controller"
+    execute "mv #{release_path}/app/Lib #{release_path}/Lib"
+    execute "mv #{release_path}/app/Locale #{release_path}/Locale"
+    execute "mv #{release_path}/app/Model #{release_path}/Model"
+    execute "mv #{release_path}/app/Plugin #{release_path}/Plugin"
+    execute "mv #{release_path}/app/Test #{release_path}/Test"
+    execute "mv #{release_path}/app/Vendor #{release_path}/Vendor"
+    execute "mv #{release_path}/app/View #{release_path}/View"
+    execute "mv #{release_path}/app/webroot #{release_path}/webroot"
+    execute "mv #{release_path}/app/index.php #{release_path}/index.php"
+    
+    execute "rm #{release_path}/app -rf"
+    execute "rm #{release_path}/sql -rf"
+    execute "rm #{release_path}/.gitattributes"
+    execute "rm #{release_path}/.editorconfig"
+    execute "rm #{release_path}/.gitignore"
+    execute "rm #{release_path}/*.md"
+    execute "rm #{release_path}/Vagrantfile"
+    execute "rm #{release_path}/puppet -rf"
+    execute "rm #{release_path}/Capfile"
+    execute "rm #{release_path}/*.sh"
+  end  
+end
 

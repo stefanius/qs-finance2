@@ -18,7 +18,7 @@ end
 desc "Creates shared Config dir, uploads local config files."
 task :init_config do
       on roles(:cake) do
-        upload!("app/Config", "#{shared_path}/Config", :recursive => true)     
+        upload!("app/Config", "#{shared_path}", :recursive => true)     
       end   
 end
 
@@ -48,9 +48,6 @@ end
 namespace :cakephp do
   desc "Links shared dirs, links config files, clears cache."
   task :default do
-    on roles(:cake) do
-      execute "echo porno"
-    end
 
     #link.shared
     #link.config
@@ -59,32 +56,7 @@ namespace :cakephp do
       #link.uploads
     end
   end
-
-  desc "Removes and then creates tmp dirs (except log if exists)."
-  task :cache do
-    # remove/ empty current cache
-    run "rm -rf #{shared_path}/tmp/cache"
-    run "rm -rf #{shared_path}/tmp/sessions"
-    run "rm -rf #{shared_path}/tmp/tests"
-    
-    # make the dirs, including 'logs' if it doesn't exist
-    run "mkdir -p #{shared_path}/tmp/cache"
-    run "mkdir -p #{shared_path}/tmp/cache/models"
-    run "mkdir -p #{shared_path}/tmp/cache/persistent"  
-    run "mkdir -p #{shared_path}/tmp/cache/views"
-    run "mkdir -p #{shared_path}/tmp/sessions"
-    run "mkdir -p #{shared_path}/tmp/tests"
-    run "mkdir -p #{shared_path}/tmp/logs"   
-    
-    # set right permission
-    run "chmod -fR 777 #{shared_path}/tmp/cache"
-    run "chmod -fR 777 #{shared_path}/tmp/cache/models"
-    run "chmod -fR 777 #{shared_path}/tmp/cache/persistent"
-    run "chmod -fR 777 #{shared_path}/tmp/cache/views"
-    run "chmod -fR 777 #{shared_path}/tmp/sessions"
-    run "chmod -fR 777 #{shared_path}/tmp/tests"
-  end
-  
+ 
   namespace :link do
     desc "[internal] Removes and links the shared directories to current release."
     task :shared do
