@@ -36,6 +36,10 @@ set :linked_dirs, %w(Config)
 
 task :deploy do
   on roles(:cake) do         
+    execute "mv #{release_path}/app/Config/acl.php #{shared_path}/Config/acl.php"
+    execute "mv #{release_path}/app/Config/acl.ini.php #{shared_path}/Config/acl.ini.php"
+    execute "mv #{release_path}/app/Config/core.php #{shared_path}/Config/core.php"
+    execute "mv #{release_path}/app/Config/routes.php #{shared_path}/Config/routes.php"
     execute "rm #{release_path}/app/Config -rf"
     execute "mv #{release_path}/app/Console #{release_path}/Console"
     execute "mv #{release_path}/app/Controller #{release_path}/Controller"
@@ -59,6 +63,7 @@ task :deploy do
     execute "rm #{release_path}/puppet -rf"
     execute "rm #{release_path}/Capfile"
     execute "rm #{release_path}/*.sh"
+    execute "cd #{release_path} && make create-filesystem"
   end  
 end
 

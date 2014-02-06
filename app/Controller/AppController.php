@@ -44,7 +44,10 @@ class AppController extends Controller
             $fullFolder="";
             for ($i=0;$i<count($folderArr);$i++) {
                 $fullFolder .= $folderArr[$i]."/";
-                mkdir($fullFolder);
+                
+                if(!is_dir($fullFolder)){
+                	mkdir($fullFolder);
+                }             
             }
             $folder_url=$fullFolder;
         }
