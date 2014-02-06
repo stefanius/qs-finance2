@@ -2,8 +2,11 @@ create-filesystem:
 		make remove-tmp-filesystem
 		make create-tmp-filesystem
 		make set-tmp-file-access
+		make set-upload-directory
+		
 remove-tmp-filesystem:
 		rm tmp/ -rf
+		
 create-tmp-filesystem:
 		mkdir -p tmp/
 		mkdir -p tmp/cache/
@@ -12,6 +15,7 @@ create-tmp-filesystem:
 		mkdir -p tmp/logs/
 		mkdir -p tmp/sessions/
 		mkdir -p tmp/tests/
+		
 set-tmp-file-access:		
 		chmod -R 777 tmp/cache/
 		chmod -R 777 tmp/cache/persistent/
@@ -19,4 +23,7 @@ set-tmp-file-access:
 		chmod -R 777 tmp/sessions/
 		chmod -R 777 tmp/tests/
 		chmod -R 777 tmp/logs/
-		
+
+set-upload-directory
+		mkdir -p webroot/import/	
+		chmod -R 777 webroot/import/
