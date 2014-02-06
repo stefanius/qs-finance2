@@ -24,6 +24,6 @@ set-tmp-file-access:
 		chmod -R 777 tmp/tests/
 		chmod -R 777 tmp/logs/
 
-set-upload-directory
+set-upload-directory:
 		mkdir -p webroot/import/	
 		chmod -R 777 webroot/import/
