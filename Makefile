@@ -1,7 +1,7 @@
 create-filesystem:
 		make remove-tmp-filesystem
 		make create-tmp-filesystem
-		make create-tmp-filesystem
+		make set-tmp-file-access
 remove-tmp-filesystem:
 		rm tmp/ -rf
 create-tmp-filesystem:
