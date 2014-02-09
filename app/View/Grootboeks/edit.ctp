@@ -22,10 +22,10 @@
    <div class="form-group">
     <label class="col-sm-4 control-label">Soort rekening</label>
     <div class="col-sm-8">
-		<select class="form-control" name="data[Grootboek][rektype]">
-		  <option value="0">Bezit (Debet-zijde)</option>
-		  <option value="1">Schulden (Credit-zijde)</option>
-		  <option value="2">Kosten/Baten (Resultaatrekening)</option>
+		<select id="rektype" class="form-control" name="data[Grootboek][rektype]" data-validation="empty" data-error="U moet een keuze maken" onchange="checktype(this)" required>
+		  <option value="0" <?php if($this->request->data['Grootboek']['debetcredit'] == 'debet'){echo 'SELECTED';} ?>>Bezit (Debet-zijde)</option>
+		  <option value="1" <?php if($this->request->data['Grootboek']['debetcredit'] == 'credit'){echo 'SELECTED';} ?>>Schulden (Credit-zijde)</option>
+		  <option value="2" <?php if($this->request->data['Grootboek']['rektype'] == 'resultaat'){echo 'SELECTED';} ?>>Kosten/Baten (Resultaatrekening)</option>
 		</select>
     </div>
   </div>  
@@ -35,11 +35,31 @@
     <div class="col-sm-8">
 		<label class="checkbox-inline">
 		  <?php echo $this->Form->input('liquide', array('label'=>false, 'div' => false)); ?>
+		  <span class="help-inline">De markering Liquide is alleen van toepassing op rekeningen van bezit</span>
 		</label> 
     </div>
   </div>  
-  
-<?php echo $this->Form->end(__('Submit'));?>
-  
+
+   <div class="form-group">
+    <label class="col-sm-4 control-label"></label>
+    <div class="col-sm-8">
+    	<?php echo $this->Form->submit(__('Opslaan'), array('class'=>'btn btn-success')); ?>
+    </div>
+  </div>    
 </form>
 </div>
+
+<script>
+
+	checktype($('#rektype'));
+	
+	function checktype(selectControl)
+	{
+		if($(selectControl).val() == '0'){
+			$('#GrootboekLiquide').attr("disabled", false);
+		}else{
+			$('#GrootboekLiquide').attr("disabled", true);
+			$('#GrootboekLiquide').prop("checked", false);
+		}
+	}
+</script>

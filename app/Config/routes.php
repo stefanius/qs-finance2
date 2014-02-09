@@ -29,7 +29,8 @@
     
     Router::connect('/search', array('controller' => 'search'));
     
-    Router::connect('/instellingen/grootboek-rekeningen', array('controller' => 'grootboeks', 'action'=>'index'));
+    Router::connect('/instellingen/grootboek-rekeningen/:action/*', array('controller' => 'grootboeks'));
+    Router::connect('/instellingen/grootboek-rekeningen', array('controller' => 'grootboeks', 'action' => 'index'));
     
     Router::connect('/balans/:bookyear_key/kolombalans', array('controller' => 'balans', 'action' => 'kolombalans'));
     

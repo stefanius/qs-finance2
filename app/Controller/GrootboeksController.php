@@ -33,20 +33,33 @@ class GrootboeksController extends AppController
     public function add()
     {
         if (!empty($this->request->data)) {
-            if ($this->request->data['Grootboek']['debetcredit']=='result') {
-                $this->request->data['Grootboek']['debetcredit']='credit';
-                $this->request->data['Grootboek']['winstverlies']=1;
-            } else {
-                $this->request->data['winstverlies']=0;
-            }
-
-            $this->Grootboek->create();
-            if ($this->Grootboek->save($this->request->data)) {
-                $this->Session->setFlash(__('The grootboek has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The grootboek could not be saved. Please, try again.'));
-            }
+        	$checkDuplicate = $this->Grootboek->get($this->request->data['Grootboek']['nummer']);
+        	
+        	if(empty($checkDuplicate)){
+	        	if($this->request->data['Grootboek']['rektype'] == 0){
+	        		$this->request->data['Grootboek']['debetcredit']='debet';
+	        		$this->request->data['Grootboek']['winstverlies']=0;
+	        	}elseif($this->request->data['Grootboek']['rektype'] == 1){
+	        		$this->request->data['Grootboek']['debetcredit']='credit';
+	        		$this->request->data['Grootboek']['winstverlies']=0;        		
+	        	}elseif($this->request->data['Grootboek']['rektype'] == 2){
+	        		$this->request->data['Grootboek']['debetcredit']='credit';
+	        		$this->request->data['Grootboek']['winstverlies']=1;        		
+	        	}
+	        	
+	        	unset($this->request->data['Grootboek']['rektype']);
+        		
+        		$this->Grootboek->create();
+        		
+        		if ($this->Grootboek->save($this->request->data)) {
+        			$this->Session->setFlash(__('Het grootboek is succesvol opgeslagen.'), 'success');
+        			$this->redirect(array('action' => 'index'));
+        		} else {
+        			$this->Session->setFlash(__('Het grootboek kon niet worden opgeslagen.'), 'danger');
+        		}        		
+        	}else{
+        		$this->Session->setFlash(__('Er bestaat al een grootboek met nummer '.$this->request->data['Grootboek']['nummer'].'. Kies een ander nummer.'), 'danger');
+        	}
         }
     }
 
@@ -56,6 +69,7 @@ class GrootboeksController extends AppController
             $this->Session->setFlash(__('Invalid grootboek'));
             $this->redirect(array('action' => 'index'));
         }
+        
         if (!empty($this->request->data)) {
         	if($this->request->data['Grootboek']['rektype'] == 0){
         		$this->request->data['Grootboek']['debetcredit']='debet';
@@ -67,14 +81,17 @@ class GrootboeksController extends AppController
         		$this->request->data['Grootboek']['debetcredit']='credit';
         		$this->request->data['Grootboek']['winstverlies']=1;        		
         	}
+        	
         	unset($this->request->data['Grootboek']['rektype']);
+        	
             if ($this->Grootboek->save($this->request->data)) {
-                $this->Session->setFlash(__('The grootboek has been saved'));
+                $this->Session->setFlash(__('Het grootboek is succesvol opgeslagen.'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The grootboek could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('Het grootboek kon niet worden opgeslagen.'), 'danger');
             }
         }
+        
         if (empty($this->request->data)) {
             $this->request->data = $this->Grootboek->get($key);
         }

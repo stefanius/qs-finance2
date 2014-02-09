@@ -95,9 +95,6 @@ class Grootboek extends AppModel
     public function getById($id)
     {
         $grootboek = $this->find('first', array('conditions' => array ('id' => $id)));
-        if ($grootboek==null) {
-            $grootboek = $this->onbekend($id);
-        }
 
         return $grootboek;
     }
@@ -105,22 +102,6 @@ class Grootboek extends AppModel
     public function getByNummer($nummer)
     {
         $grootboek = $this->find('first', array('conditions' => array ('nummer' => $nummer)));
-        if ($grootboek==null) {
-            $grootboek = $this->onbekend($nummer);
-        }
-
-        return $grootboek;
-    }
-
-    public function onbekend($key)
-    {
-        $grootboek['Grootboek']['nummer'] = $key;
-        $grootboek['Grootboek']['id'] = $key;
-        $grootboek['Grootboek']['display_omschrijving'] = "*$key*: ID/nummer is onbekend. Grootboek is niet gevonden";
-        $grootboek['Grootboek']['omschrijving'] = "ID/nummer is onbekend. Grootboek is niet gevonden";
-        $grootboek['Grootboek']['debet'] = -1;
-        $grootboek['Grootboek']['credit'] = -1;
-        $grootboek['Grootboek']['debetcredit'] = "N/A";
 
         return $grootboek;
     }
@@ -133,7 +114,7 @@ class Grootboek extends AppModel
         } elseif (strlen($key)==36) {
             $grootboek=$this->getById($key);
         } else {
-            $grootboek = $this->onbekend($key);
+            $grootboek = null;
         }
 
         return $grootboek;
