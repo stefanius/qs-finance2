@@ -116,15 +116,18 @@ namespace :misc do
     end
   end
 
-  desc "Set current version in version.ctp"
-  task :setversion do
-    run <<-CMD
-		git --git-dir=#{current_release}/.git --work-tree=#{current_release} describe --always --tag > #{current_release}/View/Elements/version.ctp
-    CMD
-  end
+
 end
 
-
+        desc "Set current version in version.ctp"
+        task :setversion do
+           on roles(:cake) do
+             execute "git --git-dir=#{release_path}/.git --work-tree=#{release_path} describe --always --tag > #{release_path}/View/Elements/version.ctp"
+           #  execute "echo Hello"       
+           end
+          end
+        
+        
 # ==============================================================================
 # After hooks
 # ==============================================================================
