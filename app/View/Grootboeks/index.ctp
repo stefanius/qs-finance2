@@ -1,5 +1,6 @@
 
 	<h2><?php echo __('Overzicht Grootboekrekeningen');?></h2>
+	<?php echo $this->Html->link(__('Grootboek toevoegen'), array('action' => 'add')); ?>
 	<table class="table table-striped table-bordered table-condensed">
 	<tr>
 			<th><?php echo __('#');?></th>
