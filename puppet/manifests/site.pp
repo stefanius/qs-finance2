@@ -54,6 +54,28 @@ class { 'composer':
   require      => Class['php'],
 }
 
+class phpmyadmin
+{
+    package
+    {
+        "phpmyadmin":
+            ensure => present,
+            require => [
+                Exec['/usr/bin/apt-get update'],
+                Package["php5", "php5-mysql", "apache2"],
+            ]
+    }
+  
+    file
+    {
+        "/etc/apache2/conf.d/phpmyadmin.conf":
+            ensure => link,
+            target => "/etc/phpmyadmin/apache.conf",
+            require => Package['apache2'],
+            notify => Service["apache2"]
+    }
+}
+
 exec {"import-db":
 	command => "/usr/bin/mysql -uroot  < /vagrant/sql/qsfinance.sql",
     require => [Class['composer'], Class['php'], Class['mysql'], Class['mysql::php']],
@@ -73,3 +95,5 @@ user { "www-data":
     groups => ["vagrant"],
     notify  => Service["apache2"],
 }
+
+include phpmyadmin

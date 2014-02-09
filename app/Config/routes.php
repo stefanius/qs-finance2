@@ -32,6 +32,8 @@
     Router::connect('/instellingen/grootboek-rekeningen/:action/*', array('controller' => 'grootboeks'));
     Router::connect('/instellingen/grootboek-rekeningen', array('controller' => 'grootboeks', 'action' => 'index'));
     
+    Router::connect('/instellingen/wachtwoord-wijzigen', array('controller' => 'users', 'action' => 'changepassword'));
+    
     Router::connect('/balans/:bookyear_key/kolombalans', array('controller' => 'balans', 'action' => 'kolombalans'));
     
     Router::connect('/balans/:bookyear_key/boeking/*', array('controller' => 'calculations', 'action' => 'crossbooking'));

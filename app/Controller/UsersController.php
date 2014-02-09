@@ -74,11 +74,35 @@ class UsersController extends AppController
             $this->request->data = $this->User->read(null, $id);
         }
         $groups = $this->User->Group->find('list');
-        $organisations = $this->User->Organisation->find('list');
+        //$organisations = $this->User->Organisation->find('list');
         
         $this->set(compact('groups', 'organisations'));
     }
 
+    public function changepassword()
+    {
+        if($this->request->is('post') || $this->request->is('put')){
+            if(!empty($this->request->data['User']['password']) && !empty($this->request->data['User']['password_retype'])){
+                if($this->request->data['User']['password'] == $this->request->data['User']['password_retype']){
+                    $user = $this->User->read(null, $this->Auth->user('id'));
+                    $user['User']['password'] = $this->request->data['User']['password'];
+ 
+                    if($this->User->save($user)){                    	
+                        $this->Session->setFlash('Je wachtwoord is aangepast', 'success');
+                        $this->redirect('/');
+                    } else {
+                        $this->Session->setFlash('Er is iets misgegaan, probeer het later nog eens', 'danger');
+                    }
+                } else {
+                    $this->Session->setFlash('Je wachtwoorden komen niet overeen.', 'danger');
+                }
+            } else {
+                $this->Session->setFlash('Er is geen wachtwoord ontvangen', 'danger');
+            }
+        }
+    	
+    }    
+    
     public function delete($id = null)
     {
         if (!$id) {

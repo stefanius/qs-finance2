@@ -7,7 +7,7 @@ CREATE TABLE `qs_dev_db`.`acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=68;
+) ENGINE=MyISAM;
 
 CREATE TABLE `qs_dev_db`.`aros` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -18,7 +18,7 @@ CREATE TABLE `qs_dev_db`.`aros` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7;
+) ENGINE=MyISAM;
 
 CREATE TABLE `qs_dev_db`.`aros_acos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -30,7 +30,7 @@ CREATE TABLE `qs_dev_db`.`aros_acos` (
   `_delete` varchar(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE `qs_dev_db`.`boekingstukkens` (
@@ -38,7 +38,7 @@ CREATE TABLE `qs_dev_db`.`boekingstukkens` (
   `boekingstuk` varchar(30) NOT NULL,
   `omschrijving` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7;
+) ENGINE=MyISAM;
 
 CREATE TABLE `qs_dev_db`.`bookyears` (
   `id` varchar(36) NOT NULL,
@@ -126,22 +126,28 @@ CREATE TABLE `qs_dev_db`.`bankaccounts` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM;
 
+insert into `qs_dev_db`.`groups` values
+	(3,'Viewers','2011-09-19 16:26:45','2011-09-19 16:26:45'),
+	(2,'Users','2011-09-19 16:24:39','2011-09-19 16:24:58'),
+	(1,'Administrators','2011-09-19 16:23:09','2011-09-19 16:23:09')
+;
+
+insert into `qs_dev_db`.`aros` values
+	(6,3,'User',3,NULL,10,11),
+	(5,2,'User',2,NULL,6,7),
+	(4,1,'User',1,NULL,2,3),
+	(3,NULL,'Group',3,NULL,9,12),
+	(2,NULL,'Group',2,NULL,5,8),
+	(1,NULL,'Group',1,NULL,1,4)
+;
+
 INSERT INTO `qs_dev_db`.`users`
-(`id`,
-`username`,
-`password`,
-`group_id`,
-`created`,
-`modified`)
+(`id`,`username`,`password`,`group_id`,`created`,`modified`)
 VALUES
-(
-'1',
-'administrator',
-'02845b966c2a766b28d7566d9020dd154346bf1f',
-'1',
-'2011-09-19 16:27:30',
-'2011-09-19 20:52:20'
-);
+(1,'administrator','02845b966c2a766b28d7566d9020dd154346bf1f','1','2011-09-19 16:27:30','2011-09-19 20:52:20'),
+(3,'viewer'       ,'b2793813ad59793da1b1a82ed35e6059ed61717d',3,'2011-09-19 16:28:07','2011-09-19 20:52:46'),
+(2,'user'         ,'8099237577b8b49103e41dfa2cef298f105e3ce8',2,'2011-09-19 16:27:47','2011-09-19 20:52:34')
+;
 
 
 INSERT INTO `qs_dev_db`.`grootboeks` (`id`,`nummer`,`omschrijving`,`debetcredit`,`winstverlies`,`created`,`modified`,`liquide`) 
