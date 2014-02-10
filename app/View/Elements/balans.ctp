@@ -12,7 +12,7 @@
 	  					    
 	<?php endif; ?>
 	
-	<?php if(is_array($balans) && is_array($balans[$side])):?>
+	<?php if(is_array($balans) && is_array($balans[$side]) && array_key_exists('posten', $balans[$side])):?>
 		<?php foreach($balans[$side]['posten'] as $a): ?>
 		
 		<?php if($a['Grootboek']['omschrijving'] == '.'):?>
