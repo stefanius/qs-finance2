@@ -29,4 +29,4 @@ set-upload-directory:
 		chmod -R 777 webroot/import/
 
 update-acl:
-		Console/cake AclExtras.AclExtras aco_sync
+		bash Console/cake AclExtras.AclExtras aco_sync
