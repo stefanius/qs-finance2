@@ -21,6 +21,8 @@
 $ds = DIRECTORY_SEPARATOR;
 $dispatcher = 'Cake' . $ds . 'Console' . $ds . 'ShellDispatcher.php';
 
+$dispatcherAlternate = getenv ('CakeCore');
+
 if (function_exists('ini_set')) {
     $root = dirname(dirname(dirname(__FILE__)));
 
@@ -30,7 +32,15 @@ if (function_exists('ini_set')) {
 }
 
 if (!include($dispatcher)) {
-    trigger_error('Could not locate CakePHP core files.', E_USER_ERROR);
+	
+	if($dispatcherAlternate){
+		if (!include($dispatcher)) {
+			trigger_error('Could not locate CakePHP core files.', E_USER_ERROR);
+		}
+	}else{
+		trigger_error('Could not locate CakePHP core files.', E_USER_ERROR);
+	}
+    
 }
 unset($paths, $path, $dispatcher, $root, $ds);
 
