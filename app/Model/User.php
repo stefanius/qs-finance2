@@ -3,7 +3,7 @@ class User extends AppModel
 {
 	public $name = 'User';
 	public $displayField = 'username';
-	public $actsAs = array('Acl' => array('type' => 'requester'));
+	public $actsAs = array('Acl' => array('type' => 'requester', 'enabled' => false));
 	public $validate = array(
 			'username' => array(
 					'notempty' => array(
@@ -72,11 +72,16 @@ class User extends AppModel
 		}
 	}
 
-	public function beforeSave($options = array()) {
+	public function beforeSave($options = array()) 
+	{
 		if (isset($this->data[$this->alias]['password'])) {
 			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
 		}
 		return true;
 	}
 
+	public function bindNode($user) 
+	{
+		return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
+	}
 }

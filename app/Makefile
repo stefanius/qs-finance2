@@ -27,3 +27,6 @@ set-tmp-file-access:
 set-upload-directory:
 		mkdir -p webroot/import/	
 		chmod -R 777 webroot/import/
+
+update-acl:
+		Console/cake AclExtras.AclExtras aco_sync

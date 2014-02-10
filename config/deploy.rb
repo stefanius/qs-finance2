@@ -50,6 +50,7 @@ task :deploy do
     execute "mv #{release_path}/app/Test #{release_path}/Test"
     execute "mv #{release_path}/app/Vendor #{release_path}/Vendor"
     execute "mv #{release_path}/app/View #{release_path}/View"
+    execute "mv #{release_path}/app/Makefile #{release_path}/Makefile"
     execute "mv #{release_path}/app/webroot #{release_path}/webroot"
     execute "mv #{release_path}/app/index.php #{release_path}/index.php"
     
@@ -64,6 +65,7 @@ task :deploy do
     execute "rm #{release_path}/Capfile"
     execute "rm #{release_path}/*.sh"
     execute "cd #{release_path} && make create-filesystem"
+    execute "cd #{release_path} && make update-acl"
   end  
 end
 
