@@ -106,12 +106,21 @@
 
 
 
-  <script>
+  <script>  
+
+  $("input.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input").keydown(function( event ) {
+	  if ( event.which == 13 ) {
+		  event.preventDefault();
+		  }
+  });
+  
   $(function() {
 
     $( ".tegenrekening" ).combobox();
     $(".submit2").hide();
+
     $("input.custom-combobox-input.ui-widget.ui-widget-content.ui-state-default.ui-corner-left.ui-autocomplete-input").css('width','100%');
+    
     var icons = {
       header: "ui-icon-circle-arrow-e",
       activeHeader: "ui-icon-circle-arrow-s"
