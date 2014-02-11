@@ -36,8 +36,8 @@ if(file_exists($dispatcher)){
 		$includedDispatcher = true;
 	}
 }
-var_dump(dirname(__FILE__).'/cakepath.php');
-if(include(dirname(__FILE__).'/cakepath.php') && $includedDispatcher == false){
+
+if(include(dirname(__FILE__).'/cakepath.php')){
 	include cakepath();
 	$includedDispatcher = true;
 }
