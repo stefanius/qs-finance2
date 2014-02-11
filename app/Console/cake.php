@@ -20,8 +20,9 @@
  */
 $ds = DIRECTORY_SEPARATOR;
 $dispatcher = 'Cake' . $ds . 'Console' . $ds . 'ShellDispatcher.php';
-
 $dispatcherAlternate = getenv ('CakeCore');
+
+$includedDispatcher = false;
 
 if (function_exists('ini_set')) {
     $root = dirname(dirname(dirname(__FILE__)));
@@ -31,16 +32,20 @@ if (function_exists('ini_set')) {
     ini_set('include_path', $root . $ds . 'lib' . PATH_SEPARATOR . ini_get('include_path'));
 }
 
-if (!include($dispatcher)) {
-	
-	if($dispatcherAlternate){
-		if (!include($dispatcher)) {
-			trigger_error('Could not locate CakePHP core files.', E_USER_ERROR);
-		}
-	}else{
-		trigger_error('Could not locate CakePHP core files.', E_USER_ERROR);
+if(file_exists($dispatcher)){
+	if (include($dispatcher)){
+		$includedDispatcher = true;
 	}
-    
+}
+
+if(file_exists($dispatcherAlternate) && !$includedDispatcher){
+	if (include($dispatcherAlternate)){
+		$includedDispatcher = true;
+	}
+}
+
+if (!$includedDispatcher) {
+	trigger_error('Could not locate CakePHP core files.', E_USER_ERROR); 
 }
 unset($paths, $path, $dispatcher, $root, $ds);
 
