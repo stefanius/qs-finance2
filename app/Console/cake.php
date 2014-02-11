@@ -36,11 +36,12 @@ if(file_exists($dispatcher)){
 		$includedDispatcher = true;
 	}
 }
-var_dump(cakepath());
+
 if(include('cakepath.php') && $includedDispatcher == false){
 	include cakepath();
+	$includedDispatcher = true;
 }
-
+var_dump(cakepath());
 if (!$includedDispatcher) {
 	trigger_error('Could not locate CakePHP core files.', E_USER_ERROR); 
 }
