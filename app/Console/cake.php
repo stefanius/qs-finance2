@@ -36,7 +36,7 @@ if(file_exists($dispatcher)){
 		$includedDispatcher = true;
 	}
 }
-
+var_dump(cakepath());
 if(include('cakepath.php') && $includedDispatcher == false){
 	include cakepath();
 }
