@@ -125,5 +125,6 @@ Configure::write('Session', array(
 		'autoRegenerate' => true, // causes the session expiration time to reset on each page load
 ));
 
+
 CakePlugin::load('AclExtras');
 
