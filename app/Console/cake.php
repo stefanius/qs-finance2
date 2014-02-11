@@ -20,7 +20,6 @@
  */
 $ds = DIRECTORY_SEPARATOR;
 $dispatcher = 'Cake' . $ds . 'Console' . $ds . 'ShellDispatcher.php';
-$dispatcherAlternate = getenv ('CakeCore');
 
 $includedDispatcher = false;
 
@@ -38,10 +37,8 @@ if(file_exists($dispatcher)){
 	}
 }
 
-if(file_exists($dispatcherAlternate) && !$includedDispatcher){
-	if (include($dispatcherAlternate)){
-		$includedDispatcher = true;
-	}
+if(include('cakepath.php') && $includedDispatcher == false){
+	include cakepath();
 }
 
 if (!$includedDispatcher) {
