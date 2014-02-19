@@ -1,6 +1,24 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Automatically sync Virtualbox guest additions
+Vagrant.require_plugin "vagrant-vbguest"
+
+# Ubuntu Cloud image already contains guest additions, which are out of date,
+# uninstall them and let the vbguest plugin handle this
+class CloudUbuntuVagrant < VagrantVbguest::Installers::Ubuntu
+  def install(opts=nil, &block)
+    communicate.sudo("apt-get -y -q remove --purge virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11", opts, &block)
+    @vb_uninstalled = true
+    super
+  end
+
+  def running?(opts=nil, &block)
+    return false if @vb_uninstalled
+    super
+  end
+end
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
