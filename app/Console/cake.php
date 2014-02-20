@@ -17,6 +17,8 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+date_default_timezone_set('UTC');
+
 $ds = DIRECTORY_SEPARATOR;
 $dispatcher = 'Cake' . $ds . 'Console' . $ds . 'ShellDispatcher.php';
 
