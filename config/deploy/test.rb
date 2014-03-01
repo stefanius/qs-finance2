@@ -1,7 +1,7 @@
 set :stage, :test
-set :application, "qsfinance2"
+set :application, "qsfinance"
   
-set :deploy_to,  "/home/stefanius/sites/qsfinance2/test" 
+set :deploy_to,  "/home/stefanius/sites/qsfinance/test" 
 set :branch, ENV["REVISION"] || ENV["BRANCH_NAME"] || "master"
 
 set :upload_dirs, %w{import}
