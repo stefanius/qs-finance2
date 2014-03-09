@@ -1,0 +1,10 @@
+#!/bin/bash
+FOLDER=$1
+
+rm $FOLDER/.git -rf
+rm $FOLDER/.git* -rf
+rm $FOLDER/*.sh -rf
+rm $FOLDER/deploy -rf
+rm $FOLDER/sql -rf
+rm $FOLDER/puppet -rf
+rm $FOLDER/Vagrantfile -rf

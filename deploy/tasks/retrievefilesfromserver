@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SOURCE_FOLDER=$1
+TARGET_USERNAME=$2
+TARGET_HOSTNAME=$3
+TARGET_FOLDER=$4
+CFG_FILE=$5
+
+IFS=$'\n' read -d '' -r -a keepfiles < $CFG_FILE
+
+for i in "${keepfiles[@]}"
+do
+	#echo $i
+	scp -r $TARGET_USERNAME@$TARGET_HOSTNAME:$TARGET_FOLDER/$i $SOURCE_FOLDER/$i
+done
+

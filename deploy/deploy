@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#Define variables
+SETTINGS_CFG="cfg/settings.cfg"
+SETUPS_CFG="cfg/setups.cfg"
+
+#Load config files
+source $SETTINGS_CFG
+
+#Set deploytarget
+clear
+echo "Choose a deploytarget (or ALL for all the targets at once)"
+echo ""
+cat $SETUPS_CFG
+echo ""
+echo ""
+read SUBTARGET
+
+if ! grep -q $SUBTARGET $SETUPS_CFG;
+then
+   echo ""
+   echo "The deploytarget '$SUBTARGET' is unknown. Restart the deployment and choose a target."
+   echo ""
+   exit
+fi
+
+#Prepare target
+DEPLOY_TO=$TARGET_PATH/$SUBTARGET
+bash tasks/preparetarget $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO
+
+bash tasks/checkout $REPO $TMP
+bash tasks/preclean $TMP
+bash tasks/retrievefilesfromserver $TMP $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO cfg/keepfiles.cfg
+bash tasks/sendtoserver $TMP $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO
+

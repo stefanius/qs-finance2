@@ -1,0 +1,6 @@
+#!/bin/bash
+REPOSITORY=$1
+CHECKOUT_TO=$2
+
+rm $CHECKOUT_TO -rf
+git clone $REPOSITORY $CHECKOUT_TO
