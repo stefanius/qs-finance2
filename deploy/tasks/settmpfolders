@@ -1,0 +1,8 @@
+#!/bin/bash
+USERNAME=$1
+SERVER=$2
+TARGET=$3
+
+ssh $USERNAME@$SERVER "cd $TARGET && make remove-tmp-filesystem"
+ssh $USERNAME@$SERVER "cd $TARGET && make create-tmp-filesystem"
+ssh $USERNAME@$SERVER "cd $TARGET && make set-tmp-file-access"
