@@ -1,6 +1,9 @@
 #!/bin/bash
 FOLDER=$1
 
+#setversion
+cd $FOLDER && git describe --tags > app/View/Elements/version.ctp
+
 rm $FOLDER/.git -rf
 rm $FOLDER/.git* -rf
 rm $FOLDER/*.sh -rf

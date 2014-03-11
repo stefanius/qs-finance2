@@ -29,11 +29,6 @@ DEPLOY_TO=$TARGET_PATH/$SUBTARGET
 bash tasks/preparetarget $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO
 
 bash tasks/checkout $REPO $TMP
-
-#setversion
-cd $TMP && git describe --tags > app/View/Elements/version.ctp
-
-
 bash tasks/preclean $TMP
 bash tasks/retrievefilesfromserver $TMP $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO cfg/keepfiles.cfg
 bash tasks/sendtoserver $TMP $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO
