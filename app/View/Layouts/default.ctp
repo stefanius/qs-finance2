@@ -41,6 +41,11 @@
 <div id="footer">
       <div class="container">
         <p>Huidige versie: <?php echo $this->element('version'); ?></p>
+        
+        <?php 
+        $ds = ConnectionManager::getDataSource('default')->config;
+        echo $ds['database'];
+        ?>
       </div>
     </div>
   	<?php //echo $this->element('sql_dump'); ?>
