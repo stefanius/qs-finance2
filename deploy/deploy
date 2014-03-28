@@ -33,3 +33,5 @@ bash tasks/preclean $TMP
 bash tasks/retrievefilesfromserver $TMP $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO cfg/keepfiles.cfg
 bash tasks/sendtoserver $TMP $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO
 
+bash runmake $TARGET_USERNAME $TARGET_SERVER $DEPLOY_TO
+
