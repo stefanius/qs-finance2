@@ -30,3 +30,6 @@ set-upload-directory:
 
 update-acl:
 		bash app/Console/cake AclExtras.AclExtras aco_sync
+
+update-acl:
+		bash app/Console/cake check-schema

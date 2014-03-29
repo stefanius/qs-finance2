@@ -4,3 +4,4 @@ SERVER=$2
 TARGET=$3
 
 ssh $USERNAME@$SERVER "cd $TARGET && make update-acl"
+ssh $USERNAME@$SERVER "cd $TARGET && make check-schema"
