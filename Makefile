@@ -32,4 +32,4 @@ update-acl:
 		bash app/Console/cake AclExtras.AclExtras aco_sync
 
 check-schema:
-		bash app/Console/cake checkschema
+		bash app/Console/cake check_schema
