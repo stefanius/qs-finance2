@@ -1,10 +1,6 @@
 #!/bin/bash
-TARGET_USERNAME=$1
-TARGET_HOSTNAME=$2
-TARGET_FOLDER=$3
+USERNAME=$1
+SERVER=$2
+TARGET=$3
 
-ssh $TARGET_USERNAME@$TARGET_HOSTNAME 
-cd $TARGET_FOLDER
-
-make create-filesystem
-make update-acl
+ssh $USERNAME@$SERVER "cd $TARGET && make update-acl"
