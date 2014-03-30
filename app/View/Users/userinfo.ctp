@@ -44,24 +44,28 @@
 		<tr>
 			<td><strong>Uw land</strong></td>
 			<td><?php echo $locationInfo['country']; ?></td>		
+		</tr>
 		
+		<tr>
 			<td><strong>Uw provincie / regio</strong></td>
 			<td><?php echo $locationInfo['regionName']; ?></td>
-			
+		</tr>
+		
+		<tr>
 			<td><strong>Uw stad</strong></td>
 			<td><?php echo $locationInfo['city']; ?></td>		
-			
+		</tr>
+		
+		<tr>
 			<td><strong>Uw tijdzone</strong></td>
 			<td><?php echo $locationInfo['timezone']; ?></td>	
-			
+		</tr>
+		
+		<tr>
 			<td><strong>Uw ISP</strong></td>
 			<td><?php echo $locationInfo['isp']; ?> / <?php echo $locationInfo['org']; ?></td>							
 		</tr>
-
-		<tr>
-			<td><strong>Uw schermresolutie</strong></td>
-			<td><span class="screensize">N/A</span></td>
-		</tr>		
+	
 	</table>		
 	
 </div>
