@@ -135,6 +135,7 @@ class UsersController extends AppController
  
     	$locationInfo = $this->Curl->get($apiUrl);
 
+    	$locationInfo = json_decode($locationInfo, true);
     	$this->set(compact('systemInfo', 'userAgent', 'userIP', 'locationInfo'));
     }
 }

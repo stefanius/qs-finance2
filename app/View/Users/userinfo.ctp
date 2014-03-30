@@ -4,7 +4,7 @@
 
 		<tr>
 			<td><strong>Uw IP adres</strong></td>
-			<td><?php echo $userIP['REMOTE_ADDR']; ?></td>
+			<td><?php echo $userIP; ?></td>
 		</tr>
 	
 		<tr>
