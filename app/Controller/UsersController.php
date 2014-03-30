@@ -2,6 +2,8 @@
 class UsersController extends AppController
 {
     public $name = 'Users';
+    
+    public $components = array('ClientDetect', 'Curl');
 
     public function beforeFilter()
     {
@@ -120,5 +122,19 @@ class UsersController extends AppController
     public function buildacl()
     {
         build_acl();
+    }
+    
+    public function userinfo()
+    {
+    	$userAgent = $_SERVER['HTTP_USER_AGENT'];
+    	$userIP = $_SERVER['REMOTE_ADDR'];
+    	
+    	$systemInfo = $this->ClientDetect->detect($userAgent);
+
+    	$apiUrl = 'http://ip-api.com/json/'.$userIP;
+ 
+    	$locationInfo = $this->Curl->get($apiUrl);
+
+    	$this->set(compact('systemInfo', 'userAgent', 'userIP', 'locationInfo'));
     }
 }
