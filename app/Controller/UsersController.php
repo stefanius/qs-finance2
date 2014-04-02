@@ -3,7 +3,7 @@ class UsersController extends AppController
 {
     public $name = 'Users';
     
-    public $components = array('ClientDetect', 'Curl');
+    public $components = array('CakeTools.ClientDetect', 'CakeTools.IpApi');
 
     public function beforeFilter()
     {
@@ -130,12 +130,9 @@ class UsersController extends AppController
     	$userIP = $_SERVER['REMOTE_ADDR'];
     	
     	$systemInfo = $this->ClientDetect->detect($userAgent);
-
-    	$apiUrl = 'http://ip-api.com/json/'.$userIP;
  
-    	$locationInfo = $this->Curl->get($apiUrl);
+    	$locationInfo = $this->IpApi->execute($userIP);
 
-    	$locationInfo = json_decode($locationInfo, true);
     	$this->set(compact('systemInfo', 'userAgent', 'userIP', 'locationInfo'));
     }
 }

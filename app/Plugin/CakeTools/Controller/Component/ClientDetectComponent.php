@@ -3,8 +3,7 @@
 class ClientDetectComponent extends Component
 {
     public $name = 'ClientDetect';
-    
-    
+      
     private $operatingSystems  =   array(
     		'windows nt 6.3'     =>  'Windows 8.1',
     		'windows nt 6.2'     =>  'Windows 8',
