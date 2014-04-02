@@ -49,11 +49,11 @@
     Router::connect('/balans/:bookyear_key/export/excel/balans/', array('controller' => 'exportexcel', 'action'=>'balans'));
     Router::connect('/balans/:bookyear_key/export/excel/kolombalans/', array('controller' => 'exportexcel', 'action'=>'kolombalans'));
     
-    Router::connect('/balans/:bookyear_key/saldo-overzicht/resultaatposten/', array('controller' => 'grootboeks', 'action'=>'overzicht' ,0));
+    Router::connect('/balans/:bookyear_key/saldo-overzicht/resultaatposten/', array('controller' => 'grootboeks', 'action'=>'overzicht' ,1));
     
     Router::connect('/balans/:bookyear_key', array('controller' => 'balans'));
     
-    Router::connect('/balans/:bookyear_key/saldo-overzicht/balansposten/', array('controller' => 'grootboeks', 'action'=>'overzicht' ,1));
+    Router::connect('/balans/:bookyear_key/saldo-overzicht/balansposten/', array('controller' => 'grootboeks', 'action'=>'overzicht' ,0));
    // grootboeks/overzicht/2012-2013/0
     
     Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
