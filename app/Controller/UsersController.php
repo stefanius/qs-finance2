@@ -124,7 +124,7 @@ class UsersController extends AppController
         build_acl();
     }
     
-    public function userinfo()
+    public function systeminfo()
     {
     	$userAgent = $_SERVER['HTTP_USER_AGENT'];
     	$userIP = $_SERVER['REMOTE_ADDR'];

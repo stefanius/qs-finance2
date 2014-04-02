@@ -7,6 +7,9 @@
          <?php echo $this->Html->link('Wachtwoord wijzigen', '/instellingen/wachtwoord-wijzigen', array('class' => 'menu-item-target')); ?>
       </li>
       <li>
+         <?php echo $this->Html->link('Uw systeeminfo', '/users/systeminfo', array('class' => 'menu-item-target')); ?>
+      </li>
+      <li>
          <?php echo $this->Html->link('Uitloggen', '/users/logout', array('class' => 'menu-item-target')); ?>
       </li>
     </ul>
