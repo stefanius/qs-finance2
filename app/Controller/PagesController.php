@@ -55,14 +55,12 @@ class PagesController extends AppController
  */
     public $uses = array();
 
-    
     public function beforeFilter()
     {
-    	parent::beforeFilter();
-    	$this->Auth->allow(array());
-    }    
-    
-    
+        parent::beforeFilter();
+        $this->Auth->allow(array());
+    }
+
 /**
  * Displays a view
  *
@@ -71,7 +69,7 @@ class PagesController extends AppController
  */
     public function display()
     {
-    	$this->Session->delete('Bookyear');
+        $this->Session->delete('Bookyear');
         $path = func_get_args();
 
         $count = count($path);

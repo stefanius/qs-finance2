@@ -9,7 +9,10 @@ vendors
 build
 dist
 tags
-
+.idea
+/.idea
+.idea/*
+/.idea/*
 .vagrant/machines/default/virtualbox/id
 .vagrant/*
 .vagrant

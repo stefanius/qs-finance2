@@ -2,6 +2,6 @@
 
 App::uses('AppModel', 'Model');
 
-class CakeToolsAppModel extends AppModel {
-
+class CakeToolsAppModel extends AppModel
+{
 }

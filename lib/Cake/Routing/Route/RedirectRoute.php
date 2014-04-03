@@ -11,7 +11,7 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.Routing.Route
  * @since         CakePHP(tm) v 2.0
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('CakeResponse', 'Network');
@@ -41,7 +41,7 @@ class RedirectRoute extends CakeRoute {
 	public $redirect;
 
 /**
- * Flag for disabling exit() when this route parses an URL.
+ * Flag for disabling exit() when this route parses a URL.
  *
  * @var boolean
  */
@@ -80,6 +80,13 @@ class RedirectRoute extends CakeRoute {
 		}
 		if (isset($this->options['persist']) && is_array($redirect)) {
 			$redirect += array('named' => $params['named'], 'pass' => $params['pass'], 'url' => array());
+			if (is_array($this->options['persist'])) {
+				foreach ($this->options['persist'] as $elem) {
+					if (isset($params[$elem])) {
+						$redirect[$elem] = $params[$elem];
+					}
+				}
+			}
 			$redirect = Router::reverse($redirect);
 		}
 		$status = 301;

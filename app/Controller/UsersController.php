@@ -2,7 +2,7 @@
 class UsersController extends AppController
 {
     public $name = 'Users';
-    
+
     public $components = array('CakeTools.ClientDetect', 'CakeTools.IpApi');
 
     public function beforeFilter()
@@ -77,19 +77,19 @@ class UsersController extends AppController
         }
         $groups = $this->User->Group->find('list');
         //$organisations = $this->User->Organisation->find('list');
-        
+
         $this->set(compact('groups', 'organisations'));
     }
 
     public function changepassword()
     {
-        if($this->request->is('post') || $this->request->is('put')){
-            if(!empty($this->request->data['User']['password']) && !empty($this->request->data['User']['password_retype'])){
-                if($this->request->data['User']['password'] == $this->request->data['User']['password_retype']){
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if (!empty($this->request->data['User']['password']) && !empty($this->request->data['User']['password_retype'])) {
+                if ($this->request->data['User']['password'] == $this->request->data['User']['password_retype']) {
                     $user = $this->User->read(null, $this->Auth->user('id'));
                     $user['User']['password'] = $this->request->data['User']['password'];
- 
-                    if($this->User->save($user)){                    	
+
+                    if ($this->User->save($user)) {
                         $this->Session->setFlash('Je wachtwoord is aangepast', 'success');
                         $this->redirect('/');
                     } else {
@@ -102,9 +102,9 @@ class UsersController extends AppController
                 $this->Session->setFlash('Er is geen wachtwoord ontvangen', 'danger');
             }
         }
-    	
-    }    
-    
+
+    }
+
     public function delete($id = null)
     {
         if (!$id) {
@@ -123,16 +123,16 @@ class UsersController extends AppController
     {
         build_acl();
     }
-    
+
     public function systeminfo()
     {
-    	$userAgent = $_SERVER['HTTP_USER_AGENT'];
-    	$userIP = $_SERVER['REMOTE_ADDR'];
-    	
-    	$systemInfo = $this->ClientDetect->detect($userAgent);
- 
-    	$locationInfo = $this->IpApi->execute($userIP);
+        $userAgent = $_SERVER['HTTP_USER_AGENT'];
+        $userIP = $_SERVER['REMOTE_ADDR'];
 
-    	$this->set(compact('systemInfo', 'userAgent', 'userIP', 'locationInfo'));
+        $systemInfo = $this->ClientDetect->detect($userAgent);
+
+        $locationInfo = $this->IpApi->execute($userIP);
+
+        $this->set(compact('systemInfo', 'userAgent', 'userIP', 'locationInfo'));
     }
 }

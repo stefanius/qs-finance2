@@ -35,11 +35,10 @@ define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
 
 date_default_timezone_set('Europe/London');
 
-include "05featuredemo.inc.php";
+include '05featuredemo.inc.php';
 
 /** PHPExcel_IOFactory */
 require_once '../Classes/PHPExcel/IOFactory.php';
-
 
 echo date('H:i:s') , " Write to CSV format" , EOL;
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'CSV')->setDelimiter(',')
@@ -57,12 +56,10 @@ $objReader = PHPExcel_IOFactory::createReader('CSV')->setDelimiter(',')
 $objPHPExcelFromCSV = $objReader->load(str_replace('.php', '.csv', __FILE__));
 echo date('H:i:s') , " File read from " , str_replace('.php', '.csv', pathinfo(__FILE__, PATHINFO_BASENAME)) , EOL;
 
-
 echo date('H:i:s') , " Write to Excel2007 format" , EOL;
 $objWriter2007 = PHPExcel_IOFactory::createWriter($objPHPExcelFromCSV, 'Excel2007');
 $objWriter2007->save(str_replace('.php', '.xlsx', __FILE__));
 echo date('H:i:s') , " File written to " , str_replace('.php', '.xlsx', pathinfo(__FILE__, PATHINFO_BASENAME)) , EOL;
-
 
 // Echo memory peak usage
 echo date('H:i:s') , " Peak memory usage: " , (memory_get_peak_usage(true) / 1024 / 1024) , " MB" , EOL;

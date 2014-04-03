@@ -53,7 +53,7 @@ class ImportIngCsvComponent extends ImportComponent
         $rtrn['data']  = $data;
         $rtrn['sourceinfo']  = $sourceinfo;
         $rtrn['accountNumbers'] = $this->getAccountNumbers();
-        
+
         return $rtrn;
     }
 

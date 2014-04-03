@@ -49,35 +49,35 @@ class BookyearsController extends AppController
 
     public function newbookyear()
     {
-    	$bookyears = $this->Bookyear->find('list', array('conditions' => array('Bookyear.closed' => 0)));
-    	
-    	if(count($bookyears) > 0){
-	        if (!empty($this->request->data)) {
-	            $newbookyear['prevyear'] = $this->request->data['Bookyear']['prevyear'];
-	            $this->Bookyear->create();
-	            if ($this->Bookyear->save($this->request->data)) {
-	                $this->Session->setFlash(__('Bookjaar aangemaakt'));
-	                $newbookyear['id'] = $this->Bookyear->getLastInsertId();
-	                $this->redirect(array('controller' => 'balans', 'action' => 'newbalans', $newbookyear['prevyear'], $newbookyear['id']));
-	            } else {
-	                $this->Session->setFlash(__('Aanmaken bookjaar is mislukt.'));
-	            }
-	        }
-	        $this->set(compact('bookyears'));
-    	}else{
-    		if (!empty($this->request->data)) {
-    			$this->Bookyear->create();
-    			$omschrijving = $this->request->data['Bookyear']['omschrijving'];
-    			if ($this->Bookyear->save($this->request->data)) {
-    				$this->Session->setFlash(__('Het nieuwe boekjaar is opgeslagen. Hieronder ziet u direct de balans.'));
-    				$this->redirect('/balans/'.$omschrijving);
-    			} else {
-    				$this->Session->setFlash(__('Het boekjaar kon niet worden aangemaakt. Neme contact op met de helpdesk.'));
-    			}
-    		}
-    		$this->render('/Bookyears/add');
-    	}
-    	
+        $bookyears = $this->Bookyear->find('list', array('conditions' => array('Bookyear.closed' => 0)));
+
+        if (count($bookyears) > 0) {
+            if (!empty($this->request->data)) {
+                $newbookyear['prevyear'] = $this->request->data['Bookyear']['prevyear'];
+                $this->Bookyear->create();
+                if ($this->Bookyear->save($this->request->data)) {
+                    $this->Session->setFlash(__('Bookjaar aangemaakt'));
+                    $newbookyear['id'] = $this->Bookyear->getLastInsertId();
+                    $this->redirect(array('controller' => 'balans', 'action' => 'newbalans', $newbookyear['prevyear'], $newbookyear['id']));
+                } else {
+                    $this->Session->setFlash(__('Aanmaken bookjaar is mislukt.'));
+                }
+            }
+            $this->set(compact('bookyears'));
+        } else {
+            if (!empty($this->request->data)) {
+                $this->Bookyear->create();
+                $omschrijving = $this->request->data['Bookyear']['omschrijving'];
+                if ($this->Bookyear->save($this->request->data)) {
+                    $this->Session->setFlash(__('Het nieuwe boekjaar is opgeslagen. Hieronder ziet u direct de balans.'));
+                    $this->redirect('/balans/'.$omschrijving);
+                } else {
+                    $this->Session->setFlash(__('Het boekjaar kon niet worden aangemaakt. Neme contact op met de helpdesk.'));
+                }
+            }
+            $this->render('/Bookyears/add');
+        }
+
     }
 
     public function edit($id = null)

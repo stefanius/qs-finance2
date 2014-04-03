@@ -6,14 +6,14 @@ class AppController extends Controller
     //var $helpers = array('Html', 'Form', 'Session');
 
     public $components = array(
-    	
+
         'Session',
         'Auth' => array(
             'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
             'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
-        	'authError' => 'Om acties in het systeem uit te voeren moet u zijn ingelogd!',
+            'authError' => 'Om acties in het systeem uit te voeren moet u zijn ingelogd!',
         )
-    	
+
     );
 
     public function beforeFilter()
@@ -44,10 +44,10 @@ class AppController extends Controller
             $fullFolder="";
             for ($i=0;$i<count($folderArr);$i++) {
                 $fullFolder .= $folderArr[$i]."/";
-                
-                if(!is_dir($fullFolder)){
-                	mkdir($fullFolder);
-                }             
+
+                if (!is_dir($fullFolder)) {
+                    mkdir($fullFolder);
+                }
             }
             $folder_url=$fullFolder;
         }
@@ -132,14 +132,15 @@ class AppController extends Controller
 
     return $result;
     }
-    
-    public function checkSessionHasBookyear(){
-    	if($this->Session->check('Bookyear')){
-    		return $this->Session->read('Bookyear');
-    	}else{
-    		$this->Session->setFlash(__('Er is geen bookjaar geselecteerd.'));
-    		$this->redirect('/');
-    	}
+
+    public function checkSessionHasBookyear()
+    {
+        if ($this->Session->check('Bookyear')) {
+            return $this->Session->read('Bookyear');
+        } else {
+            $this->Session->setFlash(__('Er is geen bookjaar geselecteerd.'));
+            $this->redirect('/');
+        }
     }
-    
+
 }

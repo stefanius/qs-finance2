@@ -22,7 +22,7 @@ class ImportRaboCsvComponent extends ImportComponent
                 for ($i=10; $i<16;$i++) {
                     $data[$key]['omschrijving'] .= ' '. $datarow[$i] ;
                 }
-                
+
                 $data[$key]['omschrijving'] = preg_replace('/\s+/', ' ', $data[$key]['omschrijving']) ;
 
                 if (strlen($data[$key]['boekdatum']) == 8) {

@@ -38,7 +38,7 @@ class ExportexcelController extends AppController
 
     public function balans()
     {
-    	$bookyear = $this->checkSessionHasBookyear();
+        $bookyear = $this->checkSessionHasBookyear();
         $balans = $this->Balans->openBalans($bookyear['omschrijving']);
         $balans = $this->Balans->formatBalans($balans);
         $data=$balans;
@@ -49,14 +49,14 @@ class ExportexcelController extends AppController
 
     public function kolombalans()
     {
-    	$bookyear = $this->checkSessionHasBookyear();
+        $bookyear = $this->checkSessionHasBookyear();
         $balans = $this->Balans->openKolomBalans($bookyear['omschrijving']);
         $liquideposten = $this->Balans->retrieveLiquidePosten($bookyear['omschrijving']);
         $data=$balans;
         $this->set(compact('balans', 'data', 'liquideposten'));
     }
 
-    function essential()
+    public function essential()
     {
         return  WWW_ROOT . DS . 'files' . DS . 'xsltemplates' . DS . 'balans' . DS;
     }

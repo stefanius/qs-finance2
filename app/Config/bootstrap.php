@@ -120,15 +120,13 @@ Configure::write('Grootboek.Resultaatposten', 1); //Balansposten, 1=Resultaatpos
 Configure::write('Grootboek.Liquide', 2); //Balansposten, 1=Resultaatposten, 2==Liquide
 
 Configure::write('Session', array(
-		'defaults' => 'php',
-		'timeout' => 30, // The session will timeout after 30 minutes of inactivity
-		'cookieTimeout' => 1440, // The session cookie will live for at most 24 hours, this does not effect session timeouts
-		'checkAgent' => false,
-		'autoRegenerate' => true, // causes the session expiration time to reset on each page load
+        'defaults' => 'php',
+        'timeout' => 30, // The session will timeout after 30 minutes of inactivity
+        'cookieTimeout' => 1440, // The session cookie will live for at most 24 hours, this does not effect session timeouts
+        'checkAgent' => false,
+        'autoRegenerate' => true, // causes the session expiration time to reset on each page load
 ));
 
-
 CakePlugin::load('AclExtras');
-
 
 CakePlugin::load('CakeTools', array('bootstrap' => false, 'routes' => false));

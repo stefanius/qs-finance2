@@ -2,6 +2,6 @@
 
 App::uses('AppController', 'Controller');
 
-class CakeToolsAppController extends AppController {
-
+class CakeToolsAppController extends AppController
+{
 }

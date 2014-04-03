@@ -26,40 +26,39 @@
  * its action called 'display', and we pass a param to select the view file
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
-    
+
     Router::connect('/search', array('controller' => 'search'));
-    
+
     Router::connect('/instellingen/grootboek-rekeningen/:action/*', array('controller' => 'grootboeks'));
     Router::connect('/instellingen/grootboek-rekeningen', array('controller' => 'grootboeks', 'action' => 'index'));
-    
+
     Router::connect('/instellingen/wachtwoord-wijzigen', array('controller' => 'users', 'action' => 'changepassword'));
-    
+
     Router::connect('/balans/:bookyear_key/kolombalans', array('controller' => 'balans', 'action' => 'kolombalans'));
-    
+
     Router::connect('/balans/:bookyear_key/boeking/*', array('controller' => 'calculations', 'action' => 'crossbooking'));
-    
+
     Router::connect('/balans/:bookyear_key/journaal/*', array('controller' => 'calculations', 'action' => 'viewbyhash'));
-    
+
     Router::connect('/start-nieuw-bookjaar', array('controller' => 'bookyears', 'action' => 'newbookyear'));
-       
+
     Router::connect('/balans/:bookyear_key/rekening/:rekeningnummer', array('controller' => 'grootboeks', 'action'=>'open'));
-    
+
     Router::connect('/balans/:bookyear_key/import/:source/:type', array('controller' => 'calculations', 'action'=>'import'));
-    
+
     Router::connect('/balans/:bookyear_key/export/excel/balans/', array('controller' => 'exportexcel', 'action'=>'balans'));
     Router::connect('/balans/:bookyear_key/export/excel/kolombalans/', array('controller' => 'exportexcel', 'action'=>'kolombalans'));
-    
+
     Router::connect('/balans/:bookyear_key/saldo-overzicht/resultaatposten/', array('controller' => 'grootboeks', 'action'=>'overzicht' ,1));
-    
+
     Router::connect('/balans/:bookyear_key', array('controller' => 'balans'));
-    
+
     Router::connect('/balans/:bookyear_key/saldo-overzicht/balansposten/', array('controller' => 'grootboeks', 'action'=>'overzicht' ,0));
    // grootboeks/overzicht/2012-2013/0
-    
-    Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
-    
-    Router::parseExtensions();
 
+    Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+
+    Router::parseExtensions();
 
 /**
  * ...and connect the rest of 'Pages' controller's urls.

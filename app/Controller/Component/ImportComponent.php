@@ -10,12 +10,14 @@ class ImportComponent extends Component
     public function execute($filename = null, $source = null, $type = null)
     {
     }
-    
-    protected function setAccountNumbers($iban){
-    	$this->foundAccountNumbers[$iban] = $iban;
+
+    protected function setAccountNumbers($iban)
+    {
+        $this->foundAccountNumbers[$iban] = $iban;
     }
-    
-    protected function getAccountNumbers(){
-    	return $this->foundAccountNumbers;
+
+    protected function getAccountNumbers()
+    {
+        return $this->foundAccountNumbers;
     }
 }

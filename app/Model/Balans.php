@@ -130,7 +130,7 @@ class Balans extends AppModel
     public function setbeginbalans($balansposten, $side, $newbookyear_data)
     {
         foreach ($balansposten[$side]['posten'] as $a) {
-        	
+
             $journaal['grootboek_id'] = $a['Grootboek']['id'];
             $journaal['bookyear_id'] = $newbookyear_data['Bookyear']['id'];
             $journaal['omschrijving'] = "Van beginbalans";
