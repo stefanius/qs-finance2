@@ -66,7 +66,8 @@ tr th.datum,
 tr td.datum{
 	max-width: 15%;
 	width: 15%;
-}1
+}
+
 tr th.datum,
 tr td.datum{
 	max-width: 15%;
@@ -93,3 +94,10 @@ tr td.total{
 	min-height: 1.6em
 }
 
+.totals-summary{
+    position: fixed;
+    top: 4em;
+    float: right;
+    left: 1em;
+    font-size: 1.1em;
+}
