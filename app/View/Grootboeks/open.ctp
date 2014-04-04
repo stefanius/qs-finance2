@@ -1,3 +1,5 @@
+<?php echo $this->element('totals-summary', array('summary' => $grootboek['Bedrag']), array('cache' => false)); ?>
+
 <div class="grootboek">
 <?php // $grootboek['Bedrag']['debet'] - $grootboek['Bedrag']['saldo']?>
 

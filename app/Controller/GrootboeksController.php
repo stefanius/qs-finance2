@@ -1,4 +1,5 @@
 <?php
+
 class GrootboeksController extends AppController
 {
     public $name = 'Grootboeks';
@@ -8,11 +9,12 @@ class GrootboeksController extends AppController
     {
         $usedGrootboeks = array();
         $conditions = array(
-                'fields' => array('DISTINCT (Calculation.grootboek_id) AS grootboek_id')
+            'fields' => array('DISTINCT (Calculation.grootboek_id) AS grootboek_id')
         );
 
         $this->Grootboek->recursive = 0;
         $rawDistinctList = $this->Grootboek->Calculation->find('all',$conditions);
+
         foreach ($rawDistinctList as $distintItem) {
             $usedGrootboeks[] = $distintItem['Calculation']['grootboek_id'];
         }
@@ -115,6 +117,7 @@ class GrootboeksController extends AppController
     {
         $bookyear = array();
         $bookyear['Bookyear'] = $this->checkSessionHasBookyear();
+
         if ($grootboek_key==null) {
             $grootboek_key = $this->request->params['rekeningnummer'];
         }
@@ -135,6 +138,7 @@ class GrootboeksController extends AppController
             $overzicht[$i] = $saldi;
             $i++;
         }
+
         $this->set(compact('overzicht', 'bookyear'));
     }
 
