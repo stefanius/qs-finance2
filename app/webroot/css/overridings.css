@@ -74,6 +74,9 @@ tr td.datum{
 	width: 15%;
 }
 
+.grootboek input{
+    width: 100%;
+}
 tr td.total{
 	font-size: 110%;
 	font-weight: bold;

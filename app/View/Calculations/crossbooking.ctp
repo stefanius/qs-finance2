@@ -18,12 +18,6 @@
     </tr>
 
     <tr>
-        <td>Omschrijving</td>
-        <td><?php echo $this->Form->input('Calculation.0.omschrijving', array('label'=>false, 'class'=>'ui-widget ui-widget-content ui-state-default ui-corner-left')); ?></td>
-        <td></td>
-    </tr>    
-
-    <tr>
         <td>Bedrag Debet</td>
         <td><?php echo $this->Form->input('Calculation.0.debet', 
         		array(  'label'=>false, 
@@ -47,8 +41,14 @@
         <td>Tegenrekening</td>
         <td><?php echo $this->Form->input('Calculation.1.grootboek_id', array('label'=>false));?></td>
         <td></td>
-    </tr>  
-    
+    </tr>
+
+    <tr>
+        <td>Omschrijving</td>
+        <td><?php echo $this->Form->input('Calculation.0.omschrijving', array('label'=>false, 'type'=>'textarea', 'class'=>'ui-widget ui-widget-content ui-state-default ui-corner-left')); ?></td>
+        <td></td>
+    </tr>
+
     <tr>
         <td></td>
         <td><?php echo $this->Form->submit(__('Opslaan'), array('class'=>'btn-success'));?></td>
