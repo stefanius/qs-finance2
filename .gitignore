@@ -16,7 +16,6 @@ tags
 .vagrant/machines/default/virtualbox/id
 .vagrant/*
 .vagrant
-puppet/modules/*
 app/tmp/logs/error.log
 puppet/.tmp/*
 app/webroot/import/*
