@@ -1,0 +1,48 @@
+server {
+    listen      80;
+    server_name qsfinance.dev;
+
+    access_log  /var/log/nginx/qsfinance/access.log;
+    error_log   /var/log/nginx/qsfinance/error.log;
+
+    rewrite_log on;
+    root        /vagrant/app/webroot;
+    index       index.php index.html index.htm;
+
+    # Not found this on disk?
+    # Feed to CakePHP for further processing!
+    if (!-e $request_filename) {
+        rewrite ^/(.+)$ /index.php?url=$1 last;
+        break;
+    }
+
+    # Pass the PHP scripts to FastCGI server
+    # listening on 127.0.0.1:9000
+    location ~ \.php$ {
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        #fastcgi_pass   127.0.0.1:9000;
+        fastcgi_index  index.php;
+        fastcgi_intercept_errors on; # to support 404s for PHP files not found
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+
+    # Static files.
+    # Set expire headers, Turn off access log
+    location ~* \favicon.ico$ {
+        access_log off;
+        expires 1d;
+        add_header Cache-Control public;
+    }
+    location ~ ^/(img|cjs|ccss)/ {
+        access_log off;
+        expires 7d;
+        add_header Cache-Control public;
+    }
+
+    # Deny access to .htaccess files,
+    # git & svn repositories, etc
+    location ~ /(\.ht|\.git|\.svn) {
+        deny  all;
+    }
+}
