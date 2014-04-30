@@ -9,7 +9,7 @@
 # Redistributions of files must retain the above copyright notice.
 # MIT License (http://www.opensource.org/licenses/mit-license.php)
 
-CREATE TABLE cake_sessions (
+CREATE TABLE session_data (
   id varchar(255) NOT NULL default '',
   data text,
   ip varchar(100),

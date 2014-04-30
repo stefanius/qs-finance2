@@ -27,6 +27,10 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 
+    Router::connect('/caketools/sessiondata/view/*', array('plugin' => 'CakeTools', 'controller' => 'sessiondata', 'action' => 'view'));
+    Router::connect('/caketools/sessiondata', array('plugin' => 'CakeTools', 'controller' => 'sessiondata', 'action' => 'index'));
+    Router::connect('/caketools/sessiondata/view/*', array('plugin' => 'CakeTools', 'controller' => 'sessiondata', 'action' => 'view'));
+
     Router::connect('/search', array('controller' => 'search'));
 
     Router::connect('/instellingen/grootboek-rekeningen/:action/*', array('controller' => 'grootboeks'));
