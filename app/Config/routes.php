@@ -31,6 +31,11 @@
     Router::connect('/caketools/sessiondata', array('plugin' => 'CakeTools', 'controller' => 'sessiondata', 'action' => 'index'));
     Router::connect('/caketools/sessiondata/view/*', array('plugin' => 'CakeTools', 'controller' => 'sessiondata', 'action' => 'view'));
 
+
+    Router::connect('/users/:action', array('plugin' => 'CakeTools', 'controller' => 'users'));
+    Router::connect('/users', array('plugin' => 'CakeTools', 'controller' => 'users', 'action' => 'index'));
+
+
     Router::connect('/search', array('controller' => 'search'));
 
     Router::connect('/instellingen/grootboek-rekeningen/:action/*', array('controller' => 'grootboeks'));
