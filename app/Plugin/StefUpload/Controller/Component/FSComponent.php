@@ -14,7 +14,8 @@ class FSComponent extends Component {
         }
 
         $folderArr = explode("/", $path);
-
+        $result = false;
+        
         foreach ($folderArr as $value) {
             $createPath .= $value . "/";
 
@@ -23,6 +24,12 @@ class FSComponent extends Component {
                 $this->lastcreated = $createPath;
             }
         }
+
+        if ($this->lastcreated === $path) {
+            $result = true;
+        }
+
+        return $result;
     }
 
     public function isDir($path)
@@ -33,5 +40,10 @@ class FSComponent extends Component {
     public function split($path)
     {
         return explode("/", $path);
+    }
+
+    public function getLastCreated()
+    {
+        return $this->lastcreated;
     }
 }
