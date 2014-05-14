@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2012 PHPExcel
+ * Copyright (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,55 +20,96 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Calculation
- * @copyright  Copyright (c) 2006 - 2012 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.7.8, 2012-10-12
+ * @version	1.8.0, 2014-03-02
  */
 
-class PHPExcel_Calculation_Token_Stack
-{
-    private $_stack = array();
-    private $_count = 0;
 
-    public function count()
-    {
-        return $this->_count;
-    }	//	function count()
+/**
+ * PHPExcel_Calculation_Token_Stack
+ *
+ * @category	PHPExcel_Calculation_Token_Stack
+ * @package		PHPExcel_Calculation
+ * @copyright	Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
+ */
+class PHPExcel_Calculation_Token_Stack {
 
-    public function push($type,$value,$reference=null)
-    {
-        $this->_stack[$this->_count++] = array('type'		=> $type,
-                                               'value'		=> $value,
-                                               'reference'	=> $reference
-                                              );
-        if ($type == 'Function') {
-            $localeFunction = PHPExcel_Calculation::_localeFunc($value);
-            if ($localeFunction != $value) {
-                $this->_stack[($this->_count - 1)]['localeValue'] = $localeFunction;
-            }
-        }
-    }	//	function push()
+	/**
+	 *  The parser stack for formulae
+	 *
+	 *  @var mixed[]
+	 */
+	private $_stack = array();
 
-    public function pop()
-    {
-        if ($this->_count > 0) {
-            return $this->_stack[--$this->_count];
-        }
+	/**
+	 *  Count of entries in the parser stack
+	 *
+	 *  @var integer
+	 */
+	private $_count = 0;
 
-        return null;
-    }	//	function pop()
 
-    public function last($n=1)
-    {
-        if ($this->_count-$n < 0) {
-            return null;
-        }
+	/**
+	 * Return the number of entries on the stack
+	 *
+	 * @return  integer
+	 */
+	public function count() {
+		return $this->_count;
+	}	//	function count()
 
-        return $this->_stack[$this->_count-$n];
-    }	//	function last()
+	/**
+	 * Push a new entry onto the stack
+	 *
+	 * @param  mixed  $type
+	 * @param  mixed  $value
+	 * @param  mixed  $reference
+	 */
+	public function push($type, $value, $reference = NULL) {
+		$this->_stack[$this->_count++] = array('type'		=> $type,
+											   'value'		=> $value,
+											   'reference'	=> $reference
+											  );
+		if ($type == 'Function') {
+			$localeFunction = PHPExcel_Calculation::_localeFunc($value);
+			if ($localeFunction != $value) {
+				$this->_stack[($this->_count - 1)]['localeValue'] = $localeFunction;
+			}
+		}
+	}	//	function push()
 
-    public function __construct()
-    {
-    }
+	/**
+	 * Pop the last entry from the stack
+	 *
+	 * @return  mixed
+	 */
+	public function pop() {
+		if ($this->_count > 0) {
+			return $this->_stack[--$this->_count];
+		}
+		return NULL;
+	}	//	function pop()
+
+	/**
+	 * Return an entry from the stack without removing it
+	 *
+	 * @param   integer  $n  number indicating how far back in the stack we want to look
+	 * @return  mixed
+	 */
+	public function last($n = 1) {
+		if ($this->_count - $n < 0) {
+			return NULL;
+		}
+		return $this->_stack[$this->_count - $n];
+	}	//	function last()
+
+	/**
+	 * Clear the stack
+	 */
+	function clear() {
+		$this->_stack = array();
+		$this->_count = 0;
+	}
 
 }	//	class PHPExcel_Calculation_Token_Stack
