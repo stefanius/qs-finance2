@@ -2,7 +2,7 @@
 /**
  * PHPExcel
  *
- * Copyright (c) 2006 - 2012 PHPExcel
+ * Copyright (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,18 +20,19 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2012 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
  * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version    1.7.8, 2012-10-12
+ * @version    1.8.0, 2014-03-02
  */
+
 
 /** PHPExcel root directory */
 if (!defined('PHPEXCEL_ROOT')) {
-    /**
-     * @ignore
-     */
-    define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
-    require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
+	/**
+	 * @ignore
+	 */
+	define('PHPEXCEL_ROOT', dirname(__FILE__) . '/../../');
+	require(PHPEXCEL_ROOT . 'PHPExcel/Autoloader.php');
 }
 
 /**
@@ -39,20 +40,19 @@ if (!defined('PHPEXCEL_ROOT')) {
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @copyright  Copyright (c) 2006 - 2012 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @copyright  Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_DefaultReadFilter implements PHPExcel_Reader_IReadFilter
 {
-    /**
-     * Should this cell be read?
-     *
-     * @param 	$column		String column index
-     * @param 	$row			Row index
-     * @param	$worksheetName	Optional worksheet name
-     * @return boolean
-     */
-    public function readCell($column, $row, $worksheetName = '')
-    {
-        return true;
-    }
+	/**
+	 * Should this cell be read?
+	 *
+	 * @param 	$column		String column index
+	 * @param 	$row			Row index
+	 * @param	$worksheetName	Optional worksheet name
+	 * @return	boolean
+	 */
+	public function readCell($column, $row, $worksheetName = '') {
+		return true;
+	}
 }

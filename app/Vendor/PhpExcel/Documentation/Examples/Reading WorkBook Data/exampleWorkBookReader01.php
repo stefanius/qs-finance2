@@ -25,6 +25,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . '../../../Classes/');
 /** PHPExcel_IOFactory */
 include 'PHPExcel/IOFactory.php';
 
+
 $inputFileType = 'Excel5';
 $inputFileName = './sampleData/example1.xls';
 
@@ -32,6 +33,7 @@ $inputFileName = './sampleData/example1.xls';
 $objReader = PHPExcel_IOFactory::createReader($inputFileType);
 /**  Load $inputFileName to a PHPExcel Object  **/
 $objPHPExcel = $objReader->load($inputFileName);
+
 
 echo '<hr />';
 
@@ -84,6 +86,7 @@ echo '<b>Company: </b>',$company,'<br />';
 /**  Read the workbook manager property  **/
 $manager = $objPHPExcel->getProperties()->getManager();
 echo '<b>Manager: </b>',$manager,'<br />';
+
 
 ?>
 <body>
