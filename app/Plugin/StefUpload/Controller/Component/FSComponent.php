@@ -37,6 +37,11 @@ class FSComponent extends Component {
         return is_dir($path);
     }
 
+    public function isFile($filename)
+    {
+        return is_file($filename);
+    }
+
     public function split($path)
     {
         return explode("/", $path);

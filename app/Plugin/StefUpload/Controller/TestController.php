@@ -4,14 +4,8 @@ App::uses('StefUpload.StefUploadAppController', 'Controller');
 class TestController extends StefUploadAppController {
 
     public $name = 'Test';
-    public $uses = ['StefUpload.FS', 'StefUpload.Upload'];
-
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Paginator');
+    public $uses = false;
+	public $components = ['StefUpload.FS', 'StefUpload.UploadAndAnonimizeFilename', 'StefUpload.FilterUploadFields'];
 
     public function beforeFilter()
     {
@@ -19,14 +13,16 @@ class TestController extends StefUploadAppController {
         $this->Auth->allowedActions = array('upload');
     }
 
-    /**
-     * view method
-     *
-     * @throws NotFoundException
-     * @param string $id
-     * @return void
-     */
-	public function upload($id = null) {
+    public function upload() {
+
+        if(isset($this->request->data['Test'])){
+            $data = $this->request->data['Test'];
+            $filtereddata = $this->FilterUploadFields->filter($data);
+
+            foreach ($filtereddata as $fdata) {
+                $this->UploadAndAnonimizeFilename->execute($fdata);
+            }
+        }
 
 	}
 }

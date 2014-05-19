@@ -1,5 +1,5 @@
 <?php
-App::uses('Component', 'Controller', 'StefUpload.FS');
+App::uses('Component', 'Controller');
 
 class UploadComponent extends Component {
 
@@ -9,11 +9,43 @@ class UploadComponent extends Component {
 
     protected $rootFolder = WWW_ROOT;
 
-    public function setPermitted($permitted)
+    public $components = ['StefUpload.ValidateUploadField', 'StefUpload.FS'];
+
+    public function initialize(Controller $controller) {
+        parent::initialize($controller);
+        $this->createUploadFolder();
+    }
+
+    /**
+     * @param array $item
+     * @return bool
+     */
+    public function execute(array $item)
+    {
+        if (!$this->validate($item)) {
+            return false;
+        }
+
+        if (!$this->isPermitted($item)) {
+            return false;
+        }
+
+        $item = $this->manipulate($item);
+
+        return $this->move($item);
+    }
+
+    /**
+     * @param array $permitted
+     */
+    public function setPermitted(array $permitted)
     {
         $this->permitted = $permitted;
     }
 
+    /**
+     * @param $permitted
+     */
     public function addPermitted($permitted)
     {
         if (!is_array($this->permitted)) {
@@ -30,22 +62,68 @@ class UploadComponent extends Component {
         $this->uploadFolder = $uploadFolder . '/';
     }
 
-    public function getFullPath($subfolder = false)
+    public function getFullPath()
     {
-        if (false === $subfolder) {
-            return $this->rootFolder . $this->uploadFolder;
-        } else {
-            return $this->rootFolder . $this->uploadFolder . $subfolder;
+        return $this->rootFolder . $this->uploadFolder;
+    }
+
+    public function createUploadFolder()
+    {
+        return $this->FS->createDirectory($this->getFullPath());
+    }
+
+
+    /**
+     * Manipulate the item if required. Just override this method and return the manipulated $item.
+     *
+     * @param array $item
+     * @return array
+     */
+    protected function manipulate(array $item)
+    {
+        return $item;
+    }
+
+    protected function move(array $item)
+    {
+        return move_uploaded_file($item['tmp_name'], $this->getFullPath() . $item['name']);
+    }
+
+    protected function validate(array $item)
+    {
+        if (!$this->ValidateUploadField->validate($item)) {
+            return false;
         }
+
+        if (!$this->FS->isFile($item['tmp_name'])) {
+            return false;
+        }
+
+        if ($item['error'] !== 0) {
+            return false;
+        }
+
+        return true;
     }
 
-    public function createUploadFolder($subfolder = false)
+    protected function isPermitted(array $item)
     {
-        return $this->FS->createDirectory($this->getFullPath($subfolder));
-    }
+        $ok = false;
 
-    public function execute()
-    {
+        if ($this->permitted === false || !is_array($this->permitted)) {
+            return true;
+        }
 
+        if (count($this->permitted) == 0) {
+            return true;
+        }
+
+        foreach ($this->permitted as $permitted) {
+            if ($permitted == $item['type']) {
+                $ok = true;
+            }
+        }
+
+        return $ok;
     }
 }

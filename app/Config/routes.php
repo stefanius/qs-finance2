@@ -31,10 +31,8 @@
     Router::connect('/caketools/sessiondata', array('plugin' => 'CakeTools', 'controller' => 'sessiondata', 'action' => 'index'));
     Router::connect('/caketools/sessiondata/view/*', array('plugin' => 'CakeTools', 'controller' => 'sessiondata', 'action' => 'view'));
 
-
     Router::connect('/users/:action', array('plugin' => 'CakeTools', 'controller' => 'users'));
     Router::connect('/users', array('plugin' => 'CakeTools', 'controller' => 'users', 'action' => 'index'));
-
 
     Router::connect('/search', array('controller' => 'search'));
 
@@ -63,7 +61,6 @@
     Router::connect('/balans/:bookyear_key', array('controller' => 'balans'));
 
     Router::connect('/balans/:bookyear_key/saldo-overzicht/balansposten/', array('controller' => 'grootboeks', 'action'=>'overzicht' ,0));
-   // grootboeks/overzicht/2012-2013/0
 
     Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 
