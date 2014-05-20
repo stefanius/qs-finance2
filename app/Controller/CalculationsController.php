@@ -6,7 +6,7 @@ class CalculationsController extends AppController
 
     public $uses = array('Calculation', 'Balans', 'Bookyear', 'Grootboek', 'Bankaccount');
 
-    public $components = array('Import', 'Csv', 'Session', 'PrepareJournalEntry');
+    public $components = array('Import', 'Csv', 'Session', 'PrepareJournalEntry', 'UploadImportFile');
 
     public function beforeFilter()
     {
@@ -153,109 +153,80 @@ class CalculationsController extends AppController
     public function import()
     {
         $bookyear = array();
-            $bookyear['Bookyear'] = $this->checkSessionHasBookyear();
+        $bookyear['Bookyear'] = $this->checkSessionHasBookyear();
 
-            if (isset($this->request->params['source'])) {
-                $source = $this->request->params['source'];
-            }
+        if (isset($this->request->params['source'])) {
+            $source = $this->request->params['source'];
+        }
 
-            if (isset($this->request->params['type'])) {
-                $type = $this->request->params['type'];
-            }
+        if (isset($this->request->params['type'])) {
+            $type = $this->request->params['type'];
+        }
 
-            if (!empty($this->request->data ) && !empty($source) && !empty($type) && isset($this->request->data['File'])) {
-                $source = strtolower($source);
-                $type = strtolower($type);
-                $path = 'import/'.$bookyear['Bookyear']['omschrijving'].'/'.$source.'/'.$type;
-                $fileOK = $this->uploadFiles($path,$this->request->data['File']);
+        if (!empty($this->request->data ) && !empty($source) && !empty($type) && isset($this->request->data['File'])) {
+            $result = $this->UploadImportFile->execute($this->request->data['File'][0]);
 
-                if (array_key_exists('errors', $fileOK)) {
-                    $this->Session->setFlash(__($fileOK['errors'][0]));
-                    $this->redirect(array('controller' => 'pages', 'action' => 'home'));
-                } else {
-                    $filename = WWW_ROOT.$fileOK['urls'][0];
-                    $this->Importer = $this->Components->load('Import'.ucwords($source).ucwords($type));
-                    $parseddata = $this->Importer->execute($filename, $source , $type );
-
-                    if (count($parseddata['accountNumbers']) > 1) {
-                        $this->Session->setFlash(__('In het CSV bestand zijn 2 of meer bankrekeningen gevonden. Het is daarom niet mogelijk om dit bestand te koppelen aan een bekende bankrekening in ons systeem. Gevonden rekeningen: '.implode(', ', $parseddata['accountNumbers'])), 'danger');
-                        $this->redirect('/balans/'.$bookyear['Bookyear']['omschrijving'].'/import/'.$source.'/'.$type);
-                    }
-
-                    $data = $parseddata['data'];
-                    $sourceinfo = $parseddata['sourceinfo'];
-                    $grootboeks = $this->Calculation->Grootboek->find('list');
-                    $bankpost = $this->Bankaccount->findByIban($sourceinfo['rekening']);
-
-                    if (!array_key_exists( 'Grootboek', $bankpost) || count($bankpost)==0) {
-                        $this->Session->setFlash(__('Er is geen bankrekening bekend die voldoet aan uw CSV bestand. Controleer de rekeninggegevens en voeg deze zonodig toe in het systeem. Gevonden rekeningen: '.implode(', ', $parseddata['accountNumbers'])), 'danger');
-                        $this->redirect('/balans/'.$bookyear['Bookyear']['omschrijving'].'/import/'.$source.'/'.$type);
-                    }
-
-                    $possibleDuplicates = 0;
-                    foreach ($data as $d) {
-
-                        $condition = array('conditions' =>array(
-                                "Calculation.bookyear_id" => $bookyear['Bookyear']['id'],
-                            'AND' => array(
-                                "Calculation.omschrijving LIKE " => $d['omschrijving'],
-                                "Calculation.debet" => $d['debet'],
-                                "Calculation.credit" => $d['credit'],
-
-                                "Calculation.boekdatum" => $d['boekdatum']
-                            )
-                        ));
-
-                        $calculation = $this->Calculation->find('first', $condition);
-                        if (count($calculation) > 0 ) { //if there is something in the array! since CakePHP dont work with objects.
-                            $possibleDuplicates++;
-                        }
-
-                    }
-                    $this->set(compact('data', 'grootboeks', 'sourceinfo', 'bankpost', 'possibleDuplicates'));
-                }
-            } elseif (isset($this->request->data['Calculation'])) {
-                $calculations = $this->request->data['Calculation'];
-                $ledger = $this->Grootboek->findById( $this->request->data['Grootboek']['id']);
-
-                $preparedData = $this->PrepareJournalEntry->prepareBatchTransaction($calculations, $bookyear, $ledger);
-
-                if ($this->Calculation->saveAll($preparedData)) {
-                    $this->Session->setFlash(__('Mutatie is verwerkt'));
-                    //$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
-                } else {
-                    $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
-                }
-
-            }
-
-            $this->set(compact('bookyear'));
-/*            if (!empty($this->request->data)) {
-                $bookyear = $this->Calculation->Bookyear->get($this->request->data['Bookyear']['id']);
-
-                if (array_key_exists('errors', $fileOK)) {
-                        $this->Session->setFlash(__($fileOK['errors'][0]));
-                        $this->redirect(array('controller' => 'pages', 'action' => 'home'));
-                } else {
-                        $param['Bookyear'] = $bookyear['Bookyear'];
-                        $param['filename'] = WWW_ROOT.$fileOK['urls'][0];
-                        $calcs = $this->Excel->readkwartaal($param);
-
-                        if ($this->Calculation->saveAll($calcs['Calculation'])) {
-                                $this->Session->setFlash(__('Excelsheet is verwerkt'));
-                                $this->redirect(array('controller' => 'balans', 'action' => 'open', $bookyear['Bookyear']['omschrijving']));
-                        } else {
-                                print_r($calcs['Calculation']);
-                                $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
-                        }
-                }
-                //$this->redirect(array('controller' => 'pages', 'action' => 'home'));
-            } elseif (isset($bookyear_key)) {
-
-                $this->set(compact('bookyear'));
+            if ($result === false) {
+                $this->Session->setFlash(__('henk'));
+                $this->redirect(array('controller' => 'pages', 'action' => 'home'));
             } else {
-                $this->Session->setFlash(__('Geen boekjaar ingesteld, import wordt geweigerd.'));
-            }*/
+                $filename = $this->UploadImportFile->getLastUploadedFilename();
+                $this->Importer = $this->Components->load('Import'.ucwords($source).ucwords($type));
+                $parseddata = $this->Importer->execute($filename, $source , $type );
+
+                if (count($parseddata['accountNumbers']) > 1) {
+                    $this->Session->setFlash(__('In het CSV bestand zijn 2 of meer bankrekeningen gevonden. Het is daarom niet mogelijk om dit bestand te koppelen aan een bekende bankrekening in ons systeem. Gevonden rekeningen: '.implode(', ', $parseddata['accountNumbers'])), 'danger');
+                    $this->redirect('/balans/'.$bookyear['Bookyear']['omschrijving'].'/import/'.$source.'/'.$type);
+                }
+
+                $data = $parseddata['data'];
+                $sourceinfo = $parseddata['sourceinfo'];
+                $grootboeks = $this->Calculation->Grootboek->find('list');
+                $bankpost = $this->Bankaccount->findByIban($sourceinfo['rekening']);
+
+                if (!array_key_exists( 'Grootboek', $bankpost) || count($bankpost)==0) {
+                    $this->Session->setFlash(__('Er is geen bankrekening bekend die voldoet aan uw CSV bestand. Controleer de rekeninggegevens en voeg deze zonodig toe in het systeem. Gevonden rekeningen: '.implode(', ', $parseddata['accountNumbers'])), 'danger');
+                    $this->redirect('/balans/'.$bookyear['Bookyear']['omschrijving'].'/import/'.$source.'/'.$type);
+                }
+
+                $possibleDuplicates = 0;
+                foreach ($data as $d) {
+
+                    $condition = array('conditions' =>array(
+                            "Calculation.bookyear_id" => $bookyear['Bookyear']['id'],
+                        'AND' => array(
+                            "Calculation.omschrijving LIKE " => $d['omschrijving'],
+                            "Calculation.debet" => $d['debet'],
+                            "Calculation.credit" => $d['credit'],
+
+                            "Calculation.boekdatum" => $d['boekdatum']
+                        )
+                    ));
+
+                    $calculation = $this->Calculation->find('first', $condition);
+                    if (count($calculation) > 0 ) { //if there is something in the array! since CakePHP dont work with objects.
+                        $possibleDuplicates++;
+                    }
+
+                }
+                $this->set(compact('data', 'grootboeks', 'sourceinfo', 'bankpost', 'possibleDuplicates'));
+            }
+        } elseif (isset($this->request->data['Calculation'])) {
+            $calculations = $this->request->data['Calculation'];
+            $ledger = $this->Grootboek->findById( $this->request->data['Grootboek']['id']);
+
+            $preparedData = $this->PrepareJournalEntry->prepareBatchTransaction($calculations, $bookyear, $ledger);
+
+            if ($this->Calculation->saveAll($preparedData)) {
+                $this->Session->setFlash(__('Mutatie is verwerkt'));
+                //$this->redirect(array('controller' => 'grootboeks', 'action' => 'open', $incommingData['Calculation'][0]['bookyear_id'], $incommingData['Calculation'][0]['grootboek_id']));
+            } else {
+                $this->Session->setFlash(__('De mutatie kon niet worden verwerkt. Controlleer of alle velden zijn ingevuld'));
+            }
+
+        }
+
+        $this->set(compact('bookyear'));
     }
 
     public function viewbyhash($hash)

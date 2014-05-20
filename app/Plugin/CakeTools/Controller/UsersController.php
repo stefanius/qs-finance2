@@ -3,7 +3,7 @@ class UsersController extends AppController
 {
     public $name = 'Users';
 
-    public $components = array('CakeTools.ClientDetect', 'CakeTools.IpApi');
+    public $components = array('CakeTools.ClientDetect', 'CakeTools.Sessiondata');
 
     public function beforeFilter()
     {
@@ -17,16 +17,17 @@ class UsersController extends AppController
         $this->set('users', $this->paginate());
     }
 
-        public function login()
-        {
-            if ($this->request->is('post')) {
-                if ($this->Auth->login()) {
-                    $this->redirect($this->Auth->redirect());
-                } else {
-                    $this->Session->setFlash(__('Invalid username or password, try again'));
-                }
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $this->Sessiondata->save($this->Auth->user('id'));
+                $this->redirect($this->Auth->redirect());
+            } else {
+                $this->Session->setFlash(__('Invalid username or password, try again'));
             }
         }
+    }
 
     public function logout()
     {
@@ -102,7 +103,6 @@ class UsersController extends AppController
                 $this->Session->setFlash('Er is geen wachtwoord ontvangen', 'danger');
             }
         }
-
     }
 
     public function delete($id = null)
@@ -117,11 +117,6 @@ class UsersController extends AppController
         }
         $this->Session->setFlash(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
-    }
-
-    public function buildacl()
-    {
-        build_acl();
     }
 
     public function systeminfo()
