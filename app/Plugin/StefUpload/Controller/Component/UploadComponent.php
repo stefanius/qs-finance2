@@ -9,6 +9,8 @@ class UploadComponent extends Component {
 
     protected $rootFolder = WWW_ROOT;
 
+    protected $uploadItems = [];
+
     public $components = ['StefUpload.ValidateUploadField', 'StefUpload.FS'];
 
     public function initialize(Controller $controller) {
@@ -32,7 +34,27 @@ class UploadComponent extends Component {
 
         $item = $this->manipulate($item);
 
-        return $this->move($item);
+        $moved =  $this->move($item);
+
+        if ($moved) {
+            $item['full_result_filename'] = $this->getFullPath() . $item['name'];
+            $this->uploadItems[] = $item;
+        }
+
+        return $moved;
+    }
+
+    public function getLastUploadedItem()
+    {
+        var_dump($this->uploadItems);
+        return end($this->uploadItems);
+    }
+
+    public function getLastUploadedFilename()
+    {
+        $item = $this->getLastUploadedItem();
+
+        return $item['full_result_filename'];
     }
 
     /**
@@ -71,7 +93,6 @@ class UploadComponent extends Component {
     {
         return $this->FS->createDirectory($this->getFullPath());
     }
-
 
     /**
      * Manipulate the item if required. Just override this method and return the manipulated $item.
