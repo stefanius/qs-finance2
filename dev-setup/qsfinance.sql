@@ -109,12 +109,14 @@ CREATE TABLE `qs_dev_db`.`schemas` (
 CREATE TABLE `qs_dev_db`.`users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `password` char(40) NOT NULL,
   `group_id` int(11) NOT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4;
 
 CREATE TABLE `qs_dev_db`.`bankaccounts` (
@@ -142,11 +144,11 @@ insert into `qs_dev_db`.`aros` values
 ;
 
 INSERT INTO `qs_dev_db`.`users`
-(`id`,`username`,`password`,`group_id`,`created`,`modified`)
+(`id`,`username`,`email`,`password`,`group_id`,`created`,`modified`)
 VALUES
-(1,'administrator','02845b966c2a766b28d7566d9020dd154346bf1f','1','2011-09-19 16:27:30','2011-09-19 20:52:20'),
-(3,'viewer'       ,'b2793813ad59793da1b1a82ed35e6059ed61717d',3,'2011-09-19 16:28:07','2011-09-19 20:52:46'),
-(2,'user'         ,'8099237577b8b49103e41dfa2cef298f105e3ce8',2,'2011-09-19 16:27:47','2011-09-19 20:52:34')
+(1,'administrator','administrator@qs.nl','02845b966c2a766b28d7566d9020dd154346bf1f','1','2011-09-19 16:27:30','2011-09-19 20:52:20'),
+(3,'viewer'       ,'viewer@qs.nl','b2793813ad59793da1b1a82ed35e6059ed61717d',3,'2011-09-19 16:28:07','2011-09-19 20:52:46'),
+(2,'user'         ,'user@qs.nl','8099237577b8b49103e41dfa2cef298f105e3ce8',2,'2011-09-19 16:27:47','2011-09-19 20:52:34')
 ;
 
 
