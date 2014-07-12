@@ -16,7 +16,7 @@ sudo apt-get update
 
 sudo apt-get -y remove apache2
 
-sudo apt-get -y install php5
+sudo apt-get -y install php5users
 sudo apt-get -y install php5-fpm
 sudo apt-get -y install php5-curl
 sudo apt-get -y install php5-mysql

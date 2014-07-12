@@ -116,7 +116,6 @@ CREATE TABLE `qs_dev_db`.`users` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-  UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4;
 
 CREATE TABLE `qs_dev_db`.`bankaccounts` (
