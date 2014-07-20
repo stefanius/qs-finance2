@@ -1,5 +1,6 @@
 <?php
-class User extends AppModel
+
+class User extends StefUserAppModel
 {
     public $name = 'User';
     public $displayField = 'username';
@@ -61,11 +62,13 @@ class User extends AppModel
         if (!$this->id && empty($this->data)) {
             return null;
         }
+
         if (isset($this->data['User']['group_id'])) {
             $groupId = $this->data['User']['group_id'];
         } else {
             $groupId = $this->field('group_id');
         }
+
         if (!$groupId) {
             return null;
         } else {

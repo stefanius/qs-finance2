@@ -1,38 +1,3 @@
-CREATE TABLE `qs_dev_db`.`acos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `foreign_key` int(10) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM;
-
-CREATE TABLE `qs_dev_db`.`aros` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) DEFAULT NULL,
-  `model` varchar(255) DEFAULT NULL,
-  `foreign_key` int(10) DEFAULT NULL,
-  `alias` varchar(255) DEFAULT NULL,
-  `lft` int(10) DEFAULT NULL,
-  `rght` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM;
-
-CREATE TABLE `qs_dev_db`.`aros_acos` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `aro_id` int(10) NOT NULL,
-  `aco_id` int(10) NOT NULL,
-  `_create` varchar(2) NOT NULL DEFAULT '0',
-  `_read` varchar(2) NOT NULL DEFAULT '0',
-  `_update` varchar(2) NOT NULL DEFAULT '0',
-  `_delete` varchar(2) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=MyISAM;
-
-
 CREATE TABLE `qs_dev_db`.`boekingstukkens` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `boekingstuk` varchar(30) NOT NULL,
@@ -90,15 +55,6 @@ CREATE TABLE `qs_dev_db`.`grootboeks` (
   UNIQUE KEY `nummer` (`nummer`)
 ) ENGINE=MyISAM;
 
-CREATE TABLE `qs_dev_db`.`groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4;
-
-
 CREATE TABLE `qs_dev_db`.`schemas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nummer` char(4) NOT NULL,
@@ -106,17 +62,7 @@ CREATE TABLE `qs_dev_db`.`schemas` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=19 COMMENT='Het grootboek schema (het patern)';
 
-CREATE TABLE `qs_dev_db`.`users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` char(40) NOT NULL,
-  `group_id` int(11) NOT NULL,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=4;
+
 
 CREATE TABLE `qs_dev_db`.`bankaccounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

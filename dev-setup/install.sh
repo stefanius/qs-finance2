@@ -42,6 +42,8 @@ mysql -u root -ppassword -e "CREATE USER 'qs_dev_user'@'localhost' IDENTIFIED BY
 mysql -u root -ppassword -e "CREATE USER 'henk'@'localhost' IDENTIFIED BY 'password';"
 
 mysql -u root -ppassword -e "CREATE DATABASE qs_dev_db;"
+ #run plugin schemabuilders
+bash /vagrant/app/Console/cake AclExtras.CreateTablesSchema
 mysql -u root -ppassword -h localhost qs_dev_db < qsfinance.sql
 mysql -u root -ppassword -e "GRANT ALL ON qs_dev_db.* TO 'qs_dev_user'@'localhost';"
 

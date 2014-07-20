@@ -131,4 +131,6 @@ CakePlugin::load('AclExtras');
 
 CakePlugin::load('CakeTools', array('bootstrap' => false, 'routes' => false));
 
+CakePlugin::load('StefUser', array('bootstrap' => false, 'routes' => false));
+
 CakePlugin::load('StefUpload', array('bootstrap' => false, 'routes' => false));

@@ -1,5 +1,5 @@
 <?php
-class GroupsController extends AppController
+class GroupsController extends StefUserAppController
 {
     public $name = 'Groups';
 

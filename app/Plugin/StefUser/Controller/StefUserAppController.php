@@ -2,7 +2,7 @@
 
 App::uses('AppController', 'Controller');
 
-class CakeToolsAppController extends AppController
+class StefUserAppController extends AppController
 {
 
 }

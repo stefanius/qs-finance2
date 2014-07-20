@@ -1,5 +1,6 @@
 <?php
-class Group extends AppModel
+
+class Group extends StefUserAppModel
 {
     public $name = 'Group';
     public $displayField = 'name';

@@ -1,5 +1,6 @@
 <?php
-class UsersController extends CakeToolsAppController
+
+class UsersController extends StefUserAppController
 {
     public $name = 'Users';
 
